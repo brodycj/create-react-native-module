@@ -68,19 +68,20 @@ import ${name} from '${moduleName}';
 // TODO: What to do with the module?
 ${name};
 \`\`\`
-  `;
+`;
   },
 }, {
   name: () => 'package.json',
   content: ({ moduleName, platforms, githubAccount, authorName, authorEmail, license }) => {
-    let dependencies = `
+    const dependenciesCommon = `{
     "react": "16.2.0",
     "react-native": "^0.52.0"`;
-    if (platforms.indexOf('windows') >= 0) {
-      dependencies += `,
-    "react-native-windows": "0.52.0"
-`;
-    }
+    const dependencies1 = (platforms.indexOf('windows') >= 0)
+      ? dependenciesCommon + `,
+    "react-native-windows": "0.52.0"`
+      : dependenciesCommon;
+    const dependencies = dependencies1 + `
+  }`;
     return `{
   "name": "${moduleName}",
   "title": "${moduleName.split('-').map(word => word[0].toUpperCase() + word.substr(1)).join(' ')}",
@@ -105,12 +106,8 @@ ${name};
   "license": "${license}",
   "licenseFilename": "LICENSE",
   "readmeFilename": "README.md",
-  "peerDependencies": {
-    ${dependencies}
-  },
-  "devDependencies": {
-    ${dependencies}
-  }
+  "peerDependencies": ${dependencies},
+  "devDependencies": ${dependencies}
 }
 `;
   },
@@ -137,8 +134,8 @@ yarn-error.log
 `;
 
     if (platforms.indexOf('ios') >= 0) {
-      content += `
-
+      content +=
+        `
 # Xcode
 #
 build/
@@ -162,8 +159,8 @@ project.xcworkspace
     }
 
     if (platforms.indexOf('android') >= 0) {
-      content += `
-
+      content +=
+        `
 # Android/IntelliJ
 #
 build/
