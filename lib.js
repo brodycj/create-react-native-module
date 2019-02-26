@@ -19,14 +19,20 @@ const DEFAULT_AUTHOR_EMAIL = 'yourname@email.com';
 const DEFAULT_LICENSE = 'Apache-2.0';
 const DEFAULT_GENERATE_EXAMPLE = false;
 
-const renderTemplate = (name, template, templateArgs) => {
-  const filename = path.join(name, template.name(templateArgs));
+const renderTemplateIfValid = (root, template, templateArgs) => {
+  const name = template.name(templateArgs);
+  if (!name) return Promise.resolve();
+
+  const filename = path.join(root, name);
   const baseDir = filename.split(path.basename(filename))[0];
 
   return createFolder(baseDir).then(() =>
     createFile(filename, template.content(templateArgs))
   );
 }
+
+// alias, at least for now:
+const renderTemplate = renderTemplateIfValid;
 
 module.exports = ({
   name = DEFAULT_NAME,
@@ -116,7 +122,7 @@ module.exports = ({
           generateExample,
         };
 
-        return renderTemplate(rootFolderName, template, templateArgs);
+        return renderTemplateIfValid(rootFolderName, template, templateArgs);
       }));
     })
     .then(() => {
