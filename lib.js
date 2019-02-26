@@ -66,8 +66,11 @@ module.exports = ({
       identifier, it is recommended to customize the package identifier.`);
   }
 
+  const className = `${prefix}${pascalCase(name)}`;
   const moduleName = `${modulePrefix}-${paramCase(name)}`;
+  const namespace = pascalCase(name).split(/(?=[A-Z])/).join('.');
   const rootFolderName = moduleName;
+
   return createFolder(rootFolderName)
     .then(() => {
       return Promise.all(templates.filter((template) => {
@@ -81,10 +84,10 @@ module.exports = ({
           return Promise.resolve();
         }
         const templateArgs = {
-          name: `${prefix}${pascalCase(name)}`,
+          name: className,
           moduleName,
           packageIdentifier,
-          namespace: pascalCase(name).split(/(?=[A-Z])/).join('.'),
+          namespace,
           platforms,
           githubAccount,
           authorName,
