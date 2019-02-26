@@ -82,6 +82,6 @@ ${emoji.get('arrow_right')}  To get started type \`cd ./${name}\` and run \`npm 
     default: 'Apache-2.0',
   }, {
     command: '--generate-example',
-    description: 'Generates an example project for iOS and Android and links the library module to it',
+    description: 'Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally (Default: `false`)',
   }]
 };
