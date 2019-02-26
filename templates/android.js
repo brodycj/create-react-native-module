@@ -161,7 +161,8 @@ public class ${name}Module extends ReactContextBaseJavaModule {
         // TODO: Implement some real useful functionality
         callback.invoke("Received numberArgument: " + numberArgument + " stringArgument: " + stringArgument);
     }
-}`,
+}
+`,
 }, {
   name: ({ packageIdentifier, name }) =>
     `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${name}Package.java`,
@@ -176,6 +177,7 @@ import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 import com.facebook.react.bridge.JavaScriptModule;
+
 public class ${name}Package implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
