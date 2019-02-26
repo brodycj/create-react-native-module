@@ -11,7 +11,7 @@ const DEFAULT_NAME = 'Library';
 const DEFAULT_PREFIX = 'RN';
 const DEFAULT_MODULE_PREFIX = 'react-native';
 const DEFAULT_PACKAGE_IDENTIFIER = 'com.reactlibrary';
-const DEFAULT_PLATFORMS = ['android', 'ios', 'windows'];
+const DEFAULT_PLATFORMS = ['android', 'ios'];
 const DEFAULT_OVERRIDE_PREFIX = false;
 const DEFAULT_GITHUB_ACCOUNT = 'github_account';
 const DEFAULT_AUTHOR_NAME = 'Your Name';
@@ -29,7 +29,6 @@ const renderTemplate = (name, template, templateArgs) => {
 }
 
 module.exports = ({
-  namespace,
   name = DEFAULT_NAME,
   prefix = DEFAULT_PREFIX,
   modulePrefix = DEFAULT_MODULE_PREFIX,
@@ -85,7 +84,7 @@ module.exports = ({
           name: `${prefix}${pascalCase(name)}`,
           moduleName,
           packageIdentifier,
-          namespace: namespace || pascalCase(name).split(/(?=[A-Z])/).join('.'),
+          namespace: pascalCase(name).split(/(?=[A-Z])/).join('.'),
           platforms,
           githubAccount,
           authorName,

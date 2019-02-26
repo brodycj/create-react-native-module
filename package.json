@@ -1,7 +1,7 @@
 {
-  "name": "react-native-create-library",
-  "version": "3.1.2",
-  "description": "Tool to create a React Native library with a single command",
+  "name": "create-react-native-module",
+  "version": "0.0.1-dev",
+  "description": "Tool to create a React Native library module with a single command",
   "bin": "cli.js",
   "main": "lib.js",
   "scripts": {
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/frostney/react-native-create-library.git"
+    "url": "git+https://github.com/brodybits/create-react-native-module.git"
   },
   "keywords": [
     "react-native",
@@ -31,12 +31,12 @@
     "lib.js",
     "README.md"
   ],
-  "author": "Johannes Stein",
+  "author": "Christopher J. Brody <chris@brody.consulting>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/frostney/react-native-create-library/issues"
+    "url": "https://github.com/brodybits/create-react-native-module/issues"
   },
-  "homepage": "https://github.com/frostney/react-native-create-library#readme",
+  "homepage": "https://github.com/brodybits/create-react-native-module#readme",
   "dependencies": {
     "commander": "^2.9.0",
     "jsonfile": "^4.0.0",
