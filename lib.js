@@ -66,6 +66,26 @@ module.exports = ({
       identifier, it is recommended to customize the package identifier.`);
   }
 
+  if (generateExample) {
+    console.info('Check for react-native-cli and yarn CLI tools that are needed to generate example project');
+
+    const checkCliOptions = { stdio: 'inherit' };
+
+    try {
+      execSync('react-native --version', checkCliOptions);
+    } catch (e) {
+      throw new Error(
+        'react-native --version failed; both react-native-cli and yarn are needed to generate example project');
+    }
+
+    try {
+      execSync('yarn --version', checkCliOptions);
+    } catch (e) {
+      throw new Error(
+        'yarn --version failed; both react-native-cli and yarn are needed to generate example project');
+    }
+  }
+
   const className = `${prefix}${pascalCase(name)}`;
   const moduleName = `${modulePrefix}-${paramCase(name)}`;
   const namespace = pascalCase(name).split(/(?=[A-Z])/).join('.');

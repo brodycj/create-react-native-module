@@ -93,7 +93,6 @@ createLibrary({
 ## SOME KNOWN ISSUES
 
 - CLI does not output the correct path of the generated library module
-- `--generate-example` will fail with a stack trace unless both `react-native-cli` and `yarn` are installed globally
 - outdated dependencies
 - not all documented options work as documented
 - not all options are documented
