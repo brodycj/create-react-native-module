@@ -110,9 +110,15 @@ module.exports = ({
         .then(() => {
           // Execute the example template
           const exampleTemplates = require('./templates/example');
+
+          const templateArgs = {
+            name: className,
+            moduleName,
+          };
+
           return Promise.all(
             exampleTemplates.map((template) => {
-              return renderTemplate(rootFolderName, template);
+              return renderTemplate(rootFolderName, template, templateArgs);
             })
           );
         })

@@ -157,7 +157,8 @@ public class ${name}Module extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void sampleMethod(String stringArgument, int numberArgument, Callback callback) {
-        // TODO: Implement
+        // TODO: Implement some real useful functionality
+        callback.invoke("Received numberArgument: " + numberArgument + " stringArgument: " + stringArgument);
     }
 }`,
 }, {
