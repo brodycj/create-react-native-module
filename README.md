@@ -1,12 +1,14 @@
 # create-react-native-module
 
-Tool to create a React Native library module, optionally as an extremely simple view component, with a single command (based on [`react-native-create-library`](https://www.npmjs.com/package/react-native-create-library))
+Tool to create a React Native library module or native view component, with a single command.
 
-<!-- GONE:
-![](https://github.com/frostney/react-native-create-library/blob/master/docs/usage.gif)
--->
+See below for command-line usage, example with no view, and example with an extremely simple native view.
 
-TODO: QUICK USAGE SECTION HERE
+This tool based on [`react-native-create-library`](https://www.npmjs.com/package/react-native-create-library), with working example callbacks, optional native view, and some other updates added by [@brodybits (Christoper J. Brody aka Chris Brody)](https://github.com/brodybits).
+
+<!-- FUTURE TODO: QUICK USAGE SECTION HERE -->
+
+**LICENSE:** MIT
 
 ### Why might you need this?
 
@@ -23,6 +25,18 @@ Why not use `react-native new-library`? Unfortunately that command doesn't creat
 ## Installation
 
 Requirements: Node 6.0+
+
+Packages required to be installed globally if the recommended example app is generated:
+
+- [`react-native-cli`](https://www.npmjs.com/package/react-native-cli)
+- [`yarn`](https://www.npmjs.com/package/yarn)
+
+```
+$ npm install -g react-native-cli yarn
+```
+
+To install this package:
+
 ```
 $ npm install -g create-react-native-module
 ```
@@ -92,20 +106,111 @@ createLibrary({
 
 ## SOME KNOWN ISSUES
 
-- CLI does not output the correct path of the generated library module
+- CLI does not show the correct path of the generated library module
 - outdated dependencies
 - not all documented options work as documented
 - not all options are documented
+- this project has some lint errors
 
-## Behavior not tested
+## Behavior not tested or supported
 
 - Windows platform support
+
+## Examples
+
+### Example module with no view
+
+__Create the module with no view:__
+
+```
+create-react-native-module --prefix CB --package-identifier io.mylibrary --generate-example AliceHelper
+```
+
+The module would be generated in the `react-native-alice-helper` subdirectory, and the example test app would be in `react-native-alice-helper/example`. (Note that this tool will show an incorrect project name when it is finished.)
+
+Then go into the example app subdirectory:
+
+```
+cd react-native-alice-helper/example
+```
+
+#### Running the example app
+
+__Within the example test app subdirectory:__
+
+It is *recommended* to start the Metro Bundler manually (within `react-native-alice-helper/example`), which would run in the foreground:
+
+```
+npm start
+```
+
+Otherwise, React Native will open its own window to run the Metro Bundler.
+
+To run on Android, do the following command (within `react-native-alice-helper/example`):
+
+```
+react-native run-android
+```
+
+This assumes that the `ANDROID_HOME` environmental variable is set properly. Here is a sample command that does not make such an assumption on a mac:
+
+```
+ANDROID_HOME=~/Library/Android/sdk react-native run-android
+```
+
+To run on iOS:
+
+```
+react-native run-ios
+```
+
+or do the following command to open the iOS project in Xcode:
+
+```
+open ios/example.xcodeproj
+```
+
+__Expected result:__
+
+The example app shows the following indications:
+
+- STATUS: native callback received
+- NATIVE CALLBACK MESSAGE with the number argument and string argument values that are received by the native module
+
+### Example view module
+
+__Create the module with an extremely simple view:__
+
+```
+create-react-native-module --prefix CB --package-identifier io.mylibrary --view --generate-example CarolWidget
+```
+
+The module would be generated in the `react-native-alice-helper` subdirectory, and the example test app would be in `react-native-alice-helper/example`. (Note that this tool will show an incorrect project name when it is finished.)
+
+Then go into the example app subdirectory:
+
+```
+cd react-native-carol-widget/example
+```
+
+__Within the example test app subdirectory:__
+
+It is *recommended* to start the Metro Bundler manually as described above (within `react-native-carol-widget/example`):
+
+```
+npm start
+```
+
+To run on Android, do `react-native run-android` as described for the other example above.
+
+To run on iOS, do `react-native run-ios` or `open ios/example.xcodeproj` as described for the other example above.
+
+__Expected result:__
+
+- on Android: a check box that is checked (and cannot be changed)
+- on iOS: a label with 5 red asterisks
 
 ## Acknowledgements
 
 - [`react-native-create-library`](https://www.npmjs.com/package/react-native-create-library) - original basis of this project
 - [`react-native-share`](https://www.npmjs.com/package/react-native-share) - was acknowledged as "a great source of inspiration" for [`react-native-create-library`](https://www.npmjs.com/package/react-native-create-library)
-
-## License
-
-MIT
