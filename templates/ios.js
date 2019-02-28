@@ -29,7 +29,8 @@ end
 
 `,
 }, {
-  name: ({ name }) => `${platform}/${name}.h`,
+  // header for module without view:
+  name: ({ name, view }) => !view && `${platform}/${name}.h`,
   content: ({ name }) => `#import <React/RCTBridgeModule.h>
 
 @interface ${name} : NSObject <RCTBridgeModule>
@@ -37,7 +38,8 @@ end
 @end
 `,
 }, {
-  name: ({ name }) => `${platform}/${name}.m`,
+  // implementation of module without view:
+  name: ({ name, view }) => !view && `${platform}/${name}.m`,
   content: ({ name }) => `#import "${name}.h"
 
 @implementation ${name}
@@ -48,6 +50,38 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 {
     // TODO: Implement some real useful functionality
     callback(@[[NSString stringWithFormat: @"numberArgument: %@ stringArgument: %@", numberArgument, stringArgument]]);
+}
+
+@end
+`,
+}, {
+  // header for module with view:
+  name: ({ name, view }) => view && `${platform}/${name}.h`,
+  content: ({ name }) => `#import <React/RCTViewManager.h>
+
+@interface ${name} : RCTViewManager
+
+@end
+`,
+}, {
+  // implementation of module with view:
+  name: ({ name, view }) => view && `${platform}/${name}.m`,
+  content: ({ name }) => `#import "${name}.h"
+
+@implementation ${name}
+
+RCT_EXPORT_MODULE()
+
+- (UIView *)view
+{
+    // TODO: Implement some real useful functionality
+    UILabel * label = [[UILabel alloc] init];
+    [label setTextColor:[UIColor redColor]];
+    [label setText: @"*****"];
+    [label sizeToFit];
+    UIView * wrapper = [[UIView alloc] init];
+    [wrapper addSubview:label];
+    return wrapper;
 }
 
 @end

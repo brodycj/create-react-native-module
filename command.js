@@ -17,6 +17,7 @@ module.exports = {
     const authorName = options.authorName;
     const authorEmail = options.authorEmail;
     const license = options.license;
+    const view = options.view;
     const generateExample = options.generateExample;
 
     const beforeCreation = Date.now();
@@ -31,6 +32,7 @@ module.exports = {
       authorName,
       authorEmail,
       license,
+      view,
       generateExample,
     }).then(() => {
       console.log(`
@@ -80,6 +82,9 @@ ${emoji.get('arrow_right')}  To get started type \`cd ./${name}\` and run \`npm 
     command: '--license [license]',
     description: 'The license type (Default: `Apache-2.0`)',
     default: 'Apache-2.0',
+  }, {
+    command: '--view',
+    description: 'Generate the module as a very simple native view component (Default: `false`)',
   }, {
     command: '--generate-example',
     description: 'Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally (Default: `false`)',

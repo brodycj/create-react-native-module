@@ -117,7 +117,7 @@ module.exports = [{
 `
 }, {
   name: () => 'example/App.js',
-  content: ({ moduleName, name }) =>
+  content: ({ moduleName, name, view }) =>
 `/**
  * Sample React Native App
  *
@@ -130,7 +130,9 @@ module.exports = [{
 
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
-import ${name} from '${moduleName}';
+import ${name} from '${moduleName}';` +
+    (!view
+      ?  `
 
 export default class App extends Component<{}> {
   state = {
@@ -155,7 +157,22 @@ export default class App extends Component<{}> {
       </View>
     );
   }
-}
+}`
+      :  `
+
+export default class App extends Component<{}> {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.welcome}>☆${name} example☆</Text>
+        <Text style={styles.instructions}>STATUS: loaded</Text>
+        <Text style={styles.welcome}>☆☆☆</Text>
+        <${name} />
+      </View>
+    );
+  }
+}`) +
+      `
 
 const styles = StyleSheet.create({
   container: {

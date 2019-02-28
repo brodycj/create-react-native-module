@@ -45,6 +45,7 @@ module.exports = ({
   authorName = DEFAULT_AUTHOR_NAME,
   authorEmail = DEFAULT_AUTHOR_EMAIL,
   license = DEFAULT_LICENSE,
+  view = false,
   generateExample = DEFAULT_GENERATE_EXAMPLE,
 }) => {
   if (!overridePrefix) {
@@ -119,6 +120,7 @@ module.exports = ({
           authorName,
           authorEmail,
           license,
+          view,
           generateExample,
         };
 
@@ -140,6 +142,7 @@ module.exports = ({
           const templateArgs = {
             name: className,
             moduleName,
+            view,
           };
 
           return Promise.all(

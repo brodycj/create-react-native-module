@@ -133,9 +133,13 @@ afterEvaluate { project ->
 </manifest>
 `,
 }, {
-  name: ({ packageIdentifier, name }) =>
-    `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${name}Module.java`,
-  content: ({ packageIdentifier, name }) => `package ${packageIdentifier};
+  // for module without view:
+  name: ({ packageIdentifier, name, view }) =>
+    !view &&
+      `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${name}Module.java`,
+  content: ({ packageIdentifier, name, view }) =>
+    !view &&
+      `package ${packageIdentifier};
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -164,9 +168,47 @@ public class ${name}Module extends ReactContextBaseJavaModule {
 }
 `,
 }, {
-  name: ({ packageIdentifier, name }) =>
-    `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${name}Package.java`,
-  content: ({ packageIdentifier, name }) => `package ${packageIdentifier};
+  // manager for view:
+  name: ({ packageIdentifier, name, view }) =>
+    view &&
+      `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${name}Manager.java`,
+  content: ({ packageIdentifier, name, view }) =>
+    view &&
+      `package ${packageIdentifier};
+
+import android.view.View;
+
+import android.support.v7.widget.AppCompatCheckBox;
+
+import com.facebook.react.uimanager.SimpleViewManager;
+import com.facebook.react.uimanager.ThemedReactContext;
+
+public class ${name}Manager extends SimpleViewManager<View> {
+
+    public static final String REACT_CLASS = "${name}";
+
+    @Override
+    public String getName() {
+        return REACT_CLASS;
+    }
+
+    @Override
+    public View createViewInstance(ThemedReactContext c) {
+        // TODO: Implement some real useful functionality
+        AppCompatCheckBox cb = new AppCompatCheckBox(c);
+        cb.setChecked(true);
+        return cb;
+    }
+}
+`,
+}, {
+  // package for module without view:
+  name: ({ packageIdentifier, name, view }) =>
+    !view &&
+      `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${name}Package.java`,
+  content: ({ packageIdentifier, name, view }) =>
+    !view &&
+      `package ${packageIdentifier};
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -190,6 +232,38 @@ public class ${name}Package implements ReactPackage {
     }
 }
 `,
+}, {
+  // package for manager for view:
+  name: ({ packageIdentifier, name, view }) =>
+    view &&
+      `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${name}Package.java`,
+  content: ({ packageIdentifier, name, view }) =>
+    view &&
+      `package ${packageIdentifier};
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+import com.facebook.react.ReactPackage;
+import com.facebook.react.bridge.NativeModule;
+import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.uimanager.ViewManager;
+import com.facebook.react.bridge.JavaScriptModule;
+
+public class ${name}Package implements ReactPackage {
+    @Override
+    public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
+        return Collections.emptyList();
+    }
+
+    @Override
+    public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
+        return Arrays.<ViewManager>asList(new ${name}Manager());
+    }
+}
+`,
+}, {
 }, {
   name: () => `${platform}/README.md`,
   content: () => `README

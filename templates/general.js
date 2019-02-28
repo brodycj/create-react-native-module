@@ -112,10 +112,20 @@ ${name};
 `;
   },
 }, {
-  name: () => 'index.js',
+  // for module without view:
+  name: ({ view }) => !view && 'index.js',
   content: ({ name }) =>`import { NativeModules } from 'react-native';
 
 const { ${name} } = NativeModules;
+
+export default ${name};
+`,
+}, {
+  // for module with view:
+  name: ({ view }) => view && 'index.js',
+  content: ({ name }) =>`import { requireNativeComponent } from 'react-native';
+
+const ${name} = requireNativeComponent('${name}', null);
 
 export default ${name};
 `,

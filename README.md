@@ -1,6 +1,6 @@
 # create-react-native-module
 
-Tool to create a React Native library module with a single command (based on [`react-native-create-library`](https://www.npmjs.com/package/react-native-create-library))
+Tool to create a React Native library module, optionally as an extremely simple view component, with a single command (based on [`react-native-create-library`](https://www.npmjs.com/package/react-native-create-library))
 
 <!-- GONE:
 ![](https://github.com/frostney/react-native-create-library/blob/master/docs/usage.gif)
@@ -14,8 +14,6 @@ If you are looking to create a native module for React Native, you need some nat
 
 This is where this tool comes in. It creates a boilerplate with all current best practices in mind.
 Why not use `react-native new-library`? Unfortunately that command doesn't create an up-to-date library, requires an already initialized React Native project and only sets up the iOS side of things.
-
-Caution: This only creates native modules without a view component.
 
 ### Alternatives
 
@@ -58,6 +56,7 @@ Options:
   --author-name <name>                      The author's name (Default: `Your Name`)
   --author-email <email>                    The author's email (Default: `yourname@email.com`)
   --license <license>                       The license type of this library (Default: `Apache-2.0`)
+  --view                                    Generate the module as a very simple native view component (Default: `false`)
   --generate-example <shouldGenerate>       Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally (Default: `false`)
 ```
 
@@ -86,6 +85,7 @@ createLibrary({
   authorName: String, /* The author's name (Default: `Your Name`) */
   authorEmail: String, /* The author's email (Default: `yourname@email.com`) */
   license: String, /* The license type of this library (Default: `Apache-2.0`) */
+  view: Boolean, /* Generate the module as a very simple native view component (Default: `false`) */
   generateExample: Boolean, /* Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally (Default: `false`) */
 }
 ```
