@@ -73,14 +73,14 @@ ${name};
 }, {
   name: () => 'package.json',
   content: ({ moduleName, platforms, githubAccount, authorName, authorEmail, license }) => {
-    const dependenciesCommon = `{
-    "react": "16.2.0",
-    "react-native": "^0.52.0"`;
-    const dependencies1 = (platforms.indexOf('windows') >= 0)
-      ? dependenciesCommon + `,
-    "react-native-windows": "0.52.0"`
-      : dependenciesCommon;
-    const dependencies = dependencies1 + `
+    const dependenciesFirstPart = `{
+    "react": "^16.6.3",
+    "react-native": "^0.58.6"`;
+    const dependenciesPartial = (platforms.indexOf('windows') >= 0)
+      ? dependenciesFirstPart + `,
+    "react-native-windows": "^0.57.0"`
+      : dependenciesFirstPart;
+    const externalDependencies = dependenciesPartial + `
   }`;
     return `{
   "name": "${moduleName}",
@@ -106,8 +106,8 @@ ${name};
   "license": "${license}",
   "licenseFilename": "LICENSE",
   "readmeFilename": "README.md",
-  "peerDependencies": ${dependencies},
-  "devDependencies": ${dependencies}
+  "peerDependencies": ${externalDependencies},
+  "devDependencies": ${externalDependencies}
 }
 `;
   },
