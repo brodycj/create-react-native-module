@@ -29,7 +29,7 @@ const renderTemplateIfValid = (root, template, templateArgs) => {
   return createFolder(baseDir).then(() =>
     createFile(filename, template.content(templateArgs))
   );
-}
+};
 
 // alias, at least for now:
 const renderTemplate = renderTemplateIfValid;

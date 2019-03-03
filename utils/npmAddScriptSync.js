@@ -1,4 +1,4 @@
-const jsonfile = require('jsonfile')
+const jsonfile = require('jsonfile');
 
 // Add a script entry to a package.json file at the packageJsonPath.
 // The script parameter shoud be of {key: key, value: value}
