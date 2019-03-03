@@ -39,7 +39,16 @@
     "url": "https://github.com/brodybits/create-react-native-module/issues"
   },
   "homepage": "https://github.com/brodybits/create-react-native-module#readme",
-  "dependencies": {},
+  "dependencies": {
+    "commander": "^2.19.0",
+    "jsonfile": "^5.0.0",
+    "mkdirp": "^0.5.1",
+    "node-emoji": "^1.10.0",
+    "param-case": "^2.1.1",
+    "pascal-case": "^2.0.1",
+    "update-notifier": "^2.5.0",
+    "uuid": "^3.3.2"
+  },
   "devDependencies": {
     "shelljs": "^0.8.3"
   },
