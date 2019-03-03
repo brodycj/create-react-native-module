@@ -109,7 +109,6 @@ createLibrary({
 - CLI does not show the correct path of the generated library module
 - not all documented options work as documented
 - not all options are documented
-- this project has some lint errors
 
 ## Behavior not tested or supported
 
