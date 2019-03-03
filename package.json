@@ -40,7 +40,9 @@
   },
   "homepage": "https://github.com/brodybits/create-react-native-module#readme",
   "dependencies": {},
-  "devDependencies": {},
+  "devDependencies": {
+    "shelljs": "^0.8.3"
+  },
   "rnpm": {
     "plugin": "./command.js"
   }
