@@ -4,7 +4,7 @@ const uuid = require('uuid').v1().toUpperCase();
 module.exports = platform => [{
   name: ({ name }) => `${platform}/${name}.sln`,
   content: ({ name }) =>
-`Microsoft Visual Studio Solution File, Format Version 12.00
+    `Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
@@ -96,7 +96,7 @@ EndGlobal
 }, {
   name: () => `${platform}/.gitignore`,
   content: () =>
-`*AppPackages*
+    `*AppPackages*
 *BundleArtifacts*
 *ReactAssets*
 
@@ -178,7 +178,7 @@ packages/
 }, {
   name: ({ name }) => `${platform}/.npmignore`,
   content: () =>
-`
+    `
 # Make sure we don't publish build artifacts to NPM
 ARM/
 Debug/
@@ -191,7 +191,7 @@ obj/
 }, {
   name: ({ name }) => `${platform}/${name}/project.json`,
   content: () =>
-`{
+    `{
   "dependencies": {
     "Microsoft.NETCore.UniversalWindowsPlatform": "5.2.2"
   },
@@ -211,7 +211,7 @@ obj/
 }, {
   name: ({ name }) => `${platform}/${name}/${name}.csproj`,
   content: ({ name, namespace }) =>
-`<?xml version="1.0" encoding="utf-8"?>
+    `<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\\$(MSBuildToolsVersion)\\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\\$(MSBuildToolsVersion)\\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -368,7 +368,7 @@ obj/
 }, {
   name: ({ name }) => `${platform}/${name}/${name}Module.cs`,
   content: ({ name, namespace }) =>
-`using ReactNative.Bridge;
+    `using ReactNative.Bridge;
 using System;
 using System.Collections.Generic;
 using Windows.ApplicationModel.Core;
@@ -405,7 +405,7 @@ namespace ${namespace}.${name}
 }, {
   name: ({ name }) => `${platform}/${name}/${name}Package.cs`,
   content: ({ name, namespace }) =>
-`using ReactNative.Bridge;
+    `using ReactNative.Bridge;
 using ReactNative.Modules.Core;
 using ReactNative.UIManager;
 using System;
@@ -462,7 +462,7 @@ namespace ${namespace}.${name}
 }, {
   name: ({ name }) => `${platform}/${name}/Properties/${name}.rd.xml`,
   content: ({ name }) =>
-`<?xml version="1.0" encoding="utf-8"?>
+    `<?xml version="1.0" encoding="utf-8"?>
 <!--
     This file contains Runtime Directives, specifications about types your application accesses
     through reflection and other dynamic code patterns. Runtime Directives are used to control the
@@ -494,7 +494,7 @@ namespace ${namespace}.${name}
 }, {
   name: ({ name }) => `${platform}/${name}/Properties/AssemblyInfo.cs`,
   content: ({ name }) =>
-`using System.Reflection;
+    `using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 

@@ -11,13 +11,12 @@ updateNotifier({ pkg }).notify();
 program
   .usage(command.usage)
   .description(command.description)
-  .action(function runAction() {
+  .action(function runAction () {
     command.func(arguments, {}, this.opts());
   });
 
 (command.options || [])
-  .forEach(opt =>
-    program.option(
+  .forEach(opt => program.option(
     opt.command,
     opt.description,
     opt.parse || (value => value),
