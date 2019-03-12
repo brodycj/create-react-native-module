@@ -60,10 +60,10 @@ Usage: create-react-native-module [options] <name>
 
 Options:
 
-  -h, --help                                output usage information
-  -V, --version                             output the version number
-  -p, --prefix <prefix>                     The prefix for the library (Default: `RN`)
-  --module-prefix <modulePrefix>            The module prefix for the library (Default: `react-native`)
+  --help                                    output usage information
+  --prefix <prefix>                         The prefix for the library (Default: ``)
+  --module-name <moduleName>                The module library package name to be used in package.json. Default: react-native-(name in param-case)
+  --module-prefix <modulePrefix>            The module prefix for the library, ignored if --module-name is specified (Default: `react-native`)
   --package-identifier <packageIdentifier>  (Android only!) The package name for the Android module (Default: `com.reactlibrary`)
   --platforms <platforms>                   Platforms the library will be created for. (comma separated; default: `ios,android`)
   --github-account <github_account>         The github account where the library is hosted (Default: `github_account`)
@@ -92,7 +92,8 @@ createLibrary({
 {
   name: String, /* The name of the library (Default: Library) */
   prefix: String, /* The prefix for the library (Default: RN) */
-  modulePrefix: String, /* The module prefix for the library (Default: react-native) */
+  moduleName: String, /* The module library package name to be used in package.json. Default: react-native-(name in param-case) */
+  modulePrefix: String, /* The module prefix for the library, ignored if moduleName is specified (Default: react-native) */
   platforms: Array, /* Platforms the library will be created for. (Default: ['ios', 'android']) */
   packageIdentifier: String, /* (Android only!) The package name for the Android module (Default: com.reactlibrary) */
   githubAccount: String, /* The github account where the library is hosted (Default: `github_account`) */
@@ -107,8 +108,6 @@ createLibrary({
 ## SOME KNOWN ISSUES
 
 - CLI does not show the correct path of the generated library module
-- not all documented options work as documented
-- not all options are documented
 
 ## Behavior not tested or supported
 

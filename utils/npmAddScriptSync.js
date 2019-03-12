@@ -10,7 +10,7 @@ module.exports = (packageJsonPath, script) => {
       throw new Error(`That script entry for key: ${script.key} already exists.`);
     }
     packageJson.scripts[script.key] = script.value;
-    jsonfile.writeFileSync(packageJsonPath, packageJson, {spaces: 2});
+    jsonfile.writeFileSync(packageJsonPath, packageJson, { spaces: 2 });
   } catch (e) {
     if (e.message === 'ENOENT, no such file or directory \'package.json\'') {
       throw new Error(`The package.json at path: ${packageJsonPath} does not exist.`);

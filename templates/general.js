@@ -114,7 +114,8 @@ ${name};
 }, {
   // for module without view:
   name: ({ view }) => !view && 'index.js',
-  content: ({ name }) =>`import { NativeModules } from 'react-native';
+  content: ({ name }) =>
+    `import { NativeModules } from 'react-native';
 
 const { ${name} } = NativeModules;
 
@@ -123,7 +124,8 @@ export default ${name};
 }, {
   // for module with view:
   name: ({ view }) => view && 'index.js',
-  content: ({ name }) =>`import { requireNativeComponent } from 'react-native';
+  content: ({ name }) =>
+    `import { requireNativeComponent } from 'react-native';
 
 const ${name} = requireNativeComponent('${name}', null);
 
@@ -132,7 +134,7 @@ export default ${name};
 }, {
   name: () => '.gitignore',
   content: ({ platforms }) => {
-    let content =`# OSX
+    let content = `# OSX
 #
 .DS_Store
 

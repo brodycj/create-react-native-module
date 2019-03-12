@@ -6,16 +6,6 @@ rules:
     - error
     - always
 
-  # TBD SKIP these rules for now:
-  indent: 0
-  space-before-function-paren: 0
-  no-useless-escape: 0
-  no-multi-spaces: 0
-  arrow-spacing: 0
-  space-infix-ops: 0
-  object-curly-spacing: 0
-  no-tabs: 0
-
   comma-dangle:
     - error
     - arrays: only-multiline
