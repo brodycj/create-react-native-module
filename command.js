@@ -47,8 +47,8 @@ ${emoji.get('arrow_right')}  To get started type \`cd ./${name}\` and run \`npm 
   },
   options: [{
     command: '--prefix [prefix]',
-    description: 'The prefix for the library module (Default: `RN`)',
-    default: 'RN',
+    description: 'The prefix for the library module (Default: ``)',
+    default: '',
   }, {
     command: '--module-prefix [modulePrefix]',
     description: 'The module prefix for the library module (Default: `react-native`)',

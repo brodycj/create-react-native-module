@@ -61,7 +61,7 @@ Usage: create-react-native-module [options] <name>
 Options:
 
   --help                                    output usage information
-  --prefix <prefix>                         The prefix for the library (Default: `RN`)
+  --prefix <prefix>                         The prefix for the library (Default: ``)
   --module-prefix <modulePrefix>            The module prefix for the library (Default: `react-native`)
   --package-identifier <packageIdentifier>  (Android only!) The package name for the Android module (Default: `com.reactlibrary`)
   --platforms <platforms>                   Platforms the library will be created for. (comma separated; default: `ios,android`)

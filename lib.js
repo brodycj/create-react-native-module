@@ -8,7 +8,7 @@ const { hasPrefix, createFile, createFolder, npmAddScriptSync, exec } = require(
 const { execSync } = require('child_process');
 
 const DEFAULT_NAME = 'Library';
-const DEFAULT_PREFIX = 'RN';
+const DEFAULT_PREFIX = '';
 const DEFAULT_MODULE_PREFIX = 'react-native';
 const DEFAULT_PACKAGE_IDENTIFIER = 'com.reactlibrary';
 const DEFAULT_PLATFORMS = ['android', 'ios'];
@@ -48,11 +48,6 @@ module.exports = ({
 }) => {
   if (platforms.length === 0) {
     throw new Error('Please specify at least one platform to generate the library.');
-  }
-
-  if (prefix === DEFAULT_PREFIX) {
-    console.warn(`While \`${DEFAULT_PREFIX}\` is the default prefix,
-      it is recommended to customize the prefix.`);
   }
 
   if (packageIdentifier === DEFAULT_PACKAGE_IDENTIFIER) {
