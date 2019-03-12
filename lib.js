@@ -12,7 +12,6 @@ const DEFAULT_PREFIX = 'RN';
 const DEFAULT_MODULE_PREFIX = 'react-native';
 const DEFAULT_PACKAGE_IDENTIFIER = 'com.reactlibrary';
 const DEFAULT_PLATFORMS = ['android', 'ios'];
-const DEFAULT_OVERRIDE_PREFIX = false;
 const DEFAULT_GITHUB_ACCOUNT = 'github_account';
 const DEFAULT_AUTHOR_NAME = 'Your Name';
 const DEFAULT_AUTHOR_EMAIL = 'yourname@email.com';
@@ -40,7 +39,6 @@ module.exports = ({
   modulePrefix = DEFAULT_MODULE_PREFIX,
   packageIdentifier = DEFAULT_PACKAGE_IDENTIFIER,
   platforms = DEFAULT_PLATFORMS,
-  overridePrefix = DEFAULT_OVERRIDE_PREFIX,
   githubAccount = DEFAULT_GITHUB_ACCOUNT,
   authorName = DEFAULT_AUTHOR_NAME,
   authorEmail = DEFAULT_AUTHOR_EMAIL,
@@ -48,17 +46,6 @@ module.exports = ({
   view = false,
   generateExample = DEFAULT_GENERATE_EXAMPLE,
 }) => {
-  if (!overridePrefix) {
-    if (hasPrefix(name)) {
-      throw new Error('Please don\'t include the prefix in the name');
-    }
-
-    if (prefix === 'RCT') {
-      throw new Error(`The \`RCT\` name prefix is reserved for core React modules.
-    Please use a different prefix.`);
-    }
-  }
-
   if (platforms.length === 0) {
     throw new Error('Please specify at least one platform to generate the library.');
   }
