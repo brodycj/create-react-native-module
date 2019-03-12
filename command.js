@@ -9,6 +9,7 @@ module.exports = {
   func: (args, config, options) => {
     const name = args[0];
     const prefix = options.prefix;
+    const moduleName = options.moduleName;
     const modulePrefix = options.modulePrefix;
     const packageIdentifier = options.packageIdentifier;
     const platforms = (options.platforms) ? options.platforms.split(',') : options.platforms;
@@ -23,6 +24,7 @@ module.exports = {
     createLibrary({
       name,
       prefix,
+      moduleName,
       modulePrefix,
       packageIdentifier,
       platforms,
@@ -50,8 +52,11 @@ ${emoji.get('arrow_right')}  To get started type \`cd ./${name}\` and run \`npm 
     description: 'The prefix for the library module (Default: ``)',
     default: '',
   }, {
+    command: '--module-name [moduleName]',
+    description: 'The module library package name to be used in package.json. Default: react-native-(name in param-case)',
+  }, {
     command: '--module-prefix [modulePrefix]',
-    description: 'The module prefix for the library module (Default: `react-native`)',
+    description: 'The module prefix for the library module, ignored if --module-name is specified (Default: `react-native`)',
     default: 'react-native',
   }, {
     command: '--package-identifier [packageIdentifier]',

@@ -36,6 +36,7 @@ const renderTemplate = renderTemplateIfValid;
 module.exports = ({
   name = DEFAULT_NAME,
   prefix = DEFAULT_PREFIX,
+  moduleName = null,
   modulePrefix = DEFAULT_MODULE_PREFIX,
   packageIdentifier = DEFAULT_PACKAGE_IDENTIFIER,
   platforms = DEFAULT_PLATFORMS,
@@ -76,9 +77,9 @@ module.exports = ({
   }
 
   const className = `${prefix}${pascalCase(name)}`;
-  const moduleName = `${modulePrefix}-${paramCase(name)}`;
+  const rootName = moduleName || `${modulePrefix}-${paramCase(name)}`;
   const namespace = pascalCase(name).split(/(?=[A-Z])/).join('.');
-  const rootFolderName = moduleName;
+  const rootFolderName = rootName;
 
   return createFolder(rootFolderName)
     .then(() => {
@@ -94,7 +95,7 @@ module.exports = ({
         }
         const templateArgs = {
           name: className,
-          moduleName,
+          moduleName: rootName,
           packageIdentifier,
           namespace,
           platforms,
@@ -123,7 +124,7 @@ module.exports = ({
 
           const templateArgs = {
             name: className,
-            moduleName,
+            moduleName: rootName,
             view,
           };
 
