@@ -60,9 +60,8 @@ Usage: create-react-native-module [options] <name>
 
 Options:
 
-  -h, --help                                output usage information
-  -V, --version                             output the version number
-  -p, --prefix <prefix>                     The prefix for the library (Default: `RN`)
+  --help                                    output usage information
+  --prefix <prefix>                         The prefix for the library (Default: `RN`)
   --module-prefix <modulePrefix>            The module prefix for the library (Default: `react-native`)
   --package-identifier <packageIdentifier>  (Android only!) The package name for the Android module (Default: `com.reactlibrary`)
   --platforms <platforms>                   Platforms the library will be created for. (comma separated; default: `ios,android`)
@@ -107,8 +106,6 @@ createLibrary({
 ## SOME KNOWN ISSUES
 
 - CLI does not show the correct path of the generated library module
-- not all documented options work as documented
-- not all options are documented
 
 ## Behavior not tested or supported
 
