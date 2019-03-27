@@ -77,12 +77,12 @@ Options:
 ## Programmatic usage
 
 ```javascript
-const createLibrary = require('create-react-native-module');
+const createLibraryModule = require('create-react-native-module');
 
-createLibrary({
-  name: 'MyFancyLibrary'
+createLibraryModule({
+  name: 'MyFancyLibraryModule'
 }).then(() => {
-  console.log('Oh yay! My library has been created!');
+  console.log('Oh yay! My library module has been created!');
 })
 ```
 

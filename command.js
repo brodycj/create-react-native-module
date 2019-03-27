@@ -1,6 +1,6 @@
 const emoji = require('node-emoji');
 
-const createLibrary = require('./lib');
+const createLibraryModule = require('./lib');
 
 module.exports = {
   name: 'create-library',
@@ -21,7 +21,7 @@ module.exports = {
     const generateExample = options.generateExample;
 
     const beforeCreation = Date.now();
-    createLibrary({
+    createLibraryModule({
       name,
       prefix,
       moduleName,
