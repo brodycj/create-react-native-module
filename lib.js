@@ -1,15 +1,12 @@
 const path = require('path');
 
-const pascalCase = require('pascal-case');
-const paramCase = require('param-case');
+const normalizedOptions = require('./normalized-options');
 
 const templates = require('./templates');
 const { createFile, createFolder, npmAddScriptSync, exec } = require('./utils');
 const { execSync } = require('child_process');
 
-const DEFAULT_NAME = 'Library';
 const DEFAULT_PREFIX = '';
-const DEFAULT_MODULE_PREFIX = 'react-native';
 const DEFAULT_PACKAGE_IDENTIFIER = 'com.reactlibrary';
 const DEFAULT_PLATFORMS = ['android', 'ios'];
 const DEFAULT_GITHUB_ACCOUNT = 'github_account';
@@ -33,12 +30,14 @@ const renderTemplateIfValid = (root, template, templateArgs) => {
 // alias, at least for now:
 const renderTemplate = renderTemplateIfValid;
 
-module.exports = ({
-  name = DEFAULT_NAME,
+const generateWithOptions = ({
+  name = 'unknown', // (should be normalized)
   prefix = DEFAULT_PREFIX,
-  moduleName = null,
-  modulePrefix = DEFAULT_MODULE_PREFIX,
+  moduleName = 'unknown', // (should be normalized)
+  className = 'unknown', // (should be normalized)
+  modulePrefix = '', // (should be normalized)
   packageIdentifier = DEFAULT_PACKAGE_IDENTIFIER,
+  namespace = 'unknown', // (should be normalized)
   platforms = DEFAULT_PLATFORMS,
   githubAccount = DEFAULT_GITHUB_ACCOUNT,
   authorName = DEFAULT_AUTHOR_NAME,
@@ -47,14 +46,6 @@ module.exports = ({
   view = false,
   generateExample = DEFAULT_GENERATE_EXAMPLE,
 }) => {
-  if (typeof name !== 'string') {
-    throw new Error('Please write your library\'s name');
-  }
-
-  if (platforms.length === 0) {
-    throw new Error('Please specify at least one platform to generate the library.');
-  }
-
   if (packageIdentifier === DEFAULT_PACKAGE_IDENTIFIER) {
     console.warn(`While \`{DEFAULT_PACKAGE_IDENTIFIER}\` is the default package
       identifier, it is recommended to customize the package identifier.`);
@@ -80,9 +71,8 @@ module.exports = ({
     }
   }
 
-  const className = `${prefix}${pascalCase(name)}`;
-  const rootName = moduleName || `${modulePrefix}-${paramCase(name)}`;
-  const namespace = pascalCase(name).split(/(?=[A-Z])/).join('.');
+  // TODO: FACTOR THESE OUT OF THE CODE BELOW
+  const rootName = moduleName;
   const rootFolderName = rootName;
 
   return createFolder(rootFolderName)
@@ -162,4 +152,8 @@ module.exports = ({
           });
         });
     });
+};
+
+module.exports = (options) => {
+  return generateWithOptions(normalizedOptions(options));
 };

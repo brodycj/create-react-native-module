@@ -1,5 +1,7 @@
 const emoji = require('node-emoji');
 
+const normalizedOptions = require('./normalized-options');
+
 const createLibraryModule = require('./lib');
 
 module.exports = {
@@ -21,7 +23,14 @@ module.exports = {
     const generateExample = options.generateExample;
 
     const beforeCreation = Date.now();
-    createLibraryModule({
+
+    // NOTE: There is a trick where the new normalizedOptions()
+    // from normalized-options.js is applied by both command.js & lib.js.
+    // This is to ensure that the CLI gets the correct module name for the
+    // final log message, and that the exported programmatic
+    // function can be completely tested from using the CLI.
+
+    const createOptions = normalizedOptions({
       name,
       prefix,
       moduleName,
@@ -34,13 +43,17 @@ module.exports = {
       license,
       view,
       generateExample,
-    }).then(() => {
+    });
+
+    const rootModuleName = createOptions.moduleName;
+
+    createLibraryModule(createOptions).then(() => {
       console.log(`
-${emoji.get('books')}  Created library module ${name} in \`./${name}\`.
+${emoji.get('books')}  Created library module ${rootModuleName} in \`./${rootModuleName}\`.
 ${emoji.get('clock9')}  It took ${Date.now() - beforeCreation}ms.
-${emoji.get('arrow_right')}  To get started type \`cd ./${name}\` and run \`npm install\``);
+${emoji.get('arrow_right')}  To get started type \`cd ./${rootModuleName}\` and run \`npm install\``);
     }).catch((err) => {
-      console.error(`Error while creating library module ${name}`);
+      console.error(`Error while creating library module ${rootModuleName}`);
 
       if (err.stack) {
         console.error(err.stack);

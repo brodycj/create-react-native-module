@@ -105,10 +105,6 @@ createLibraryModule({
 }
 ```
 
-## SOME KNOWN ISSUES
-
-- CLI does not show the correct path of the generated library module
-
 ## Behavior not tested or supported
 
 - Windows platform support
@@ -123,7 +119,7 @@ __Create the module with no view:__
 create-react-native-module --prefix CB --package-identifier io.mylibrary --generate-example AliceHelper
 ```
 
-The module would be generated in the `react-native-alice-helper` subdirectory, and the example test app would be in `react-native-alice-helper/example`. (Note that this tool will show an incorrect project name when it is finished.)
+The module would be generated in the `react-native-alice-helper` subdirectory, and the example test app would be in `react-native-alice-helper/example`.
 
 Then go into the example app subdirectory:
 
@@ -182,7 +178,7 @@ __Create the module with an extremely simple view:__
 create-react-native-module --prefix CB --package-identifier io.mylibrary --view --generate-example CarolWidget
 ```
 
-The module would be generated in the `react-native-alice-helper` subdirectory, and the example test app would be in `react-native-alice-helper/example`. (Note that this tool will show an incorrect project name when it is finished.)
+The module would be generated in the `react-native-carol-widget` subdirectory, and the example test app would be in `react-native-carol-widget/example`.
 
 Then go into the example app subdirectory:
 
