@@ -4,7 +4,7 @@ const pascalCase = require('pascal-case');
 const paramCase = require('param-case');
 
 const templates = require('./templates');
-const { hasPrefix, createFile, createFolder, npmAddScriptSync, exec } = require('./utils');
+const { createFile, createFolder, npmAddScriptSync, exec } = require('./utils');
 const { execSync } = require('child_process');
 
 const DEFAULT_NAME = 'Library';
