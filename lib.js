@@ -47,6 +47,10 @@ module.exports = ({
   view = false,
   generateExample = DEFAULT_GENERATE_EXAMPLE,
 }) => {
+  if (typeof name !== 'string') {
+    throw new Error('Please write your library\'s name');
+  }
+
   if (platforms.length === 0) {
     throw new Error('Please specify at least one platform to generate the library.');
   }
