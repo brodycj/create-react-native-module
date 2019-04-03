@@ -51,25 +51,55 @@ const generateWithOptions = ({
       identifier, it is recommended to customize the package identifier.`);
   }
 
+  // Note that the some of these console log messages are done as
+  // console.info instead of verbose since they are needed to help
+  // make sense of the console output from the third-party tools.
+
+  console.info(
+    `CREATE new React Native module with the following options:
+
+  root moduleName: ${moduleName}
+  name: ${name}
+  prefix: ${prefix}
+  modulePrefix: ${modulePrefix}
+  packageIdentifier: ${packageIdentifier}
+  platforms: ${platforms}
+  githubAccount: ${githubAccount}
+  authorName: ${authorName}
+  authorEmail: ${authorEmail}
+  authorEmail: ${authorEmail}
+  license: ${license}
+  view: ${view}
+  generateExample: ${generateExample}
+  `);
+
   if (generateExample) {
-    console.info('Check for react-native-cli and yarn CLI tools that are needed to generate example project');
+    const reactNativeVersionCommand = 'react-native --version';
+    const yarnVersionCommand = 'yarn --version';
 
     const checkCliOptions = { stdio: 'inherit' };
+    const errorRemedyMessage = 'both react-native-cli and yarn CLI tools are needed to generate example project';
 
     try {
-      execSync('react-native --version', checkCliOptions);
+      console.info('CREATE: Check for valid react-native-cli tool version, as needed to generate the example project');
+      execSync(reactNativeVersionCommand, checkCliOptions);
+      console.info(`${reactNativeVersionCommand} ok`);
     } catch (e) {
       throw new Error(
-        'react-native --version failed; both react-native-cli and yarn are needed to generate example project');
+        `${reactNativeVersionCommand} failed; ${errorRemedyMessage}`);
     }
 
     try {
-      execSync('yarn --version', checkCliOptions);
+      console.info('CREATE: Check for valid Yarn CLI tool version, as needed to generate the example project');
+      execSync(yarnVersionCommand, checkCliOptions);
+      console.info(`${yarnVersionCommand} ok`);
     } catch (e) {
       throw new Error(
-        'yarn --version failed; both react-native-cli and yarn are needed to generate example project');
+        `${yarnVersionCommand} failed; ${errorRemedyMessage}`);
     }
   }
+
+  console.info('CREATE: Generating the React Native library module');
 
   const generateWithoutExample = () => {
     return createFolder(moduleName).then(() => {
@@ -106,6 +136,8 @@ const generateWithOptions = ({
   // multiple test/sample projects, if needed.
   const generateExampleWithName =
     (exampleName, commandOptions) => {
+      console.info('CREATE: Generating the example app');
+
       const addOptions = commandOptions
         ? ` ${commandOptions}`
         : '';
@@ -131,6 +163,7 @@ const generateWithOptions = ({
           // Adds and link the new library
           return new Promise((resolve, reject) => {
             // Add postinstall script to the example package.json
+            console.info('Adding cleanup postinstall task to the example app');
             const pathExampleApp = `./${moduleName}/${exampleName}`;
             npmAddScriptSync(`${pathExampleApp}/package.json`, {
               key: 'postinstall',
@@ -138,6 +171,7 @@ const generateWithOptions = ({
             });
 
             // Add and link the new library
+            console.info('Linking the new module library to the example app');
             const addLinkLibraryOptions = { cwd: pathExampleApp, stdio: 'inherit' };
             try {
               execSync('yarn add file:../', addLinkLibraryOptions);
