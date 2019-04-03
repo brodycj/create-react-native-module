@@ -40,7 +40,7 @@
   },
   "homepage": "https://github.com/brodybits/create-react-native-module#readme",
   "dependencies": {
-    "commander": "^2.19.0",
+    "commander": "^2.20.0",
     "jsonfile": "^5.0.0",
     "mkdirp": "^0.5.1",
     "node-emoji": "^1.10.0",
