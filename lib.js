@@ -71,12 +71,8 @@ const generateWithOptions = ({
     }
   }
 
-  // TODO: FACTOR THESE OUT OF THE CODE BELOW
-  const rootName = moduleName;
-  const rootFolderName = rootName;
-
-  return createFolder(rootFolderName)
-    .then(() => {
+  const generateWithoutExample = () => {
+    return createFolder(moduleName).then(() => {
       return Promise.all(templates.filter((template) => {
         if (template.platform) {
           return (platforms.indexOf(template.platform) >= 0);
@@ -89,7 +85,7 @@ const generateWithOptions = ({
         }
         const templateArgs = {
           name: className,
-          moduleName: rootName,
+          moduleName,
           packageIdentifier,
           namespace,
           platforms,
@@ -101,38 +97,41 @@ const generateWithOptions = ({
           generateExample,
         };
 
-        return renderTemplateIfValid(rootFolderName, template, templateArgs);
+        return renderTemplateIfValid(moduleName, template, templateArgs);
       }));
-    })
-    .then(() => {
-      // Generate the example if necessary
-      if (!generateExample) {
-        return Promise.resolve();
-      }
+    });
+  };
 
-      const initExampleOptions = { cwd: `./${rootFolderName}`, stdio: 'inherit' };
-      return exec('react-native init example', initExampleOptions)
+  // The separate promise makes it easier to generate
+  // multiple test/sample projects, if needed.
+  const generateExampleWithName =
+    (exampleName, commandOptions) => {
+      const addOptions = commandOptions
+        ? ` ${commandOptions}`
+        : '';
+      const execOptions = { cwd: `./${moduleName}`, stdio: 'inherit' };
+      return exec(`react-native init ${exampleName}${addOptions}`, execOptions)
         .then(() => {
           // Execute the example template
           const exampleTemplates = require('./templates/example');
 
           const templateArgs = {
             name: className,
-            moduleName: rootName,
+            moduleName,
             view,
           };
 
           return Promise.all(
             exampleTemplates.map((template) => {
-              return renderTemplate(rootFolderName, template, templateArgs);
+              return renderTemplate(moduleName, template, templateArgs);
             })
           );
         })
         .then(() => {
           // Adds and link the new library
           return new Promise((resolve, reject) => {
-            // Add postinstall script to example package.json
-            const pathExampleApp = `./${rootFolderName}/example`;
+            // Add postinstall script to the example package.json
+            const pathExampleApp = `./${moduleName}/${exampleName}`;
             npmAddScriptSync(`${pathExampleApp}/package.json`, {
               key: 'postinstall',
               value: `node ../scripts/examples_postinstall.js`
@@ -151,7 +150,14 @@ const generateWithOptions = ({
             return resolve();
           });
         });
-    });
+    };
+
+  return generateWithoutExample().then(() => {
+    return (generateExample
+      ? generateExampleWithName('example')
+      : Promise.resolve()
+    );
+  });
 };
 
 module.exports = (options) => {
