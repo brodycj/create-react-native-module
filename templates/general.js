@@ -73,15 +73,28 @@ ${name};
 }, {
   name: () => 'package.json',
   content: ({ moduleName, platforms, githubAccount, authorName, authorEmail, license }) => {
-    const dependenciesFirstPart = `{
-    "react": "^16.6.3",
-    "react-native": "^0.58.6"`;
-    const dependenciesPartial = (platforms.indexOf('windows') >= 0)
-      ? dependenciesFirstPart + `,
-    "react-native-windows": "^0.57.0"`
-      : dependenciesFirstPart;
-    const externalDependencies = dependenciesPartial + `
+    const withWindows = platforms.indexOf('windows') >= 0;
+
+    const peerDependencies =
+      `{
+    "react": "^16.5.0",
+    "react-native": ">=0.57.0-rc.0 <1.0.x"` +
+      (withWindows
+        ? `,
+    "react-native-windows": ">=0.57.0-rc.0 <1.0.x"`
+        : ``) + `
   }`;
+
+    const devDependencies =
+      `{
+    "react": "^16.5.0",
+    "react-native": "0.59.3"` +
+        (withWindows
+          ? `,
+    "react-native-windows": "^0.57.1"`
+          : ``) + `
+  }`;
+
     return `{
   "name": "${moduleName}",
   "title": "${moduleName.split('-').map(word => word[0].toUpperCase() + word.substr(1)).join(' ')}",
@@ -106,8 +119,8 @@ ${name};
   "license": "${license}",
   "licenseFilename": "LICENSE",
   "readmeFilename": "README.md",
-  "peerDependencies": ${externalDependencies},
-  "devDependencies": ${externalDependencies}
+  "peerDependencies": ${peerDependencies},
+  "devDependencies": ${devDependencies}
 }
 `;
   },
