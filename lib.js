@@ -1,15 +1,12 @@
 const path = require('path');
 
-const pascalCase = require('pascal-case');
-const paramCase = require('param-case');
+const normalizedOptions = require('./normalized-options');
 
 const templates = require('./templates');
-const { hasPrefix, createFile, createFolder, npmAddScriptSync, exec } = require('./utils');
+const { createFile, createFolder, npmAddScriptSync, exec } = require('./utils');
 const { execSync } = require('child_process');
 
-const DEFAULT_NAME = 'Library';
 const DEFAULT_PREFIX = '';
-const DEFAULT_MODULE_PREFIX = 'react-native';
 const DEFAULT_PACKAGE_IDENTIFIER = 'com.reactlibrary';
 const DEFAULT_PLATFORMS = ['android', 'ios'];
 const DEFAULT_GITHUB_ACCOUNT = 'github_account';
@@ -33,12 +30,14 @@ const renderTemplateIfValid = (root, template, templateArgs) => {
 // alias, at least for now:
 const renderTemplate = renderTemplateIfValid;
 
-module.exports = ({
-  name = DEFAULT_NAME,
+const generateWithOptions = ({
+  name = 'unknown', // (should be normalized)
   prefix = DEFAULT_PREFIX,
-  moduleName = null,
-  modulePrefix = DEFAULT_MODULE_PREFIX,
+  moduleName = 'unknown', // (should be normalized)
+  className = 'unknown', // (should be normalized)
+  modulePrefix = '', // (should be normalized)
   packageIdentifier = DEFAULT_PACKAGE_IDENTIFIER,
+  namespace = 'unknown', // (should be normalized)
   platforms = DEFAULT_PLATFORMS,
   githubAccount = DEFAULT_GITHUB_ACCOUNT,
   authorName = DEFAULT_AUTHOR_NAME,
@@ -47,42 +46,63 @@ module.exports = ({
   view = false,
   generateExample = DEFAULT_GENERATE_EXAMPLE,
 }) => {
-  if (platforms.length === 0) {
-    throw new Error('Please specify at least one platform to generate the library.');
-  }
-
   if (packageIdentifier === DEFAULT_PACKAGE_IDENTIFIER) {
     console.warn(`While \`{DEFAULT_PACKAGE_IDENTIFIER}\` is the default package
       identifier, it is recommended to customize the package identifier.`);
   }
 
+  // Note that the some of these console log messages are done as
+  // console.info instead of verbose since they are needed to help
+  // make sense of the console output from the third-party tools.
+
+  console.info(
+    `CREATE new React Native module with the following options:
+
+  root moduleName: ${moduleName}
+  name: ${name}
+  prefix: ${prefix}
+  modulePrefix: ${modulePrefix}
+  packageIdentifier: ${packageIdentifier}
+  platforms: ${platforms}
+  githubAccount: ${githubAccount}
+  authorName: ${authorName}
+  authorEmail: ${authorEmail}
+  authorEmail: ${authorEmail}
+  license: ${license}
+  view: ${view}
+  generateExample: ${generateExample}
+  `);
+
   if (generateExample) {
-    console.info('Check for react-native-cli and yarn CLI tools that are needed to generate example project');
+    const reactNativeVersionCommand = 'react-native --version';
+    const yarnVersionCommand = 'yarn --version';
 
     const checkCliOptions = { stdio: 'inherit' };
+    const errorRemedyMessage = 'both react-native-cli and yarn CLI tools are needed to generate example project';
 
     try {
-      execSync('react-native --version', checkCliOptions);
+      console.info('CREATE: Check for valid react-native-cli tool version, as needed to generate the example project');
+      execSync(reactNativeVersionCommand, checkCliOptions);
+      console.info(`${reactNativeVersionCommand} ok`);
     } catch (e) {
       throw new Error(
-        'react-native --version failed; both react-native-cli and yarn are needed to generate example project');
+        `${reactNativeVersionCommand} failed; ${errorRemedyMessage}`);
     }
 
     try {
-      execSync('yarn --version', checkCliOptions);
+      console.info('CREATE: Check for valid Yarn CLI tool version, as needed to generate the example project');
+      execSync(yarnVersionCommand, checkCliOptions);
+      console.info(`${yarnVersionCommand} ok`);
     } catch (e) {
       throw new Error(
-        'yarn --version failed; both react-native-cli and yarn are needed to generate example project');
+        `${yarnVersionCommand} failed; ${errorRemedyMessage}`);
     }
   }
 
-  const className = `${prefix}${pascalCase(name)}`;
-  const rootName = moduleName || `${modulePrefix}-${paramCase(name)}`;
-  const namespace = pascalCase(name).split(/(?=[A-Z])/).join('.');
-  const rootFolderName = rootName;
+  console.info('CREATE: Generating the React Native library module');
 
-  return createFolder(rootFolderName)
-    .then(() => {
+  const generateWithoutExample = () => {
+    return createFolder(moduleName).then(() => {
       return Promise.all(templates.filter((template) => {
         if (template.platform) {
           return (platforms.indexOf(template.platform) >= 0);
@@ -95,7 +115,7 @@ module.exports = ({
         }
         const templateArgs = {
           name: className,
-          moduleName: rootName,
+          moduleName,
           packageIdentifier,
           namespace,
           platforms,
@@ -107,44 +127,51 @@ module.exports = ({
           generateExample,
         };
 
-        return renderTemplateIfValid(rootFolderName, template, templateArgs);
+        return renderTemplateIfValid(moduleName, template, templateArgs);
       }));
-    })
-    .then(() => {
-      // Generate the example if necessary
-      if (!generateExample) {
-        return Promise.resolve();
-      }
+    });
+  };
 
-      const initExampleOptions = { cwd: `./${rootFolderName}`, stdio: 'inherit' };
-      return exec('react-native init example', initExampleOptions)
+  // The separate promise makes it easier to generate
+  // multiple test/sample projects, if needed.
+  const generateExampleWithName =
+    (exampleName, commandOptions) => {
+      console.info('CREATE: Generating the example app');
+
+      const addOptions = commandOptions
+        ? ` ${commandOptions}`
+        : '';
+      const execOptions = { cwd: `./${moduleName}`, stdio: 'inherit' };
+      return exec(`react-native init ${exampleName}${addOptions}`, execOptions)
         .then(() => {
           // Execute the example template
           const exampleTemplates = require('./templates/example');
 
           const templateArgs = {
             name: className,
-            moduleName: rootName,
+            moduleName,
             view,
           };
 
           return Promise.all(
             exampleTemplates.map((template) => {
-              return renderTemplate(rootFolderName, template, templateArgs);
+              return renderTemplate(moduleName, template, templateArgs);
             })
           );
         })
         .then(() => {
           // Adds and link the new library
           return new Promise((resolve, reject) => {
-            // Add postinstall script to example package.json
-            const pathExampleApp = `./${rootFolderName}/example`;
+            // Add postinstall script to the example package.json
+            console.info('Adding cleanup postinstall task to the example app');
+            const pathExampleApp = `./${moduleName}/${exampleName}`;
             npmAddScriptSync(`${pathExampleApp}/package.json`, {
               key: 'postinstall',
               value: `node ../scripts/examples_postinstall.js`
             });
 
             // Add and link the new library
+            console.info('Linking the new module library to the example app');
             const addLinkLibraryOptions = { cwd: pathExampleApp, stdio: 'inherit' };
             try {
               execSync('yarn add file:../', addLinkLibraryOptions);
@@ -157,5 +184,16 @@ module.exports = ({
             return resolve();
           });
         });
-    });
+    };
+
+  return generateWithoutExample().then(() => {
+    return (generateExample
+      ? generateExampleWithName('example')
+      : Promise.resolve()
+    );
+  });
+};
+
+module.exports = (options) => {
+  return generateWithOptions(normalizedOptions(options));
 };

@@ -60,29 +60,30 @@ Usage: create-react-native-module [options] <name>
 
 Options:
 
-  --help                                    output usage information
-  --prefix <prefix>                         The prefix for the library (Default: ``)
+  -V, --version                             output the version number
+  --prefix <prefix>                         The prefix for the library module (Default: ``)
   --module-name <moduleName>                The module library package name to be used in package.json. Default: react-native-(name in param-case)
-  --module-prefix <modulePrefix>            The module prefix for the library, ignored if --module-name is specified (Default: `react-native`)
+  --module-prefix <modulePrefix>            The module prefix for the library module, ignored if --module-name is specified (Default: `react-native`)
   --package-identifier <packageIdentifier>  (Android only!) The package name for the Android module (Default: `com.reactlibrary`)
-  --platforms <platforms>                   Platforms the library will be created for. (comma separated; default: `ios,android`)
-  --github-account <github_account>         The github account where the library is hosted (Default: `github_account`)
-  --author-name <name>                      The author's name (Default: `Your Name`)
-  --author-email <email>                    The author's email (Default: `yourname@email.com`)
-  --license <license>                       The license type of this library (Default: `Apache-2.0`)
-  --view                                    Generate the module as a very simple native view component (Default: `false`)
-  --generate-example <shouldGenerate>       Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally (Default: `false`)
+  --platforms <platforms>                   Platforms the library module will be created for - comma separated (Default: `ios,android`)
+  --github-account <githubAccount>          The github account where the library module is hosted (Default: `github_account`)
+  --author-name <authorName>                The author's name (Default: `Your Name`)
+  --author-email <authorEmail>              The author's email (Default: `yourname@email.com`)
+  --license <license>                       The license type (Default: `Apache-2.0`)
+  --view                                    Generate the module as a very simple native view component
+  --generate-example                        Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally
+  -h, --help                                output usage information
 ```
 
 ## Programmatic usage
 
 ```javascript
-const createLibrary = require('create-react-native-module');
+const createLibraryModule = require('create-react-native-module');
 
-createLibrary({
-  name: 'MyFancyLibrary'
+createLibraryModule({
+  name: 'MyFancyLibraryModule'
 }).then(() => {
-  console.log('Oh yay! My library has been created!');
+  console.log('Oh yay! My library module has been created!');
 })
 ```
 
@@ -91,7 +92,7 @@ createLibrary({
 ```javascript
 {
   name: String, /* The name of the library (Default: Library) */
-  prefix: String, /* The prefix for the library (Default: RN) */
+  prefix: String, /* The prefix for the library (Default: ``) */
   moduleName: String, /* The module library package name to be used in package.json. Default: react-native-(name in param-case) */
   modulePrefix: String, /* The module prefix for the library, ignored if moduleName is specified (Default: react-native) */
   platforms: Array, /* Platforms the library will be created for. (Default: ['ios', 'android']) */
@@ -100,14 +101,10 @@ createLibrary({
   authorName: String, /* The author's name (Default: `Your Name`) */
   authorEmail: String, /* The author's email (Default: `yourname@email.com`) */
   license: String, /* The license type of this library (Default: `Apache-2.0`) */
-  view: Boolean, /* Generate the module as a very simple native view component (Default: `false`) */
-  generateExample: Boolean, /* Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally (Default: `false`) */
+  view: Boolean, /* Generate the module as a very simple native view component (Default: false) */
+  generateExample: Boolean, /* Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally (Default: false) */
 }
 ```
-
-## SOME KNOWN ISSUES
-
-- CLI does not show the correct path of the generated library module
 
 ## Behavior not tested or supported
 
@@ -123,7 +120,7 @@ __Create the module with no view:__
 create-react-native-module --prefix CB --package-identifier io.mylibrary --generate-example AliceHelper
 ```
 
-The module would be generated in the `react-native-alice-helper` subdirectory, and the example test app would be in `react-native-alice-helper/example`. (Note that this tool will show an incorrect project name when it is finished.)
+The module would be generated in the `react-native-alice-helper` subdirectory, and the example test app would be in `react-native-alice-helper/example`.
 
 Then go into the example app subdirectory:
 
@@ -182,7 +179,7 @@ __Create the module with an extremely simple view:__
 create-react-native-module --prefix CB --package-identifier io.mylibrary --view --generate-example CarolWidget
 ```
 
-The module would be generated in the `react-native-alice-helper` subdirectory, and the example test app would be in `react-native-alice-helper/example`. (Note that this tool will show an incorrect project name when it is finished.)
+The module would be generated in the `react-native-carol-widget` subdirectory, and the example test app would be in `react-native-carol-widget/example`.
 
 Then go into the example app subdirectory:
 
