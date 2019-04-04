@@ -62,44 +62,44 @@ ${emoji.get('arrow_right')}  To get started type \`cd ./${rootModuleName}\` and 
   },
   options: [{
     command: '--prefix [prefix]',
-    description: 'The prefix for the library module (Default: ``)',
+    description: 'The prefix for the library module',
     default: '',
   }, {
     command: '--module-name [moduleName]',
     description: 'The module library package name to be used in package.json. Default: react-native-(name in param-case)',
   }, {
     command: '--module-prefix [modulePrefix]',
-    description: 'The module prefix for the library module, ignored if --module-name is specified (Default: `react-native`)',
+    description: 'The module prefix for the library module, ignored if --module-name is specified',
     default: 'react-native',
   }, {
     command: '--package-identifier [packageIdentifier]',
-    description: '(Android only!) The package name for the Android module (Default: `com.reactlibrary`)',
+    description: '(Android only!) The package name for the Android module',
     default: 'com.reactlibrary',
   }, {
     command: '--platforms <platforms>',
-    description: 'Platforms the library module will be created for. (comma separated; default: `ios,android`)',
+    description: 'Platforms the library module will be created for - comma separated',
     default: 'ios,android',
   }, {
     command: '--github-account [githubAccount]',
-    description: 'The github account where the library module is hosted (Default: `github_account`)',
+    description: 'The github account where the library module is hosted',
     default: 'github_account',
   }, {
     command: '--author-name [authorName]',
-    description: 'The author\'s name (Default: `Your Name`)',
+    description: 'The author\'s name',
     default: 'Your Name',
   }, {
     command: '--author-email [authorEmail]',
-    description: 'The author\'s email (Default: `yourname@email.com`)',
+    description: 'The author\'s email',
     default: 'yourname@email.com',
   }, {
     command: '--license [license]',
-    description: 'The license type (Default: `Apache-2.0`)',
+    description: 'The license type',
     default: 'Apache-2.0',
   }, {
     command: '--view',
-    description: 'Generate the module as a very simple native view component (Default: `false`)',
+    description: 'Generate the module as a very simple native view component',
   }, {
     command: '--generate-example',
-    description: 'Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally (Default: `false`)',
+    description: 'Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally',
   }]
 };
