@@ -2,6 +2,13 @@
 
 Tool to create a React Native library module or native view component, with a single command.
 
+[![GitHub license](https://img.shields.io/github/license/brodybits/create-react-native-module.svg?color=blue&style=flat-square)](./LICENSE)
+[![npm](https://img.shields.io/npm/v/create-react-native-module.svg?color=green&style=flat-square)](https://www.npmjs.com/package/create-react-native-module)
+[![npm downloads](https://img.shields.io/npm/dw/create-react-native-module.svg?label=npm%20downloads&style=flat-square)](https://npmcharts.com/compare/create-react-native-module?minimal=true)
+[![total npm downloads](https://img.shields.io/npm/dt/create-react-native-module.svg?label=total%20npm%20downloads&style=flat-square)](https://npmcharts.com/compare/create-react-native-module?minimal=true)
+[![GitHub stars](https://img.shields.io/github/stars/brodybits/create-react-native-module.svg?label=GitHub%20stars&style=flat-square)](https://github.com/brodybits/create-react-native-module/stargazers)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/brodybits/create-react-native-module/pulls)
+
 See below for command-line usage, example with no view, and example with an extremely simple native view.
 
 This tool based on [`react-native-create-library`](https://www.npmjs.com/package/react-native-create-library), with working example callbacks, optional native view, and some other updates added by [@brodybits (Christoper J. Brody aka Chris Brody)](https://github.com/brodybits).
