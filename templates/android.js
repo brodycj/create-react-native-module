@@ -1,6 +1,33 @@
 module.exports = platform => [{
   name: () => `${platform}/build.gradle`,
-  content: ({ packageIdentifier }) => `buildscript {
+  content: ({ packageIdentifier }) =>
+    `// ${platform}/build.gradle
+
+// Default SDK & tools versions - should match the values from recent
+// react-native Android template version such as:
+// - https://github.com/facebook/react-native/blob/0.58-stable/local-cli/templates/HelloWorld/android/build.gradle
+// - https://github.com/facebook/react-native/blob/0.59-stable/template/android/build.gradle
+// - https://github.com/facebook/react-native/blob/master/template/android/build.gradle
+//
+// (note the path change in 0.59)
+//
+// Some tools version references:
+// - https://mvnrepository.com/artifact/com.android.tools.build/gradle?repo=google
+// - https://developer.android.com/studio/releases/build-tools
+// - https://developer.android.com/studio/releases/gradle-plugin
+// - https://developer.android.com/studio/releases/platforms
+// - https://developer.android.com/studio/releases/platform-tools
+
+// from RN 0.58:
+def DEFAULT_COMPILE_SDK_VERSION = 28
+def DEFAULT_BUILD_TOOLS_VERSION = "28.0.2"
+def DEFAULT_MIN_SDK_VERSION = 16
+def DEFAULT_TARGET_SDK_VERSION = 27
+
+// from RN 0.58:
+def ANDROID_GRADLE_PLUGIN_VERSION = "3.2.1"
+
+buildscript {
     repositories {
         google()
         jcenter()
@@ -9,7 +36,7 @@ module.exports = platform => [{
     dependencies {
         // Matches the RN Hello World template
         // https://github.com/facebook/react-native/blob/1e8f3b11027fe0a7514b4fc97d0798d3c64bc895/local-cli/templates/HelloWorld/android/build.gradle#L8
-        classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.android.tools.build:gradle:' + ANDROID_GRADLE_PLUGIN_VERSION
     }
 }
 
@@ -19,11 +46,6 @@ apply plugin: 'maven'
 def safeExtGet(prop, fallback) {
     rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
 }
-
-def DEFAULT_COMPILE_SDK_VERSION = 28
-def DEFAULT_BUILD_TOOLS_VERSION = "28.0.2"
-def DEFAULT_MIN_SDK_VERSION = 16
-def DEFAULT_TARGET_SDK_VERSION = 27
 
 android {
   compileSdkVersion safeExtGet('compileSdkVersion', DEFAULT_COMPILE_SDK_VERSION)
