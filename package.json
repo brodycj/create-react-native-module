@@ -1,6 +1,6 @@
 {
   "name": "create-react-native-module",
-  "version": "0.5.0",
+  "version": "0.5.1-dev",
   "description": "Tool to create a React Native library module or view module with a single command",
   "bin": "cli.js",
   "main": "lib.js",
