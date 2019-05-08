@@ -104,7 +104,7 @@ ${emoji.get('arrow_right')}  To get started type \`cd ./${rootModuleName}\` and 
     command: '--generate-example',
     description: 'Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally',
   }, {
-    command: '--example-name',
+    command: '--example-name [exampleName]',
     description: 'Name for the example project',
     default: 'example',
   }]

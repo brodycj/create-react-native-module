@@ -116,7 +116,7 @@ module.exports = [{
   })();
 `
 }, {
-  name: () => 'example/App.js',
+  name: ({ exampleName }) => `${exampleName}/App.js`,
   content: ({ moduleName, name, view }) =>
     `/**
  * Sample React Native App

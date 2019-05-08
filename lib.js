@@ -128,6 +128,7 @@ const generateWithOptions = ({
           license,
           view,
           generateExample,
+          exampleName,
         };
 
         return renderTemplateIfValid(moduleName, template, templateArgs);
