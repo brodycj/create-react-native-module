@@ -14,6 +14,7 @@ const DEFAULT_AUTHOR_NAME = 'Your Name';
 const DEFAULT_AUTHOR_EMAIL = 'yourname@email.com';
 const DEFAULT_LICENSE = 'Apache-2.0';
 const DEFAULT_GENERATE_EXAMPLE = false;
+const DEFAULT_EXAMPLE_NAME = 'example'
 
 const renderTemplateIfValid = (root, template, templateArgs) => {
   const name = template.name(templateArgs);
@@ -45,7 +46,7 @@ const generateWithOptions = ({
   license = DEFAULT_LICENSE,
   view = false,
   generateExample = DEFAULT_GENERATE_EXAMPLE,
-  exampleName = 'example'
+  exampleName = DEFAULT_EXAMPLE_NAME,
 }) => {
   if (packageIdentifier === DEFAULT_PACKAGE_IDENTIFIER) {
     console.warn(`While \`{DEFAULT_PACKAGE_IDENTIFIER}\` is the default package
@@ -72,6 +73,7 @@ const generateWithOptions = ({
   license: ${license}
   view: ${view}
   generateExample: ${generateExample}
+  exampleName: ${exampleName}
   `);
 
   if (generateExample) {
