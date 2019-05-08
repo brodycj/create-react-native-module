@@ -21,6 +21,7 @@ module.exports = {
     const license = options.license;
     const view = options.view;
     const generateExample = options.generateExample;
+    const exampleName = options.exampleName;
 
     const beforeCreation = Date.now();
 
@@ -43,6 +44,7 @@ module.exports = {
       license,
       view,
       generateExample,
+      exampleName,
     });
 
     const rootModuleName = createOptions.moduleName;
@@ -101,5 +103,9 @@ ${emoji.get('arrow_right')}  To get started type \`cd ./${rootModuleName}\` and 
   }, {
     command: '--generate-example',
     description: 'Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally',
+  }, {
+    command: '--example-name',
+    description: 'Name for the example project',
+    default: 'example',
   }]
 };

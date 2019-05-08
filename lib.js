@@ -45,6 +45,7 @@ const generateWithOptions = ({
   license = DEFAULT_LICENSE,
   view = false,
   generateExample = DEFAULT_GENERATE_EXAMPLE,
+  exampleName = 'example'
 }) => {
   if (packageIdentifier === DEFAULT_PACKAGE_IDENTIFIER) {
     console.warn(`While \`{DEFAULT_PACKAGE_IDENTIFIER}\` is the default package
@@ -188,7 +189,7 @@ const generateWithOptions = ({
 
   return generateWithoutExample().then(() => {
     return (generateExample
-      ? generateExampleWithName('example')
+      ? generateExampleWithName(exampleName)
       : Promise.resolve()
     );
   });
