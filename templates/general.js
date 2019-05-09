@@ -214,9 +214,9 @@ buck-out/
   }
 }, {
   name: () => '.npmignore',
-  content: ({ generateExample }) => {
+  content: ({ generateExample, exampleName }) => {
     if (generateExample) {
-      return 'example\n';
+      return `${exampleName}\n`;
     }
 
     return '';
