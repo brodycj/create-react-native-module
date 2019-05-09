@@ -2,7 +2,7 @@
 
 module.exports = [{
   name: () => 'scripts/examples_postinstall.js',
-  content: () =>
+  content: ({ exampleName }) =>
     `#!/usr/bin/env node
 
   /*
@@ -50,7 +50,7 @@ module.exports = [{
     fs.rmdirSync(fileDirPath);
   };
 
-  /// Remove example/node_modules/react-native-library-name/node_modules directory
+  /// Remove ${exampleName}/node_modules/react-native-library-name/node_modules directory
   const removeLibraryNodeModulesPath = (libraryNodeModulesPath) => {
     const nodeModulesPath = path.resolve(libraryNodeModulesPath, 'node_modules')
 
@@ -68,7 +68,7 @@ module.exports = [{
     }
   };
 
-  /// Remove all entries from the .npmignore within  example/node_modules/react-native-library-name/
+  /// Remove all entries from the .npmignore within  ${exampleName}/node_modules/react-native-library-name/
   const removeLibraryNpmIgnorePaths = (npmIgnorePath, libraryNodeModulesPath) => {
     if (!fs.existsSync(npmIgnorePath)) {
       console.log(\`No .npmignore path found at \${npmIgnorePath}. Skipping deleting content.\`);
