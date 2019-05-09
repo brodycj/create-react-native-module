@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.dependency "React"
-  #s.dependency "others"
+  s.dependency 'AFNetworking', '~> 3.0'
 end
 
 `,
@@ -41,6 +41,8 @@ end
   // implementation of module without view:
   name: ({ name, view }) => !view && `${platform}/${name}.m`,
   content: ({ name }) => `#import "${name}.h"
+
+#import <AFNetworking/AFNetworking.h>
 
 @implementation ${name}
 
