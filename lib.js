@@ -155,6 +155,7 @@ const generateWithOptions = ({
             name: className,
             moduleName,
             view,
+            exampleName,
           };
 
           return Promise.all(
