@@ -1,24 +1,24 @@
 /* eslint max-len: 0 */
 
 module.exports = platform => [{
-  name: ({ name }) => `${name}.podspec`,
-  content: ({ name }) => `require "json"
+  name: ({ moduleName }) => `${moduleName}.podspec`,
+  content: ({ moduleName }) => `require "json"
 
 package = JSON.parse(File.read(File.join(__dir__, "package.json")))
 
 Pod::Spec.new do |s|
-  s.name         = "${name}"
+  s.name         = "${moduleName}"
   s.version      = package["version"]
   s.summary      = package["description"]
   s.description  = <<-DESC
-                  ${name}
+                  ${moduleName}
                    DESC
-  s.homepage     = "https://github.com/author/${name}"
+  s.homepage     = "https://github.com/author/${moduleName}"
   s.license      = "MIT"
   # s.license    = { :type => "MIT", :file => "FILE_LICENSE" }
   s.author       = { "author" => "author@domain.cn" }
   s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/author/${name}.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/author/${moduleName}.git", :tag => "#{s.version}" }
 
   s.source_files = "ios/**/*.{h,m}"
   s.requires_arc = true
