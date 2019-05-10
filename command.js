@@ -4,6 +4,23 @@ const normalizedOptions = require('./normalized-options');
 
 const createLibraryModule = require('./lib');
 
+const postCreateInstructions = ({ moduleName, useCocoapods, exampleName }) => {
+  return `
+====================================================
+YOU'RE ALL SET!
+
+To build and run iOS example project, do:
+----
+cd ${moduleName}/${exampleName}
+yarn
+${useCocoapods ? `cd ios
+pod install
+cd ..` :
+``}react-native run-ios
+----
+`
+}
+
 module.exports = {
   name: 'create-library',
   description: 'creates a React Native library module for one or more platforms',
@@ -20,6 +37,7 @@ module.exports = {
     const authorEmail = options.authorEmail;
     const license = options.license;
     const view = options.view;
+    const useCocoapods = options.useCocoapods;
     const generateExample = options.generateExample;
     const exampleName = options.exampleName;
 
@@ -43,6 +61,7 @@ module.exports = {
       authorEmail,
       license,
       view,
+      useCocoapods,
       generateExample,
       exampleName,
     });
@@ -53,7 +72,7 @@ module.exports = {
       console.log(`
 ${emoji.get('books')}  Created library module ${rootModuleName} in \`./${rootModuleName}\`.
 ${emoji.get('clock9')}  It took ${Date.now() - beforeCreation}ms.
-${emoji.get('arrow_right')}  To get started type \`cd ./${rootModuleName}\` and run \`npm install\``);
+${postCreateInstructions({ moduleName: rootModuleName, useCocoapods, exampleName })}`);
     }).catch((err) => {
       console.error(`Error while creating library module ${rootModuleName}`);
 
@@ -100,6 +119,9 @@ ${emoji.get('arrow_right')}  To get started type \`cd ./${rootModuleName}\` and 
   }, {
     command: '--view',
     description: 'Generate the module as a very simple native view component',
+  }, {
+    command: '--use-cocoapods',
+    description: 'Generate a library with a sample podspec and third party pod usage example',
   }, {
     command: '--generate-example',
     description: 'Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally',

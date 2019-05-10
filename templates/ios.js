@@ -2,7 +2,7 @@
 
 module.exports = platform => [{
   name: ({ moduleName }) => `${moduleName}.podspec`,
-  content: ({ moduleName }) => `require "json"
+  content: ({ moduleName, useCocoapods }) => `require "json"
 
 package = JSON.parse(File.read(File.join(__dir__, "package.json")))
 
@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.dependency "React"
-  s.dependency 'AFNetworking', '~> 3.0'
+	${useCocoapods ? `s.dependency 'AFNetworking', '~> 3.0'` : ``}
 end
 
 `,
@@ -40,23 +40,25 @@ end
 }, {
   // implementation of module without view:
   name: ({ name, view }) => !view && `${platform}/${name}.m`,
-  content: ({ name }) => `#import "${name}.h"
+  content: ({ name, useCocoapods }) => `#import "${name}.h"
 
-#import <AFNetworking/AFNetworking.h>
-
+${useCocoapods ? `#import <AFNetworking/AFNetworking.h>
+` : ``}
 @implementation ${name}
 
 RCT_EXPORT_MODULE()
 
 RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnull NSNumber *)numberArgument callback:(RCTResponseSenderBlock)callback)
 {
-	AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+	${useCocoapods ?
+	`AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
 	manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
 	[manager GET:@"https://httpstat.us/200" parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
 			callback(@[[NSString stringWithFormat: @"numberArgument: %@ stringArgument: %@ resp: %@", numberArgument, stringArgument, responseObject]]);
 	} failure:^(NSURLSessionTask *operation, NSError *error) {
 			callback(@[[NSString stringWithFormat: @"numberArgument: %@ stringArgument: %@ err: %@", numberArgument, stringArgument, error]]);
-	}];
+	}];` :
+	`callback(@[[NSString stringWithFormat: @"numberArgument: %@ stringArgument: %@", numberArgument, stringArgument]]);`}
 }
 
 @end

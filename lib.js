@@ -13,6 +13,7 @@ const DEFAULT_GITHUB_ACCOUNT = 'github_account';
 const DEFAULT_AUTHOR_NAME = 'Your Name';
 const DEFAULT_AUTHOR_EMAIL = 'yourname@email.com';
 const DEFAULT_LICENSE = 'Apache-2.0';
+const DEFAULT_USE_COCOAPODS = false;
 const DEFAULT_GENERATE_EXAMPLE = false;
 const DEFAULT_EXAMPLE_NAME = 'example'
 
@@ -45,6 +46,7 @@ const generateWithOptions = ({
   authorEmail = DEFAULT_AUTHOR_EMAIL,
   license = DEFAULT_LICENSE,
   view = false,
+  useCocoapods = DEFAULT_USE_COCOAPODS,
   generateExample = DEFAULT_GENERATE_EXAMPLE,
   exampleName = DEFAULT_EXAMPLE_NAME,
 }) => {
@@ -72,6 +74,7 @@ const generateWithOptions = ({
   authorEmail: ${authorEmail}
   license: ${license}
   view: ${view}
+  useCocoapods: ${useCocoapods}
   generateExample: ${generateExample}
   exampleName: ${exampleName}
   `);
@@ -127,6 +130,7 @@ const generateWithOptions = ({
           authorEmail,
           license,
           view,
+          useCocoapods,
           generateExample,
           exampleName,
         };
@@ -155,6 +159,7 @@ const generateWithOptions = ({
             name: className,
             moduleName,
             view,
+            useCocoapods,
             exampleName,
           };
 
