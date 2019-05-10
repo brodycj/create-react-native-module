@@ -118,9 +118,9 @@ module.exports = [{
 }, {
   name: ({ useCocoapods, exampleName }) =>
     useCocoapods ? `${exampleName}/ios/Podfile` : undefined,
-  content: ({ moduleName }) => `platform :ios, '10.0'
+  content: ({ moduleName, exampleName }) => `platform :ios, '10.0'
 
-	target 'TestApp' do
+	target '${exampleName}' do
 		rn_path = '../node_modules/react-native'
 	
 		pod 'yoga', path: "#{rn_path}/ReactCommon/yoga/yoga.podspec"
