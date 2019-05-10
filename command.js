@@ -15,7 +15,8 @@ cd ${moduleName}/${exampleName}
 yarn
 ${useCocoapods ? `cd ios
 pod install
-cd ..` :
+cd ..
+` :
 ``}react-native run-ios
 ----
 `
