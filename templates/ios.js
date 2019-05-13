@@ -29,6 +29,39 @@ end
 
 `,
 }, {
+  name: ({ useCocoapods }) => useCocoapods ? `${platform}/Podfile` : undefined,
+  content: ({ name }) => `platform :ios, '10.0'
+
+	target '${name}' do
+		rn_path = '../node_modules/react-native'
+	
+		pod 'yoga', path: "#{rn_path}/ReactCommon/yoga/yoga.podspec"
+		pod 'DoubleConversion', :podspec => "#{rn_path}/third-party-podspecs/DoubleConversion.podspec"
+		pod 'Folly', :podspec => "#{rn_path}/third-party-podspecs/Folly.podspec"
+		pod 'glog', :podspec => "#{rn_path}/third-party-podspecs/GLog.podspec"
+		pod 'React', path: rn_path, subspecs: [
+			'Core',
+			'CxxBridge',
+			'RCTAnimation',
+			'RCTActionSheet',
+			'RCTImage',
+			'RCTLinkingIOS',
+			'RCTNetwork',
+			'RCTSettings',
+			'RCTText',
+			'RCTVibration',
+			'RCTWebSocket',
+			'RCTPushNotification',
+			'RCTCameraRoll',
+			'RCTSettings',
+			'RCTBlob',
+			'RCTGeolocation',
+			'DevSupport'
+		]
+		pod 'AFNetworking', '~> 3.0'
+	end
+`,
+}, {
   // header for module without view:
   name: ({ name, view }) => !view && `${platform}/${name}.h`,
   content: ({ name }) => `#import <React/RCTBridgeModule.h>
