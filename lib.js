@@ -15,7 +15,7 @@ const DEFAULT_AUTHOR_EMAIL = 'yourname@email.com';
 const DEFAULT_LICENSE = 'Apache-2.0';
 const DEFAULT_USE_COCOAPODS = false;
 const DEFAULT_GENERATE_EXAMPLE = false;
-const DEFAULT_EXAMPLE_NAME = 'example'
+const DEFAULT_EXAMPLE_NAME = 'example';
 
 const renderTemplateIfValid = (root, template, templateArgs) => {
   const name = template.name(templateArgs);

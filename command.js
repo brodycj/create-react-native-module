@@ -16,11 +16,11 @@ yarn
 ${useCocoapods ? `cd ios
 pod install
 cd ..
-` :
-``}react-native run-ios
-----
 `
-}
+    : ``}react-native run-ios
+----
+`;
+};
 
 module.exports = {
   name: 'create-library',
