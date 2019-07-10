@@ -187,8 +187,8 @@ const generateWithOptions = ({
             try {
               execSync('yarn add file:../', addLinkLibraryOptions);
             } catch (e) {
-              execSync('npm install ../', addLinkLibraryOptions);
-              execSync('npm install', addLinkLibraryOptions);
+              console.error('Yarn failure for example, aborting');
+              throw (e);
             }
             execSync('react-native link', addLinkLibraryOptions);
 
