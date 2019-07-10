@@ -28,21 +28,15 @@ module.exports = {
   usage: '[options] <name>',
   func: (args, config, options) => {
     const name = args[0];
-    const prefix = options.prefix;
-    const moduleName = options.moduleName;
-    const modulePrefix = options.modulePrefix;
-    const packageIdentifier = options.packageIdentifier;
-    const platforms = (options.platforms) ? options.platforms.split(',') : options.platforms;
-    const githubAccount = options.githubAccount;
-    const authorName = options.authorName;
-    const authorEmail = options.authorEmail;
-    const license = options.license;
-    const view = options.view;
-    const useCocoapods = options.useCocoapods;
-    const generateExample = options.generateExample;
-    const exampleName = options.exampleName;
 
     const beforeCreation = Date.now();
+
+    const platforms = (options.platforms)
+      ? options.platforms.split(',') : options.platforms;
+
+    const preNormalizedOptions = Object.assign({}, { name }, options, {
+      platforms
+    });
 
     // NOTE: There is a trick where the new normalizedOptions()
     // from normalized-options.js is applied by both command.js & lib.js.
@@ -50,22 +44,7 @@ module.exports = {
     // final log message, and that the exported programmatic
     // function can be completely tested from using the CLI.
 
-    const createOptions = normalizedOptions({
-      name,
-      prefix,
-      moduleName,
-      modulePrefix,
-      packageIdentifier,
-      platforms,
-      githubAccount,
-      authorName,
-      authorEmail,
-      license,
-      view,
-      useCocoapods,
-      generateExample,
-      exampleName,
-    });
+    const createOptions = normalizedOptions(preNormalizedOptions);
 
     const rootModuleName = createOptions.moduleName;
 
@@ -73,7 +52,7 @@ module.exports = {
       console.log(`
 ${emoji.get('books')}  Created library module ${rootModuleName} in \`./${rootModuleName}\`.
 ${emoji.get('clock9')}  It took ${Date.now() - beforeCreation}ms.
-${postCreateInstructions({ moduleName: rootModuleName, useCocoapods, exampleName })}`);
+${postCreateInstructions(createOptions)}`);
     }).catch((err) => {
       console.error(`Error while creating library module ${rootModuleName}`);
 
