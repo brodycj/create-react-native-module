@@ -2,7 +2,7 @@
 
 module.exports = platform => [{
   name: ({ moduleName }) => `${moduleName}.podspec`,
-  content: ({ moduleName, useCocoapods }) => `require "json"
+  content: ({ moduleName, githubAccount, authorName, authorEmail, useCocoapods }) => `require "json"
 
 package = JSON.parse(File.read(File.join(__dir__, "package.json")))
 
@@ -13,18 +13,19 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                   ${moduleName}
                    DESC
-  s.homepage     = "https://github.com/author/${moduleName}"
+  s.homepage     = "https://github.com/${githubAccount}/${moduleName}"
   s.license      = "MIT"
   # s.license    = { :type => "MIT", :file => "FILE_LICENSE" }
-  s.author       = { "author" => "author@domain.cn" }
+  s.authors      = { "${authorName}" => "${authorEmail}" }
   s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/author/${moduleName}.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/${githubAccount}/${moduleName}.git", :tag => "#{s.version}" }
 
   s.source_files = "ios/**/*.{h,m}"
   s.requires_arc = true
 
   s.dependency "React"
 	${useCocoapods ? `s.dependency 'AFNetworking', '~> 3.0'` : ``}
+  # s.dependency "..."
 end
 
 `,
