@@ -10,8 +10,8 @@ module.exports = platform => [{
     }
 
     dependencies {
-        // Matches the RN Hello World template
-        // https://github.com/facebook/react-native/blob/1e8f3b11027fe0a7514b4fc97d0798d3c64bc895/local-cli/templates/HelloWorld/android/build.gradle#L8
+        // Matches recent template from React Native (0.60)
+        // https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L16
         classpath("com.android.tools.build:gradle:${safeExtGet('gradlePluginVersion', '3.4.1')}")
     }
 }
@@ -19,6 +19,8 @@ module.exports = platform => [{
 apply plugin: 'com.android.library'
 apply plugin: 'maven'
 
+// Matches values in recent template from React Native (0.59 ... 0.60)
+// https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L5-L9
 def DEFAULT_COMPILE_SDK_VERSION = 28
 def DEFAULT_BUILD_TOOLS_VERSION = "28.0.3"
 def DEFAULT_MIN_SDK_VERSION = 16
