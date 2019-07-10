@@ -50,6 +50,7 @@ RCT_EXPORT_MODULE()
 
 RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnull NSNumber *)numberArgument callback:(RCTResponseSenderBlock)callback)
 {
+    // TODO: Implement some actually useful functionality
 	${useCocoapods
     ? `AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
 	manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
@@ -83,7 +84,7 @@ RCT_EXPORT_MODULE()
 
 - (UIView *)view
 {
-    // TODO: Implement some real useful functionality
+    // TODO: Implement some actually useful functionality
     UILabel * label = [[UILabel alloc] init];
     [label setTextColor:[UIColor redColor]];
     [label setText: @"*****"];
