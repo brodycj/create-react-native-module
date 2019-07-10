@@ -143,14 +143,15 @@ const generateWithOptions = ({
   // The separate promise makes it easier to generate
   // multiple test/sample projects, if needed.
   const generateExampleWithName =
-    (exampleName, commandOptions) => {
-      console.info('CREATE: Generating the example app');
+    (exampleName) => {
+      const exampleReactNativeInitCommand =
+        `react-native init ${exampleName}`;
 
-      const addOptions = commandOptions
-        ? ` ${commandOptions}`
-        : '';
+      console.info(
+        `CREATE example app with the following command: ${exampleReactNativeInitCommand}`);
+
       const execOptions = { cwd: `./${moduleName}`, stdio: 'inherit' };
-      return exec(`react-native init ${exampleName}${addOptions}`, execOptions)
+      return exec(exampleReactNativeInitCommand, execOptions)
         .then(() => {
           // Execute the example template
           const exampleTemplates = require('./templates/example');
