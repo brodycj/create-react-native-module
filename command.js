@@ -109,5 +109,9 @@ ${postCreateInstructions(createOptions)}`);
     command: '--example-name [exampleName]',
     description: 'Name for the example project',
     default: 'example',
+  }, {
+    command: '--example-react-native-version [exampleReactNativeVersion]',
+    description: 'React Native version for the generated example project',
+    default: 'react-native@0.59',
   }]
 };

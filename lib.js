@@ -16,6 +16,7 @@ const DEFAULT_LICENSE = 'Apache-2.0';
 const DEFAULT_USE_COCOAPODS = false;
 const DEFAULT_GENERATE_EXAMPLE = false;
 const DEFAULT_EXAMPLE_NAME = 'example';
+const DEFAULT_EXAMPLE_REACT_NATIVE_VERSION = 'react-native@0.59';
 
 const renderTemplateIfValid = (root, template, templateArgs) => {
   const name = template.name(templateArgs);
@@ -49,6 +50,7 @@ const generateWithOptions = ({
   useCocoapods = DEFAULT_USE_COCOAPODS,
   generateExample = DEFAULT_GENERATE_EXAMPLE,
   exampleName = DEFAULT_EXAMPLE_NAME,
+  exampleReactNativeVersion = DEFAULT_EXAMPLE_REACT_NATIVE_VERSION,
 }) => {
   if (packageIdentifier === DEFAULT_PACKAGE_IDENTIFIER) {
     console.warn(`While \`{DEFAULT_PACKAGE_IDENTIFIER}\` is the default package
@@ -145,7 +147,7 @@ const generateWithOptions = ({
   const generateExampleWithName =
     (exampleName) => {
       const exampleReactNativeInitCommand =
-        `react-native init ${exampleName}`;
+        `react-native init ${exampleName} --version ${exampleReactNativeVersion}`;
 
       console.info(
         `CREATE example app with the following command: ${exampleReactNativeInitCommand}`);
