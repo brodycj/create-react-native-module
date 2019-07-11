@@ -10,8 +10,8 @@ module.exports = platform => [{
     }
 
     dependencies {
-        // Matches recent template from React Native (0.59)
-        // https://github.com/facebook/react-native/blob/0.59-stable/template/android/build.gradle#L16
+        // Matches recent template from React Native (0.60)
+        // https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L16
         classpath("com.android.tools.build:gradle:$\{safeExtGet('gradlePluginVersion', '3.4.1')\}")
     }
 }
