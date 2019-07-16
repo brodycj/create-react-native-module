@@ -1,24 +1,23 @@
 module.exports = platform => [{
   name: () => `${platform}/build.gradle`,
   content: ({ packageIdentifier }) => `buildscript {
+    ext.safeExtGet = {prop, fallback ->
+        rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+    }
     repositories {
         google()
         jcenter()
     }
 
     dependencies {
-        // Matches recent template from React Native (0.59)
-        // https://github.com/facebook/react-native/blob/0.59-stable/template/android/build.gradle#L16
-        classpath 'com.android.tools.build:gradle:3.3.2'
+        // Matches recent template from React Native (0.60)
+        // https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L16
+        classpath("com.android.tools.build:gradle:$\{safeExtGet('gradlePluginVersion', '3.4.1')\}")
     }
 }
 
 apply plugin: 'com.android.library'
 apply plugin: 'maven'
-
-def safeExtGet(prop, fallback) {
-    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
-}
 
 // Matches values in recent template from React Native (0.59)
 // https://github.com/facebook/react-native/blob/0.59-stable/template/android/build.gradle#L5-L9
@@ -53,7 +52,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.facebook.react:react-native:+'
+    implementation "com.facebook.react:react-native:$\{safeExtGet('reactnativeVersion', '+')\}"
 }
 
 def configureReactNativePom(def pom) {
