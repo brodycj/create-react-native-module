@@ -3,7 +3,7 @@
   "version": "0.6.0-dev",
   "description": "Tool to create a React Native library module or view module with a single command",
   "bin": "cli.js",
-  "main": "lib.js",
+  "main": "lib/lib.js",
   "scripts": {
     "lint": "eslint .",
     "test": "echo 'not supported' && exit 1"
@@ -26,12 +26,8 @@
     "windows"
   ],
   "files": [
+    "lib",
     "templates",
-    "utils",
-    "cli.js",
-    "command.js",
-    "lib.js",
-    "normalized-options.js",
     "README.md"
   ],
   "author": "Christopher J. Brody <chris@brody.consulting>",

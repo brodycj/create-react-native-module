@@ -3,7 +3,7 @@
 const program = require('commander');
 const updateNotifier = require('update-notifier');
 
-const command = require('./command');
+const command = require('./lib/cli-command');
 const pkg = require('./package.json');
 
 updateNotifier({ pkg }).notify();
