@@ -2,7 +2,7 @@
 
 module.exports = [{
   name: () => 'scripts/examples_postinstall.js',
-  content: () =>
+  content: ({ exampleName }) =>
     `#!/usr/bin/env node
 
   /*
@@ -50,7 +50,7 @@ module.exports = [{
     fs.rmdirSync(fileDirPath);
   };
 
-  /// Remove example/node_modules/react-native-library-name/node_modules directory
+  /// Remove ${exampleName}/node_modules/react-native-library-name/node_modules directory
   const removeLibraryNodeModulesPath = (libraryNodeModulesPath) => {
     const nodeModulesPath = path.resolve(libraryNodeModulesPath, 'node_modules')
 
@@ -68,7 +68,7 @@ module.exports = [{
     }
   };
 
-  /// Remove all entries from the .npmignore within  example/node_modules/react-native-library-name/
+  /// Remove all entries from the .npmignore within  ${exampleName}/node_modules/react-native-library-name/
   const removeLibraryNpmIgnorePaths = (npmIgnorePath, libraryNodeModulesPath) => {
     if (!fs.existsSync(npmIgnorePath)) {
       console.log(\`No .npmignore path found at \${npmIgnorePath}. Skipping deleting content.\`);
@@ -116,7 +116,42 @@ module.exports = [{
   })();
 `
 }, {
-  name: () => 'example/App.js',
+  name: ({ useCocoapods, exampleName }) =>
+    useCocoapods ? `${exampleName}/ios/Podfile` : undefined,
+  content: ({ moduleName, exampleName }) => `platform :ios, '10.0'
+
+	target '${exampleName}' do
+		rn_path = '../node_modules/react-native'
+	
+		pod 'yoga', path: "#{rn_path}/ReactCommon/yoga/yoga.podspec"
+		pod 'DoubleConversion', :podspec => "#{rn_path}/third-party-podspecs/DoubleConversion.podspec"
+		pod 'Folly', :podspec => "#{rn_path}/third-party-podspecs/Folly.podspec"
+		pod 'glog', :podspec => "#{rn_path}/third-party-podspecs/GLog.podspec"
+		pod 'React', path: rn_path, subspecs: [
+			'Core',
+			'CxxBridge',
+			'RCTAnimation',
+			'RCTActionSheet',
+			'RCTImage',
+			'RCTLinkingIOS',
+			'RCTNetwork',
+			'RCTSettings',
+			'RCTText',
+			'RCTVibration',
+			'RCTWebSocket',
+			'RCTPushNotification',
+			'RCTCameraRoll',
+			'RCTSettings',
+			'RCTBlob',
+			'RCTGeolocation',
+			'DevSupport'
+		]
+	
+		pod '${moduleName}', :path => '../../${moduleName}.podspec'
+	end
+`,
+}, {
+  name: ({ exampleName }) => `${exampleName}/App.js`,
   content: ({ moduleName, name, view }) =>
     `/**
  * Sample React Native App

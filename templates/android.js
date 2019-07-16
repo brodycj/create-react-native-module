@@ -164,7 +164,7 @@ public class ${name}Module extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void sampleMethod(String stringArgument, int numberArgument, Callback callback) {
-        // TODO: Implement some real useful functionality
+        // TODO: Implement some actually useful functionality
         callback.invoke("Received numberArgument: " + numberArgument + " stringArgument: " + stringArgument);
     }
 }
@@ -196,7 +196,7 @@ public class ${name}Manager extends SimpleViewManager<View> {
 
     @Override
     public View createViewInstance(ThemedReactContext c) {
-        // TODO: Implement some real useful functionality
+        // TODO: Implement some actually useful functionality
         AppCompatCheckBox cb = new AppCompatCheckBox(c);
         cb.setChecked(true);
         return cb;

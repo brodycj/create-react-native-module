@@ -99,7 +99,7 @@ ${name};
   "name": "${moduleName}",
   "title": "${moduleName.split('-').map(word => word[0].toUpperCase() + word.substr(1)).join(' ')}",
   "version": "1.0.0",
-  "description": "",
+  "description": "TODO",
   "main": "index.js",
   "scripts": {
     "test": "echo \\"Error: no test specified\\" && exit 1"
@@ -214,9 +214,9 @@ buck-out/
   }
 }, {
   name: () => '.npmignore',
-  content: ({ generateExample }) => {
+  content: ({ generateExample, exampleName }) => {
     if (generateExample) {
-      return 'example\n';
+      return `${exampleName}\n`;
     }
 
     return '';

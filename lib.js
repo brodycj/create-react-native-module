@@ -13,7 +13,10 @@ const DEFAULT_GITHUB_ACCOUNT = 'github_account';
 const DEFAULT_AUTHOR_NAME = 'Your Name';
 const DEFAULT_AUTHOR_EMAIL = 'yourname@email.com';
 const DEFAULT_LICENSE = 'Apache-2.0';
+const DEFAULT_USE_COCOAPODS = false;
 const DEFAULT_GENERATE_EXAMPLE = false;
+const DEFAULT_EXAMPLE_NAME = 'example';
+const DEFAULT_EXAMPLE_REACT_NATIVE_VERSION = 'react-native@0.59';
 
 const renderTemplateIfValid = (root, template, templateArgs) => {
   const name = template.name(templateArgs);
@@ -44,7 +47,10 @@ const generateWithOptions = ({
   authorEmail = DEFAULT_AUTHOR_EMAIL,
   license = DEFAULT_LICENSE,
   view = false,
+  useCocoapods = DEFAULT_USE_COCOAPODS,
   generateExample = DEFAULT_GENERATE_EXAMPLE,
+  exampleName = DEFAULT_EXAMPLE_NAME,
+  exampleReactNativeVersion = DEFAULT_EXAMPLE_REACT_NATIVE_VERSION,
 }) => {
   if (packageIdentifier === DEFAULT_PACKAGE_IDENTIFIER) {
     console.warn(`While \`{DEFAULT_PACKAGE_IDENTIFIER}\` is the default package
@@ -70,7 +76,9 @@ const generateWithOptions = ({
   authorEmail: ${authorEmail}
   license: ${license}
   view: ${view}
+  useCocoapods: ${useCocoapods}
   generateExample: ${generateExample}
+  exampleName: ${exampleName}
   `);
 
   if (generateExample) {
@@ -124,7 +132,9 @@ const generateWithOptions = ({
           authorEmail,
           license,
           view,
+          useCocoapods,
           generateExample,
+          exampleName,
         };
 
         return renderTemplateIfValid(moduleName, template, templateArgs);
@@ -135,14 +145,15 @@ const generateWithOptions = ({
   // The separate promise makes it easier to generate
   // multiple test/sample projects, if needed.
   const generateExampleWithName =
-    (exampleName, commandOptions) => {
-      console.info('CREATE: Generating the example app');
+    (exampleName) => {
+      const exampleReactNativeInitCommand =
+        `react-native init ${exampleName} --version ${exampleReactNativeVersion}`;
 
-      const addOptions = commandOptions
-        ? ` ${commandOptions}`
-        : '';
+      console.info(
+        `CREATE example app with the following command: ${exampleReactNativeInitCommand}`);
+
       const execOptions = { cwd: `./${moduleName}`, stdio: 'inherit' };
-      return exec(`react-native init ${exampleName}${addOptions}`, execOptions)
+      return exec(exampleReactNativeInitCommand, execOptions)
         .then(() => {
           // Execute the example template
           const exampleTemplates = require('./templates/example');
@@ -151,6 +162,8 @@ const generateWithOptions = ({
             name: className,
             moduleName,
             view,
+            useCocoapods,
+            exampleName,
           };
 
           return Promise.all(
@@ -176,8 +189,8 @@ const generateWithOptions = ({
             try {
               execSync('yarn add file:../', addLinkLibraryOptions);
             } catch (e) {
-              execSync('npm install ../', addLinkLibraryOptions);
-              execSync('npm install', addLinkLibraryOptions);
+              console.error('Yarn failure for example, aborting');
+              throw (e);
             }
             execSync('react-native link', addLinkLibraryOptions);
 
@@ -188,7 +201,7 @@ const generateWithOptions = ({
 
   return generateWithoutExample().then(() => {
     return (generateExample
-      ? generateExampleWithName('example')
+      ? generateExampleWithName(exampleName)
       : Promise.resolve()
     );
   });

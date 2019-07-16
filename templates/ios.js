@@ -1,30 +1,31 @@
 /* eslint max-len: 0 */
 
 module.exports = platform => [{
-  name: ({ name }) => `${name}.podspec`,
-  content: ({ name }) => `require "json"
+  name: ({ moduleName }) => `${moduleName}.podspec`,
+  content: ({ moduleName, githubAccount, authorName, authorEmail, useCocoapods }) => `require "json"
 
 package = JSON.parse(File.read(File.join(__dir__, "package.json")))
 
 Pod::Spec.new do |s|
-  s.name         = "${name}"
+  s.name         = "${moduleName}"
   s.version      = package["version"]
   s.summary      = package["description"]
   s.description  = <<-DESC
-                  ${name}
+                  ${moduleName}
                    DESC
-  s.homepage     = "https://github.com/author/${name}"
+  s.homepage     = "https://github.com/${githubAccount}/${moduleName}"
   s.license      = "MIT"
   # s.license    = { :type => "MIT", :file => "FILE_LICENSE" }
-  s.author       = { "author" => "author@domain.cn" }
+  s.authors      = { "${authorName}" => "${authorEmail}" }
   s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/author/${name}.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/${githubAccount}/${moduleName}.git", :tag => "#{s.version}" }
 
   s.source_files = "ios/**/*.{h,m}"
   s.requires_arc = true
 
   s.dependency "React"
-  #s.dependency "others"
+	${useCocoapods ? `s.dependency 'AFNetworking', '~> 3.0'` : ``}
+  # s.dependency "..."
 end
 
 `,
@@ -40,16 +41,26 @@ end
 }, {
   // implementation of module without view:
   name: ({ name, view }) => !view && `${platform}/${name}.m`,
-  content: ({ name }) => `#import "${name}.h"
+  content: ({ name, useCocoapods }) => `#import "${name}.h"
 
+${useCocoapods ? `#import <AFNetworking/AFNetworking.h>
+` : ``}
 @implementation ${name}
 
 RCT_EXPORT_MODULE()
 
 RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnull NSNumber *)numberArgument callback:(RCTResponseSenderBlock)callback)
 {
-    // TODO: Implement some real useful functionality
-    callback(@[[NSString stringWithFormat: @"numberArgument: %@ stringArgument: %@", numberArgument, stringArgument]]);
+    // TODO: Implement some actually useful functionality
+	${useCocoapods
+    ? `AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+	manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
+	[manager GET:@"https://httpstat.us/200" parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+			callback(@[[NSString stringWithFormat: @"numberArgument: %@ stringArgument: %@ resp: %@", numberArgument, stringArgument, responseObject]]);
+	} failure:^(NSURLSessionTask *operation, NSError *error) {
+			callback(@[[NSString stringWithFormat: @"numberArgument: %@ stringArgument: %@ err: %@", numberArgument, stringArgument, error]]);
+	}];`
+    : `callback(@[[NSString stringWithFormat: @"numberArgument: %@ stringArgument: %@", numberArgument, stringArgument]]);`}
 }
 
 @end
@@ -74,7 +85,7 @@ RCT_EXPORT_MODULE()
 
 - (UIView *)view
 {
-    // TODO: Implement some real useful functionality
+    // TODO: Implement some actually useful functionality
     UILabel * label = [[UILabel alloc] init];
     [label setTextColor:[UIColor redColor]];
     [label setText: @"*****"];

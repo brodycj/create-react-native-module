@@ -4,25 +4,39 @@ const normalizedOptions = require('./normalized-options');
 
 const createLibraryModule = require('./lib');
 
+const postCreateInstructions = ({ moduleName, useCocoapods, exampleName }) => {
+  return `
+====================================================
+YOU'RE ALL SET!
+
+To build and run iOS example project, do:
+----
+cd ${moduleName}/${exampleName}
+yarn
+${useCocoapods ? `cd ios
+pod install
+cd ..
+`
+    : ``}react-native run-ios
+----
+`;
+};
+
 module.exports = {
   name: 'create-library',
   description: 'creates a React Native library module for one or more platforms',
   usage: '[options] <name>',
   func: (args, config, options) => {
     const name = args[0];
-    const prefix = options.prefix;
-    const moduleName = options.moduleName;
-    const modulePrefix = options.modulePrefix;
-    const packageIdentifier = options.packageIdentifier;
-    const platforms = (options.platforms) ? options.platforms.split(',') : options.platforms;
-    const githubAccount = options.githubAccount;
-    const authorName = options.authorName;
-    const authorEmail = options.authorEmail;
-    const license = options.license;
-    const view = options.view;
-    const generateExample = options.generateExample;
 
     const beforeCreation = Date.now();
+
+    const platforms = (options.platforms)
+      ? options.platforms.split(',') : options.platforms;
+
+    const preNormalizedOptions = Object.assign({}, { name }, options, {
+      platforms
+    });
 
     // NOTE: There is a trick where the new normalizedOptions()
     // from normalized-options.js is applied by both command.js & lib.js.
@@ -30,20 +44,7 @@ module.exports = {
     // final log message, and that the exported programmatic
     // function can be completely tested from using the CLI.
 
-    const createOptions = normalizedOptions({
-      name,
-      prefix,
-      moduleName,
-      modulePrefix,
-      packageIdentifier,
-      platforms,
-      githubAccount,
-      authorName,
-      authorEmail,
-      license,
-      view,
-      generateExample,
-    });
+    const createOptions = normalizedOptions(preNormalizedOptions);
 
     const rootModuleName = createOptions.moduleName;
 
@@ -51,7 +52,7 @@ module.exports = {
       console.log(`
 ${emoji.get('books')}  Created library module ${rootModuleName} in \`./${rootModuleName}\`.
 ${emoji.get('clock9')}  It took ${Date.now() - beforeCreation}ms.
-${emoji.get('arrow_right')}  To get started type \`cd ./${rootModuleName}\` and run \`npm install\``);
+${postCreateInstructions(createOptions)}`);
     }).catch((err) => {
       console.error(`Error while creating library module ${rootModuleName}`);
 
@@ -99,7 +100,18 @@ ${emoji.get('arrow_right')}  To get started type \`cd ./${rootModuleName}\` and 
     command: '--view',
     description: 'Generate the module as a very simple native view component',
   }, {
+    command: '--use-cocoapods',
+    description: 'Generate a library with a sample podspec and third party pod usage example',
+  }, {
     command: '--generate-example',
     description: 'Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally',
+  }, {
+    command: '--example-name [exampleName]',
+    description: 'Name for the example project',
+    default: 'example',
+  }, {
+    command: '--example-react-native-version [exampleReactNativeVersion]',
+    description: 'React Native version for the generated example project',
+    default: 'react-native@0.59',
   }]
 };
