@@ -5,7 +5,7 @@
   "bin": "cli.js",
   "main": "lib/lib.js",
   "scripts": {
-    "check-js": "tsc --allowJs --checkJs --noEmit -m commonjs --target esnext cli.js lib/*.js lib/utils/*.js templates/*.js",
+    "check-js": "tsc --allowJs --checkJs --noEmit -m commonjs --target esnext --strict cli.js lib/*.js lib/utils/*.js templates/*.js",
     "lint": "eslint .",
     "test": "echo 'not supported' && exit 1"
   },
