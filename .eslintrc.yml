@@ -1,13 +1,6 @@
+plugins:
+  - prettierx
+
 extends:
-  - standard
-
-rules:
-  semi:
-    - error
-    - always
-
-  comma-dangle:
-    - error
-    - arrays: only-multiline
-      objects: only-multiline
-      functions: only-multiline
+  - standardize
+  - plugin:prettierx/standardize-bundle

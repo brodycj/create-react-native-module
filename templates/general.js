@@ -1,23 +1,24 @@
 /* eslint max-len: 0 */
 
-module.exports = [{
-  name: () => 'README.md',
-  content: ({ moduleName, packageIdentifier, name, namespace, platforms }) => {
-    let manualInstallation = '';
+module.exports = [
+  {
+    name: () => 'README.md',
+    content: ({ moduleName, packageIdentifier, name, namespace, platforms }) => {
+      let manualInstallation = ''
 
-    if (platforms.indexOf('ios') >= 0) {
-      manualInstallation += `
+      if (platforms.includes('ios')) {
+        manualInstallation += `
 #### iOS
 
 1. In XCode, in the project navigator, right click \`Libraries\` ➜ \`Add Files to [your project's name]\`
 2. Go to \`node_modules\` ➜ \`${moduleName}\` and add \`${name}.xcodeproj\`
 3. In XCode, in the project navigator, select your project. Add \`lib${name}.a\` to your project's \`Build Phases\` ➜ \`Link Binary With Libraries\`
 4. Run your project (\`Cmd+R\`)<
-`;
-    }
+`
+      }
 
-    if (platforms.indexOf('android') >= 0) {
-      manualInstallation += `
+      if (platforms.includes('android')) {
+        manualInstallation += `
 #### Android
 
 1. Open up \`android/app/src/main/java/[...]/MainApplication.java\`
@@ -32,11 +33,11 @@ module.exports = [{
   	\`\`\`
       compile project(':${moduleName}')
   	\`\`\`
-`;
-    }
+`
+      }
 
-    if (platforms.indexOf('windows') >= 0) {
-      manualInstallation += `
+      if (platforms.includes('windows')) {
+        manualInstallation += `
 #### Windows
 [Read it! :D](https://github.com/ReactWindows/react-native)
 
@@ -44,10 +45,10 @@ module.exports = [{
 2. Open up your \`MainPage.cs\` app
   - Add \`using ${namespace}.${name};\` to the usings at the top of the file
   - Add \`new ${name}Package()\` to the \`List<IReactPackage>\` returned by the \`Packages\` method
-`;
-    }
+`
+      }
 
-    return `# ${moduleName}
+      return `# ${moduleName}
 
 ## Getting started
 
@@ -68,36 +69,49 @@ import ${name} from '${moduleName}';
 // TODO: What to do with the module?
 ${name};
 \`\`\`
-`;
+`
+    },
   },
-}, {
-  name: () => 'package.json',
-  content: ({ moduleName, platforms, githubAccount, authorName, authorEmail, license }) => {
-    const withWindows = platforms.indexOf('windows') >= 0;
+  {
+    name: () => 'package.json',
+    content: ({
+      moduleName,
+      platforms,
+      githubAccount,
+      authorName,
+      authorEmail,
+      license,
+    }) => {
+      const withWindows = platforms.includes('windows')
 
-    const peerDependencies =
-      `{
+      const peerDependencies =
+        `{
     "react": "^16.5.0",
     "react-native": ">=0.57.0-rc.0 <1.0.x"` +
-      (withWindows
-        ? `,
+        (withWindows
+          ? `,
     "react-native-windows": ">=0.57.0-rc.0 <1.0.x"`
-        : ``) + `
-  }`;
+          : ``) +
+        `
+  }`
 
-    const devDependencies =
-      `{
+      const devDependencies =
+        `{
     "react": "^16.5.0",
     "react-native": "^0.59.4"` +
         (withWindows
           ? `,
     "react-native-windows": "^0.57.1"`
-          : ``) + `
-  }`;
+          : ``) +
+        `
+  }`
 
-    return `{
+      return `{
   "name": "${moduleName}",
-  "title": "${moduleName.split('-').map(word => word[0].toUpperCase() + word.substr(1)).join(' ')}",
+  "title": "${moduleName
+    .split('-')
+    .map(word => word[0].toUpperCase() + word.substr(1))
+    .join(' ')}",
   "version": "1.0.0",
   "description": "TODO",
   "main": "index.js",
@@ -122,32 +136,35 @@ ${name};
   "peerDependencies": ${peerDependencies},
   "devDependencies": ${devDependencies}
 }
-`;
+`
+    },
   },
-}, {
-  // for module without view:
-  name: ({ view }) => !view && 'index.js',
-  content: ({ name }) =>
-    `import { NativeModules } from 'react-native';
+  {
+    // for module without view:
+    name: ({ view }) => !view && 'index.js',
+    content: ({ name }) =>
+      `import { NativeModules } from 'react-native';
 
 const { ${name} } = NativeModules;
 
 export default ${name};
 `,
-}, {
-  // for module with view:
-  name: ({ view }) => view && 'index.js',
-  content: ({ name }) =>
-    `import { requireNativeComponent } from 'react-native';
+  },
+  {
+    // for module with view:
+    name: ({ view }) => view && 'index.js',
+    content: ({ name }) =>
+      `import { requireNativeComponent } from 'react-native';
 
 const ${name} = requireNativeComponent('${name}', null);
 
 export default ${name};
 `,
-}, {
-  name: () => '.gitignore',
-  content: ({ platforms }) => {
-    let content = `# OSX
+  },
+  {
+    name: () => '.gitignore',
+    content: ({ platforms }) => {
+      let content = `# OSX
 #
 .DS_Store
 
@@ -156,11 +173,10 @@ export default ${name};
 node_modules/
 npm-debug.log
 yarn-error.log
-`;
+`
 
-    if (platforms.indexOf('ios') >= 0) {
-      content +=
-        `
+      if (platforms.includes('ios')) {
+        content += `
 # Xcode
 #
 build/
@@ -180,12 +196,11 @@ DerivedData
 *.ipa
 *.xcuserstate
 project.xcworkspace
-`;
-    }
+`
+      }
 
-    if (platforms.indexOf('android') >= 0) {
-      content +=
-        `
+      if (platforms.includes('android')) {
+        content += `
 # Android/IntelliJ
 #
 build/
@@ -198,27 +213,30 @@ local.properties
 buck-out/
 \\.buckd/
 *.keystore
-`;
-    }
+`
+      }
 
-    return content;
+      return content
+    },
   },
-}, {
-  name: () => '.gitattributes',
-  content: ({ platforms }) => {
-    if (platforms.indexOf('ios') >= 0) {
-      return '*.pbxproj -text\n';
-    }
+  {
+    name: () => '.gitattributes',
+    content: ({ platforms }) => {
+      if (platforms.includes('ios')) {
+        return '*.pbxproj -text\n'
+      }
 
-    return '';
-  }
-}, {
-  name: () => '.npmignore',
-  content: ({ generateExample, exampleName }) => {
-    if (generateExample) {
-      return `${exampleName}\n`;
-    }
+      return ''
+    },
+  },
+  {
+    name: () => '.npmignore',
+    content: ({ generateExample, exampleName }) => {
+      if (generateExample) {
+        return `${exampleName}\n`
+      }
 
-    return '';
-  }
-}];
+      return ''
+    },
+  },
+]

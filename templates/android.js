@@ -1,6 +1,7 @@
-module.exports = platform => [{
-  name: () => `${platform}/build.gradle`,
-  content: ({ packageIdentifier }) => `buildscript {
+module.exports = platform => [
+  {
+    name: () => `${platform}/build.gradle`,
+    content: ({ packageIdentifier }) => `buildscript {
     ext.safeExtGet = {prop, fallback ->
         rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
     }
@@ -126,20 +127,26 @@ afterEvaluate { project ->
     }
 }
 `,
-}, {
-  name: () => `${platform}/src/main/AndroidManifest.xml`,
-  content: ({ packageIdentifier }) => `<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  },
+  {
+    name: () => `${platform}/src/main/AndroidManifest.xml`,
+    content: ({
+      packageIdentifier,
+    }) => `<manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="${packageIdentifier}">
 
 </manifest>
 `,
-}, {
-  // for module without view:
-  name: ({ packageIdentifier, name, view }) =>
-    !view &&
-      `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${name}Module.java`,
-  content: ({ packageIdentifier, name, view }) =>
-    !view &&
+  },
+  {
+    // for module without view:
+    name: ({ packageIdentifier, name, view }) =>
+      !view &&
+      `${platform}/src/main/java/${packageIdentifier
+        .split('.')
+        .join('/')}/${name}Module.java`,
+    content: ({ packageIdentifier, name, view }) =>
+      !view &&
       `package ${packageIdentifier};
 
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -168,13 +175,16 @@ public class ${name}Module extends ReactContextBaseJavaModule {
     }
 }
 `,
-}, {
-  // manager for view:
-  name: ({ packageIdentifier, name, view }) =>
-    view &&
-      `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${name}Manager.java`,
-  content: ({ packageIdentifier, name, view }) =>
-    view &&
+  },
+  {
+    // manager for view:
+    name: ({ packageIdentifier, name, view }) =>
+      view &&
+      `${platform}/src/main/java/${packageIdentifier
+        .split('.')
+        .join('/')}/${name}Manager.java`,
+    content: ({ packageIdentifier, name, view }) =>
+      view &&
       `package ${packageIdentifier};
 
 import android.view.View;
@@ -202,13 +212,16 @@ public class ${name}Manager extends SimpleViewManager<View> {
     }
 }
 `,
-}, {
-  // package for module without view:
-  name: ({ packageIdentifier, name, view }) =>
-    !view &&
-      `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${name}Package.java`,
-  content: ({ packageIdentifier, name, view }) =>
-    !view &&
+  },
+  {
+    // package for module without view:
+    name: ({ packageIdentifier, name, view }) =>
+      !view &&
+      `${platform}/src/main/java/${packageIdentifier
+        .split('.')
+        .join('/')}/${name}Package.java`,
+    content: ({ packageIdentifier, name, view }) =>
+      !view &&
       `package ${packageIdentifier};
 
 import java.util.Arrays;
@@ -233,13 +246,16 @@ public class ${name}Package implements ReactPackage {
     }
 }
 `,
-}, {
-  // package for manager for view:
-  name: ({ packageIdentifier, name, view }) =>
-    view &&
-      `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${name}Package.java`,
-  content: ({ packageIdentifier, name, view }) =>
-    view &&
+  },
+  {
+    // package for manager for view:
+    name: ({ packageIdentifier, name, view }) =>
+      view &&
+      `${platform}/src/main/java/${packageIdentifier
+        .split('.')
+        .join('/')}/${name}Package.java`,
+    content: ({ packageIdentifier, name, view }) =>
+      view &&
       `package ${packageIdentifier};
 
 import java.util.Arrays;
@@ -264,10 +280,11 @@ public class ${name}Package implements ReactPackage {
     }
 }
 `,
-}, {
-}, {
-  name: () => `${platform}/README.md`,
-  content: () => `README
+  },
+  {},
+  {
+    name: () => `${platform}/README.md`,
+    content: () => `README
 ======
 
 If you want to publish the lib as a maven dependency, follow these steps before publishing a new version to npm:
@@ -281,5 +298,6 @@ sdk.dir=/Users/{username}/Library/Android/sdk
 3. Delete the \`maven\` folder
 4. Run \`sudo ./gradlew installArchives\`
 5. Verify that latest set of generated files is in the maven folder with the correct version number
-`
-}];
+`,
+  },
+]
