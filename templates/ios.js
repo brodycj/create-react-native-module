@@ -1,8 +1,15 @@
 /* eslint max-len: 0 */
 
-module.exports = platform => [{
-  name: ({ moduleName }) => `${moduleName}.podspec`,
-  content: ({ moduleName, githubAccount, authorName, authorEmail, useCocoapods }) => `require "json"
+module.exports = platform => [
+  {
+    name: ({ moduleName }) => `${moduleName}.podspec`,
+    content: ({
+      moduleName,
+      githubAccount,
+      authorName,
+      authorEmail,
+      useCocoapods,
+    }) => `require "json"
 
 package = JSON.parse(File.read(File.join(__dir__, "package.json")))
 
@@ -29,22 +36,28 @@ Pod::Spec.new do |s|
 end
 
 `,
-}, {
-  // header for module without view:
-  name: ({ name, view }) => !view && `${platform}/${name}.h`,
-  content: ({ name }) => `#import <React/RCTBridgeModule.h>
+  },
+  {
+    // header for module without view:
+    name: ({ name, view }) => !view && `${platform}/${name}.h`,
+    content: ({ name }) => `#import <React/RCTBridgeModule.h>
 
 @interface ${name} : NSObject <RCTBridgeModule>
 
 @end
 `,
-}, {
-  // implementation of module without view:
-  name: ({ name, view }) => !view && `${platform}/${name}.m`,
-  content: ({ name, useCocoapods }) => `#import "${name}.h"
+  },
+  {
+    // implementation of module without view:
+    name: ({ name, view }) => !view && `${platform}/${name}.m`,
+    content: ({ name, useCocoapods }) => `#import "${name}.h"
 
-${useCocoapods ? `#import <AFNetworking/AFNetworking.h>
-` : ``}
+${
+  useCocoapods
+    ? `#import <AFNetworking/AFNetworking.h>
+`
+    : ``
+}
 @implementation ${name}
 
 RCT_EXPORT_MODULE()
@@ -52,32 +65,36 @@ RCT_EXPORT_MODULE()
 RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnull NSNumber *)numberArgument callback:(RCTResponseSenderBlock)callback)
 {
     // TODO: Implement some actually useful functionality
-	${useCocoapods
-    ? `AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+	${
+    useCocoapods
+      ? `AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
 	manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
 	[manager GET:@"https://httpstat.us/200" parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
 			callback(@[[NSString stringWithFormat: @"numberArgument: %@ stringArgument: %@ resp: %@", numberArgument, stringArgument, responseObject]]);
 	} failure:^(NSURLSessionTask *operation, NSError *error) {
 			callback(@[[NSString stringWithFormat: @"numberArgument: %@ stringArgument: %@ err: %@", numberArgument, stringArgument, error]]);
 	}];`
-    : `callback(@[[NSString stringWithFormat: @"numberArgument: %@ stringArgument: %@", numberArgument, stringArgument]]);`}
+      : `callback(@[[NSString stringWithFormat: @"numberArgument: %@ stringArgument: %@", numberArgument, stringArgument]]);`
+  }
 }
 
 @end
 `,
-}, {
-  // header for module with view:
-  name: ({ name, view }) => view && `${platform}/${name}.h`,
-  content: ({ name }) => `#import <React/RCTViewManager.h>
+  },
+  {
+    // header for module with view:
+    name: ({ name, view }) => view && `${platform}/${name}.h`,
+    content: ({ name }) => `#import <React/RCTViewManager.h>
 
 @interface ${name} : RCTViewManager
 
 @end
 `,
-}, {
-  // implementation of module with view:
-  name: ({ name, view }) => view && `${platform}/${name}.m`,
-  content: ({ name }) => `#import "${name}.h"
+  },
+  {
+    // implementation of module with view:
+    name: ({ name, view }) => view && `${platform}/${name}.m`,
+    content: ({ name }) => `#import "${name}.h"
 
 @implementation ${name}
 
@@ -97,9 +114,10 @@ RCT_EXPORT_MODULE()
 
 @end
 `,
-}, {
-  name: ({ name }) => `${platform}/${name}.xcworkspace/contents.xcworkspacedata`,
-  content: ({ name }) => `<?xml version="1.0" encoding="UTF-8"?>
+  },
+  {
+    name: ({ name }) => `${platform}/${name}.xcworkspace/contents.xcworkspacedata`,
+    content: ({ name }) => `<?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
    <FileRef
@@ -107,9 +125,10 @@ RCT_EXPORT_MODULE()
    </FileRef>
 </Workspace>
 `,
-}, {
-  name: ({ name }) => `${platform}/${name}.xcodeproj/project.pbxproj`,
-  content: ({ name }) => `// !$*UTF8*$!
+  },
+  {
+    name: ({ name }) => `${platform}/${name}.xcodeproj/project.pbxproj`,
+    content: ({ name }) => `// !$*UTF8*$!
 {
 	archiveVersion = 1;
 	classes = {
@@ -381,4 +400,5 @@ RCT_EXPORT_MODULE()
 	rootObject = 58B511D31A9E6C8500147676 /* Project object */;
 }
 `,
-}];
+  },
+]
