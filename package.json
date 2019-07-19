@@ -26,6 +26,7 @@
     "windows"
   ],
   "files": [
+    "cli.js",
     "lib",
     "templates",
     "README.md"
