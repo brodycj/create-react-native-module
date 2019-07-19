@@ -22,6 +22,15 @@ This tool based on [`react-native-create-library`](https://www.npmjs.com/package
 
 **LICENSE:** MIT
 
+### General status
+
+- **React Native versions supported:** 0.59 recommended, 0.58 (deprecated, see [issue #42](https://github.com/brodybits/create-react-native-module/issues/42)), 0.57 (deprecated, see [issue #42](https://github.com/brodybits/create-react-native-module/issues/42))
+- Known issues on React Native 0.60:
+  - [issue #28](https://github.com/brodybits/create-react-native-module/issues/28) - does not work with RN 0.60 on iOS
+  - [issue #29](https://github.com/brodybits/create-react-native-module/issues/29) - View does not work with RN 0.60 on Android
+- Windows support is likely to be removed (see [issue #43](https://github.com/brodybits/create-react-native-module/issues/43))
+- Node.js pre-10 support is deprecated and will be removed in the near future (see issues [#37](https://github.com/brodybits/create-react-native-module/issues/37) & [#38](https://github.com/brodybits/create-react-native-module/issues/38))
+
 ### Why might you need this?
 
 If you are looking to create a native module for React Native, you need some native code for each platform you want to support and then some JavaScript code to bind it all together. Setting this up by yourself can be time-consuming.
