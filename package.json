@@ -41,7 +41,6 @@
     "commander": "^2.20.0",
     "fs-extra": "^8.1.0",
     "jsonfile": "^5.0.0",
-    "mkdirp": "^0.5.1",
     "node-emoji": "^1.10.0",
     "param-case": "^2.1.1",
     "pascal-case": "^2.0.1",
