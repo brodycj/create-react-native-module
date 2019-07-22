@@ -6,7 +6,7 @@
   "main": "lib/lib.js",
   "scripts": {
     "lint": "eslint .",
-    "test": "echo 'not supported' && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -52,6 +52,7 @@
     "eslint-plugin-import": "^2.18.0",
     "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.0"
+    "eslint-plugin-standard": "^4.0.0",
+    "jest": "^24.8.0"
   }
 }
