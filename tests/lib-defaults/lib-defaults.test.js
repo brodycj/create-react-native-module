@@ -19,10 +19,5 @@ test('create alice-bobbi module with defaults', () => {
     myfs: mockfs(mysnap),
   };
 
-  // FUTURE TBD CORRECT BEHAVIOR:
-  // return lib(options).then(() => { expect(mysnap).toMatchSnapshot() });
-  // TBD ACTUAL EXPECTED RESULT DUE TO KNOWN ISSUE in lib.js:
-  expect(() => {
-    lib(options)
-  }).toThrow();
+  return lib(options).then(() => { expect(mysnap).toMatchSnapshot() });
 });
