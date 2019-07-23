@@ -131,6 +131,7 @@ createLibraryModule({
   exampleName: String, /* Name for the example project (Default: `example`) */
   exampleReactNativeVersion: String, /* React Native version for the generated example project (Default: `react-native@0.59`) */
   fs: Object, /* Mockable `fs` object that should provide `ensureDir` and `outputFile` promise methods acdording to the `fs-extra` package API (Default: `require('fs-extra')`) */
+  execa: Object, /* Mockable `execa` object that should provide a `commandSync` method that is equivalent to `require('child_process').execSync` or `require('execa').commandSync` (Default: `{ commandSync: require('child_process').execSync }`
 }
 ```
 
