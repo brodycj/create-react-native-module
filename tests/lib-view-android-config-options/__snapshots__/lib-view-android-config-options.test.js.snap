@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`create alice-bobbi module with options for Android only 1`] = `
+exports[`create alice-bobbi view module with config options for Android only 1`] = `
 Array [
   "* ensureDir dir: react-native-alice-bobbi
 ",
@@ -110,9 +110,9 @@ content:
   "* outputFile name: react-native-alice-bobbi/index.js
 content:
 --------
-import { NativeModules } from 'react-native';
+import { requireNativeComponent } from 'react-native';
 
-const { AliceBobbi } = NativeModules;
+const AliceBobbi = requireNativeComponent('AliceBobbi', null);
 
 export default AliceBobbi;
 
@@ -299,34 +299,33 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiModule.java
+  "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiManager.java
 content:
 --------
 package com.reactlibrary;
 
-import com.facebook.react.bridge.ReactApplicationContext;
-import com.facebook.react.bridge.ReactContextBaseJavaModule;
-import com.facebook.react.bridge.ReactMethod;
-import com.facebook.react.bridge.Callback;
+import android.view.View;
 
-public class AliceBobbiModule extends ReactContextBaseJavaModule {
+import android.support.v7.widget.AppCompatCheckBox;
 
-    private final ReactApplicationContext reactContext;
+import com.facebook.react.uimanager.SimpleViewManager;
+import com.facebook.react.uimanager.ThemedReactContext;
 
-    public AliceBobbiModule(ReactApplicationContext reactContext) {
-        super(reactContext);
-        this.reactContext = reactContext;
-    }
+public class AliceBobbiManager extends SimpleViewManager<View> {
+
+    public static final String REACT_CLASS = \\"AliceBobbi\\";
 
     @Override
     public String getName() {
-        return \\"AliceBobbi\\";
+        return REACT_CLASS;
     }
 
-    @ReactMethod
-    public void sampleMethod(String stringArgument, int numberArgument, Callback callback) {
+    @Override
+    public View createViewInstance(ThemedReactContext c) {
         // TODO: Implement some actually useful functionality
-        callback.invoke(\\"Received numberArgument: \\" + numberArgument + \\" stringArgument: \\" + stringArgument);
+        AppCompatCheckBox cb = new AppCompatCheckBox(c);
+        cb.setChecked(true);
+        return cb;
     }
 }
 
@@ -350,12 +349,12 @@ import com.facebook.react.bridge.JavaScriptModule;
 public class AliceBobbiPackage implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-        return Arrays.<NativeModule>asList(new AliceBobbiModule(reactContext));
+        return Collections.emptyList();
     }
 
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
-        return Collections.emptyList();
+        return Arrays.<ViewManager>asList(new AliceBobbiManager());
     }
 }
 

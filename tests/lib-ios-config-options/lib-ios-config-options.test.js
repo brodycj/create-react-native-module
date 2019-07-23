@@ -2,13 +2,13 @@ const lib = require('../../lib/lib.js');
 
 const ioMocks = require('../helpers/io-mocks.js');
 
-test('create alice-bobbi module with options for Android only', () => {
+test('create alice-bobbi module with config options for iOS only', () => {
   const mysnap = [];
 
   const mocks = ioMocks(mysnap);
 
   const options = {
-    platforms: ['android'],
+    platforms: ['ios'],
     name: 'alice-bobbi',
     githubAccount: 'alicebits',
     authorName: 'Alice',

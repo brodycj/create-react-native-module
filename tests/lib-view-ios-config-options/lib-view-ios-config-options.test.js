@@ -2,7 +2,7 @@ const lib = require('../../lib/lib.js');
 
 const ioMocks = require('../helpers/io-mocks.js');
 
-test('create alice-bobbi module with options for iOS only', () => {
+test('create alice-bobbi view module with config options for iOS only', () => {
   const mysnap = [];
 
   const mocks = ioMocks(mysnap);
@@ -14,6 +14,7 @@ test('create alice-bobbi module with options for iOS only', () => {
     authorName: 'Alice',
     authorEmail: 'contact@alice.me',
     license: 'ISC',
+    view: true,
     fs: mocks.fs,
   };
 
