@@ -90,7 +90,7 @@ Options:
   --github-account <githubAccount>          The github account where the library module is hosted (Default: `github_account`)
   --author-name <authorName>                The author's name (Default: `Your Name`)
   --author-email <authorEmail>              The author's email (Default: `yourname@email.com`)
-  --license <license>                       The license type (Default: `Apache-2.0`)
+  --license <license>                       The license type (Default: `MIT`)
   --view                                    Generate the module as a very simple native view component
   --use-cocoapods                           Generate a library with a sample podspec and third party pod usage example
   --generate-example                        Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally
@@ -124,7 +124,7 @@ createLibraryModule({
   githubAccount: String, /* The github account where the library is hosted (Default: `github_account`) */
   authorName: String, /* The author's name (Default: `Your Name`) */
   authorEmail: String, /* The author's email (Default: `yourname@email.com`) */
-  license: String, /* The license type of this library (Default: `Apache-2.0`) */
+  license: String, /* The license type of this library (Default: `MIT`) */
   useCocoapods: Boolean, /* Generate a library with a sample podspec and third party pod usage example (Default: false) */
   view: Boolean, /* Generate the module as a very simple native view component (Default: false) */
   generateExample: Boolean, /* Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally (Default: false) */
