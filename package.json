@@ -6,7 +6,7 @@
   "main": "lib/lib.js",
   "scripts": {
     "lint": "eslint .",
-    "test": "echo 'not supported' && exit 1"
+    "test": "npm run lint && echo 'WARNING: missing tests'"
   },
   "repository": {
     "type": "git",
