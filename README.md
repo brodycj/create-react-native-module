@@ -24,12 +24,14 @@ This tool based on [`react-native-create-library`](https://www.npmjs.com/package
 
 ### General status
 
-- **React Native versions supported:** 0.59 recommended, 0.58 (deprecated, see [issue #42](https://github.com/brodybits/create-react-native-module/issues/42)), 0.57 (deprecated, see [issue #42](https://github.com/brodybits/create-react-native-module/issues/42))
-- Known issues on React Native 0.60:
-  - [issue #28](https://github.com/brodybits/create-react-native-module/issues/28) - does not work with RN 0.60 on iOS
-  - [issue #29](https://github.com/brodybits/create-react-native-module/issues/29) - View does not work with RN 0.60 on Android
+- **React Native versions supported:**
+  - recommended: 0.60 (see known quirks and issues below), 0.59
+  - deprecated: 0.58, 0.57 (see [issue #42](https://github.com/brodybits/create-react-native-module/issues/42))
+- Known quirks & issues on React Native 0.60:
+  - [issue #28](https://github.com/brodybits/create-react-native-module/issues/28) - additional `pod install` step needed for RN 0.60 on iOS
+  - [issue #29](https://github.com/brodybits/create-react-native-module/issues/29) - View does not work with RN 0.60 on Android (quick patch needed)
 - Windows support is likely to be removed (see [issue #43](https://github.com/brodybits/create-react-native-module/issues/43))
-- Node.js pre-10 support is deprecated and will be removed in the near future (see issues [#37](https://github.com/brodybits/create-react-native-module/issues/37) & [#38](https://github.com/brodybits/create-react-native-module/issues/38))
+- Node.js pre-10 support is deprecated and will be removed in the near future (see issue [#38](https://github.com/brodybits/create-react-native-module/issues/38))
 
 ### Why might you need this?
 
@@ -45,7 +47,7 @@ Why not use `react-native new-library`? Unfortunately that command doesn't creat
 
 ## Installation
 
-Requirements: Node 6.0+
+Requirements: Node 8.0+
 
 Packages required to be installed globally if the recommended example app is generated:
 
@@ -90,7 +92,7 @@ Options:
   --github-account <githubAccount>          The github account where the library module is hosted (Default: `github_account`)
   --author-name <authorName>                The author's name (Default: `Your Name`)
   --author-email <authorEmail>              The author's email (Default: `yourname@email.com`)
-  --license <license>                       The license type (Default: `Apache-2.0`)
+  --license <license>                       The license type (Default: `MIT`)
   --view                                    Generate the module as a very simple native view component
   --use-cocoapods                           Generate a library with a sample podspec and third party pod usage example
   --generate-example                        Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally
@@ -124,12 +126,15 @@ createLibraryModule({
   githubAccount: String, /* The github account where the library is hosted (Default: `github_account`) */
   authorName: String, /* The author's name (Default: `Your Name`) */
   authorEmail: String, /* The author's email (Default: `yourname@email.com`) */
-  license: String, /* The license type of this library (Default: `Apache-2.0`) */
+  license: String, /* The license type of this library (Default: `MIT`) */
   useCocoapods: Boolean, /* Generate a library with a sample podspec and third party pod usage example (Default: false) */
   view: Boolean, /* Generate the module as a very simple native view component (Default: false) */
   generateExample: Boolean, /* Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally (Default: false) */
   exampleName: String, /* Name for the example project (Default: `example`) */
   exampleReactNativeVersion: String, /* React Native version for the generated example project (Default: `react-native@0.59`) */
+  fs: Object, /* Mockable `fs` object that should provide `ensureDir` and `outputFile` promise methods acdording to the `fs-extra` package API (Default: `require('fs-extra')`) */
+  execa: Object, /* Mockable `execa` object that should provide a `commandSync` method that is equivalent to `require('child_process').execSync` or `require('execa').commandSync` (Default: `{ commandSync: require('child_process').execSync }`
+  jsonfile: Object, /* Mockable `jsonfile` object that should provide synchronous `readFileSync` and `writeFileSync` methods acdording to the `jsonfile` package API (Default: `require('jsonfile')`) */
 }
 ```
 

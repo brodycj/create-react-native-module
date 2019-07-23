@@ -1,12 +1,13 @@
 {
   "name": "create-react-native-module",
-  "version": "0.6.2-dev",
+  "version": "0.7.0-dev",
   "description": "Tool to create a React Native library module or view module with a single command",
   "bin": "cli.js",
   "main": "lib/lib.js",
   "scripts": {
+    "jest": "jest",
     "lint": "eslint .",
-    "test": "echo 'not supported' && exit 1"
+    "test": "npm run lint && npm run jest"
   },
   "repository": {
     "type": "git",
@@ -39,8 +40,8 @@
   "homepage": "https://github.com/brodybits/create-react-native-module#readme",
   "dependencies": {
     "commander": "^2.20.0",
+    "fs-extra": "^8.1.0",
     "jsonfile": "^5.0.0",
-    "mkdirp": "^0.5.1",
     "node-emoji": "^1.10.0",
     "param-case": "^2.1.1",
     "pascal-case": "^2.0.1",
@@ -53,6 +54,7 @@
     "eslint-plugin-import": "^2.18.1",
     "eslint-plugin-node": "^9.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.0"
+    "eslint-plugin-standard": "^4.0.0",
+    "jest": "^24.8.0"
   }
 }
