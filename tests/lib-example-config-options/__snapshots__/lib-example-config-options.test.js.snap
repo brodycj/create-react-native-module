@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`create alice-bobbi module with defaults 1`] = `
+exports[`create alice-bobbi module with example, with config options 1`] = `
 Array [
   "* execa.commandSync command: react-native --version options: {\\"stdio\\":\\"inherit\\"}
 ",
@@ -103,17 +103,17 @@ content:
   },
   \\"repository\\": {
     \\"type\\": \\"git\\",
-    \\"url\\": \\"git+https://github.com/github_account/react-native-alice-bobbi.git\\",
-    \\"baseUrl\\": \\"https://github.com/github_account/react-native-alice-bobbi\\"
+    \\"url\\": \\"git+https://github.com/alicebits/react-native-alice-bobbi.git\\",
+    \\"baseUrl\\": \\"https://github.com/alicebits/react-native-alice-bobbi\\"
   },
   \\"keywords\\": [
     \\"react-native\\"
   ],
   \\"author\\": {
-    \\"name\\": \\"Your Name\\",
-    \\"email\\": \\"yourname@email.com\\"
+    \\"name\\": \\"Alice\\",
+    \\"email\\": \\"contact@alice.me\\"
   },
-  \\"license\\": \\"MIT\\",
+  \\"license\\": \\"ISC\\",
   \\"licenseFilename\\": \\"LICENSE\\",
   \\"readmeFilename\\": \\"README.md\\",
   \\"peerDependencies\\": {
@@ -438,12 +438,12 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                   react-native-alice-bobbi
                    DESC
-  s.homepage     = \\"https://github.com/github_account/react-native-alice-bobbi\\"
+  s.homepage     = \\"https://github.com/alicebits/react-native-alice-bobbi\\"
   s.license      = \\"MIT\\"
   # s.license    = { :type => \\"MIT\\", :file => \\"FILE_LICENSE\\" }
-  s.authors      = { \\"Your Name\\" => \\"yourname@email.com\\" }
+  s.authors      = { \\"Alice\\" => \\"contact@alice.me\\" }
   s.platform     = :ios, \\"7.0\\"
-  s.source       = { :git => \\"https://github.com/github_account/react-native-alice-bobbi.git\\", :tag => \\"#{s.version}\\" }
+  s.source       = { :git => \\"https://github.com/alicebits/react-native-alice-bobbi.git\\", :tag => \\"#{s.version}\\" }
 
   s.source_files = \\"ios/**/*.{h,m,swift}\\"
   s.requires_arc = true
