@@ -16,7 +16,7 @@ Tool to create a React Native library module or native view component, with a si
 
 See below for command-line usage, example with no view, and example with an extremely simple native view.
 
-This tool based on [`react-native-create-library`](https://www.npmjs.com/package/react-native-create-library), with working example callbacks, optional native view, and some other updates added by [@brodybits (Christoper J. Brody aka Chris Brody)](https://github.com/brodybits).
+This tool based on [`react-native-create-library`](https://www.npmjs.com/package/react-native-create-library), with working example callbacks, optional native view, and more updates added by [@brodybits (Christoper J. Brody aka Chris Brody)](https://github.com/brodybits) and other [contributors](https://github.com/brodybits/create-react-native-module/graphs/contributors).
 
 <!-- FUTURE TODO: QUICK USAGE SECTION HERE -->
 
@@ -27,11 +27,11 @@ This tool based on [`react-native-create-library`](https://www.npmjs.com/package
 - **React Native versions supported:**
   - recommended: 0.60 (see known quirks and issues below), 0.59
   - deprecated: 0.58, 0.57 (see [issue #42](https://github.com/brodybits/create-react-native-module/issues/42))
-- Known quirks & issues on React Native 0.60:
+- Known quirks & issues on React Native 0.60(+):
   - [issue #28](https://github.com/brodybits/create-react-native-module/issues/28) - additional `pod install` step needed for RN 0.60 on iOS
   - [issue #29](https://github.com/brodybits/create-react-native-module/issues/29) - View does not work with RN 0.60 on Android (quick patch needed)
 - Windows support is likely to be removed (see [issue #43](https://github.com/brodybits/create-react-native-module/issues/43))
-- Node.js pre-10 support is deprecated and will be removed in the near future (see issue [#38](https://github.com/brodybits/create-react-native-module/issues/38))
+- Node.js pre-10 support is deprecated and will be removed in the near future (see [issue #38](https://github.com/brodybits/create-react-native-module/issues/38))
 
 ### Why might you need this?
 
@@ -184,7 +184,15 @@ This assumes that the `ANDROID_HOME` environmental variable is set properly. Her
 ANDROID_HOME=~/Library/Android/sdk react-native run-android
 ```
 
-To run on iOS:
+For iOS:
+
+Extra installation step needed on React Native 0.60(+) (see [issue #28](https://github.com/brodybits/create-react-native-module/issues/28)):
+
+```
+cd ios && pod install && cd ..
+```
+
+Then to run on iOS:
 
 ```
 react-native run-ios
@@ -213,6 +221,8 @@ create-react-native-module --prefix CB --package-identifier io.mylibrary --view 
 
 The module would be generated in the `react-native-carol-widget` subdirectory, and the example test app would be in `react-native-carol-widget/example`.
 
+Note that this needs an adaptation to work on Android on React Native 0.60(+) (see [issue #29](https://github.com/brodybits/create-react-native-module/issues/29)).
+
 Then go into the example app subdirectory:
 
 ```
@@ -227,9 +237,9 @@ It is *recommended* to start the Metro Bundler manually as described above (with
 npm start
 ```
 
-To run on Android, do `react-native run-android` as described for the other example above.
+To run on Android: do `react-native run-android` as described for the other example above.
 
-To run on iOS, do `react-native run-ios` or `open ios/example.xcodeproj` as described for the other example above.
+To run on iOS: do `pod install` in `ios` subdirectory for React Native 0.60(+) (see above), then do `react-native run-ios` or `open ios/example.xcodeproj` as described for the other example above.
 
 __Expected result:__
 
