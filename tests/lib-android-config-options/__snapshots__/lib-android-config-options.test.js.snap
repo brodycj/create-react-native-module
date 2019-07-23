@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`create alice-bobbi module with options for Android only 1`] = `
+exports[`create alice-bobbi module with config options for Android only 1`] = `
 Array [
   "* ensureDir dir: react-native-alice-bobbi
 ",
