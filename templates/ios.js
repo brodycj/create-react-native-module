@@ -381,4 +381,4 @@ RCT_EXPORT_MODULE()
 	rootObject = 58B511D31A9E6C8500147676 /* Project object */;
 }
 `,
-}];
+}]

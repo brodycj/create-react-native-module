@@ -1,5 +1,5 @@
 /* eslint max-len: 0 */
-const uuid = require('uuid').v1().toUpperCase();
+const uuid = require('uuid').v1().toUpperCase()
 
 module.exports = platform => [{
   name: ({ name }) => `${platform}/${name}.sln`,
@@ -524,4 +524,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 [assembly: ComVisible(false)]
   `,
-}];
+}]

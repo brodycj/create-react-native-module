@@ -228,4 +228,4 @@ const styles = StyleSheet.create({
   },
 });
 `
-}];
+}]
