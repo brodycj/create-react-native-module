@@ -1,11 +1,11 @@
-const lib = require('../../lib/lib.js');
+const lib = require('../../lib/lib.js')
 
-const ioMocks = require('../helpers/io-mocks.js');
+const ioMocks = require('../helpers/io-mocks.js')
 
 test('create alice-bobbi module with config options for iOS only', () => {
-  const mysnap = [];
+  const mysnap = []
 
-  const mocks = ioMocks(mysnap);
+  const mocks = ioMocks(mysnap)
 
   const options = {
     platforms: ['ios'],
@@ -15,8 +15,8 @@ test('create alice-bobbi module with config options for iOS only', () => {
     authorEmail: 'contact@alice.me',
     license: 'ISC',
     fs: mocks.fs,
-  };
+  }
 
   return lib(options)
-    .then(() => { expect(mysnap).toMatchSnapshot(); });
-});
+    .then(() => { expect(mysnap).toMatchSnapshot() })
+})

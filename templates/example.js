@@ -226,4 +226,4 @@ const styles = StyleSheet.create({
   },
 });
 `
-}];
+}]

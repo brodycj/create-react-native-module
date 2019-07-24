@@ -1,7 +1,7 @@
 module.exports = [{
   name: () => 'README.md',
   content: ({ moduleName, packageIdentifier, name, namespace, platforms }) => {
-    let manualInstallation = '';
+    let manualInstallation = ''
 
     if (platforms.indexOf('ios') >= 0) {
       manualInstallation += `
@@ -11,7 +11,7 @@ module.exports = [{
 2. Go to \`node_modules\` ➜ \`${moduleName}\` and add \`${name}.xcodeproj\`
 3. In XCode, in the project navigator, select your project. Add \`lib${name}.a\` to your project's \`Build Phases\` ➜ \`Link Binary With Libraries\`
 4. Run your project (\`Cmd+R\`)<
-`;
+`
     }
 
     if (platforms.indexOf('android') >= 0) {
@@ -30,7 +30,7 @@ module.exports = [{
   	\`\`\`
       compile project(':${moduleName}')
   	\`\`\`
-`;
+`
     }
 
     if (platforms.indexOf('windows') >= 0) {
@@ -42,7 +42,7 @@ module.exports = [{
 2. Open up your \`MainPage.cs\` app
   - Add \`using ${namespace}.${name};\` to the usings at the top of the file
   - Add \`new ${name}Package()\` to the \`List<IReactPackage>\` returned by the \`Packages\` method
-`;
+`
     }
 
     return `# ${moduleName}
@@ -66,12 +66,12 @@ import ${name} from '${moduleName}';
 // TODO: What to do with the module?
 ${name};
 \`\`\`
-`;
+`
   },
 }, {
   name: () => 'package.json',
   content: ({ moduleName, platforms, githubAccount, authorName, authorEmail, license }) => {
-    const withWindows = platforms.indexOf('windows') >= 0;
+    const withWindows = platforms.indexOf('windows') >= 0
 
     const peerDependencies =
       `{
@@ -81,7 +81,7 @@ ${name};
         ? `,
     "react-native-windows": ">=0.57.0-rc.0 <1.0.x"`
         : ``) + `
-  }`;
+  }`
 
     const devDependencies =
       `{
@@ -91,7 +91,7 @@ ${name};
           ? `,
     "react-native-windows": "^0.57.1"`
           : ``) + `
-  }`;
+  }`
 
     return `{
   "name": "${moduleName}",
@@ -120,7 +120,7 @@ ${name};
   "peerDependencies": ${peerDependencies},
   "devDependencies": ${devDependencies}
 }
-`;
+`
   },
 }, {
   // for module without view:
@@ -154,7 +154,7 @@ export default ${name};
 node_modules/
 npm-debug.log
 yarn-error.log
-`;
+`
 
     if (platforms.indexOf('ios') >= 0) {
       content +=
@@ -178,7 +178,7 @@ DerivedData
 *.ipa
 *.xcuserstate
 project.xcworkspace
-`;
+`
     }
 
     if (platforms.indexOf('android') >= 0) {
@@ -196,27 +196,27 @@ local.properties
 buck-out/
 \\.buckd/
 *.keystore
-`;
+`
     }
 
-    return content;
+    return content
   },
 }, {
   name: () => '.gitattributes',
   content: ({ platforms }) => {
     if (platforms.indexOf('ios') >= 0) {
-      return '*.pbxproj -text\n';
+      return '*.pbxproj -text\n'
     }
 
-    return '';
+    return ''
   }
 }, {
   name: () => '.npmignore',
   content: ({ generateExample, exampleName }) => {
     if (generateExample) {
-      return `${exampleName}\n`;
+      return `${exampleName}\n`
     }
 
-    return '';
+    return ''
   }
-}];
+}]
