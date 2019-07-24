@@ -282,4 +282,4 @@ sdk.dir=/Users/{username}/Library/Android/sdk
 4. Run \`sudo ./gradlew installArchives\`
 5. Verify that latest set of generated files is in the maven folder with the correct version number
 `
-}];
+}]
