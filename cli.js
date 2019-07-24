@@ -6,6 +6,8 @@ const updateNotifier = require('update-notifier')
 const command = require('./lib/cli-command')
 const pkg = require('./package.json')
 
+const commandOptions = command.options || []
+
 updateNotifier({ pkg }).notify()
 
 program
@@ -14,9 +16,9 @@ program
   .description(command.description)
   .action(function runAction () {
     command.func(arguments, {}, this.opts())
-  });
+  })
 
-(command.options || [])
+commandOptions
   .forEach(opt => program.option(
     opt.command,
     opt.description,
