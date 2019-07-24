@@ -1,4 +1,3 @@
-/* eslint max-len: 0 */
 const uuid = require('uuid').v1().toUpperCase();
 
 module.exports = platform => [{

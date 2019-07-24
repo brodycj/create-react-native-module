@@ -1,5 +1,3 @@
-/* eslint max-len: 0 */
-
 module.exports = [{
   name: () => 'scripts/examples_postinstall.js',
   content: ({ exampleName }) =>
