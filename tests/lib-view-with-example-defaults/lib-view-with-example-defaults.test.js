@@ -1,11 +1,11 @@
-const lib = require('../../lib/lib.js');
+const lib = require('../../lib/lib.js')
 
-const ioMocks = require('../helpers/io-mocks.js');
+const ioMocks = require('../helpers/io-mocks.js')
 
 test('create alice-bobbi view module with example, with defaults', () => {
-  const mysnap = [];
+  const mysnap = []
 
-  const mocks = ioMocks(mysnap);
+  const mocks = ioMocks(mysnap)
 
   const options = {
     name: 'alice-bobbi',
@@ -14,7 +14,7 @@ test('create alice-bobbi view module with example, with defaults', () => {
     fs: mocks.fs,
     execa: mocks.execa,
     jsonfile: mocks.jsonfile,
-  };
+  }
 
-  return lib(options).then(() => { expect(mysnap).toMatchSnapshot(); });
-});
+  return lib(options).then(() => { expect(mysnap).toMatchSnapshot() })
+})
