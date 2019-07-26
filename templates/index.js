@@ -1,5 +1,5 @@
-const android = require('./android')('android')
-const ios = require('./ios')('ios')
+const android = require('./android')
+const ios = require('./ios')
 const windows = require('./windows')('windows')
 
 const general = require('./general')

@@ -1,4 +1,8 @@
-module.exports = platform => [{
+const platform = 'android'
+
+const entries = []
+
+entries.push({
   name: () => `${platform}/build.gradle`,
   content: ({ packageIdentifier }) => `buildscript {
     ext.safeExtGet = {prop, fallback ->
@@ -126,7 +130,9 @@ afterEvaluate { project ->
     }
 }
 `,
-}, {
+})
+
+entries.push({
   name: () => `${platform}/src/main/AndroidManifest.xml`,
   content: ({ packageIdentifier }) => `<manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="${packageIdentifier}">
@@ -168,7 +174,9 @@ public class ${name}Module extends ReactContextBaseJavaModule {
     }
 }
 `,
-}, {
+})
+
+entries.push({
   // manager for view:
   name: ({ packageIdentifier, name, view }) =>
     view &&
@@ -202,7 +210,9 @@ public class ${name}Manager extends SimpleViewManager<View> {
     }
 }
 `,
-}, {
+})
+
+entries.push({
   // package for module without view:
   name: ({ packageIdentifier, name, view }) =>
     !view &&
@@ -233,7 +243,9 @@ public class ${name}Package implements ReactPackage {
     }
 }
 `,
-}, {
+})
+
+entries.push({
   // package for manager for view:
   name: ({ packageIdentifier, name, view }) =>
     view &&
@@ -264,8 +276,9 @@ public class ${name}Package implements ReactPackage {
     }
 }
 `,
-}, {
-}, {
+})
+
+entries.push({
   name: () => `${platform}/README.md`,
   content: () => `README
 ======
@@ -282,4 +295,6 @@ sdk.dir=/Users/{username}/Library/Android/sdk
 4. Run \`sudo ./gradlew installArchives\`
 5. Verify that latest set of generated files is in the maven folder with the correct version number
 `
-}]
+})
+
+module.exports = entries

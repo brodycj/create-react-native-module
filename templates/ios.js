@@ -1,4 +1,8 @@
-module.exports = platform => [{
+const platform = 'ios'
+
+const entries = []
+
+entries.push({
   name: ({ moduleName }) => `${moduleName}.podspec`,
   content: ({ moduleName, githubAccount, authorName, authorEmail, useCocoapods }) => `require "json"
 
@@ -27,7 +31,9 @@ Pod::Spec.new do |s|
 end
 
 `,
-}, {
+})
+
+entries.push({
   // header for module without view:
   name: ({ name, view }) => !view && `${platform}/${name}.h`,
   content: ({ name }) => `#import <React/RCTBridgeModule.h>
@@ -36,7 +42,9 @@ end
 
 @end
 `,
-}, {
+})
+
+entries.push({
   // implementation of module without view:
   name: ({ name, view }) => !view && `${platform}/${name}.m`,
   content: ({ name, useCocoapods }) => `#import "${name}.h"
@@ -63,7 +71,9 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 
 @end
 `,
-}, {
+})
+
+entries.push({
   // header for module with view:
   name: ({ name, view }) => view && `${platform}/${name}.h`,
   content: ({ name }) => `#import <React/RCTViewManager.h>
@@ -72,7 +82,9 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 
 @end
 `,
-}, {
+})
+
+entries.push({
   // implementation of module with view:
   name: ({ name, view }) => view && `${platform}/${name}.m`,
   content: ({ name }) => `#import "${name}.h"
@@ -95,7 +107,9 @@ RCT_EXPORT_MODULE()
 
 @end
 `,
-}, {
+})
+
+entries.push({
   name: ({ name }) => `${platform}/${name}.xcworkspace/contents.xcworkspacedata`,
   content: ({ name }) => `<?xml version="1.0" encoding="UTF-8"?>
 <Workspace
@@ -105,7 +119,9 @@ RCT_EXPORT_MODULE()
    </FileRef>
 </Workspace>
 `,
-}, {
+})
+
+entries.push({
   name: ({ name }) => `${platform}/${name}.xcodeproj/project.pbxproj`,
   content: ({ name }) => `// !$*UTF8*$!
 {
@@ -379,4 +395,6 @@ RCT_EXPORT_MODULE()
 	rootObject = 58B511D31A9E6C8500147676 /* Project object */;
 }
 `,
-}]
+})
+
+module.exports = entries

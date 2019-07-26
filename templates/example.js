@@ -1,4 +1,6 @@
-module.exports = [{
+const entries = []
+
+entries.push({
   name: () => 'scripts/examples_postinstall.js',
   content: ({ exampleName }) =>
     `#!/usr/bin/env node
@@ -113,7 +115,9 @@ module.exports = [{
     removeLibraryNpmIgnorePaths(npmIgnorePath, libraryNodeModulesPath);
   })();
 `
-}, {
+})
+
+entries.push({
   name: ({ useCocoapods, exampleName }) =>
     useCocoapods ? `${exampleName}/ios/Podfile` : undefined,
   content: ({ moduleName, exampleName }) => `platform :ios, '10.0'
@@ -148,7 +152,9 @@ module.exports = [{
 		pod '${moduleName}', :path => '../../${moduleName}.podspec'
 	end
 `,
-}, {
+})
+
+entries.push({
   name: ({ exampleName }) => `${exampleName}/App.js`,
   content: ({ moduleName, name, view }) =>
     `/**
@@ -226,4 +232,6 @@ const styles = StyleSheet.create({
   },
 });
 `
-}]
+})
+
+module.exports = entries

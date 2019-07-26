@@ -1,4 +1,6 @@
-module.exports = [{
+const entries = []
+
+entries.push({
   name: () => 'README.md',
   content: ({ moduleName, packageIdentifier, name, namespace, platforms }) => {
     let manualInstallation = ''
@@ -68,7 +70,9 @@ ${name};
 \`\`\`
 `
   },
-}, {
+})
+
+entries.push({
   name: () => 'package.json',
   content: ({ moduleName, platforms, githubAccount, authorName, authorEmail, license }) => {
     const withWindows = platforms.indexOf('windows') >= 0
@@ -122,7 +126,9 @@ ${name};
 }
 `
   },
-}, {
+})
+
+entries.push({
   // for module without view:
   name: ({ view }) => !view && 'index.js',
   content: ({ name }) =>
@@ -132,7 +138,9 @@ const { ${name} } = NativeModules;
 
 export default ${name};
 `,
-}, {
+})
+
+entries.push({
   // for module with view:
   name: ({ view }) => view && 'index.js',
   content: ({ name }) =>
@@ -142,7 +150,9 @@ const ${name} = requireNativeComponent('${name}', null);
 
 export default ${name};
 `,
-}, {
+})
+
+entries.push({
   name: () => '.gitignore',
   content: ({ platforms }) => {
     let content = `# OSX
@@ -201,7 +211,9 @@ buck-out/
 
     return content
   },
-}, {
+})
+
+entries.push({
   name: () => '.gitattributes',
   content: ({ platforms }) => {
     if (platforms.indexOf('ios') >= 0) {
@@ -210,7 +222,9 @@ buck-out/
 
     return ''
   }
-}, {
+})
+
+entries.push({
   name: () => '.npmignore',
   content: ({ generateExample, exampleName }) => {
     if (generateExample) {
@@ -219,4 +233,6 @@ buck-out/
 
     return ''
   }
-}]
+})
+
+module.exports = entries
