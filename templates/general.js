@@ -5,7 +5,7 @@ entries.push({
   content: ({ moduleName, packageIdentifier, name, namespace, platforms }) => {
     let manualInstallation = ''
 
-    if (platforms.indexOf('ios') >= 0) {
+    if (platforms.includes('ios')) {
       manualInstallation += `
 #### iOS
 
@@ -16,7 +16,7 @@ entries.push({
 `
     }
 
-    if (platforms.indexOf('android') >= 0) {
+    if (platforms.includes('android')) {
       manualInstallation += `
 #### Android
 
@@ -35,7 +35,7 @@ entries.push({
 `
     }
 
-    if (platforms.indexOf('windows') >= 0) {
+    if (platforms.includes('windows')) {
       manualInstallation += `
 #### Windows
 [Read it! :D](https://github.com/ReactWindows/react-native)
@@ -75,7 +75,7 @@ ${name};
 entries.push({
   name: () => 'package.json',
   content: ({ moduleName, platforms, githubAccount, authorName, authorEmail, license }) => {
-    const withWindows = platforms.indexOf('windows') >= 0
+    const withWindows = platforms.includes('windows')
 
     const peerDependencies =
       `{
@@ -84,22 +84,27 @@ entries.push({
       (withWindows
         ? `,
     "react-native-windows": ">=0.57.0-rc.0 <1.0.x"`
-        : ``) + `
+        : ``) +
+      `
   }`
 
     const devDependencies =
       `{
     "react": "^16.5.0",
     "react-native": "^0.59.4"` +
-        (withWindows
-          ? `,
+      (withWindows
+        ? `,
     "react-native-windows": "^0.57.1"`
-          : ``) + `
+        : ``) +
+      `
   }`
 
     return `{
   "name": "${moduleName}",
-  "title": "${moduleName.split('-').map(word => word[0].toUpperCase() + word.substr(1)).join(' ')}",
+  "title": "${moduleName
+    .split('-')
+    .map(word => word[0].toUpperCase() + word.substr(1))
+    .join(' ')}",
   "version": "1.0.0",
   "description": "TODO",
   "main": "index.js",
@@ -166,9 +171,8 @@ npm-debug.log
 yarn-error.log
 `
 
-    if (platforms.indexOf('ios') >= 0) {
-      content +=
-        `
+    if (platforms.includes('ios')) {
+      content += `
 # Xcode
 #
 build/
@@ -191,9 +195,8 @@ project.xcworkspace
 `
     }
 
-    if (platforms.indexOf('android') >= 0) {
-      content +=
-        `
+    if (platforms.includes('android')) {
+      content += `
 # Android/IntelliJ
 #
 build/
@@ -216,12 +219,12 @@ buck-out/
 entries.push({
   name: () => '.gitattributes',
   content: ({ platforms }) => {
-    if (platforms.indexOf('ios') >= 0) {
+    if (platforms.includes('ios')) {
       return '*.pbxproj -text\n'
     }
 
     return ''
-  }
+  },
 })
 
 entries.push({
@@ -232,7 +235,7 @@ entries.push({
     }
 
     return ''
-  }
+  },
 })
 
 module.exports = entries

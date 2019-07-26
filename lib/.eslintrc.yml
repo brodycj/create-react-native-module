@@ -1,6 +1,0 @@
-plugins:
-  - prettierx
-
-extends:
-  - standardize
-  - plugin:prettierx/standardize-bundle

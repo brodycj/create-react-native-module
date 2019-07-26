@@ -18,13 +18,9 @@ program
     command.func(arguments, {}, this.opts())
   })
 
-commandOptions
-  .forEach(opt => program.option(
-    opt.command,
-    opt.description,
-    opt.parse || (value => value),
-    opt.default
-  ))
+commandOptions.forEach(opt =>
+  program.option(opt.command, opt.description, opt.parse || (value => value), opt.default)
+)
 
 program.parse(process.argv)
 

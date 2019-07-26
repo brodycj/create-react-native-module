@@ -4,7 +4,13 @@ const entries = []
 
 entries.push({
   name: ({ moduleName }) => `${moduleName}.podspec`,
-  content: ({ moduleName, githubAccount, authorName, authorEmail, useCocoapods }) => `require "json"
+  content: ({
+    moduleName,
+    githubAccount,
+    authorName,
+    authorEmail,
+    useCocoapods,
+  }) => `require "json"
 
 package = JSON.parse(File.read(File.join(__dir__, "package.json")))
 
@@ -49,8 +55,12 @@ entries.push({
   name: ({ name, view }) => !view && `${platform}/${name}.m`,
   content: ({ name, useCocoapods }) => `#import "${name}.h"
 
-${useCocoapods ? `#import <AFNetworking/AFNetworking.h>
-` : ``}
+${
+  useCocoapods
+    ? `#import <AFNetworking/AFNetworking.h>
+`
+    : ``
+}
 @implementation ${name}
 
 RCT_EXPORT_MODULE()
@@ -58,15 +68,17 @@ RCT_EXPORT_MODULE()
 RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnull NSNumber *)numberArgument callback:(RCTResponseSenderBlock)callback)
 {
     // TODO: Implement some actually useful functionality
-	${useCocoapods
-    ? `AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+	${
+    useCocoapods
+      ? `AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
 	manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
 	[manager GET:@"https://httpstat.us/200" parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
 			callback(@[[NSString stringWithFormat: @"numberArgument: %@ stringArgument: %@ resp: %@", numberArgument, stringArgument, responseObject]]);
 	} failure:^(NSURLSessionTask *operation, NSError *error) {
 			callback(@[[NSString stringWithFormat: @"numberArgument: %@ stringArgument: %@ err: %@", numberArgument, stringArgument, error]]);
 	}];`
-    : `callback(@[[NSString stringWithFormat: @"numberArgument: %@ stringArgument: %@", numberArgument, stringArgument]]);`}
+      : `callback(@[[NSString stringWithFormat: @"numberArgument: %@ stringArgument: %@", numberArgument, stringArgument]]);`
+  }
 }
 
 @end

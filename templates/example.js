@@ -114,7 +114,7 @@ entries.push({
     const npmIgnorePath = path.resolve(__dirname, '../.npmignore');
     removeLibraryNpmIgnorePaths(npmIgnorePath, libraryNodeModulesPath);
   })();
-`
+`,
 })
 
 entries.push({
@@ -211,7 +211,7 @@ export default class App extends Component<{}> {
     );
   }
 }`) +
-      `
+    `
 
 const styles = StyleSheet.create({
   container: {
@@ -231,7 +231,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
-`
+`,
 })
 
 module.exports = entries

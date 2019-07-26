@@ -132,20 +132,26 @@ afterEvaluate { project ->
 `,
 })
 
-entries.push({
-  name: () => `${platform}/src/main/AndroidManifest.xml`,
-  content: ({ packageIdentifier }) => `<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+entries.push(
+  {
+    name: () => `${platform}/src/main/AndroidManifest.xml`,
+    content: ({
+      packageIdentifier,
+    }) => `<manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="${packageIdentifier}">
 
 </manifest>
 `,
-}, {
-  // for module without view:
-  name: ({ packageIdentifier, name, view }) =>
-    !view &&
-      `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${name}Module.java`,
-  content: ({ packageIdentifier, name, view }) =>
-    !view &&
+  },
+  {
+    // for module without view:
+    name: ({ packageIdentifier, name, view }) =>
+      !view &&
+      `${platform}/src/main/java/${packageIdentifier
+        .split('.')
+        .join('/')}/${name}Module.java`,
+    content: ({ packageIdentifier, name, view }) =>
+      !view &&
       `package ${packageIdentifier};
 
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -174,16 +180,19 @@ public class ${name}Module extends ReactContextBaseJavaModule {
     }
 }
 `,
-})
+  }
+)
 
 entries.push({
   // manager for view:
   name: ({ packageIdentifier, name, view }) =>
     view &&
-      `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${name}Manager.java`,
+    `${platform}/src/main/java/${packageIdentifier
+      .split('.')
+      .join('/')}/${name}Manager.java`,
   content: ({ packageIdentifier, name, view }) =>
     view &&
-      `package ${packageIdentifier};
+    `package ${packageIdentifier};
 
 import android.view.View;
 
@@ -216,10 +225,12 @@ entries.push({
   // package for module without view:
   name: ({ packageIdentifier, name, view }) =>
     !view &&
-      `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${name}Package.java`,
+    `${platform}/src/main/java/${packageIdentifier
+      .split('.')
+      .join('/')}/${name}Package.java`,
   content: ({ packageIdentifier, name, view }) =>
     !view &&
-      `package ${packageIdentifier};
+    `package ${packageIdentifier};
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -249,10 +260,12 @@ entries.push({
   // package for manager for view:
   name: ({ packageIdentifier, name, view }) =>
     view &&
-      `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${name}Package.java`,
+    `${platform}/src/main/java/${packageIdentifier
+      .split('.')
+      .join('/')}/${name}Package.java`,
   content: ({ packageIdentifier, name, view }) =>
     view &&
-      `package ${packageIdentifier};
+    `package ${packageIdentifier};
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -294,7 +307,7 @@ sdk.dir=/Users/{username}/Library/Android/sdk
 3. Delete the \`maven\` folder
 4. Run \`sudo ./gradlew installArchives\`
 5. Verify that latest set of generated files is in the maven folder with the correct version number
-`
+`,
 })
 
 module.exports = entries

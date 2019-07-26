@@ -17,6 +17,7 @@ test('create alice-bobbi module with config options for iOS only', () => {
     fs: mocks.fs,
   }
 
-  return lib(options)
-    .then(() => { expect(mysnap).toMatchSnapshot() })
+  return lib(options).then(() => {
+    expect(mysnap).toMatchSnapshot()
+  })
 })

@@ -22,5 +22,7 @@ test('create alice-bobbi view module with example, with custom config options', 
     jsonfile: mocks.jsonfile,
   }
 
-  return lib(options).then(() => { expect(mysnap).toMatchSnapshot() })
+  return lib(options).then(() => {
+    expect(mysnap).toMatchSnapshot()
+  })
 })
