@@ -1,5 +1,3 @@
-/* eslint max-len: 0 */
-
 module.exports = [{
   name: () => 'README.md',
   content: ({ moduleName, packageIdentifier, name, namespace, platforms }) => {
