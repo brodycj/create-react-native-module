@@ -41,7 +41,7 @@
   "dependencies": {
     "commander": "^2.20.0",
     "execa": "^2.0.3",
-    "fs-extra": "^8.1.0",
+    "graceful-fs": "^4.2.0",
     "jsonfile": "^5.0.0",
     "node-emoji": "^1.10.0",
     "param-case": "^2.1.1",
