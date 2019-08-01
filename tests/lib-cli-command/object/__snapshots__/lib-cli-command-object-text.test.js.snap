@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`cli-command object 1`] = `
+Object {
+  "description": "creates a React Native library module for one or more platforms",
+  "func": [Function],
+  "name": "create-library",
+  "options": Array [
+    Object {
+      "command": "--prefix [prefix]",
+      "default": "",
+      "description": "The prefix for the library module",
+    },
+    Object {
+      "command": "--module-name [moduleName]",
+      "description": "The module library package name to be used in package.json. Default: react-native-(name in param-case)",
+    },
+    Object {
+      "command": "--module-prefix [modulePrefix]",
+      "default": "react-native",
+      "description": "The module prefix for the library module, ignored if --module-name is specified",
+    },
+    Object {
+      "command": "--package-identifier [packageIdentifier]",
+      "default": "com.reactlibrary",
+      "description": "(Android only!) The package name for the Android module",
+    },
+    Object {
+      "command": "--platforms <platforms>",
+      "default": "ios,android",
+      "description": "Platforms the library module will be created for - comma separated",
+    },
+    Object {
+      "command": "--github-account [githubAccount]",
+      "default": "github_account",
+      "description": "The github account where the library module is hosted",
+    },
+    Object {
+      "command": "--author-name [authorName]",
+      "default": "Your Name",
+      "description": "The author's name",
+    },
+    Object {
+      "command": "--author-email [authorEmail]",
+      "default": "yourname@email.com",
+      "description": "The author's email",
+    },
+    Object {
+      "command": "--license [license]",
+      "default": "MIT",
+      "description": "The license type",
+    },
+    Object {
+      "command": "--view",
+      "description": "Generate the module as a very simple native view component",
+    },
+    Object {
+      "command": "--use-cocoapods",
+      "description": "Generate a library with a sample podspec and third party pod usage example",
+    },
+    Object {
+      "command": "--generate-example",
+      "description": "Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally",
+    },
+    Object {
+      "command": "--example-name [exampleName]",
+      "default": "example",
+      "description": "Name for the example project",
+    },
+    Object {
+      "command": "--example-react-native-version [exampleReactNativeVersion]",
+      "default": "react-native@0.59",
+      "description": "React Native version for the generated example project",
+    },
+  ],
+  "usage": "[options] <name>",
+}
+`;
