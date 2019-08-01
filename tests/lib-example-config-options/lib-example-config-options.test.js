@@ -18,7 +18,6 @@ test('create alice-bobbi module with example, with config options', () => {
     exampleReactNativeVersion: 'react-native@0.60',
     fs: mocks.fs,
     execa: mocks.execa,
-    jsonfile: mocks.jsonfile,
   };
 
   return lib(options).then(() => { expect(mysnap).toMatchSnapshot(); });

@@ -964,20 +964,27 @@ const styles = StyleSheet.create({
 <<<<<<<< ======== >>>>>>>>
 ",
   Object {
-    "call": "jsonfile.readFileSync",
+    "call": "fs.readFileSync",
     "jsonFilePath": "./react-native-alice-bobbi/example/package.json",
   },
   Object {
-    "call": "jsonfile.writeFileSync",
+    "call": "fs.writeFileSync",
     "filePath": "./react-native-alice-bobbi/example/package.json",
-    "json": Object {
-      "name": "example",
-      "scripts": Object {
-        "postinstall": "node ../scripts/examples_postinstall.js",
-        "test": "echo \\"not implemented\\" && exit 1",
-      },
-    },
+    "json": "{
+  \\"name\\": \\"example\\",
+  \\"scripts\\": {
+    \\"test\\": \\"echo 'not implemented' && exit 1\\",
+    \\"postinstall\\": \\"node ../scripts/examples_postinstall.js\\"
+  }
+}
+",
     "options": Object {
+      "fs": Object {
+        "ensureDir": [Function],
+        "outputFile": [Function],
+        "readFileSync": [Function],
+        "writeFileSync": [Function],
+      },
       "spaces": 2,
     },
   },

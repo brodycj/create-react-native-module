@@ -19,7 +19,6 @@ test('create alice-bobbi view module with example, with custom config options', 
     exampleReactNativeVersion: 'react-native@0.60',
     fs: mocks.fs,
     execa: mocks.execa,
-    jsonfile: mocks.jsonfile,
   };
 
   return lib(options).then(() => { expect(mysnap).toMatchSnapshot(); });

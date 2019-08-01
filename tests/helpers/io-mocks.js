@@ -16,23 +16,21 @@ ${content}
       mysnap.push(`* ensureDir dir: ${dir}\n`);
       return Promise.resolve();
     },
-  },
-  jsonfile: { // FUTURE TBD may be combined with fs object above
     readFileSync: (jsonFilePath) => {
       mysnap.push({
-        call: 'jsonfile.readFileSync',
+        call: 'fs.readFileSync',
         jsonFilePath,
       });
-      return {
-        name: 'example',
-        scripts: {
-          test: 'echo "not implemented" && exit 1'
-        }
-      };
+      return `{
+  "name": "example",
+  "scripts": {
+    "test": "echo 'not implemented' && exit 1"
+  }
+}`;
     },
     writeFileSync: (path, json, options) => {
       mysnap.push({
-        call: 'jsonfile.writeFileSync',
+        call: 'fs.writeFileSync',
         filePath: path,
         json,
         options,

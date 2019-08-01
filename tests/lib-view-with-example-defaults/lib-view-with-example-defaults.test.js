@@ -13,7 +13,6 @@ test('create alice-bobbi view module with example, with defaults', () => {
     view: true,
     fs: mocks.fs,
     execa: mocks.execa,
-    jsonfile: mocks.jsonfile,
   };
 
   return lib(options).then(() => { expect(mysnap).toMatchSnapshot(); });

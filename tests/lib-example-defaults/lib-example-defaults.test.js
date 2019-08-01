@@ -12,7 +12,6 @@ test('create alice-bobbi module with defaults', () => {
     generateExample: true,
     fs: mocks.fs,
     execa: mocks.execa,
-    jsonfile: mocks.jsonfile,
   };
 
   return lib(options).then(() => { expect(mysnap).toMatchSnapshot(); });
