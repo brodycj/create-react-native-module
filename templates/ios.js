@@ -1,5 +1,3 @@
-/* eslint max-len: 0 */
-
 module.exports = platform => [{
   name: ({ moduleName }) => `${moduleName}.podspec`,
   content: ({ moduleName, githubAccount, authorName, authorEmail, useCocoapods }) => `require "json"

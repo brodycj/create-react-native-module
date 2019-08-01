@@ -963,10 +963,24 @@ const styles = StyleSheet.create({
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* jsonfile.readFileSync jsonPath: ./react-native-alice-bobbi/example/package.json
-",
-  "* jsonfile.writeFileSync path: ./react-native-alice-bobbi/example/package.json json {\\"name\\":\\"bogus\\",\\"scripts\\":[]} options {\\"spaces\\":2}
-",
+  Object {
+    "call": "jsonfile.readFileSync",
+    "jsonFilePath": "./react-native-alice-bobbi/example/package.json",
+  },
+  Object {
+    "call": "jsonfile.writeFileSync",
+    "filePath": "./react-native-alice-bobbi/example/package.json",
+    "json": Object {
+      "name": "example",
+      "scripts": Object {
+        "postinstall": "node ../scripts/examples_postinstall.js",
+        "test": "echo \\"not implemented\\" && exit 1",
+      },
+    },
+    "options": Object {
+      "spaces": 2,
+    },
+  },
   "* execa.commandSync command: yarn add file:../ options: {\\"cwd\\":\\"./react-native-alice-bobbi/example\\",\\"stdio\\":\\"inherit\\"}
 ",
   "* execa.commandSync command: react-native link options: {\\"cwd\\":\\"./react-native-alice-bobbi/example\\",\\"stdio\\":\\"inherit\\"}
