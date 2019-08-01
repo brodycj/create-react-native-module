@@ -22,11 +22,8 @@ test('create alice-bobbi module with explicit config options for Android & iOS',
 
   func(args, config, options);
 
-  // TBD use an XXX ms timer
-  // (try 4000 ms (4 seconds) at first)
-  // since we cannot tell for sure
-  // how long it will take for func to finish:
-
-  return new Promise((resolve, reject) => setTimeout(resolve, 4000))
+  // Using a timer to wait for say 1 ms to wait for the
+  // CLI command func to finish.
+  return new Promise((resolve, reject) => setTimeout(resolve, 1))
     .then(() => { expect(mysnap).toMatchSnapshot(); });
 });
