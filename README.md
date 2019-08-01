@@ -25,8 +25,8 @@ This tool based on [`react-native-create-library`](https://www.npmjs.com/package
 ### General status
 
 - **React Native versions supported:**
-  - recommended: 0.60 (see known quirks and issues below), 0.59
-  - deprecated: 0.58, 0.57 (see [issue #42](https://github.com/brodybits/create-react-native-module/issues/42))
+  - recommended: `0.60` (see known quirks and issues below)
+  - `0.59`
 - Known quirks & issues on React Native 0.60(+):
   - [issue #28](https://github.com/brodybits/create-react-native-module/issues/28) - additional `pod install` step needed for RN 0.60 on iOS
   - [issue #29](https://github.com/brodybits/create-react-native-module/issues/29) - View does not work with RN 0.60 on Android (quick patch needed)

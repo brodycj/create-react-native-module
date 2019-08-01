@@ -75,21 +75,21 @@ ${name};
 
     const peerDependencies =
       `{
-    "react": "^16.5.0",
-    "react-native": ">=0.57.0-rc.0 <1.0.x"` +
+    "react": "^16.8.1",
+    "react-native": ">=0.59.0-rc.0 <1.0.x"` +
       (withWindows
         ? `,
-    "react-native-windows": ">=0.57.0-rc.0 <1.0.x"`
+    "react-native-windows": ">=0.59.0-rc.0 <1.0.x"`
         : ``) + `
   }`;
 
     const devDependencies =
       `{
-    "react": "^16.5.0",
-    "react-native": "^0.59.4"` +
+    "react": "^16.8.3",
+    "react-native": "^0.59.10"` +
         (withWindows
           ? `,
-    "react-native-windows": "^0.57.1"`
+    "react-native-windows": "^0.59.0-rc.1"`
           : ``) + `
   }`;
 
