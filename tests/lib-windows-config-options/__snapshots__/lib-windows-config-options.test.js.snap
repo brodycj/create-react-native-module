@@ -55,7 +55,7 @@ content:
 
 1. In Visual Studio add the \`AliceBobbi.sln\` in \`node_modules/react-native-alice-bobbi/windows/AliceBobbi.sln\` folder to their solution, reference from their app.
 2. Open up your \`MainPage.cs\` app
-  - Add \`using Alice.Bobbi.AliceBobbi;\` to the usings at the top of the file
+  - Add \`using Carol.AliceBobbi;\` to the usings at the top of the file
   - Add \`new AliceBobbiPackage()\` to the \`List<IReactPackage>\` returned by the \`Packages\` method
 
 
@@ -375,8 +375,8 @@ content:
     <ProjectGuid>{E22606E0-B47F-11E9-A3F0-07F70A25DAFB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Alice.Bobbi</RootNamespace>
-    <AssemblyName>Alice.Bobbi</AssemblyName>
+    <RootNamespace>Carol</RootNamespace>
+    <AssemblyName>Carol</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
@@ -531,7 +531,7 @@ using System.Collections.Generic;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 
-namespace Alice.Bobbi.AliceBobbi
+namespace Carol.AliceBobbi
 {
     /// <summary>
     /// A module that allows JS to share data.
@@ -570,7 +570,7 @@ using ReactNative.UIManager;
 using System;
 using System.Collections.Generic;
 
-namespace Alice.Bobbi.AliceBobbi
+namespace Carol.AliceBobbi
 {
     /// <summary>
     /// Package defining core framework modules (e.g., <see cref=\\"UIManagerModule\\"/>).

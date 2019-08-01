@@ -18,6 +18,7 @@ test('create alice-bobbi module with config options for Windows only', () => {
     authorName: 'Alice',
     authorEmail: 'contact@alice.me',
     license: 'ISC',
+    namespace: 'Carol',
     fs: mocks.fs,
   };
 
