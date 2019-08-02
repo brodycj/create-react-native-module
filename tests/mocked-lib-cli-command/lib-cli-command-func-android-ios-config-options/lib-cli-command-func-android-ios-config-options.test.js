@@ -1,12 +1,20 @@
 const func = require('../../../lib/cli-command.js').func;
 
-const ioMocks = require('../../helpers/io-mocks.js');
+// special compact mocks for this test:
+const mysnap = [];
+const mockpushit = x => mysnap.push(x);
+jest.mock('fs-extra', () => ({
+  outputFile: (outputFileName, theContent) => {
+    mockpushit({ outputFileName, theContent });
+    return Promise.resolve();
+  },
+  ensureDir: (dir) => {
+    mockpushit({ ensureDir: dir });
+    return Promise.resolve();
+  },
+}));
 
 test('create alice-bobbi module with explicit config options for Android & iOS', () => {
-  const mysnap = [];
-
-  const mocks = ioMocks(mysnap);
-
   const args = ['alice-bobbi'];
 
   const config = 'bogus';
@@ -17,7 +25,6 @@ test('create alice-bobbi module with explicit config options for Android & iOS',
     authorName: 'Alice',
     authorEmail: 'contact@alice.me',
     license: 'ISC',
-    fs: mocks.fs,
   };
 
   return func(args, config, options)

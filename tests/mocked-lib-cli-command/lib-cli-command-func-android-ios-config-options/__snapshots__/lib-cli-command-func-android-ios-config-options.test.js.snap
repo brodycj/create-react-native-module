@@ -2,44 +2,60 @@
 
 exports[`create alice-bobbi module with explicit config options for Android & iOS 1`] = `
 Array [
-  "* ensureDir dir: react-native-alice-bobbi
-",
-  "* ensureDir dir: react-native-alice-bobbi/
-",
-  "* ensureDir dir: react-native-alice-bobbi/
-",
-  "* ensureDir dir: react-native-alice-bobbi/
-",
-  "* ensureDir dir: react-native-alice-bobbi/
-",
-  "* ensureDir dir: react-native-alice-bobbi/
-",
-  "* ensureDir dir: react-native-alice-bobbi/
-",
-  "* ensureDir dir: react-native-alice-bobbi/android/
-",
-  "* ensureDir dir: react-native-alice-bobbi/android/src/main/
-",
-  "* ensureDir dir: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/
-",
-  "* ensureDir dir: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/
-",
-  "* ensureDir dir: react-native-alice-bobbi/android/
-",
-  "* ensureDir dir: react-native-alice-bobbi/
-",
-  "* ensureDir dir: react-native-alice-bobbi/ios/
-",
-  "* ensureDir dir: react-native-alice-bobbi/ios/
-",
-  "* ensureDir dir: react-native-alice-bobbi/ios/AliceBobbi.xcworkspace/
-",
-  "* ensureDir dir: react-native-alice-bobbi/ios/AliceBobbi.xcodeproj/
-",
-  "* outputFile name: react-native-alice-bobbi/README.md
-content:
---------
-# react-native-alice-bobbi
+  Object {
+    "ensureDir": "react-native-alice-bobbi",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/android/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/android/src/main/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/android/src/main/java/com/reactlibrary/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/android/src/main/java/com/reactlibrary/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/android/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/ios/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/ios/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/ios/AliceBobbi.xcworkspace/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/ios/AliceBobbi.xcodeproj/",
+  },
+  Object {
+    "outputFileName": "react-native-alice-bobbi/README.md",
+    "theContent": "# react-native-alice-bobbi
 
 ## Getting started
 
@@ -82,13 +98,11 @@ import AliceBobbi from 'react-native-alice-bobbi';
 // TODO: What to do with the module?
 AliceBobbi;
 \`\`\`
-
-<<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/package.json
-content:
---------
-{
+  },
+  Object {
+    "outputFileName": "react-native-alice-bobbi/package.json",
+    "theContent": "{
   \\"name\\": \\"react-native-alice-bobbi\\",
   \\"title\\": \\"React Native Alice Bobbi\\",
   \\"version\\": \\"1.0.0\\",
@@ -121,24 +135,20 @@ content:
     \\"react-native\\": \\"^0.59.10\\"
   }
 }
-
-<<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/index.js
-content:
---------
-import { NativeModules } from 'react-native';
+  },
+  Object {
+    "outputFileName": "react-native-alice-bobbi/index.js",
+    "theContent": "import { NativeModules } from 'react-native';
 
 const { AliceBobbi } = NativeModules;
 
 export default AliceBobbi;
-
-<<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/.gitignore
-content:
---------
-# OSX
+  },
+  Object {
+    "outputFileName": "react-native-alice-bobbi/.gitignore",
+    "theContent": "# OSX
 #
 .DS_Store
 
@@ -180,26 +190,20 @@ local.properties
 buck-out/
 \\\\.buckd/
 *.keystore
-
-<<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/.gitattributes
-content:
---------
-*.pbxproj -text
-
-<<<<<<<< ======== >>>>>>>>
+  },
+  Object {
+    "outputFileName": "react-native-alice-bobbi/.gitattributes",
+    "theContent": "*.pbxproj -text
 ",
-  "* outputFile name: react-native-alice-bobbi/.npmignore
-content:
---------
-
-<<<<<<<< ======== >>>>>>>>
-",
-  "* outputFile name: react-native-alice-bobbi/android/build.gradle
-content:
---------
-buildscript {
+  },
+  Object {
+    "outputFileName": "react-native-alice-bobbi/.npmignore",
+    "theContent": "",
+  },
+  Object {
+    "outputFileName": "react-native-alice-bobbi/android/build.gradle",
+    "theContent": "buildscript {
     ext.safeExtGet = {prop, fallback ->
         rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
     }
@@ -324,23 +328,19 @@ afterEvaluate { project ->
         }
     }
 }
-
-<<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/android/src/main/AndroidManifest.xml
-content:
---------
-<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
+  },
+  Object {
+    "outputFileName": "react-native-alice-bobbi/android/src/main/AndroidManifest.xml",
+    "theContent": "<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
           package=\\"com.reactlibrary\\">
 
 </manifest>
-
-<<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiModule.java
-content:
---------
-package com.reactlibrary;
+  },
+  Object {
+    "outputFileName": "react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiModule.java",
+    "theContent": "package com.reactlibrary;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -367,13 +367,11 @@ public class AliceBobbiModule extends ReactContextBaseJavaModule {
         callback.invoke(\\"Received numberArgument: \\" + numberArgument + \\" stringArgument: \\" + stringArgument);
     }
 }
-
-<<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiPackage.java
-content:
---------
-package com.reactlibrary;
+  },
+  Object {
+    "outputFileName": "react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiPackage.java",
+    "theContent": "package com.reactlibrary;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -396,13 +394,11 @@ public class AliceBobbiPackage implements ReactPackage {
         return Collections.emptyList();
     }
 }
-
-<<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/android/README.md
-content:
---------
-README
+  },
+  Object {
+    "outputFileName": "react-native-alice-bobbi/android/README.md",
+    "theContent": "README
 ======
 
 If you want to publish the lib as a maven dependency, follow these steps before publishing a new version to npm:
@@ -416,13 +412,11 @@ sdk.dir=/Users/{username}/Library/Android/sdk
 3. Delete the \`maven\` folder
 4. Run \`sudo ./gradlew installArchives\`
 5. Verify that latest set of generated files is in the maven folder with the correct version number
-
-<<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/react-native-alice-bobbi.podspec
-content:
---------
-require \\"json\\"
+  },
+  Object {
+    "outputFileName": "react-native-alice-bobbi/react-native-alice-bobbi.podspec",
+    "theContent": "require \\"json\\"
 
 package = JSON.parse(File.read(File.join(__dir__, \\"package.json\\")))
 
@@ -448,24 +442,20 @@ Pod::Spec.new do |s|
   # s.dependency \\"...\\"
 end
 
-
-<<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/ios/AliceBobbi.h
-content:
---------
-#import <React/RCTBridgeModule.h>
+  },
+  Object {
+    "outputFileName": "react-native-alice-bobbi/ios/AliceBobbi.h",
+    "theContent": "#import <React/RCTBridgeModule.h>
 
 @interface AliceBobbi : NSObject <RCTBridgeModule>
 
 @end
-
-<<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/ios/AliceBobbi.m
-content:
---------
-#import \\"AliceBobbi.h\\"
+  },
+  Object {
+    "outputFileName": "react-native-alice-bobbi/ios/AliceBobbi.m",
+    "theContent": "#import \\"AliceBobbi.h\\"
 
 
 @implementation AliceBobbi
@@ -479,26 +469,22 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 }
 
 @end
-
-<<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/ios/AliceBobbi.xcworkspace/contents.xcworkspacedata
-content:
---------
-<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
+  },
+  Object {
+    "outputFileName": "react-native-alice-bobbi/ios/AliceBobbi.xcworkspace/contents.xcworkspacedata",
+    "theContent": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
 <Workspace
    version = \\"1.0\\">
    <FileRef
       location = \\"group:AliceBobbi.xcodeproj\\">
    </FileRef>
 </Workspace>
-
-<<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/ios/AliceBobbi.xcodeproj/project.pbxproj
-content:
---------
-// !$*UTF8*$!
+  },
+  Object {
+    "outputFileName": "react-native-alice-bobbi/ios/AliceBobbi.xcodeproj/project.pbxproj",
+    "theContent": "// !$*UTF8*$!
 {
 	archiveVersion = 1;
 	classes = {
@@ -769,8 +755,7 @@ content:
 	};
 	rootObject = 58B511D31A9E6C8500147676 /* Project object */;
 }
-
-<<<<<<<< ======== >>>>>>>>
 ",
+  },
 ]
 `;
