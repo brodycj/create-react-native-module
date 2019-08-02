@@ -20,10 +20,6 @@ test('create alice-bobbi module with explicit config options for Android & iOS',
     fs: mocks.fs,
   };
 
-  func(args, config, options);
-
-  // Using a timer to wait for say 1 ms to wait for the
-  // CLI command func to finish.
-  return new Promise((resolve, reject) => setTimeout(resolve, 1))
+  return func(args, config, options)
     .then(() => { expect(mysnap).toMatchSnapshot(); });
 });
