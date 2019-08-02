@@ -10,8 +10,8 @@ test('create alice-bobbi view module with defaults', () => {
   const options = {
     name: 'alice-bobbi',
     view: true,
-    fs: mocks.fs,
   };
 
-  return lib(options).then(() => { expect(mysnap).toMatchSnapshot(); });
+  return lib(options, mocks)
+    .then(() => { expect(mysnap).toMatchSnapshot(); });
 });

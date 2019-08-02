@@ -15,9 +15,8 @@ test('create alice-bobbi view module with config options for Android only', () =
     authorEmail: 'contact@alice.me',
     license: 'ISC',
     view: true,
-    fs: mocks.fs,
   };
 
-  return lib(options)
+  return lib(options, mocks)
     .then(() => { expect(mysnap).toMatchSnapshot(); });
 });

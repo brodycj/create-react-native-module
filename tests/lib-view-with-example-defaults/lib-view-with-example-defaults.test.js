@@ -11,9 +11,8 @@ test('create alice-bobbi view module with example, with defaults', () => {
     name: 'alice-bobbi',
     generateExample: true,
     view: true,
-    fs: mocks.fs,
-    execa: mocks.execa,
   };
 
-  return lib(options).then(() => { expect(mysnap).toMatchSnapshot(); });
+  return lib(options, mocks)
+    .then(() => { expect(mysnap).toMatchSnapshot(); });
 });

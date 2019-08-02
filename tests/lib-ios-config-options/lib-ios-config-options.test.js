@@ -14,9 +14,8 @@ test('create alice-bobbi module with config options for iOS only', () => {
     authorName: 'Alice',
     authorEmail: 'contact@alice.me',
     license: 'ISC',
-    fs: mocks.fs,
   };
 
-  return lib(options)
+  return lib(options, mocks)
     .then(() => { expect(mysnap).toMatchSnapshot(); });
 });
