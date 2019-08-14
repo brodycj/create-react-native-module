@@ -26,7 +26,20 @@ jest.mock('execa', () => ({
   }
 }));
 
-test('create alice-bobbi module using mocked lib with config options, with exampe, for Android and iOS', () => {
+// TBD hackish mock:
+global.console = {
+  info: (...args) => {
+    mockpushit({ info: [].concat(args) });
+  },
+  log: (...args) => {
+    mockpushit({ log: [].concat(args) });
+  },
+  warn: (...args) => {
+    mockpushit({ warn: [].concat(args) });
+  },
+};
+
+test('create alice-bobbi module using mocked lib with config options, with exampe, for Android and iOS including console logging', () => {
   const options = {
     platforms: ['android', 'ios'],
     name: 'alice-bobbi',

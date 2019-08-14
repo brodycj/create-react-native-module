@@ -1,7 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`create alice-bobbi module using mocked lib with config options, with exampe, for Android and iOS 1`] = `
+exports[`create alice-bobbi module using mocked lib with config options, with exampe, for Android and iOS including console logging 1`] = `
 Array [
+  Object {
+    "warn": Array [
+      "While \`{DEFAULT_PACKAGE_IDENTIFIER}\` is the default package
+      identifier, it is recommended to customize the package identifier.",
+    ],
+  },
+  Object {
+    "info": Array [
+      "CREATE new React Native module with the following options:
+
+  root moduleName: react-native-alice-bobbi
+  name: alice-bobbi
+  prefix: 
+  modulePrefix: react-native
+  packageIdentifier: com.reactlibrary
+  platforms: android,ios
+  githubAccount: alicebits
+  authorName: Alice
+  authorEmail: contact@alice.me
+  authorEmail: contact@alice.me
+  license: ISC
+  view: false
+  useCocoapods: false
+  generateExample: true
+  exampleName: example
+  ",
+    ],
+  },
+  Object {
+    "info": Array [
+      "CREATE: Check for valid react-native-cli tool version, as needed to generate the example project",
+    ],
+  },
   Object {
     "commandSync": "react-native --version",
     "options": Object {
@@ -9,10 +42,30 @@ Array [
     },
   },
   Object {
+    "info": Array [
+      "react-native --version ok",
+    ],
+  },
+  Object {
+    "info": Array [
+      "CREATE: Check for valid Yarn CLI tool version, as needed to generate the example project",
+    ],
+  },
+  Object {
     "commandSync": "yarn --version",
     "options": Object {
       "stdio": "inherit",
     },
+  },
+  Object {
+    "info": Array [
+      "yarn --version ok",
+    ],
+  },
+  Object {
+    "info": Array [
+      "CREATE: Generating the React Native library module",
+    ],
   },
   Object {
     "ensureDir": "react-native-alice-bobbi",
@@ -771,6 +824,11 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 ",
   },
   Object {
+    "info": Array [
+      "CREATE example app with the following command: react-native init example --version react-native@0.59",
+    ],
+  },
+  Object {
     "commandSync": "react-native init example --version react-native@0.59",
     "options": Object {
       "cwd": "./react-native-alice-bobbi",
@@ -960,6 +1018,11 @@ const styles = StyleSheet.create({
 ",
   },
   Object {
+    "info": Array [
+      "Adding cleanup postinstall task to the example app",
+    ],
+  },
+  Object {
     "readFileSyncFromPath": "./react-native-alice-bobbi/example/package.json",
   },
   Object {
@@ -981,6 +1044,11 @@ const styles = StyleSheet.create({
       "spaces": 2,
     },
     "writeFileSyncToPath": "./react-native-alice-bobbi/example/package.json",
+  },
+  Object {
+    "info": Array [
+      "Linking the new module library to the example app",
+    ],
   },
   Object {
     "commandSync": "yarn add file:../",
