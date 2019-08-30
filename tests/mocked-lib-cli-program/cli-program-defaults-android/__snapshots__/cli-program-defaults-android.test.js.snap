@@ -1,0 +1,543 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mocked cli-program.js runs correctly defaults 1`] = `
+Array [
+  Object {
+    "notify": Object {},
+  },
+  Object {
+    "version": "x",
+  },
+  Object {
+    "usage": "[options] <name>",
+  },
+  Object {
+    "description": "creates a React Native library module for one or more platforms",
+  },
+  Object {
+    "action": Object {
+      "actionFunction": [Function],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--prefix [prefix]",
+        "The prefix for the library module",
+        [Function],
+        "",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--module-name [moduleName]",
+        "The module library package name to be used in package.json. Default: react-native-(name in param-case)",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--module-prefix [modulePrefix]",
+        "The module prefix for the library module, ignored if --module-name is specified",
+        [Function],
+        "react-native",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--package-identifier [packageIdentifier]",
+        "(Android only!) The package name for the Android module",
+        [Function],
+        "com.reactlibrary",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--platforms <platforms>",
+        "Platforms the library module will be created for - comma separated",
+        [Function],
+        "ios,android",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--github-account [githubAccount]",
+        "The github account where the library module is hosted",
+        [Function],
+        "github_account",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--author-name [authorName]",
+        "The author's name",
+        [Function],
+        "Your Name",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--author-email [authorEmail]",
+        "The author's email",
+        [Function],
+        "yourname@email.com",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--license [license]",
+        "The license type",
+        [Function],
+        "MIT",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--view",
+        "Generate the module as a very simple native view component",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--use-cocoapods",
+        "Generate a library with a sample podspec and third party pod usage example",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--generate-example",
+        "Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--example-name [exampleName]",
+        "Name for the example project",
+        [Function],
+        "example",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--example-react-native-version [exampleReactNativeVersion]",
+        "React Native version for the generated example project",
+        [Function],
+        "react-native@0.59",
+      ],
+    },
+  },
+  Object {
+    "parse": Object {
+      "argv": Array [
+        "node",
+        "create-cli.js",
+        "test-package",
+      ],
+    },
+  },
+  Object {
+    "ensureDir": "react-native-test-package",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/android/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/android/src/main/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/android/src/main/java/com/reactlibrary/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/android/src/main/java/com/reactlibrary/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/android/",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/README.md",
+    "theContent": "# react-native-test-package
+
+## Getting started
+
+\`$ npm install react-native-test-package --save\`
+
+### Mostly automatic installation
+
+\`$ react-native link react-native-test-package\`
+
+### Manual installation
+
+
+#### Android
+
+1. Open up \`android/app/src/main/java/[...]/MainApplication.java\`
+  - Add \`import com.reactlibrary.TestPackagePackage;\` to the imports at the top of the file
+  - Add \`new TestPackagePackage()\` to the list returned by the \`getPackages()\` method
+2. Append the following lines to \`android/settings.gradle\`:
+  	\`\`\`
+  	include ':react-native-test-package'
+  	project(':react-native-test-package').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-test-package/android')
+  	\`\`\`
+3. Insert the following lines inside the dependencies block in \`android/app/build.gradle\`:
+  	\`\`\`
+      compile project(':react-native-test-package')
+  	\`\`\`
+
+
+## Usage
+\`\`\`javascript
+import TestPackage from 'react-native-test-package';
+
+// TODO: What to do with the module?
+TestPackage;
+\`\`\`
+",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/package.json",
+    "theContent": "{
+  \\"name\\": \\"react-native-test-package\\",
+  \\"title\\": \\"React Native Test Package\\",
+  \\"version\\": \\"1.0.0\\",
+  \\"description\\": \\"TODO\\",
+  \\"main\\": \\"index.js\\",
+  \\"scripts\\": {
+    \\"test\\": \\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\"
+  },
+  \\"repository\\": {
+    \\"type\\": \\"git\\",
+    \\"url\\": \\"git+https://github.com/github_account/react-native-test-package.git\\",
+    \\"baseUrl\\": \\"https://github.com/github_account/react-native-test-package\\"
+  },
+  \\"keywords\\": [
+    \\"react-native\\"
+  ],
+  \\"author\\": {
+    \\"name\\": \\"Your Name\\",
+    \\"email\\": \\"yourname@email.com\\"
+  },
+  \\"license\\": \\"MIT\\",
+  \\"licenseFilename\\": \\"LICENSE\\",
+  \\"readmeFilename\\": \\"README.md\\",
+  \\"peerDependencies\\": {
+    \\"react\\": \\"^16.8.1\\",
+    \\"react-native\\": \\">=0.59.0-rc.0 <1.0.x\\"
+  },
+  \\"devDependencies\\": {
+    \\"react\\": \\"^16.8.3\\",
+    \\"react-native\\": \\"^0.59.10\\"
+  }
+}
+",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/index.js",
+    "theContent": "import { NativeModules } from 'react-native';
+
+const { TestPackage } = NativeModules;
+
+export default TestPackage;
+",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/.gitignore",
+    "theContent": "# OSX
+#
+.DS_Store
+
+# node.js
+#
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Android/IntelliJ
+#
+build/
+.idea
+.gradle
+local.properties
+*.iml
+
+# BUCK
+buck-out/
+\\\\.buckd/
+*.keystore
+",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/.gitattributes",
+    "theContent": "",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/.npmignore",
+    "theContent": "",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/android/build.gradle",
+    "theContent": "buildscript {
+    ext.safeExtGet = {prop, fallback ->
+        rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+    }
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        // Matches recent template from React Native (0.60)
+        // https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L16
+        classpath(\\"com.android.tools.build:gradle:\${safeExtGet('gradlePluginVersion', '3.4.1')}\\")
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+
+// Matches values in recent template from React Native 0.59 / 0.60
+// https://github.com/facebook/react-native/blob/0.59-stable/template/android/build.gradle#L5-L9
+// https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L5-L9
+def DEFAULT_COMPILE_SDK_VERSION = 28
+def DEFAULT_BUILD_TOOLS_VERSION = \\"28.0.3\\"
+def DEFAULT_MIN_SDK_VERSION = 16
+def DEFAULT_TARGET_SDK_VERSION = 28
+
+android {
+  compileSdkVersion safeExtGet('compileSdkVersion', DEFAULT_COMPILE_SDK_VERSION)
+  buildToolsVersion safeExtGet('buildToolsVersion', DEFAULT_BUILD_TOOLS_VERSION)
+
+  defaultConfig {
+    minSdkVersion safeExtGet('minSdkVersion', DEFAULT_MIN_SDK_VERSION)
+    targetSdkVersion safeExtGet('targetSdkVersion', DEFAULT_TARGET_SDK_VERSION)
+    versionCode 1
+    versionName \\"1.0\\"
+  }
+  lintOptions {
+    abortOnError false
+  }
+}
+
+repositories {
+    maven {
+        // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+        // Matches recent template from React Native 0.59 / 0.60
+        // https://github.com/facebook/react-native/blob/0.59-stable/template/android/build.gradle#L30
+        // https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L28
+        url \\"$projectDir/../node_modules/react-native/android\\"
+    }
+    mavenCentral()
+}
+
+dependencies {
+    implementation \\"com.facebook.react:react-native:\${safeExtGet('reactnativeVersion', '+')}\\"
+}
+
+def configureReactNativePom(def pom) {
+    def packageJson = new groovy.json.JsonSlurper().parseText(file('../package.json').text)
+
+    pom.project {
+        name packageJson.title
+        artifactId packageJson.name
+        version = packageJson.version
+        group = \\"com.reactlibrary\\"
+        description packageJson.description
+        url packageJson.repository.baseUrl
+
+        licenses {
+            license {
+                name packageJson.license
+                url packageJson.repository.baseUrl + '/blob/master/' + packageJson.licenseFilename
+                distribution 'repo'
+            }
+        }
+
+        developers {
+            developer {
+                id packageJson.author.username
+                name packageJson.author.name
+            }
+        }
+    }
+}
+
+afterEvaluate { project ->
+
+    task androidJavadoc(type: Javadoc) {
+        source = android.sourceSets.main.java.srcDirs
+        classpath += files(android.bootClasspath)
+        classpath += files(project.getConfigurations().getByName('compile').asList())
+        include '**/*.java'
+    }
+
+    task androidJavadocJar(type: Jar, dependsOn: androidJavadoc) {
+        classifier = 'javadoc'
+        from androidJavadoc.destinationDir
+    }
+
+    task androidSourcesJar(type: Jar) {
+        classifier = 'sources'
+        from android.sourceSets.main.java.srcDirs
+        include '**/*.java'
+    }
+
+    android.libraryVariants.all { variant ->
+        def name = variant.name.capitalize()
+        task \\"jar\${name}\\"(type: Jar, dependsOn: variant.javaCompile) {
+            from variant.javaCompile.destinationDir
+        }
+    }
+
+    artifacts {
+        archives androidSourcesJar
+        archives androidJavadocJar
+    }
+
+    task installArchives(type: Upload) {
+        configuration = configurations.archives
+        repositories.mavenDeployer {
+            // Deploy to react-native-event-bridge/maven, ready to publish to npm
+            repository url: \\"file://\${projectDir}/../android/maven\\"
+
+            configureReactNativePom pom
+        }
+    }
+}
+",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/android/src/main/AndroidManifest.xml",
+    "theContent": "<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
+          package=\\"com.reactlibrary\\">
+
+</manifest>
+",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/android/src/main/java/com/reactlibrary/TestPackageModule.java",
+    "theContent": "package com.reactlibrary;
+
+import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.bridge.ReactContextBaseJavaModule;
+import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.Callback;
+
+public class TestPackageModule extends ReactContextBaseJavaModule {
+
+    private final ReactApplicationContext reactContext;
+
+    public TestPackageModule(ReactApplicationContext reactContext) {
+        super(reactContext);
+        this.reactContext = reactContext;
+    }
+
+    @Override
+    public String getName() {
+        return \\"TestPackage\\";
+    }
+
+    @ReactMethod
+    public void sampleMethod(String stringArgument, int numberArgument, Callback callback) {
+        // TODO: Implement some actually useful functionality
+        callback.invoke(\\"Received numberArgument: \\" + numberArgument + \\" stringArgument: \\" + stringArgument);
+    }
+}
+",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/android/src/main/java/com/reactlibrary/TestPackagePackage.java",
+    "theContent": "package com.reactlibrary;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+import com.facebook.react.ReactPackage;
+import com.facebook.react.bridge.NativeModule;
+import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.uimanager.ViewManager;
+import com.facebook.react.bridge.JavaScriptModule;
+
+public class TestPackagePackage implements ReactPackage {
+    @Override
+    public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
+        return Arrays.<NativeModule>asList(new TestPackageModule(reactContext));
+    }
+
+    @Override
+    public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
+        return Collections.emptyList();
+    }
+}
+",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/android/README.md",
+    "theContent": "README
+======
+
+If you want to publish the lib as a maven dependency, follow these steps before publishing a new version to npm:
+
+1. Be sure to have the Android [SDK](https://developer.android.com/studio/index.html) and [NDK](https://developer.android.com/ndk/guides/index.html) installed
+2. Be sure to have a \`local.properties\` file in this folder that points to the Android SDK and NDK
+\`\`\`
+ndk.dir=/Users/{username}/Library/Android/sdk/ndk-bundle
+sdk.dir=/Users/{username}/Library/Android/sdk
+\`\`\`
+3. Delete the \`maven\` folder
+4. Run \`sudo ./gradlew installArchives\`
+5. Verify that latest set of generated files is in the maven folder with the correct version number
+",
+  },
+]
+`;
