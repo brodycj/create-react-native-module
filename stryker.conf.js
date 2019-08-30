@@ -1,10 +1,10 @@
-module.exports = function (config) {
+module.exports = (config) => {
   config.set({
-    mutator: "javascript",
-    packageManager: "yarn",
-    reporters: ["html", "clear-text", "progress"],
-    testRunner: "jest",
+    mutator: 'javascript',
+    packageManager: 'yarn',
+    reporters: ['html', 'clear-text', 'progress'],
+    testRunner: 'jest',
     transpilers: [],
-    coverageAnalysis: "off"
+    coverageAnalysis: 'off'
   });
 };
