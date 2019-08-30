@@ -2,7 +2,7 @@
   "name": "create-react-native-module",
   "version": "0.8.1-dev",
   "description": "Tool to create a React Native library module or view module with a single command",
-  "bin": "cli.js",
+  "bin": "bin/cli.js",
   "main": "lib/lib.js",
   "scripts": {
     "jest": "jest",
@@ -28,7 +28,7 @@
     "windows"
   ],
   "files": [
-    "cli.js",
+    "bin",
     "lib",
     "templates",
     "README.md"

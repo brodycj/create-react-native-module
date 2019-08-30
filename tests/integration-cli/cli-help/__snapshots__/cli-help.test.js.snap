@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`cli.js --help returns expected output 1`] = `
+exports[`bin/cli.js --help returns expected output 1`] = `
 "Usage: cli [options] <name>
 
 creates a React Native library module for one or more platforms
