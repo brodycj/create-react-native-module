@@ -1,0 +1,174 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mocked cli-program.js runs correctly defaults 1`] = `
+Array [
+  Object {
+    "notify": Object {},
+  },
+  Object {
+    "version": "x",
+  },
+  Object {
+    "usage": "[options] <name>",
+  },
+  Object {
+    "description": "creates a React Native library module for one or more platforms",
+  },
+  Object {
+    "action": Object {
+      "actionFunction": [Function],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--prefix [prefix]",
+        "The prefix for the library module",
+        [Function],
+        "",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--module-name [moduleName]",
+        "The module library package name to be used in package.json. Default: react-native-(name in param-case)",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--module-prefix [modulePrefix]",
+        "The module prefix for the library module, ignored if --module-name is specified",
+        [Function],
+        "react-native",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--package-identifier [packageIdentifier]",
+        "(Android only!) The package name for the Android module",
+        [Function],
+        "com.reactlibrary",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--platforms <platforms>",
+        "Platforms the library module will be created for - comma separated",
+        [Function],
+        "ios,android",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--github-account [githubAccount]",
+        "The github account where the library module is hosted",
+        [Function],
+        "github_account",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--author-name [authorName]",
+        "The author's name",
+        [Function],
+        "Your Name",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--author-email [authorEmail]",
+        "The author's email",
+        [Function],
+        "yourname@email.com",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--license [license]",
+        "The license type",
+        [Function],
+        "MIT",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--view",
+        "Generate the module as a very simple native view component",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--use-cocoapods",
+        "Generate a library with a sample podspec and third party pod usage example",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--generate-example",
+        "Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--example-name [exampleName]",
+        "Name for the example project",
+        [Function],
+        "example",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--example-react-native-version [exampleReactNativeVersion]",
+        "React Native version for the generated example project",
+        [Function],
+        "react-native@0.59",
+      ],
+    },
+  },
+  Object {
+    "parse": Object {
+      "argv": Array [
+        "node",
+        "create-cli.js",
+      ],
+    },
+  },
+  Object {
+    "help": Object {},
+  },
+]
+`;
