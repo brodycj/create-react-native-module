@@ -2,6 +2,12 @@ extends:
   - standard
 
 rules:
+  # disable quotes for now, at least
+  # FUTURE TBD decide whether to enforce single quotes
+  # (as specified by "Standard JS") or
+  # switch to using backticks instead
+  quotes: off
+
   semi:
     - error
     - always
