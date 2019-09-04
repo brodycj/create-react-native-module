@@ -39,15 +39,10 @@ global.console = {
   },
 };
 
-test('create alice-bobbi module using mocked lib with logging, with example, for Android & iOS with config options', async () => {
+test('create alice-bobbi module using mocked lib with logging, with example, for Android & iOS with defaults', async () => {
   const options = {
     platforms: ['android', 'ios'],
     name: 'alice-bobbi',
-    packageIdentifier: 'com.alicebits',
-    githubAccount: 'alicebits',
-    authorName: 'Alice',
-    authorEmail: 'contact@alice.me',
-    license: 'ISC',
     generateExample: true,
   };
 
