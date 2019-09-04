@@ -1,4 +1,4 @@
-const lib = require('../../lib/lib.js');
+const lib = require('../../../../../../lib/lib.js');
 
 // special compact mocks for this test
 // with mock uuid for Windows:

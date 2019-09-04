@@ -1,10 +1,6 @@
-const lib = require('../../lib/lib.js');
+const func = require('../../../../../../lib/cli-command.js').func;
 
-// special compact mocks for this test
-// with mock uuid for Windows:
-jest.mock('uuid', () => ({
-  v1: () => 'E22606E0-B47F-11E9-A3F0-07F70A25DAFB'
-}));
+// special compact mocks for this test:
 const mysnap = [];
 const mockpushit = x => mysnap.push(x);
 jest.mock('fs-extra', () => ({
@@ -18,17 +14,19 @@ jest.mock('fs-extra', () => ({
   },
 }));
 
-test('create alice-bobbi module using mocked lib with config options on Windows', () => {
+test('create alice-bobbi module with explicit config options for Android & iOS', () => {
+  const args = ['alice-bobbi'];
+
+  const config = 'bogus';
+
   const options = {
-    platforms: ['windows'],
-    name: 'alice-bobbi',
+    platforms: 'android,ios',
     githubAccount: 'alicebits',
     authorName: 'Alice',
     authorEmail: 'contact@alice.me',
     license: 'ISC',
-    namespace: 'Carol',
   };
 
-  return lib(options)
+  return func(args, config, options)
     .then(() => { expect(mysnap).toMatchSnapshot(); });
 });

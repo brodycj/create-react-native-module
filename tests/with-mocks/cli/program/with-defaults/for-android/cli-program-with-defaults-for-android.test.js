@@ -59,7 +59,7 @@ jest.mock('commander', () => mockCommander);
 process.argv = ['node', 'create-cli.js', 'test-package'];
 
 test('mocked cli-program.js runs correctly defaults', () => {
-  require('../../../lib/cli-program.js');
+  require('../../../../../../lib/cli-program.js');
   // Using a 1 ms timer to wait for the
   // CLI program func to finish.
   // FUTURE TBD this looks like a bad smell
