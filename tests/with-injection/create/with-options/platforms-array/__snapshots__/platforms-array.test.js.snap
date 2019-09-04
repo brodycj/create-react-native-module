@@ -1,0 +1,778 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`create alice-bobbi module with config options for android,ios comma separated 1`] = `
+Array [
+  "* ensureDir dir: react-native-alice-bobbi
+",
+  "* ensureDir dir: react-native-alice-bobbi/
+",
+  "* ensureDir dir: react-native-alice-bobbi/
+",
+  "* ensureDir dir: react-native-alice-bobbi/
+",
+  "* ensureDir dir: react-native-alice-bobbi/
+",
+  "* ensureDir dir: react-native-alice-bobbi/
+",
+  "* ensureDir dir: react-native-alice-bobbi/
+",
+  "* ensureDir dir: react-native-alice-bobbi/android/
+",
+  "* ensureDir dir: react-native-alice-bobbi/android/src/main/
+",
+  "* ensureDir dir: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/
+",
+  "* ensureDir dir: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/
+",
+  "* ensureDir dir: react-native-alice-bobbi/android/
+",
+  "* ensureDir dir: react-native-alice-bobbi/
+",
+  "* ensureDir dir: react-native-alice-bobbi/ios/
+",
+  "* ensureDir dir: react-native-alice-bobbi/ios/
+",
+  "* ensureDir dir: react-native-alice-bobbi/ios/AliceBobbi.xcworkspace/
+",
+  "* ensureDir dir: react-native-alice-bobbi/ios/AliceBobbi.xcodeproj/
+",
+  "* outputFile name: react-native-alice-bobbi/README.md
+content:
+--------
+# react-native-alice-bobbi
+
+## Getting started
+
+\`$ npm install react-native-alice-bobbi --save\`
+
+### Mostly automatic installation
+
+\`$ react-native link react-native-alice-bobbi\`
+
+### Manual installation
+
+
+#### iOS
+
+1. In XCode, in the project navigator, right click \`Libraries\` ➜ \`Add Files to [your project's name]\`
+2. Go to \`node_modules\` ➜ \`react-native-alice-bobbi\` and add \`AliceBobbi.xcodeproj\`
+3. In XCode, in the project navigator, select your project. Add \`libAliceBobbi.a\` to your project's \`Build Phases\` ➜ \`Link Binary With Libraries\`
+4. Run your project (\`Cmd+R\`)<
+
+#### Android
+
+1. Open up \`android/app/src/main/java/[...]/MainApplication.java\`
+  - Add \`import com.reactlibrary.AliceBobbiPackage;\` to the imports at the top of the file
+  - Add \`new AliceBobbiPackage()\` to the list returned by the \`getPackages()\` method
+2. Append the following lines to \`android/settings.gradle\`:
+  	\`\`\`
+  	include ':react-native-alice-bobbi'
+  	project(':react-native-alice-bobbi').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-alice-bobbi/android')
+  	\`\`\`
+3. Insert the following lines inside the dependencies block in \`android/app/build.gradle\`:
+  	\`\`\`
+      compile project(':react-native-alice-bobbi')
+  	\`\`\`
+
+
+## Usage
+\`\`\`javascript
+import AliceBobbi from 'react-native-alice-bobbi';
+
+// TODO: What to do with the module?
+AliceBobbi;
+\`\`\`
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/package.json
+content:
+--------
+{
+  \\"name\\": \\"react-native-alice-bobbi\\",
+  \\"title\\": \\"React Native Alice Bobbi\\",
+  \\"version\\": \\"1.0.0\\",
+  \\"description\\": \\"TODO\\",
+  \\"main\\": \\"index.js\\",
+  \\"scripts\\": {
+    \\"test\\": \\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\"
+  },
+  \\"repository\\": {
+    \\"type\\": \\"git\\",
+    \\"url\\": \\"git+https://github.com/alicebits/react-native-alice-bobbi.git\\",
+    \\"baseUrl\\": \\"https://github.com/alicebits/react-native-alice-bobbi\\"
+  },
+  \\"keywords\\": [
+    \\"react-native\\"
+  ],
+  \\"author\\": {
+    \\"name\\": \\"Alice\\",
+    \\"email\\": \\"contact@alice.me\\"
+  },
+  \\"license\\": \\"ISC\\",
+  \\"licenseFilename\\": \\"LICENSE\\",
+  \\"readmeFilename\\": \\"README.md\\",
+  \\"peerDependencies\\": {
+    \\"react\\": \\"^16.8.1\\",
+    \\"react-native\\": \\">=0.59.0-rc.0 <1.0.x\\"
+  },
+  \\"devDependencies\\": {
+    \\"react\\": \\"^16.8.3\\",
+    \\"react-native\\": \\"^0.59.10\\"
+  }
+}
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/index.js
+content:
+--------
+import { NativeModules } from 'react-native';
+
+const { AliceBobbi } = NativeModules;
+
+export default AliceBobbi;
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/.gitignore
+content:
+--------
+# OSX
+#
+.DS_Store
+
+# node.js
+#
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Xcode
+#
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+project.xcworkspace
+
+# Android/IntelliJ
+#
+build/
+.idea
+.gradle
+local.properties
+*.iml
+
+# BUCK
+buck-out/
+\\\\.buckd/
+*.keystore
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/.gitattributes
+content:
+--------
+*.pbxproj -text
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/.npmignore
+content:
+--------
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/android/build.gradle
+content:
+--------
+buildscript {
+    ext.safeExtGet = {prop, fallback ->
+        rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+    }
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        // Matches recent template from React Native (0.60)
+        // https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L16
+        classpath(\\"com.android.tools.build:gradle:\${safeExtGet('gradlePluginVersion', '3.4.1')}\\")
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+
+// Matches values in recent template from React Native 0.59 / 0.60
+// https://github.com/facebook/react-native/blob/0.59-stable/template/android/build.gradle#L5-L9
+// https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L5-L9
+def DEFAULT_COMPILE_SDK_VERSION = 28
+def DEFAULT_BUILD_TOOLS_VERSION = \\"28.0.3\\"
+def DEFAULT_MIN_SDK_VERSION = 16
+def DEFAULT_TARGET_SDK_VERSION = 28
+
+android {
+  compileSdkVersion safeExtGet('compileSdkVersion', DEFAULT_COMPILE_SDK_VERSION)
+  buildToolsVersion safeExtGet('buildToolsVersion', DEFAULT_BUILD_TOOLS_VERSION)
+
+  defaultConfig {
+    minSdkVersion safeExtGet('minSdkVersion', DEFAULT_MIN_SDK_VERSION)
+    targetSdkVersion safeExtGet('targetSdkVersion', DEFAULT_TARGET_SDK_VERSION)
+    versionCode 1
+    versionName \\"1.0\\"
+  }
+  lintOptions {
+    abortOnError false
+  }
+}
+
+repositories {
+    maven {
+        // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+        // Matches recent template from React Native 0.59 / 0.60
+        // https://github.com/facebook/react-native/blob/0.59-stable/template/android/build.gradle#L30
+        // https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L28
+        url \\"$projectDir/../node_modules/react-native/android\\"
+    }
+    mavenCentral()
+}
+
+dependencies {
+    implementation \\"com.facebook.react:react-native:\${safeExtGet('reactnativeVersion', '+')}\\"
+}
+
+def configureReactNativePom(def pom) {
+    def packageJson = new groovy.json.JsonSlurper().parseText(file('../package.json').text)
+
+    pom.project {
+        name packageJson.title
+        artifactId packageJson.name
+        version = packageJson.version
+        group = \\"com.reactlibrary\\"
+        description packageJson.description
+        url packageJson.repository.baseUrl
+
+        licenses {
+            license {
+                name packageJson.license
+                url packageJson.repository.baseUrl + '/blob/master/' + packageJson.licenseFilename
+                distribution 'repo'
+            }
+        }
+
+        developers {
+            developer {
+                id packageJson.author.username
+                name packageJson.author.name
+            }
+        }
+    }
+}
+
+afterEvaluate { project ->
+
+    task androidJavadoc(type: Javadoc) {
+        source = android.sourceSets.main.java.srcDirs
+        classpath += files(android.bootClasspath)
+        classpath += files(project.getConfigurations().getByName('compile').asList())
+        include '**/*.java'
+    }
+
+    task androidJavadocJar(type: Jar, dependsOn: androidJavadoc) {
+        classifier = 'javadoc'
+        from androidJavadoc.destinationDir
+    }
+
+    task androidSourcesJar(type: Jar) {
+        classifier = 'sources'
+        from android.sourceSets.main.java.srcDirs
+        include '**/*.java'
+    }
+
+    android.libraryVariants.all { variant ->
+        def name = variant.name.capitalize()
+        task \\"jar\${name}\\"(type: Jar, dependsOn: variant.javaCompile) {
+            from variant.javaCompile.destinationDir
+        }
+    }
+
+    artifacts {
+        archives androidSourcesJar
+        archives androidJavadocJar
+    }
+
+    task installArchives(type: Upload) {
+        configuration = configurations.archives
+        repositories.mavenDeployer {
+            // Deploy to react-native-event-bridge/maven, ready to publish to npm
+            repository url: \\"file://\${projectDir}/../android/maven\\"
+
+            configureReactNativePom pom
+        }
+    }
+}
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/android/src/main/AndroidManifest.xml
+content:
+--------
+<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
+          package=\\"com.reactlibrary\\">
+
+</manifest>
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiModule.java
+content:
+--------
+package com.reactlibrary;
+
+import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.bridge.ReactContextBaseJavaModule;
+import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.Callback;
+
+public class AliceBobbiModule extends ReactContextBaseJavaModule {
+
+    private final ReactApplicationContext reactContext;
+
+    public AliceBobbiModule(ReactApplicationContext reactContext) {
+        super(reactContext);
+        this.reactContext = reactContext;
+    }
+
+    @Override
+    public String getName() {
+        return \\"AliceBobbi\\";
+    }
+
+    @ReactMethod
+    public void sampleMethod(String stringArgument, int numberArgument, Callback callback) {
+        // TODO: Implement some actually useful functionality
+        callback.invoke(\\"Received numberArgument: \\" + numberArgument + \\" stringArgument: \\" + stringArgument);
+    }
+}
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiPackage.java
+content:
+--------
+package com.reactlibrary;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+import com.facebook.react.ReactPackage;
+import com.facebook.react.bridge.NativeModule;
+import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.uimanager.ViewManager;
+import com.facebook.react.bridge.JavaScriptModule;
+
+public class AliceBobbiPackage implements ReactPackage {
+    @Override
+    public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
+        return Arrays.<NativeModule>asList(new AliceBobbiModule(reactContext));
+    }
+
+    @Override
+    public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
+        return Collections.emptyList();
+    }
+}
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/android/README.md
+content:
+--------
+README
+======
+
+If you want to publish the lib as a maven dependency, follow these steps before publishing a new version to npm:
+
+1. Be sure to have the Android [SDK](https://developer.android.com/studio/index.html) and [NDK](https://developer.android.com/ndk/guides/index.html) installed
+2. Be sure to have a \`local.properties\` file in this folder that points to the Android SDK and NDK
+\`\`\`
+ndk.dir=/Users/{username}/Library/Android/sdk/ndk-bundle
+sdk.dir=/Users/{username}/Library/Android/sdk
+\`\`\`
+3. Delete the \`maven\` folder
+4. Run \`sudo ./gradlew installArchives\`
+5. Verify that latest set of generated files is in the maven folder with the correct version number
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/react-native-alice-bobbi.podspec
+content:
+--------
+require \\"json\\"
+
+package = JSON.parse(File.read(File.join(__dir__, \\"package.json\\")))
+
+Pod::Spec.new do |s|
+  s.name         = \\"react-native-alice-bobbi\\"
+  s.version      = package[\\"version\\"]
+  s.summary      = package[\\"description\\"]
+  s.description  = <<-DESC
+                  react-native-alice-bobbi
+                   DESC
+  s.homepage     = \\"https://github.com/alicebits/react-native-alice-bobbi\\"
+  s.license      = \\"MIT\\"
+  # s.license    = { :type => \\"MIT\\", :file => \\"FILE_LICENSE\\" }
+  s.authors      = { \\"Alice\\" => \\"contact@alice.me\\" }
+  s.platform     = :ios, \\"7.0\\"
+  s.source       = { :git => \\"https://github.com/alicebits/react-native-alice-bobbi.git\\", :tag => \\"#{s.version}\\" }
+
+  s.source_files = \\"ios/**/*.{h,m,swift}\\"
+  s.requires_arc = true
+
+  s.dependency \\"React\\"
+	
+  # s.dependency \\"...\\"
+end
+
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/ios/AliceBobbi.h
+content:
+--------
+#import <React/RCTBridgeModule.h>
+
+@interface AliceBobbi : NSObject <RCTBridgeModule>
+
+@end
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/ios/AliceBobbi.m
+content:
+--------
+#import \\"AliceBobbi.h\\"
+
+
+@implementation AliceBobbi
+
+RCT_EXPORT_MODULE()
+
+RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnull NSNumber *)numberArgument callback:(RCTResponseSenderBlock)callback)
+{
+    // TODO: Implement some actually useful functionality
+	callback(@[[NSString stringWithFormat: @\\"numberArgument: %@ stringArgument: %@\\", numberArgument, stringArgument]]);
+}
+
+@end
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/ios/AliceBobbi.xcworkspace/contents.xcworkspacedata
+content:
+--------
+<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
+<Workspace
+   version = \\"1.0\\">
+   <FileRef
+      location = \\"group:AliceBobbi.xcodeproj\\">
+   </FileRef>
+</Workspace>
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/ios/AliceBobbi.xcodeproj/project.pbxproj
+content:
+--------
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B3E7B58A1CC2AC0600A0062D /* AliceBobbi.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* AliceBobbi.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		58B511D91A9E6C8500147676 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = \\"include/$(PRODUCT_NAME)\\";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		134814201AA4EA6300B7C361 /* libAliceBobbi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAliceBobbi.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3E7B5881CC2AC0600A0062D /* AliceBobbi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliceBobbi.h; sourceTree = \\"<group>\\"; };
+		B3E7B5891CC2AC0600A0062D /* AliceBobbi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliceBobbi.m; sourceTree = \\"<group>\\"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		58B511D81A9E6C8500147676 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		134814211AA4EA7D00B7C361 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				134814201AA4EA6300B7C361 /* libAliceBobbi.a */,
+			);
+			name = Products;
+			sourceTree = \\"<group>\\";
+		};
+		58B511D21A9E6C8500147676 = {
+			isa = PBXGroup;
+			children = (
+				B3E7B5881CC2AC0600A0062D /* AliceBobbi.h */,
+				B3E7B5891CC2AC0600A0062D /* AliceBobbi.m */,
+				134814211AA4EA7D00B7C361 /* Products */,
+			);
+			sourceTree = \\"<group>\\";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		58B511DA1A9E6C8500147676 /* AliceBobbi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget \\"AliceBobbi\\" */;
+			buildPhases = (
+				58B511D71A9E6C8500147676 /* Sources */,
+				58B511D81A9E6C8500147676 /* Frameworks */,
+				58B511D91A9E6C8500147676 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AliceBobbi;
+			productName = RCTDataManager;
+			productReference = 134814201AA4EA6300B7C361 /* libAliceBobbi.a */;
+			productType = \\"com.apple.product-type.library.static\\";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		58B511D31A9E6C8500147676 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = Facebook;
+				TargetAttributes = {
+					58B511DA1A9E6C8500147676 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject \\"AliceBobbi\\" */;
+			compatibilityVersion = \\"Xcode 3.2\\";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 58B511D21A9E6C8500147676;
+			productRefGroup = 58B511D21A9E6C8500147676;
+			projectDirPath = \\"\\";
+			projectRoot = \\"\\";
+			targets = (
+				58B511DA1A9E6C8500147676 /* AliceBobbi */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		58B511D71A9E6C8500147676 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3E7B58A1CC2AC0600A0062D /* AliceBobbi.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		58B511ED1A9E6C8500147676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = \\"gnu++0x\\";
+				CLANG_CXX_LIBRARY = \\"libc++\\";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					\\"DEBUG=1\\",
+					\\"$(inherited)\\",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		58B511EE1A9E6C8500147676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = \\"gnu++0x\\";
+				CLANG_CXX_LIBRARY = \\"libc++\\";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		58B511F01A9E6C8500147676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+				\\"$(inherited)\\",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					\\"$(SRCROOT)/../../../React/**\\",
+					\\"$(SRCROOT)/../../react-native/React/**\\",
+				);
+				LIBRARY_SEARCH_PATHS = \\"$(inherited)\\";
+				OTHER_LDFLAGS = \\"-ObjC\\";
+				PRODUCT_NAME = AliceBobbi;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		58B511F11A9E6C8500147676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					\\"$(inherited)\\",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					\\"$(SRCROOT)/../../../React/**\\",
+					\\"$(SRCROOT)/../../react-native/React/**\\",
+				);
+				LIBRARY_SEARCH_PATHS = \\"$(inherited)\\";
+				OTHER_LDFLAGS = \\"-ObjC\\";
+				PRODUCT_NAME = AliceBobbi;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject \\"AliceBobbi\\" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58B511ED1A9E6C8500147676 /* Debug */,
+				58B511EE1A9E6C8500147676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget \\"AliceBobbi\\" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58B511F01A9E6C8500147676 /* Debug */,
+				58B511F11A9E6C8500147676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 58B511D31A9E6C8500147676 /* Project object */;
+}
+
+<<<<<<<< ======== >>>>>>>>
+",
+]
+`;

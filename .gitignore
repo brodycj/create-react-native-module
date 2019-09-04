@@ -27,3 +27,8 @@ Temporary Items
 
 node_modules
 npm-debug.log
+
+# Stryker mutator output
+.stryker-tmp
+reports
+stryker.log
