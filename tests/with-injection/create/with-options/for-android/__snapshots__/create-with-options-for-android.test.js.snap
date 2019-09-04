@@ -20,9 +20,9 @@ Array [
 ",
   "* ensureDir dir: react-native-alice-bobbi/android/src/main/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/
+  "* ensureDir dir: react-native-alice-bobbi/android/src/main/java/com/alicebits/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/
+  "* ensureDir dir: react-native-alice-bobbi/android/src/main/java/com/alicebits/
 ",
   "* ensureDir dir: react-native-alice-bobbi/android/
 ",
@@ -45,7 +45,7 @@ content:
 #### Android
 
 1. Open up \`android/app/src/main/java/[...]/MainApplication.java\`
-  - Add \`import com.reactlibrary.AliceBobbiPackage;\` to the imports at the top of the file
+  - Add \`import com.alicebits.AliceBobbiPackage;\` to the imports at the top of the file
   - Add \`new AliceBobbiPackage()\` to the list returned by the \`getPackages()\` method
 2. Append the following lines to \`android/settings.gradle\`:
   	\`\`\`
@@ -225,7 +225,7 @@ def configureReactNativePom(def pom) {
         name packageJson.title
         artifactId packageJson.name
         version = packageJson.version
-        group = \\"com.reactlibrary\\"
+        group = \\"com.alicebits\\"
         description packageJson.description
         url packageJson.repository.baseUrl
 
@@ -295,16 +295,16 @@ afterEvaluate { project ->
 content:
 --------
 <manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
-          package=\\"com.reactlibrary\\">
+          package=\\"com.alicebits\\">
 
 </manifest>
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiModule.java
+  "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/alicebits/AliceBobbiModule.java
 content:
 --------
-package com.reactlibrary;
+package com.alicebits;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -334,10 +334,10 @@ public class AliceBobbiModule extends ReactContextBaseJavaModule {
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiPackage.java
+  "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/alicebits/AliceBobbiPackage.java
 content:
 --------
-package com.reactlibrary;
+package com.alicebits;
 
 import java.util.Arrays;
 import java.util.Collections;

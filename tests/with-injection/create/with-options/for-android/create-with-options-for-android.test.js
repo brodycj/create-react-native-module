@@ -10,6 +10,7 @@ test('create alice-bobbi module with config options for Android only', () => {
   const options = {
     platforms: ['android'],
     name: 'alice-bobbi',
+    packageIdentifier: 'com.alicebits',
     githubAccount: 'alicebits',
     authorName: 'Alice',
     authorEmail: 'contact@alice.me',
