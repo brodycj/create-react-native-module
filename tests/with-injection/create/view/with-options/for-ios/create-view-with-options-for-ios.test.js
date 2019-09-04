@@ -1,11 +1,11 @@
 const lib = require('../../../../../../lib/lib.js');
 
-const ioMocks = require('../../../../helpers/io-inject.js');
+const ioInject = require('../../../../helpers/io-inject.js');
 
 test('create alice-bobbi view module with config options for iOS only', () => {
   const mysnap = [];
 
-  const mocks = ioMocks(mysnap);
+  const inject = ioInject(mysnap);
 
   const options = {
     platforms: ['ios'],
@@ -17,6 +17,6 @@ test('create alice-bobbi view module with config options for iOS only', () => {
     view: true,
   };
 
-  return lib(options, mocks)
+  return lib(options, inject)
     .then(() => { expect(mysnap).toMatchSnapshot(); });
 });
