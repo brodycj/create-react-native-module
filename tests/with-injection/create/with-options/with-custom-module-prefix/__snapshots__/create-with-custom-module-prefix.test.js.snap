@@ -1,53 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`create alice-bobbi module with config options for android,ios comma separated 1`] = `
+exports[`create alice-bobbi module with modulePrefix: 'custom-native' 1`] = `
 Array [
-  "* ensureDir dir: react-native-alice-bobbi
+  "* ensureDir dir: custom-native-alice-bobbi
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* ensureDir dir: custom-native-alice-bobbi/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* ensureDir dir: custom-native-alice-bobbi/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* ensureDir dir: custom-native-alice-bobbi/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* ensureDir dir: custom-native-alice-bobbi/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* ensureDir dir: custom-native-alice-bobbi/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* ensureDir dir: custom-native-alice-bobbi/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/android/
+  "* ensureDir dir: custom-native-alice-bobbi/android/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/android/src/main/
+  "* ensureDir dir: custom-native-alice-bobbi/android/src/main/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/
+  "* ensureDir dir: custom-native-alice-bobbi/android/src/main/java/com/reactlibrary/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/
+  "* ensureDir dir: custom-native-alice-bobbi/android/src/main/java/com/reactlibrary/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/android/
+  "* ensureDir dir: custom-native-alice-bobbi/android/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* ensureDir dir: custom-native-alice-bobbi/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/ios/
+  "* ensureDir dir: custom-native-alice-bobbi/ios/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/ios/
+  "* ensureDir dir: custom-native-alice-bobbi/ios/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/ios/ABCAliceBobbi.xcworkspace/
+  "* ensureDir dir: custom-native-alice-bobbi/ios/AliceBobbi.xcworkspace/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/ios/ABCAliceBobbi.xcodeproj/
+  "* ensureDir dir: custom-native-alice-bobbi/ios/AliceBobbi.xcodeproj/
 ",
-  "* outputFile name: react-native-alice-bobbi/README.md
+  "* outputFile name: custom-native-alice-bobbi/README.md
 content:
 --------
-# react-native-alice-bobbi
+# custom-native-alice-bobbi
 
 ## Getting started
 
-\`$ npm install react-native-alice-bobbi --save\`
+\`$ npm install custom-native-alice-bobbi --save\`
 
 ### Mostly automatic installation
 
-\`$ react-native link react-native-alice-bobbi\`
+\`$ react-native link custom-native-alice-bobbi\`
 
 ### Manual installation
 
@@ -55,42 +55,42 @@ content:
 #### iOS
 
 1. In XCode, in the project navigator, right click \`Libraries\` ➜ \`Add Files to [your project's name]\`
-2. Go to \`node_modules\` ➜ \`react-native-alice-bobbi\` and add \`ABCAliceBobbi.xcodeproj\`
-3. In XCode, in the project navigator, select your project. Add \`libABCAliceBobbi.a\` to your project's \`Build Phases\` ➜ \`Link Binary With Libraries\`
+2. Go to \`node_modules\` ➜ \`custom-native-alice-bobbi\` and add \`AliceBobbi.xcodeproj\`
+3. In XCode, in the project navigator, select your project. Add \`libAliceBobbi.a\` to your project's \`Build Phases\` ➜ \`Link Binary With Libraries\`
 4. Run your project (\`Cmd+R\`)<
 
 #### Android
 
 1. Open up \`android/app/src/main/java/[...]/MainApplication.java\`
-  - Add \`import com.reactlibrary.ABCAliceBobbiPackage;\` to the imports at the top of the file
-  - Add \`new ABCAliceBobbiPackage()\` to the list returned by the \`getPackages()\` method
+  - Add \`import com.reactlibrary.AliceBobbiPackage;\` to the imports at the top of the file
+  - Add \`new AliceBobbiPackage()\` to the list returned by the \`getPackages()\` method
 2. Append the following lines to \`android/settings.gradle\`:
   	\`\`\`
-  	include ':react-native-alice-bobbi'
-  	project(':react-native-alice-bobbi').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-alice-bobbi/android')
+  	include ':custom-native-alice-bobbi'
+  	project(':custom-native-alice-bobbi').projectDir = new File(rootProject.projectDir, 	'../node_modules/custom-native-alice-bobbi/android')
   	\`\`\`
 3. Insert the following lines inside the dependencies block in \`android/app/build.gradle\`:
   	\`\`\`
-      compile project(':react-native-alice-bobbi')
+      compile project(':custom-native-alice-bobbi')
   	\`\`\`
 
 
 ## Usage
 \`\`\`javascript
-import ABCAliceBobbi from 'react-native-alice-bobbi';
+import AliceBobbi from 'custom-native-alice-bobbi';
 
 // TODO: What to do with the module?
-ABCAliceBobbi;
+AliceBobbi;
 \`\`\`
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/package.json
+  "* outputFile name: custom-native-alice-bobbi/package.json
 content:
 --------
 {
-  \\"name\\": \\"react-native-alice-bobbi\\",
-  \\"title\\": \\"React Native Alice Bobbi\\",
+  \\"name\\": \\"custom-native-alice-bobbi\\",
+  \\"title\\": \\"Custom Native Alice Bobbi\\",
   \\"version\\": \\"1.0.0\\",
   \\"description\\": \\"TODO\\",
   \\"main\\": \\"index.js\\",
@@ -99,17 +99,17 @@ content:
   },
   \\"repository\\": {
     \\"type\\": \\"git\\",
-    \\"url\\": \\"git+https://github.com/alicebits/react-native-alice-bobbi.git\\",
-    \\"baseUrl\\": \\"https://github.com/alicebits/react-native-alice-bobbi\\"
+    \\"url\\": \\"git+https://github.com/github_account/custom-native-alice-bobbi.git\\",
+    \\"baseUrl\\": \\"https://github.com/github_account/custom-native-alice-bobbi\\"
   },
   \\"keywords\\": [
     \\"react-native\\"
   ],
   \\"author\\": {
-    \\"name\\": \\"Alice\\",
-    \\"email\\": \\"contact@alice.me\\"
+    \\"name\\": \\"Your Name\\",
+    \\"email\\": \\"yourname@email.com\\"
   },
-  \\"license\\": \\"ISC\\",
+  \\"license\\": \\"MIT\\",
   \\"licenseFilename\\": \\"LICENSE\\",
   \\"readmeFilename\\": \\"README.md\\",
   \\"peerDependencies\\": {
@@ -124,18 +124,18 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/index.js
+  "* outputFile name: custom-native-alice-bobbi/index.js
 content:
 --------
 import { NativeModules } from 'react-native';
 
-const { ABCAliceBobbi } = NativeModules;
+const { AliceBobbi } = NativeModules;
 
-export default ABCAliceBobbi;
+export default AliceBobbi;
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/.gitignore
+  "* outputFile name: custom-native-alice-bobbi/.gitignore
 content:
 --------
 # OSX
@@ -183,20 +183,20 @@ buck-out/
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/.gitattributes
+  "* outputFile name: custom-native-alice-bobbi/.gitattributes
 content:
 --------
 *.pbxproj -text
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/.npmignore
+  "* outputFile name: custom-native-alice-bobbi/.npmignore
 content:
 --------
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/android/build.gradle
+  "* outputFile name: custom-native-alice-bobbi/android/build.gradle
 content:
 --------
 buildscript {
@@ -329,7 +329,7 @@ afterEvaluate { project ->
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/android/src/main/AndroidManifest.xml
+  "* outputFile name: custom-native-alice-bobbi/android/src/main/AndroidManifest.xml
 content:
 --------
 <manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
@@ -339,7 +339,7 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/ABCAliceBobbiModule.java
+  "* outputFile name: custom-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiModule.java
 content:
 --------
 package com.reactlibrary;
@@ -349,18 +349,18 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
 
-public class ABCAliceBobbiModule extends ReactContextBaseJavaModule {
+public class AliceBobbiModule extends ReactContextBaseJavaModule {
 
     private final ReactApplicationContext reactContext;
 
-    public ABCAliceBobbiModule(ReactApplicationContext reactContext) {
+    public AliceBobbiModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
     }
 
     @Override
     public String getName() {
-        return \\"ABCAliceBobbi\\";
+        return \\"AliceBobbi\\";
     }
 
     @ReactMethod
@@ -372,7 +372,7 @@ public class ABCAliceBobbiModule extends ReactContextBaseJavaModule {
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/ABCAliceBobbiPackage.java
+  "* outputFile name: custom-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiPackage.java
 content:
 --------
 package com.reactlibrary;
@@ -387,10 +387,10 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 import com.facebook.react.bridge.JavaScriptModule;
 
-public class ABCAliceBobbiPackage implements ReactPackage {
+public class AliceBobbiPackage implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-        return Arrays.<NativeModule>asList(new ABCAliceBobbiModule(reactContext));
+        return Arrays.<NativeModule>asList(new AliceBobbiModule(reactContext));
     }
 
     @Override
@@ -401,7 +401,7 @@ public class ABCAliceBobbiPackage implements ReactPackage {
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/android/README.md
+  "* outputFile name: custom-native-alice-bobbi/android/README.md
 content:
 --------
 README
@@ -421,7 +421,7 @@ sdk.dir=/Users/{username}/Library/Android/sdk
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/react-native-alice-bobbi.podspec
+  "* outputFile name: custom-native-alice-bobbi/custom-native-alice-bobbi.podspec
 content:
 --------
 require \\"json\\"
@@ -429,18 +429,18 @@ require \\"json\\"
 package = JSON.parse(File.read(File.join(__dir__, \\"package.json\\")))
 
 Pod::Spec.new do |s|
-  s.name         = \\"react-native-alice-bobbi\\"
+  s.name         = \\"custom-native-alice-bobbi\\"
   s.version      = package[\\"version\\"]
   s.summary      = package[\\"description\\"]
   s.description  = <<-DESC
-                  react-native-alice-bobbi
+                  custom-native-alice-bobbi
                    DESC
-  s.homepage     = \\"https://github.com/alicebits/react-native-alice-bobbi\\"
+  s.homepage     = \\"https://github.com/github_account/custom-native-alice-bobbi\\"
   s.license      = \\"MIT\\"
   # s.license    = { :type => \\"MIT\\", :file => \\"FILE_LICENSE\\" }
-  s.authors      = { \\"Alice\\" => \\"contact@alice.me\\" }
+  s.authors      = { \\"Your Name\\" => \\"yourname@email.com\\" }
   s.platform     = :ios, \\"7.0\\"
-  s.source       = { :git => \\"https://github.com/alicebits/react-native-alice-bobbi.git\\", :tag => \\"#{s.version}\\" }
+  s.source       = { :git => \\"https://github.com/github_account/custom-native-alice-bobbi.git\\", :tag => \\"#{s.version}\\" }
 
   s.source_files = \\"ios/**/*.{h,m,swift}\\"
   s.requires_arc = true
@@ -453,24 +453,24 @@ end
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/ios/ABCAliceBobbi.h
+  "* outputFile name: custom-native-alice-bobbi/ios/AliceBobbi.h
 content:
 --------
 #import <React/RCTBridgeModule.h>
 
-@interface ABCAliceBobbi : NSObject <RCTBridgeModule>
+@interface AliceBobbi : NSObject <RCTBridgeModule>
 
 @end
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/ios/ABCAliceBobbi.m
+  "* outputFile name: custom-native-alice-bobbi/ios/AliceBobbi.m
 content:
 --------
-#import \\"ABCAliceBobbi.h\\"
+#import \\"AliceBobbi.h\\"
 
 
-@implementation ABCAliceBobbi
+@implementation AliceBobbi
 
 RCT_EXPORT_MODULE()
 
@@ -484,20 +484,20 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/ios/ABCAliceBobbi.xcworkspace/contents.xcworkspacedata
+  "* outputFile name: custom-native-alice-bobbi/ios/AliceBobbi.xcworkspace/contents.xcworkspacedata
 content:
 --------
 <?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
 <Workspace
    version = \\"1.0\\">
    <FileRef
-      location = \\"group:ABCAliceBobbi.xcodeproj\\">
+      location = \\"group:AliceBobbi.xcodeproj\\">
    </FileRef>
 </Workspace>
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/ios/ABCAliceBobbi.xcodeproj/project.pbxproj
+  "* outputFile name: custom-native-alice-bobbi/ios/AliceBobbi.xcodeproj/project.pbxproj
 content:
 --------
 // !$*UTF8*$!
@@ -509,7 +509,7 @@ content:
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B3E7B58A1CC2AC0600A0062D /* ABCAliceBobbi.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* ABCAliceBobbi.m */; };
+		B3E7B58A1CC2AC0600A0062D /* AliceBobbi.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* AliceBobbi.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -525,9 +525,9 @@ content:
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		134814201AA4EA6300B7C361 /* libABCAliceBobbi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libABCAliceBobbi.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3E7B5881CC2AC0600A0062D /* ABCAliceBobbi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCAliceBobbi.h; sourceTree = \\"<group>\\"; };
-		B3E7B5891CC2AC0600A0062D /* ABCAliceBobbi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCAliceBobbi.m; sourceTree = \\"<group>\\"; };
+		134814201AA4EA6300B7C361 /* libAliceBobbi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAliceBobbi.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3E7B5881CC2AC0600A0062D /* AliceBobbi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliceBobbi.h; sourceTree = \\"<group>\\"; };
+		B3E7B5891CC2AC0600A0062D /* AliceBobbi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliceBobbi.m; sourceTree = \\"<group>\\"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -544,7 +544,7 @@ content:
 		134814211AA4EA7D00B7C361 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				134814201AA4EA6300B7C361 /* libABCAliceBobbi.a */,
+				134814201AA4EA6300B7C361 /* libAliceBobbi.a */,
 			);
 			name = Products;
 			sourceTree = \\"<group>\\";
@@ -552,8 +552,8 @@ content:
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-				B3E7B5881CC2AC0600A0062D /* ABCAliceBobbi.h */,
-				B3E7B5891CC2AC0600A0062D /* ABCAliceBobbi.m */,
+				B3E7B5881CC2AC0600A0062D /* AliceBobbi.h */,
+				B3E7B5891CC2AC0600A0062D /* AliceBobbi.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
 			);
 			sourceTree = \\"<group>\\";
@@ -561,9 +561,9 @@ content:
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		58B511DA1A9E6C8500147676 /* ABCAliceBobbi */ = {
+		58B511DA1A9E6C8500147676 /* AliceBobbi */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget \\"ABCAliceBobbi\\" */;
+			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget \\"AliceBobbi\\" */;
 			buildPhases = (
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
@@ -573,9 +573,9 @@ content:
 			);
 			dependencies = (
 			);
-			name = ABCAliceBobbi;
+			name = AliceBobbi;
 			productName = RCTDataManager;
-			productReference = 134814201AA4EA6300B7C361 /* libABCAliceBobbi.a */;
+			productReference = 134814201AA4EA6300B7C361 /* libAliceBobbi.a */;
 			productType = \\"com.apple.product-type.library.static\\";
 		};
 /* End PBXNativeTarget section */
@@ -592,7 +592,7 @@ content:
 					};
 				};
 			};
-			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject \\"ABCAliceBobbi\\" */;
+			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject \\"AliceBobbi\\" */;
 			compatibilityVersion = \\"Xcode 3.2\\";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -604,7 +604,7 @@ content:
 			projectDirPath = \\"\\";
 			projectRoot = \\"\\";
 			targets = (
-				58B511DA1A9E6C8500147676 /* ABCAliceBobbi */,
+				58B511DA1A9E6C8500147676 /* AliceBobbi */,
 			);
 		};
 /* End PBXProject section */
@@ -614,7 +614,7 @@ content:
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3E7B58A1CC2AC0600A0062D /* ABCAliceBobbi.m in Sources */,
+				B3E7B58A1CC2AC0600A0062D /* AliceBobbi.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,7 +725,7 @@ content:
 				);
 				LIBRARY_SEARCH_PATHS = \\"$(inherited)\\";
 				OTHER_LDFLAGS = \\"-ObjC\\";
-				PRODUCT_NAME = ABCAliceBobbi;
+				PRODUCT_NAME = AliceBobbi;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -741,7 +741,7 @@ content:
 				);
 				LIBRARY_SEARCH_PATHS = \\"$(inherited)\\";
 				OTHER_LDFLAGS = \\"-ObjC\\";
-				PRODUCT_NAME = ABCAliceBobbi;
+				PRODUCT_NAME = AliceBobbi;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -749,7 +749,7 @@ content:
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject \\"ABCAliceBobbi\\" */ = {
+		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject \\"AliceBobbi\\" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				58B511ED1A9E6C8500147676 /* Debug */,
@@ -758,7 +758,7 @@ content:
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget \\"ABCAliceBobbi\\" */ = {
+		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget \\"AliceBobbi\\" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				58B511F01A9E6C8500147676 /* Debug */,

@@ -14,6 +14,7 @@ test('create alice-bobbi module with config options for iOS only', () => {
     authorName: 'Alice',
     authorEmail: 'contact@alice.me',
     license: 'ISC',
+    useCocoapods: true
   };
 
   return lib(options, inject)
