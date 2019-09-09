@@ -30,6 +30,7 @@ This tool based on [`react-native-create-library`](https://www.npmjs.com/package
 - Known quirks & issues on React Native 0.60(+):
   - [issue #28](https://github.com/brodybits/create-react-native-module/issues/28) - additional `pod install` step needed for RN 0.60 on iOS
   - [issue #29](https://github.com/brodybits/create-react-native-module/issues/29) - View does not work with RN 0.60 on Android (quick patch needed)
+  - React Native 0.60 currently not supported by Expo or react-native-windows
 - Windows support is likely to be removed (see [issue #43](https://github.com/brodybits/create-react-native-module/issues/43))
 - Node.js pre-10 support is deprecated and will be removed in the near future (see [issue #38](https://github.com/brodybits/create-react-native-module/issues/38))
 
