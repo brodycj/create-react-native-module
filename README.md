@@ -24,6 +24,7 @@ This tool based on [`react-native-create-library`](https://www.npmjs.com/package
 
 ### General status
 
+- KNOWN ISSUE IN DEPENDENCIES: unwanted and outdated `babel-runtime`, `core-js`, and `browser-process-hrtime` dependencies are pulled in by `elapsed-time@0.0.1`
 - **React Native versions supported:**
   - recommended: `0.60` (see known quirks and issues below)
   - `0.59`
