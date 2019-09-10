@@ -1,8 +1,8 @@
 module.exports = (mysnap) => ({
-  fs: {
-    outputFile: (name, content) => {
+  fsPromises: {
+    writeFile: (name, content) => {
       mysnap.push(
-        `* outputFile name: ${name}
+        `* writeFile name: ${name}
 content:
 --------
 ${content}
@@ -12,10 +12,12 @@ ${content}
       return Promise.resolve();
     },
 
-    ensureDir: (dir) => {
-      mysnap.push(`* ensureDir dir: ${dir}\n`);
+    mkdir: (dir, opts) => {
+      mysnap.push(`* mkdir dir: ${dir} opts: ${JSON.stringify(opts)}\n`);
       return Promise.resolve();
     },
+  },
+  fsGraceful: {
     readFileSync: (jsonFilePath) => {
       mysnap.push({
         call: 'fs.readFileSync',

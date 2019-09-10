@@ -42,7 +42,6 @@
   "dependencies": {
     "commander": "^3.0.1",
     "execa": "^2.0.4",
-    "fs-extra": "^8.1.0",
     "jsonfile": "^5.0.0",
     "node-emoji": "^1.10.0",
     "param-case": "^2.1.1",

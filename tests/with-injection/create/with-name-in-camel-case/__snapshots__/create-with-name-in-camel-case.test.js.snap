@@ -2,41 +2,41 @@
 
 exports[`create alice-bobbi module with name in camel case 1`] = `
 Array [
-  "* ensureDir dir: react-native-alice-bobbi
+  "* mkdir dir: react-native-alice-bobbi opts: {\\"recursive\\":true}
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* mkdir dir: react-native-alice-bobbi/ opts: {\\"recursive\\":true}
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* mkdir dir: react-native-alice-bobbi/ opts: {\\"recursive\\":true}
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* mkdir dir: react-native-alice-bobbi/ opts: {\\"recursive\\":true}
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* mkdir dir: react-native-alice-bobbi/ opts: {\\"recursive\\":true}
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* mkdir dir: react-native-alice-bobbi/ opts: {\\"recursive\\":true}
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* mkdir dir: react-native-alice-bobbi/ opts: {\\"recursive\\":true}
 ",
-  "* ensureDir dir: react-native-alice-bobbi/android/
+  "* mkdir dir: react-native-alice-bobbi/android/ opts: {\\"recursive\\":true}
 ",
-  "* ensureDir dir: react-native-alice-bobbi/android/src/main/
+  "* mkdir dir: react-native-alice-bobbi/android/src/main/ opts: {\\"recursive\\":true}
 ",
-  "* ensureDir dir: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/
+  "* mkdir dir: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/ opts: {\\"recursive\\":true}
 ",
-  "* ensureDir dir: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/
+  "* mkdir dir: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/ opts: {\\"recursive\\":true}
 ",
-  "* ensureDir dir: react-native-alice-bobbi/android/
+  "* mkdir dir: react-native-alice-bobbi/android/ opts: {\\"recursive\\":true}
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* mkdir dir: react-native-alice-bobbi/ opts: {\\"recursive\\":true}
 ",
-  "* ensureDir dir: react-native-alice-bobbi/ios/
+  "* mkdir dir: react-native-alice-bobbi/ios/ opts: {\\"recursive\\":true}
 ",
-  "* ensureDir dir: react-native-alice-bobbi/ios/
+  "* mkdir dir: react-native-alice-bobbi/ios/ opts: {\\"recursive\\":true}
 ",
-  "* ensureDir dir: react-native-alice-bobbi/ios/AliceBobbi.xcworkspace/
+  "* mkdir dir: react-native-alice-bobbi/ios/AliceBobbi.xcworkspace/ opts: {\\"recursive\\":true}
 ",
-  "* ensureDir dir: react-native-alice-bobbi/ios/AliceBobbi.xcodeproj/
+  "* mkdir dir: react-native-alice-bobbi/ios/AliceBobbi.xcodeproj/ opts: {\\"recursive\\":true}
 ",
-  "* outputFile name: react-native-alice-bobbi/README.md
+  "* writeFile name: react-native-alice-bobbi/README.md
 content:
 --------
 # react-native-alice-bobbi
@@ -85,7 +85,7 @@ AliceBobbi;
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/package.json
+  "* writeFile name: react-native-alice-bobbi/package.json
 content:
 --------
 {
@@ -124,7 +124,7 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/index.js
+  "* writeFile name: react-native-alice-bobbi/index.js
 content:
 --------
 import { NativeModules } from 'react-native';
@@ -135,7 +135,7 @@ export default AliceBobbi;
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/.gitignore
+  "* writeFile name: react-native-alice-bobbi/.gitignore
 content:
 --------
 # OSX
@@ -183,20 +183,20 @@ buck-out/
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/.gitattributes
+  "* writeFile name: react-native-alice-bobbi/.gitattributes
 content:
 --------
 *.pbxproj -text
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/.npmignore
+  "* writeFile name: react-native-alice-bobbi/.npmignore
 content:
 --------
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/android/build.gradle
+  "* writeFile name: react-native-alice-bobbi/android/build.gradle
 content:
 --------
 buildscript {
@@ -329,7 +329,7 @@ afterEvaluate { project ->
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/android/src/main/AndroidManifest.xml
+  "* writeFile name: react-native-alice-bobbi/android/src/main/AndroidManifest.xml
 content:
 --------
 <manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
@@ -339,7 +339,7 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiModule.java
+  "* writeFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiModule.java
 content:
 --------
 package com.reactlibrary;
@@ -372,7 +372,7 @@ public class AliceBobbiModule extends ReactContextBaseJavaModule {
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiPackage.java
+  "* writeFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiPackage.java
 content:
 --------
 package com.reactlibrary;
@@ -401,7 +401,7 @@ public class AliceBobbiPackage implements ReactPackage {
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/android/README.md
+  "* writeFile name: react-native-alice-bobbi/android/README.md
 content:
 --------
 README
@@ -421,7 +421,7 @@ sdk.dir=/Users/{username}/Library/Android/sdk
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/react-native-alice-bobbi.podspec
+  "* writeFile name: react-native-alice-bobbi/react-native-alice-bobbi.podspec
 content:
 --------
 require \\"json\\"
@@ -453,7 +453,7 @@ end
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/ios/AliceBobbi.h
+  "* writeFile name: react-native-alice-bobbi/ios/AliceBobbi.h
 content:
 --------
 #import <React/RCTBridgeModule.h>
@@ -464,7 +464,7 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/ios/AliceBobbi.m
+  "* writeFile name: react-native-alice-bobbi/ios/AliceBobbi.m
 content:
 --------
 #import \\"AliceBobbi.h\\"
@@ -484,7 +484,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/ios/AliceBobbi.xcworkspace/contents.xcworkspacedata
+  "* writeFile name: react-native-alice-bobbi/ios/AliceBobbi.xcworkspace/contents.xcworkspacedata
 content:
 --------
 <?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
@@ -497,7 +497,7 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/ios/AliceBobbi.xcodeproj/project.pbxproj
+  "* writeFile name: react-native-alice-bobbi/ios/AliceBobbi.xcodeproj/project.pbxproj
 content:
 --------
 // !$*UTF8*$!

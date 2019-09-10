@@ -2,21 +2,21 @@
 
 exports[`create alice-bobbi module with defaults, with platforms: 'bogus' 1`] = `
 Array [
-  "* ensureDir dir: react-native-alice-bobbi
+  "* mkdir dir: react-native-alice-bobbi opts: {\\"recursive\\":true}
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* mkdir dir: react-native-alice-bobbi/ opts: {\\"recursive\\":true}
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* mkdir dir: react-native-alice-bobbi/ opts: {\\"recursive\\":true}
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* mkdir dir: react-native-alice-bobbi/ opts: {\\"recursive\\":true}
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* mkdir dir: react-native-alice-bobbi/ opts: {\\"recursive\\":true}
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* mkdir dir: react-native-alice-bobbi/ opts: {\\"recursive\\":true}
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* mkdir dir: react-native-alice-bobbi/ opts: {\\"recursive\\":true}
 ",
-  "* outputFile name: react-native-alice-bobbi/README.md
+  "* writeFile name: react-native-alice-bobbi/README.md
 content:
 --------
 # react-native-alice-bobbi
@@ -43,7 +43,7 @@ AliceBobbi;
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/package.json
+  "* writeFile name: react-native-alice-bobbi/package.json
 content:
 --------
 {
@@ -82,7 +82,7 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/index.js
+  "* writeFile name: react-native-alice-bobbi/index.js
 content:
 --------
 import { NativeModules } from 'react-native';
@@ -93,7 +93,7 @@ export default AliceBobbi;
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/.gitignore
+  "* writeFile name: react-native-alice-bobbi/.gitignore
 content:
 --------
 # OSX
@@ -108,13 +108,13 @@ yarn-error.log
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/.gitattributes
+  "* writeFile name: react-native-alice-bobbi/.gitattributes
 content:
 --------
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/.npmignore
+  "* writeFile name: react-native-alice-bobbi/.npmignore
 content:
 --------
 

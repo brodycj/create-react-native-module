@@ -7,8 +7,8 @@ test('create module with example, with `EACCES permission denied` error', async 
   const ioInject2 = ioInject([]);
   const inject = {
     ...ioInject2,
-    fs: {
-      ...ioInject2.fs,
+    fsGraceful: {
+      ...ioInject2.fsGraceful,
       readFileSync: (_) => {
         throw new Error('EACCES permission denied');
       }
