@@ -21,7 +21,6 @@ Array [
   githubAccount: github_account
   authorName: Your Name
   authorEmail: yourname@email.com
-  authorEmail: yourname@email.com
   license: MIT
   view: false
   useCocoapods: false
