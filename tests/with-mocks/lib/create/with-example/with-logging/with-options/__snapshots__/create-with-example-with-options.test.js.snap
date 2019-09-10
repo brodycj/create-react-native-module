@@ -15,7 +15,6 @@ Array [
   githubAccount: alicebits
   authorName: Alice
   authorEmail: contact@alice.me
-  authorEmail: contact@alice.me
   license: ISC
   view: false
   useCocoapods: false
