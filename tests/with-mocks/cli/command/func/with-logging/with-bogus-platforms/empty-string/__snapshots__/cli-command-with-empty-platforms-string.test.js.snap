@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`create alice-bobbi module with logging, with platforms: '' 1`] = `
+Array [
+  Object {
+    "warn": Array [
+      "While \`{DEFAULT_PACKAGE_IDENTIFIER}\` is the default package
+      identifier, it is recommended to customize the package identifier.",
+    ],
+  },
+  Object {
+    "info": Array [
+      "CREATE new React Native module with the following options:
+
+  root moduleName: react-native-alice-bobbi
+  name: alice-bobbi
+  prefix: 
+  modulePrefix: react-native
+  packageIdentifier: com.reactlibrary
+  platforms: 
+  githubAccount: github_account
+  authorName: Your Name
+  authorEmail: yourname@email.com
+  authorEmail: yourname@email.com
+  license: MIT
+  view: false
+  useCocoapods: false
+  generateExample: false
+  exampleName: example
+  ",
+    ],
+  },
+  Object {
+    "info": Array [
+      "CREATE: Generating the React Native library module",
+    ],
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi",
+  },
+]
+`;

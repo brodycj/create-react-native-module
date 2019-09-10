@@ -1,4 +1,4 @@
-const lib = require('../../../../../../../lib/lib.js');
+const lib = require('../../../../../../../../lib/lib.js');
 
 // special compact mocks for this test:
 const mysnap = [];
@@ -39,16 +39,10 @@ global.console = {
   },
 };
 
-test('create alice-bobbi module using mocked lib with logging, with example, for Android & iOS with config options', async () => {
+test('create alice-bobbi module using mocked lib with logging, with example, with prefix: null', async () => {
   const options = {
-    platforms: ['android', 'ios'],
     name: 'alice-bobbi',
-    prefix: 'ABC',
-    packageIdentifier: 'com.alicebits',
-    githubAccount: 'alicebits',
-    authorName: 'Alice',
-    authorEmail: 'contact@alice.me',
-    license: 'ISC',
+    prefix: null,
     generateExample: true,
   };
 
