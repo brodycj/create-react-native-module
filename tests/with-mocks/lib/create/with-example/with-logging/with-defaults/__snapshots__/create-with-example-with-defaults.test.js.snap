@@ -278,18 +278,17 @@ buck-out/
     }
 
     dependencies {
-        // Matches recent template from React Native (0.60)
-        // https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L16
-        classpath(\\"com.android.tools.build:gradle:\${safeExtGet('gradlePluginVersion', '3.4.1')}\\")
+        // Matches recent template from React Native (0.61)
+        // https://github.com/facebook/react-native/blob/0.61-stable/template/android/build.gradle#L15
+        classpath(\\"com.android.tools.build:gradle:\${safeExtGet('gradlePluginVersion', '3.4.2')}\\")
     }
 }
 
 apply plugin: 'com.android.library'
 apply plugin: 'maven'
 
-// Matches values in recent template from React Native 0.59 / 0.60
-// https://github.com/facebook/react-native/blob/0.59-stable/template/android/build.gradle#L5-L9
-// https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L5-L9
+// Matches values in recent template from React Native 0.59 / 0.60 / 0.61
+// https://github.com/facebook/react-native/blob/0.61-stable/template/android/build.gradle#L5-L8
 def DEFAULT_COMPILE_SDK_VERSION = 28
 def DEFAULT_BUILD_TOOLS_VERSION = \\"28.0.3\\"
 def DEFAULT_MIN_SDK_VERSION = 16
@@ -313,9 +312,8 @@ android {
 repositories {
     maven {
         // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
-        // Matches recent template from React Native 0.59 / 0.60
-        // https://github.com/facebook/react-native/blob/0.59-stable/template/android/build.gradle#L30
-        // https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L28
+        // Matches recent template from React Native 0.59 / 0.60 / 0.61
+        // https://github.com/facebook/react-native/blob/0.61-stable/template/android/build.gradle#L27
         url \\"$projectDir/../node_modules/react-native/android\\"
     }
     mavenCentral()
