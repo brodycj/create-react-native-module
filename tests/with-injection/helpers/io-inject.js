@@ -1,26 +1,18 @@
 module.exports = (mysnap) => ({
   fs: {
     outputFile: (name, content) => {
-      mysnap.push(
-        `* outputFile name: ${name}
-content:
---------
-${content}
-<<<<<<<< ======== >>>>>>>>
-`);
-
+      mysnap.push({
+        outputFileWithName: name,
+        content
+      });
       return Promise.resolve();
     },
-
     ensureDir: (dir) => {
-      mysnap.push(`* ensureDir dir: ${dir}\n`);
+      mysnap.push({ ensureDir: dir });
       return Promise.resolve();
     },
     readFileSync: (jsonFilePath) => {
-      mysnap.push({
-        call: 'fs.readFileSync',
-        jsonFilePath,
-      });
+      mysnap.push({ readFileSyncFromPath: jsonFilePath });
       return `{
   "name": "example",
   "scripts": {
@@ -30,8 +22,7 @@ ${content}
     },
     writeFileSync: (path, json, options) => {
       mysnap.push({
-        call: 'fs.writeFileSync',
-        filePath: path,
+        writeFileSyncToPath: path,
         json,
         options,
       });
@@ -39,8 +30,7 @@ ${content}
   },
   execa: {
     commandSync: (command, options) => {
-      mysnap.push(
-        `* execa.commandSync command: ${command} options: ${JSON.stringify(options)}\n`);
+      mysnap.push({ commandSync: command, options });
     },
   },
 });

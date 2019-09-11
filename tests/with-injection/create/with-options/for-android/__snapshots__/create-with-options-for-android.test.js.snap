@@ -2,34 +2,44 @@
 
 exports[`create alice-bobbi module with config options for Android only 1`] = `
 Array [
-  "* ensureDir dir: react-native-alice-bobbi
-",
-  "* ensureDir dir: react-native-alice-bobbi/
-",
-  "* ensureDir dir: react-native-alice-bobbi/
-",
-  "* ensureDir dir: react-native-alice-bobbi/
-",
-  "* ensureDir dir: react-native-alice-bobbi/
-",
-  "* ensureDir dir: react-native-alice-bobbi/
-",
-  "* ensureDir dir: react-native-alice-bobbi/
-",
-  "* ensureDir dir: react-native-alice-bobbi/android/
-",
-  "* ensureDir dir: react-native-alice-bobbi/android/src/main/
-",
-  "* ensureDir dir: react-native-alice-bobbi/android/src/main/java/com/alicebits/
-",
-  "* ensureDir dir: react-native-alice-bobbi/android/src/main/java/com/alicebits/
-",
-  "* ensureDir dir: react-native-alice-bobbi/android/
-",
-  "* outputFile name: react-native-alice-bobbi/README.md
-content:
---------
-# react-native-alice-bobbi
+  Object {
+    "ensureDir": "react-native-alice-bobbi",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/android/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/android/src/main/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/android/src/main/java/com/alicebits/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/android/src/main/java/com/alicebits/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/android/",
+  },
+  Object {
+    "content": "# react-native-alice-bobbi
 
 ## Getting started
 
@@ -65,13 +75,11 @@ import AliceBobbi from 'react-native-alice-bobbi';
 // TODO: What to do with the module?
 AliceBobbi;
 \`\`\`
-
-<<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/package.json
-content:
---------
-{
+    "outputFileWithName": "react-native-alice-bobbi/README.md",
+  },
+  Object {
+    "content": "{
   \\"name\\": \\"react-native-alice-bobbi\\",
   \\"title\\": \\"React Native Alice Bobbi\\",
   \\"version\\": \\"1.0.0\\",
@@ -104,24 +112,20 @@ content:
     \\"react-native\\": \\"^0.59.10\\"
   }
 }
-
-<<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/index.js
-content:
---------
-import { NativeModules } from 'react-native';
+    "outputFileWithName": "react-native-alice-bobbi/package.json",
+  },
+  Object {
+    "content": "import { NativeModules } from 'react-native';
 
 const { AliceBobbi } = NativeModules;
 
 export default AliceBobbi;
-
-<<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/.gitignore
-content:
---------
-# OSX
+    "outputFileWithName": "react-native-alice-bobbi/index.js",
+  },
+  Object {
+    "content": "# OSX
 #
 .DS_Store
 
@@ -143,25 +147,19 @@ local.properties
 buck-out/
 \\\\.buckd/
 *.keystore
-
-<<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/.gitattributes
-content:
---------
-
-<<<<<<<< ======== >>>>>>>>
-",
-  "* outputFile name: react-native-alice-bobbi/.npmignore
-content:
---------
-
-<<<<<<<< ======== >>>>>>>>
-",
-  "* outputFile name: react-native-alice-bobbi/android/build.gradle
-content:
---------
-buildscript {
+    "outputFileWithName": "react-native-alice-bobbi/.gitignore",
+  },
+  Object {
+    "content": "",
+    "outputFileWithName": "react-native-alice-bobbi/.gitattributes",
+  },
+  Object {
+    "content": "",
+    "outputFileWithName": "react-native-alice-bobbi/.npmignore",
+  },
+  Object {
+    "content": "buildscript {
     ext.safeExtGet = {prop, fallback ->
         rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
     }
@@ -288,23 +286,19 @@ afterEvaluate { project ->
         }
     }
 }
-
-<<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/android/src/main/AndroidManifest.xml
-content:
---------
-<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
+    "outputFileWithName": "react-native-alice-bobbi/android/build.gradle",
+  },
+  Object {
+    "content": "<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
           package=\\"com.alicebits\\">
 
 </manifest>
-
-<<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/alicebits/AliceBobbiModule.java
-content:
---------
-package com.alicebits;
+    "outputFileWithName": "react-native-alice-bobbi/android/src/main/AndroidManifest.xml",
+  },
+  Object {
+    "content": "package com.alicebits;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -331,13 +325,11 @@ public class AliceBobbiModule extends ReactContextBaseJavaModule {
         callback.invoke(\\"Received numberArgument: \\" + numberArgument + \\" stringArgument: \\" + stringArgument);
     }
 }
-
-<<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/alicebits/AliceBobbiPackage.java
-content:
---------
-package com.alicebits;
+    "outputFileWithName": "react-native-alice-bobbi/android/src/main/java/com/alicebits/AliceBobbiModule.java",
+  },
+  Object {
+    "content": "package com.alicebits;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -360,13 +352,11 @@ public class AliceBobbiPackage implements ReactPackage {
         return Collections.emptyList();
     }
 }
-
-<<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/android/README.md
-content:
---------
-README
+    "outputFileWithName": "react-native-alice-bobbi/android/src/main/java/com/alicebits/AliceBobbiPackage.java",
+  },
+  Object {
+    "content": "README
 ======
 
 If you want to publish the lib as a maven dependency, follow these steps before publishing a new version to npm:
@@ -380,8 +370,8 @@ sdk.dir=/Users/{username}/Library/Android/sdk
 3. Delete the \`maven\` folder
 4. Run \`sudo ./gradlew installArchives\`
 5. Verify that latest set of generated files is in the maven folder with the correct version number
-
-<<<<<<<< ======== >>>>>>>>
 ",
+    "outputFileWithName": "react-native-alice-bobbi/android/README.md",
+  },
 ]
 `;
