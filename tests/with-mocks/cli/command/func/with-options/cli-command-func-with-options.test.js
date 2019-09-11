@@ -5,11 +5,14 @@ const mysnap = [];
 const mockpushit = x => mysnap.push(x);
 jest.mock('fs-extra', () => ({
   outputFile: (outputFileName, theContent) => {
-    mockpushit({ outputFileName, theContent });
+    mockpushit({
+      outputFileName: outputFileName.replace(/\\/g, '/'),
+      theContent
+    });
     return Promise.resolve();
   },
   ensureDir: (dir) => {
-    mockpushit({ ensureDir: dir });
+    mockpushit({ ensureDir: dir.replace(/\\/g, '/') });
     return Promise.resolve();
   },
 }));

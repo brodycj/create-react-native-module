@@ -2,7 +2,7 @@ module.exports = (mysnap) => ({
   fs: {
     outputFile: (name, content) => {
       mysnap.push(
-        `* outputFile name: ${name}
+        `* outputFile name: ${name.replace(/\\/g, '/')}
 content:
 --------
 ${content}
@@ -13,13 +13,13 @@ ${content}
     },
 
     ensureDir: (dir) => {
-      mysnap.push(`* ensureDir dir: ${dir}\n`);
+      mysnap.push(`* ensureDir dir: ${dir.replace(/\\/g, '/')}\n`);
       return Promise.resolve();
     },
     readFileSync: (jsonFilePath) => {
       mysnap.push({
         call: 'fs.readFileSync',
-        jsonFilePath,
+        jsonFilePath: jsonFilePath.replace(/\\/g, '/'),
       });
       return `{
   "name": "example",
@@ -31,7 +31,7 @@ ${content}
     writeFileSync: (path, json, options) => {
       mysnap.push({
         call: 'fs.writeFileSync',
-        filePath: path,
+        filePath: path.replace(/\\/g, '/'),
         json,
         options,
       });
