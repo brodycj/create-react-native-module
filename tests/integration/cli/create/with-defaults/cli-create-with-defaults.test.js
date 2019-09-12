@@ -10,7 +10,7 @@ test('CLI creates correct package artifacts on file system, with no options', as
 
   const name = `integration-test-package`;
 
-  const modulePackageName = `react-native-${name}`
+  const modulePackageName = `react-native-${name}`;
 
   // remove test artifacts just in case:
   await fs.remove(modulePackageName);

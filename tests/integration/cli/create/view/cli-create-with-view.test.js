@@ -10,7 +10,7 @@ test('CLI creates correct view module package artifacts on file system using `--
 
   const name = `integration-view-test-package`;
 
-  const modulePackageName = `react-native-${name}`
+  const modulePackageName = `react-native-${name}`;
 
   // remove test artifacts just in case:
   await fs.remove(modulePackageName);
