@@ -43,6 +43,9 @@ test('CLI creates correct package artifacts on file system, with no options', as
   // also don't really want to check binary JAR artifact here:
   await fs.remove(
     `${modulePackageName}/example/android/gradle/wrapper/gradle-wrapper.jar`);
+  // in this case we remove unwanted example/ios artifacts
+  // (which may cause some trouble with testing on Windows)
+  await fs.remove(`${modulePackageName}/example/ios`);
 
   console.info(
     'generated example/yarn.lock & example/node_modules artifacts now removed');
