@@ -29,7 +29,7 @@ test('CLI creates correct package artifacts on file system, with no options', as
   for (const path of files) {
     mysnap.push({
       name: path.replace(/\\/g, '/'),
-      contents: await fs.readFile(path, 'utf8')
+      theContent: await fs.readFile(path, 'utf8')
     });
   }
 

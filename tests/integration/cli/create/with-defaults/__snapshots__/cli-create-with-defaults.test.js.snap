@@ -3,12 +3,13 @@
 exports[`CLI creates correct package artifacts on file system, with no options 1`] = `
 Array [
   Object {
-    "contents": "*.pbxproj -text
-",
     "name": "react-native-integration-test-package/.gitattributes",
+    "theContent": "*.pbxproj -text
+",
   },
   Object {
-    "contents": "# OSX
+    "name": "react-native-integration-test-package/.gitignore",
+    "theContent": "# OSX
 #
 .DS_Store
 
@@ -51,14 +52,14 @@ buck-out/
 \\\\.buckd/
 *.keystore
 ",
-    "name": "react-native-integration-test-package/.gitignore",
   },
   Object {
-    "contents": "",
     "name": "react-native-integration-test-package/.npmignore",
+    "theContent": "",
   },
   Object {
-    "contents": "# react-native-integration-test-package
+    "name": "react-native-integration-test-package/README.md",
+    "theContent": "# react-native-integration-test-package
 
 ## Getting started
 
@@ -102,10 +103,10 @@ import IntegrationTestPackage from 'react-native-integration-test-package';
 IntegrationTestPackage;
 \`\`\`
 ",
-    "name": "react-native-integration-test-package/README.md",
   },
   Object {
-    "contents": "README
+    "name": "react-native-integration-test-package/android/README.md",
+    "theContent": "README
 ======
 
 If you want to publish the lib as a maven dependency, follow these steps before publishing a new version to npm:
@@ -120,10 +121,10 @@ sdk.dir=/Users/{username}/Library/Android/sdk
 4. Run \`sudo ./gradlew installArchives\`
 5. Verify that latest set of generated files is in the maven folder with the correct version number
 ",
-    "name": "react-native-integration-test-package/android/README.md",
   },
   Object {
-    "contents": "buildscript {
+    "name": "react-native-integration-test-package/android/build.gradle",
+    "theContent": "buildscript {
     ext.safeExtGet = {prop, fallback ->
         rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
     }
@@ -251,18 +252,18 @@ afterEvaluate { project ->
     }
 }
 ",
-    "name": "react-native-integration-test-package/android/build.gradle",
   },
   Object {
-    "contents": "<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
+    "name": "react-native-integration-test-package/android/src/main/AndroidManifest.xml",
+    "theContent": "<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
           package=\\"com.reactlibrary\\">
 
 </manifest>
 ",
-    "name": "react-native-integration-test-package/android/src/main/AndroidManifest.xml",
   },
   Object {
-    "contents": "package com.reactlibrary;
+    "name": "react-native-integration-test-package/android/src/main/java/com/reactlibrary/IntegrationTestPackageModule.java",
+    "theContent": "package com.reactlibrary;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -290,10 +291,10 @@ public class IntegrationTestPackageModule extends ReactContextBaseJavaModule {
     }
 }
 ",
-    "name": "react-native-integration-test-package/android/src/main/java/com/reactlibrary/IntegrationTestPackageModule.java",
   },
   Object {
-    "contents": "package com.reactlibrary;
+    "name": "react-native-integration-test-package/android/src/main/java/com/reactlibrary/IntegrationTestPackagePackage.java",
+    "theContent": "package com.reactlibrary;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -317,28 +318,28 @@ public class IntegrationTestPackagePackage implements ReactPackage {
     }
 }
 ",
-    "name": "react-native-integration-test-package/android/src/main/java/com/reactlibrary/IntegrationTestPackagePackage.java",
   },
   Object {
-    "contents": "import { NativeModules } from 'react-native';
+    "name": "react-native-integration-test-package/index.js",
+    "theContent": "import { NativeModules } from 'react-native';
 
 const { IntegrationTestPackage } = NativeModules;
 
 export default IntegrationTestPackage;
 ",
-    "name": "react-native-integration-test-package/index.js",
   },
   Object {
-    "contents": "#import <React/RCTBridgeModule.h>
+    "name": "react-native-integration-test-package/ios/IntegrationTestPackage.h",
+    "theContent": "#import <React/RCTBridgeModule.h>
 
 @interface IntegrationTestPackage : NSObject <RCTBridgeModule>
 
 @end
 ",
-    "name": "react-native-integration-test-package/ios/IntegrationTestPackage.h",
   },
   Object {
-    "contents": "#import \\"IntegrationTestPackage.h\\"
+    "name": "react-native-integration-test-package/ios/IntegrationTestPackage.m",
+    "theContent": "#import \\"IntegrationTestPackage.h\\"
 
 
 @implementation IntegrationTestPackage
@@ -353,10 +354,10 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 
 @end
 ",
-    "name": "react-native-integration-test-package/ios/IntegrationTestPackage.m",
   },
   Object {
-    "contents": "// !$*UTF8*$!
+    "name": "react-native-integration-test-package/ios/IntegrationTestPackage.xcodeproj/project.pbxproj",
+    "theContent": "// !$*UTF8*$!
 {
 	archiveVersion = 1;
 	classes = {
@@ -628,10 +629,10 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 	rootObject = 58B511D31A9E6C8500147676 /* Project object */;
 }
 ",
-    "name": "react-native-integration-test-package/ios/IntegrationTestPackage.xcodeproj/project.pbxproj",
   },
   Object {
-    "contents": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
+    "name": "react-native-integration-test-package/ios/IntegrationTestPackage.xcworkspace/contents.xcworkspacedata",
+    "theContent": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
 <Workspace
    version = \\"1.0\\">
    <FileRef
@@ -639,10 +640,10 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
    </FileRef>
 </Workspace>
 ",
-    "name": "react-native-integration-test-package/ios/IntegrationTestPackage.xcworkspace/contents.xcworkspacedata",
   },
   Object {
-    "contents": "{
+    "name": "react-native-integration-test-package/package.json",
+    "theContent": "{
   \\"name\\": \\"react-native-integration-test-package\\",
   \\"title\\": \\"React Native Integration Test Package\\",
   \\"version\\": \\"1.0.0\\",
@@ -676,10 +677,10 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
   }
 }
 ",
-    "name": "react-native-integration-test-package/package.json",
   },
   Object {
-    "contents": "require \\"json\\"
+    "name": "react-native-integration-test-package/react-native-integration-test-package.podspec",
+    "theContent": "require \\"json\\"
 
 package = JSON.parse(File.read(File.join(__dir__, \\"package.json\\")))
 
@@ -706,7 +707,6 @@ Pod::Spec.new do |s|
 end
 
 ",
-    "name": "react-native-integration-test-package/react-native-integration-test-package.podspec",
   },
 ]
 `;

@@ -29,7 +29,7 @@ test('CLI creates correct view module package artifacts on file system using `--
   for (const path of files) {
     mysnap.push({
       name: path.replace(/\\/g, '/'),
-      contents: await fs.readFile(path, 'utf8')
+      theContent: await fs.readFile(path, 'utf8')
     });
   }
 
