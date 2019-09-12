@@ -23,12 +23,15 @@ test('CLI creates correct view module package artifacts on file system using `--
   // (using [].concat() function call to avoid overwriting a local object)
   const files = [].concat(filesUnsorted).sort();
 
-  files.forEach(name =>
+  // THANKS for guidance:
+  // https://stackoverflow.com/questions/37576685/using-async-await-with-a-foreach-loop/37576787#37576787
+  // FUTURE TBD use a utility function to do this more functionally
+  for (const path of files) {
     mysnap.push({
-      name: name.replace(/\\/g, '/'),
-      contents: fs.readFileSync(name).toString()
-    })
-  );
+      name: path.replace(/\\/g, '/'),
+      contents: await fs.readFile(path, 'utf8')
+    });
+  }
 
   expect(mysnap).toMatchSnapshot();
 
