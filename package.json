@@ -8,7 +8,8 @@
     "jest": "jest",
     "lint": "eslint .",
     "run-stryker": "stryker run",
-    "test": "npm run lint && npm run jest",
+    "test": "npm run lint && npm run jest tests/",
+    "test-all": "npm run lint && npm run jest",
     "test-e2e": "npm run lint && npm run jest tests-e2e"
   },
   "repository": {
