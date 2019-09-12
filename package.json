@@ -8,7 +8,8 @@
     "jest": "jest",
     "lint": "eslint .",
     "run-stryker": "stryker run",
-    "test": "npm run lint && npm run jest"
+    "test": "npm run lint && npm run jest",
+    "test-e2e": "npm run lint && npm run jest tests-e2e"
   },
   "repository": {
     "type": "git",
@@ -62,6 +63,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
     "jest": "^24.9.0",
+    "react-native-cli": "^2.0.1",
     "recursive-readdir": "^2.2.2"
   }
 }

@@ -1,0 +1,1530 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CLI creates correct package artifacts on file system, with no options 1`] = `
+Array [
+  Object {
+    "name": "react-native-integration-test-package-with-example/.gitattributes",
+    "theContent": "",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/.gitignore",
+    "theContent": "# OSX
+#
+.DS_Store
+
+# node.js
+#
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Android/IntelliJ
+#
+build/
+.idea
+.gradle
+local.properties
+*.iml
+
+# BUCK
+buck-out/
+\\\\.buckd/
+*.keystore
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/.npmignore",
+    "theContent": "example
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/README.md",
+    "theContent": "# react-native-integration-test-package-with-example
+
+## Getting started
+
+\`$ npm install react-native-integration-test-package-with-example --save\`
+
+### Mostly automatic installation
+
+\`$ react-native link react-native-integration-test-package-with-example\`
+
+### Manual installation
+
+
+#### Android
+
+1. Open up \`android/app/src/main/java/[...]/MainApplication.java\`
+  - Add \`import com.reactlibrary.IntegrationTestPackageWithExamplePackage;\` to the imports at the top of the file
+  - Add \`new IntegrationTestPackageWithExamplePackage()\` to the list returned by the \`getPackages()\` method
+2. Append the following lines to \`android/settings.gradle\`:
+  	\`\`\`
+  	include ':react-native-integration-test-package-with-example'
+  	project(':react-native-integration-test-package-with-example').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-integration-test-package-with-example/android')
+  	\`\`\`
+3. Insert the following lines inside the dependencies block in \`android/app/build.gradle\`:
+  	\`\`\`
+      compile project(':react-native-integration-test-package-with-example')
+  	\`\`\`
+
+
+## Usage
+\`\`\`javascript
+import IntegrationTestPackageWithExample from 'react-native-integration-test-package-with-example';
+
+// TODO: What to do with the module?
+IntegrationTestPackageWithExample;
+\`\`\`
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/android/README.md",
+    "theContent": "README
+======
+
+If you want to publish the lib as a maven dependency, follow these steps before publishing a new version to npm:
+
+1. Be sure to have the Android [SDK](https://developer.android.com/studio/index.html) and [NDK](https://developer.android.com/ndk/guides/index.html) installed
+2. Be sure to have a \`local.properties\` file in this folder that points to the Android SDK and NDK
+\`\`\`
+ndk.dir=/Users/{username}/Library/Android/sdk/ndk-bundle
+sdk.dir=/Users/{username}/Library/Android/sdk
+\`\`\`
+3. Delete the \`maven\` folder
+4. Run \`sudo ./gradlew installArchives\`
+5. Verify that latest set of generated files is in the maven folder with the correct version number
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/android/build.gradle",
+    "theContent": "buildscript {
+    ext.safeExtGet = {prop, fallback ->
+        rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+    }
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        // Matches recent template from React Native (0.60)
+        // https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L16
+        classpath(\\"com.android.tools.build:gradle:\${safeExtGet('gradlePluginVersion', '3.4.1')}\\")
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+
+// Matches values in recent template from React Native 0.59 / 0.60
+// https://github.com/facebook/react-native/blob/0.59-stable/template/android/build.gradle#L5-L9
+// https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L5-L9
+def DEFAULT_COMPILE_SDK_VERSION = 28
+def DEFAULT_BUILD_TOOLS_VERSION = \\"28.0.3\\"
+def DEFAULT_MIN_SDK_VERSION = 16
+def DEFAULT_TARGET_SDK_VERSION = 28
+
+android {
+  compileSdkVersion safeExtGet('compileSdkVersion', DEFAULT_COMPILE_SDK_VERSION)
+  buildToolsVersion safeExtGet('buildToolsVersion', DEFAULT_BUILD_TOOLS_VERSION)
+
+  defaultConfig {
+    minSdkVersion safeExtGet('minSdkVersion', DEFAULT_MIN_SDK_VERSION)
+    targetSdkVersion safeExtGet('targetSdkVersion', DEFAULT_TARGET_SDK_VERSION)
+    versionCode 1
+    versionName \\"1.0\\"
+  }
+  lintOptions {
+    abortOnError false
+  }
+}
+
+repositories {
+    maven {
+        // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+        // Matches recent template from React Native 0.59 / 0.60
+        // https://github.com/facebook/react-native/blob/0.59-stable/template/android/build.gradle#L30
+        // https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L28
+        url \\"$projectDir/../node_modules/react-native/android\\"
+    }
+    mavenCentral()
+}
+
+dependencies {
+    implementation \\"com.facebook.react:react-native:\${safeExtGet('reactnativeVersion', '+')}\\"
+}
+
+def configureReactNativePom(def pom) {
+    def packageJson = new groovy.json.JsonSlurper().parseText(file('../package.json').text)
+
+    pom.project {
+        name packageJson.title
+        artifactId packageJson.name
+        version = packageJson.version
+        group = \\"com.reactlibrary\\"
+        description packageJson.description
+        url packageJson.repository.baseUrl
+
+        licenses {
+            license {
+                name packageJson.license
+                url packageJson.repository.baseUrl + '/blob/master/' + packageJson.licenseFilename
+                distribution 'repo'
+            }
+        }
+
+        developers {
+            developer {
+                id packageJson.author.username
+                name packageJson.author.name
+            }
+        }
+    }
+}
+
+afterEvaluate { project ->
+
+    task androidJavadoc(type: Javadoc) {
+        source = android.sourceSets.main.java.srcDirs
+        classpath += files(android.bootClasspath)
+        classpath += files(project.getConfigurations().getByName('compile').asList())
+        include '**/*.java'
+    }
+
+    task androidJavadocJar(type: Jar, dependsOn: androidJavadoc) {
+        classifier = 'javadoc'
+        from androidJavadoc.destinationDir
+    }
+
+    task androidSourcesJar(type: Jar) {
+        classifier = 'sources'
+        from android.sourceSets.main.java.srcDirs
+        include '**/*.java'
+    }
+
+    android.libraryVariants.all { variant ->
+        def name = variant.name.capitalize()
+        task \\"jar\${name}\\"(type: Jar, dependsOn: variant.javaCompile) {
+            from variant.javaCompile.destinationDir
+        }
+    }
+
+    artifacts {
+        archives androidSourcesJar
+        archives androidJavadocJar
+    }
+
+    task installArchives(type: Upload) {
+        configuration = configurations.archives
+        repositories.mavenDeployer {
+            // Deploy to react-native-event-bridge/maven, ready to publish to npm
+            repository url: \\"file://\${projectDir}/../android/maven\\"
+
+            configureReactNativePom pom
+        }
+    }
+}
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/android/src/main/AndroidManifest.xml",
+    "theContent": "<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
+          package=\\"com.reactlibrary\\">
+
+</manifest>
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/android/src/main/java/com/reactlibrary/IntegrationTestPackageWithExampleModule.java",
+    "theContent": "package com.reactlibrary;
+
+import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.bridge.ReactContextBaseJavaModule;
+import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.Callback;
+
+public class IntegrationTestPackageWithExampleModule extends ReactContextBaseJavaModule {
+
+    private final ReactApplicationContext reactContext;
+
+    public IntegrationTestPackageWithExampleModule(ReactApplicationContext reactContext) {
+        super(reactContext);
+        this.reactContext = reactContext;
+    }
+
+    @Override
+    public String getName() {
+        return \\"IntegrationTestPackageWithExample\\";
+    }
+
+    @ReactMethod
+    public void sampleMethod(String stringArgument, int numberArgument, Callback callback) {
+        // TODO: Implement some actually useful functionality
+        callback.invoke(\\"Received numberArgument: \\" + numberArgument + \\" stringArgument: \\" + stringArgument);
+    }
+}
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/android/src/main/java/com/reactlibrary/IntegrationTestPackageWithExamplePackage.java",
+    "theContent": "package com.reactlibrary;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+import com.facebook.react.ReactPackage;
+import com.facebook.react.bridge.NativeModule;
+import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.uimanager.ViewManager;
+import com.facebook.react.bridge.JavaScriptModule;
+
+public class IntegrationTestPackageWithExamplePackage implements ReactPackage {
+    @Override
+    public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
+        return Arrays.<NativeModule>asList(new IntegrationTestPackageWithExampleModule(reactContext));
+    }
+
+    @Override
+    public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
+        return Collections.emptyList();
+    }
+}
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/example/.buckconfig",
+    "theContent": "
+[android]
+  target = Google Inc.:Google APIs:23
+
+[maven_repositories]
+  central = https://repo1.maven.org/maven2
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/example/.flowconfig",
+    "theContent": "[ignore]
+; We fork some components by platform
+.*/*[.]android.js
+
+; Ignore \\"BUCK\\" generated dirs
+<PROJECT_ROOT>/\\\\.buckd/
+
+; Ignore unexpected extra \\"@providesModule\\"
+.*/node_modules/.*/node_modules/fbjs/.*
+
+; Ignore duplicate module providers
+; For RN Apps installed via npm, \\"Libraries\\" folder is inside
+; \\"node_modules/react-native\\" but in the source repo it is in the root
+.*/Libraries/react-native/React.js
+
+; Ignore polyfills
+.*/Libraries/polyfills/.*
+
+; Ignore metro
+.*/node_modules/metro/.*
+
+[include]
+
+[libs]
+node_modules/react-native/Libraries/react-native/react-native-interface.js
+node_modules/react-native/flow/
+
+[options]
+emoji=true
+
+esproposal.optional_chaining=enable
+esproposal.nullish_coalescing=enable
+
+module.system=haste
+module.system.haste.use_name_reducers=true
+# get basename
+module.system.haste.name_reducers='^.*/\\\\([a-zA-Z0-9$_.-]+\\\\.js\\\\(\\\\.flow\\\\)?\\\\)$' -> '\\\\1'
+# strip .js or .js.flow suffix
+module.system.haste.name_reducers='^\\\\(.*\\\\)\\\\.js\\\\(\\\\.flow\\\\)?$' -> '\\\\1'
+# strip .ios suffix
+module.system.haste.name_reducers='^\\\\(.*\\\\)\\\\.ios$' -> '\\\\1'
+module.system.haste.name_reducers='^\\\\(.*\\\\)\\\\.android$' -> '\\\\1'
+module.system.haste.name_reducers='^\\\\(.*\\\\)\\\\.native$' -> '\\\\1'
+module.system.haste.paths.blacklist=.*/__tests__/.*
+module.system.haste.paths.blacklist=.*/__mocks__/.*
+module.system.haste.paths.blacklist=<PROJECT_ROOT>/node_modules/react-native/Libraries/Animated/src/polyfills/.*
+module.system.haste.paths.whitelist=<PROJECT_ROOT>/node_modules/react-native/Libraries/.*
+
+munge_underscores=true
+
+module.name_mapper='^[./a-zA-Z0-9$_-]+\\\\.\\\\(bmp\\\\|gif\\\\|jpg\\\\|jpeg\\\\|png\\\\|psd\\\\|svg\\\\|webp\\\\|m4v\\\\|mov\\\\|mp4\\\\|mpeg\\\\|mpg\\\\|webm\\\\|aac\\\\|aiff\\\\|caf\\\\|m4a\\\\|mp3\\\\|wav\\\\|html\\\\|pdf\\\\)$' -> 'RelativeImageStub'
+
+module.file_ext=.js
+module.file_ext=.jsx
+module.file_ext=.json
+module.file_ext=.native.js
+
+suppress_type=$FlowIssue
+suppress_type=$FlowFixMe
+suppress_type=$FlowFixMeProps
+suppress_type=$FlowFixMeState
+
+suppress_comment=\\\\\\\\(.\\\\\\\\|\\\\n\\\\\\\\)*\\\\\\\\$FlowFixMe\\\\\\\\($\\\\\\\\|[^(]\\\\\\\\|(\\\\\\\\(<VERSION>\\\\\\\\)? *\\\\\\\\(site=[a-z,_]*react_native[a-z,_]*\\\\\\\\)?)\\\\\\\\)
+suppress_comment=\\\\\\\\(.\\\\\\\\|\\\\n\\\\\\\\)*\\\\\\\\$FlowIssue\\\\\\\\((\\\\\\\\(<VERSION>\\\\\\\\)? *\\\\\\\\(site=[a-z,_]*react_native[a-z,_]*\\\\\\\\)?)\\\\\\\\)?:? #[0-9]+
+suppress_comment=\\\\\\\\(.\\\\\\\\|\\\\n\\\\\\\\)*\\\\\\\\$FlowFixedInNextDeploy
+suppress_comment=\\\\\\\\(.\\\\\\\\|\\\\n\\\\\\\\)*\\\\\\\\$FlowExpectedError
+
+[version]
+^0.92.0
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/example/.gitattributes",
+    "theContent": "*.pbxproj -text
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/example/.gitignore",
+    "theContent": "# OSX
+#
+.DS_Store
+
+# Xcode
+#
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+project.xcworkspace
+
+# Android/IntelliJ
+#
+build/
+.idea
+.gradle
+local.properties
+*.iml
+
+# node.js
+#
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# BUCK
+buck-out/
+\\\\.buckd/
+*.keystore
+
+# fastlane
+#
+# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
+# screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://docs.fastlane.tools/best-practices/source-control/
+
+*/fastlane/report.xml
+*/fastlane/Preview.html
+*/fastlane/screenshots
+
+# Bundle artifact
+*.jsbundle
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/example/.watchmanconfig",
+    "theContent": "{}",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/example/App.js",
+    "theContent": "/**
+ * Sample React Native App
+ *
+ * adapted from App.js generated by the following command:
+ *
+ * react-native init example
+ *
+ * https://github.com/facebook/react-native
+ */
+
+import React, { Component } from 'react';
+import { Platform, StyleSheet, Text, View } from 'react-native';
+import IntegrationTestPackageWithExample from 'react-native-integration-test-package-with-example';
+
+export default class App extends Component<{}> {
+  state = {
+    status: 'starting',
+    message: '--'
+  };
+  componentDidMount() {
+    IntegrationTestPackageWithExample.sampleMethod('Testing', 123, (message) => {
+      this.setState({
+        status: 'native callback received',
+        message
+      });
+    });
+  }
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.welcome}>☆IntegrationTestPackageWithExample example☆</Text>
+        <Text style={styles.instructions}>STATUS: {this.state.status}</Text>
+        <Text style={styles.welcome}>☆NATIVE CALLBACK MESSAGE☆</Text>
+        <Text style={styles.instructions}>{this.state.message}</Text>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+});
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/example/__tests__/App-test.js",
+    "theContent": "/**
+ * @format
+ */
+
+import 'react-native';
+import React from 'react';
+import App from '../App';
+
+// Note: test renderer must be required after react-native.
+import renderer from 'react-test-renderer';
+
+it('renders correctly', () => {
+  renderer.create(<App />);
+});
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/example/android/app/BUCK",
+    "theContent": "# To learn about Buck see [Docs](https://buckbuild.com/).
+# To run your application with Buck:
+# - install Buck
+# - \`npm start\` - to start the packager
+# - \`cd android\`
+# - \`keytool -genkey -v -keystore keystores/debug.keystore -storepass android -alias androiddebugkey -keypass android -dname \\"CN=Android Debug,O=Android,C=US\\"\`
+# - \`./gradlew :app:copyDownloadableDepsToLibs\` - make all Gradle compile dependencies available to Buck
+# - \`buck install -r android/app\` - compile, install and run application
+#
+
+load(\\":build_defs.bzl\\", \\"create_aar_targets\\", \\"create_jar_targets\\")
+
+lib_deps = []
+
+create_aar_targets(glob([\\"libs/*.aar\\"]))
+
+create_jar_targets(glob([\\"libs/*.jar\\"]))
+
+android_library(
+    name = \\"all-libs\\",
+    exported_deps = lib_deps,
+)
+
+android_library(
+    name = \\"app-code\\",
+    srcs = glob([
+        \\"src/main/java/**/*.java\\",
+    ]),
+    deps = [
+        \\":all-libs\\",
+        \\":build_config\\",
+        \\":res\\",
+    ],
+)
+
+android_build_config(
+    name = \\"build_config\\",
+    package = \\"com.example\\",
+)
+
+android_resource(
+    name = \\"res\\",
+    package = \\"com.example\\",
+    res = \\"src/main/res\\",
+)
+
+android_binary(
+    name = \\"app\\",
+    keystore = \\"//android/keystores:debug\\",
+    manifest = \\"src/main/AndroidManifest.xml\\",
+    package_type = \\"debug\\",
+    deps = [
+        \\":app-code\\",
+    ],
+)
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/example/android/app/build.gradle",
+    "theContent": "apply plugin: \\"com.android.application\\"
+
+import com.android.build.OutputFile
+
+/**
+ * The react.gradle file registers a task for each build variant (e.g. bundleDebugJsAndAssets
+ * and bundleReleaseJsAndAssets).
+ * These basically call \`react-native bundle\` with the correct arguments during the Android build
+ * cycle. By default, bundleDebugJsAndAssets is skipped, as in debug/dev mode we prefer to load the
+ * bundle directly from the development server. Below you can see all the possible configurations
+ * and their defaults. If you decide to add a configuration block, make sure to add it before the
+ * \`apply from: \\"../../node_modules/react-native/react.gradle\\"\` line.
+ *
+ * project.ext.react = [
+ *   // the name of the generated asset file containing your JS bundle
+ *   bundleAssetName: \\"index.android.bundle\\",
+ *
+ *   // the entry file for bundle generation
+ *   entryFile: \\"index.android.js\\",
+ *
+ *   // whether to bundle JS and assets in debug mode
+ *   bundleInDebug: false,
+ *
+ *   // whether to bundle JS and assets in release mode
+ *   bundleInRelease: true,
+ *
+ *   // whether to bundle JS and assets in another build variant (if configured).
+ *   // See http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Build-Variants
+ *   // The configuration property can be in the following formats
+ *   //         'bundleIn\${productFlavor}\${buildType}'
+ *   //         'bundleIn\${buildType}'
+ *   // bundleInFreeDebug: true,
+ *   // bundleInPaidRelease: true,
+ *   // bundleInBeta: true,
+ *
+ *   // whether to disable dev mode in custom build variants (by default only disabled in release)
+ *   // for example: to disable dev mode in the staging build type (if configured)
+ *   devDisabledInStaging: true,
+ *   // The configuration property can be in the following formats
+ *   //         'devDisabledIn\${productFlavor}\${buildType}'
+ *   //         'devDisabledIn\${buildType}'
+ *
+ *   // the root of your project, i.e. where \\"package.json\\" lives
+ *   root: \\"../../\\",
+ *
+ *   // where to put the JS bundle asset in debug mode
+ *   jsBundleDirDebug: \\"$buildDir/intermediates/assets/debug\\",
+ *
+ *   // where to put the JS bundle asset in release mode
+ *   jsBundleDirRelease: \\"$buildDir/intermediates/assets/release\\",
+ *
+ *   // where to put drawable resources / React Native assets, e.g. the ones you use via
+ *   // require('./image.png')), in debug mode
+ *   resourcesDirDebug: \\"$buildDir/intermediates/res/merged/debug\\",
+ *
+ *   // where to put drawable resources / React Native assets, e.g. the ones you use via
+ *   // require('./image.png')), in release mode
+ *   resourcesDirRelease: \\"$buildDir/intermediates/res/merged/release\\",
+ *
+ *   // by default the gradle tasks are skipped if none of the JS files or assets change; this means
+ *   // that we don't look at files in android/ or ios/ to determine whether the tasks are up to
+ *   // date; if you have any other folders that you want to ignore for performance reasons (gradle
+ *   // indexes the entire tree), add them here. Alternatively, if you have JS files in android/
+ *   // for example, you might want to remove it from here.
+ *   inputExcludes: [\\"android/**\\", \\"ios/**\\"],
+ *
+ *   // override which node gets called and with what additional arguments
+ *   nodeExecutableAndArgs: [\\"node\\"],
+ *
+ *   // supply additional arguments to the packager
+ *   extraPackagerArgs: []
+ * ]
+ */
+
+project.ext.react = [
+    entryFile: \\"index.js\\"
+]
+
+apply from: \\"../../node_modules/react-native/react.gradle\\"
+
+/**
+ * Set this to true to create two separate APKs instead of one:
+ *   - An APK that only works on ARM devices
+ *   - An APK that only works on x86 devices
+ * The advantage is the size of the APK is reduced by about 4MB.
+ * Upload all the APKs to the Play Store and people will download
+ * the correct one based on the CPU architecture of their device.
+ */
+def enableSeparateBuildPerCPUArchitecture = false
+
+/**
+ * Run Proguard to shrink the Java bytecode in release builds.
+ */
+def enableProguardInReleaseBuilds = false
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId \\"com.example\\"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 1
+        versionName \\"1.0\\"
+    }
+    splits {
+        abi {
+            reset()
+            enable enableSeparateBuildPerCPUArchitecture
+            universalApk false  // If true, also generate a universal APK
+            include \\"armeabi-v7a\\", \\"x86\\", \\"arm64-v8a\\", \\"x86_64\\"
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled enableProguardInReleaseBuilds
+            proguardFiles getDefaultProguardFile(\\"proguard-android.txt\\"), \\"proguard-rules.pro\\"
+        }
+    }
+    // applicationVariants are e.g. debug, release
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            // For each separate APK per architecture, set a unique version code as described here:
+            // http://tools.android.com/tech-docs/new-build-system/user-guide/apk-splits
+            def versionCodes = [\\"armeabi-v7a\\":1, \\"x86\\":2, \\"arm64-v8a\\": 3, \\"x86_64\\": 4]
+            def abi = output.getFilter(OutputFile.ABI)
+            if (abi != null) {  // null for the universal-debug, universal-release variants
+                output.versionCodeOverride =
+                        versionCodes.get(abi) * 1048576 + defaultConfig.versionCode
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation project(':react-native-integration-test-package-with-example')
+    implementation fileTree(dir: \\"libs\\", include: [\\"*.jar\\"])
+    implementation \\"com.android.support:appcompat-v7:\${rootProject.ext.supportLibVersion}\\"
+    implementation \\"com.facebook.react:react-native:+\\"  // From node_modules
+}
+
+// Run this once to be able to run the application with BUCK
+// puts all compile dependencies into folder libs for BUCK to use
+task copyDownloadableDepsToLibs(type: Copy) {
+    from configurations.compile
+    into 'libs'
+}
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/example/android/app/build_defs.bzl",
+    "theContent": "\\"\\"\\"Helper definitions to glob .aar and .jar targets\\"\\"\\"
+
+def create_aar_targets(aarfiles):
+    for aarfile in aarfiles:
+        name = \\"aars__\\" + aarfile[aarfile.rindex(\\"/\\") + 1:aarfile.rindex(\\".aar\\")]
+        lib_deps.append(\\":\\" + name)
+        android_prebuilt_aar(
+            name = name,
+            aar = aarfile,
+        )
+
+def create_jar_targets(jarfiles):
+    for jarfile in jarfiles:
+        name = \\"jars__\\" + jarfile[jarfile.rindex(\\"/\\") + 1:jarfile.rindex(\\".jar\\")]
+        lib_deps.append(\\":\\" + name)
+        prebuilt_jar(
+            name = name,
+            binary_jar = jarfile,
+        )
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/example/android/app/proguard-rules.pro",
+    "theContent": "# Add project specific ProGuard rules here.
+# By default, the flags in this file are appended to flags specified
+# in /usr/local/Cellar/android-sdk/24.3.3/tools/proguard/proguard-android.txt
+# You can edit the include path and order by changing the proguardFiles
+# directive in build.gradle.
+#
+# For more details, see
+#   http://developer.android.com/guide/developing/tools/proguard.html
+
+# Add any project specific keep options here:
+
+# If your project uses WebView with JS, uncomment the following
+# and specify the fully qualified class name to the JavaScript interface
+# class:
+#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
+#   public *;
+#}
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/example/android/app/src/debug/AndroidManifest.xml",
+    "theContent": "<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>
+<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
+    xmlns:tools=\\"http://schemas.android.com/tools\\">
+
+    <uses-permission android:name=\\"android.permission.SYSTEM_ALERT_WINDOW\\"/>
+
+    <application android:usesCleartextTraffic=\\"true\\" tools:targetApi=\\"28\\" tools:ignore=\\"GoogleAppIndexingWarning\\" />
+</manifest>
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/example/android/app/src/main/AndroidManifest.xml",
+    "theContent": "<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
+  package=\\"com.example\\">
+
+    <uses-permission android:name=\\"android.permission.INTERNET\\" />
+
+    <application
+      android:name=\\".MainApplication\\"
+      android:label=\\"@string/app_name\\"
+      android:icon=\\"@mipmap/ic_launcher\\"
+      android:roundIcon=\\"@mipmap/ic_launcher_round\\"
+      android:allowBackup=\\"false\\"
+      android:theme=\\"@style/AppTheme\\">
+      <activity
+        android:name=\\".MainActivity\\"
+        android:label=\\"@string/app_name\\"
+        android:configChanges=\\"keyboard|keyboardHidden|orientation|screenSize\\"
+        android:windowSoftInputMode=\\"adjustResize\\">
+        <intent-filter>
+            <action android:name=\\"android.intent.action.MAIN\\" />
+            <category android:name=\\"android.intent.category.LAUNCHER\\" />
+        </intent-filter>
+      </activity>
+      <activity android:name=\\"com.facebook.react.devsupport.DevSettingsActivity\\" />
+    </application>
+
+</manifest>
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/example/android/app/src/main/java/com/example/MainActivity.java",
+    "theContent": "package com.example;
+
+import com.facebook.react.ReactActivity;
+
+public class MainActivity extends ReactActivity {
+
+    /**
+     * Returns the name of the main component registered from JavaScript.
+     * This is used to schedule rendering of the component.
+     */
+    @Override
+    protected String getMainComponentName() {
+        return \\"example\\";
+    }
+}
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/example/android/app/src/main/java/com/example/MainApplication.java",
+    "theContent": "package com.example;
+
+import android.app.Application;
+
+import com.facebook.react.ReactApplication;
+import com.reactlibrary.IntegrationTestPackageWithExamplePackage;
+import com.facebook.react.ReactNativeHost;
+import com.facebook.react.ReactPackage;
+import com.facebook.react.shell.MainReactPackage;
+import com.facebook.soloader.SoLoader;
+
+import java.util.Arrays;
+import java.util.List;
+
+public class MainApplication extends Application implements ReactApplication {
+
+  private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
+    @Override
+    public boolean getUseDeveloperSupport() {
+      return BuildConfig.DEBUG;
+    }
+
+    @Override
+    protected List<ReactPackage> getPackages() {
+      return Arrays.<ReactPackage>asList(
+          new MainReactPackage(),
+            new IntegrationTestPackageWithExamplePackage()
+      );
+    }
+
+    @Override
+    protected String getJSMainModuleName() {
+      return \\"index\\";
+    }
+  };
+
+  @Override
+  public ReactNativeHost getReactNativeHost() {
+    return mReactNativeHost;
+  }
+
+  @Override
+  public void onCreate() {
+    super.onCreate();
+    SoLoader.init(this, /* native exopackage */ false);
+  }
+}
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/example/android/build.gradle",
+    "theContent": "// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext {
+        buildToolsVersion = \\"28.0.3\\"
+        minSdkVersion = 16
+        compileSdkVersion = 28
+        targetSdkVersion = 28
+        supportLibVersion = \\"28.0.0\\"
+    }
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath(\\"com.android.tools.build:gradle:3.4.0\\")
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        mavenLocal()
+        google()
+        jcenter()
+        maven {
+            // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+            url \\"$rootDir/../node_modules/react-native/android\\"
+        }
+    }
+}
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/example/android/gradle.properties",
+    "theContent": "# Project-wide Gradle settings.
+
+# IDE (e.g. Android Studio) users:
+# Gradle settings configured through the IDE *will override*
+# any settings specified in this file.
+
+# For more details on how to configure your build environment visit
+# http://www.gradle.org/docs/current/userguide/build_environment.html
+
+# Specifies the JVM arguments used for the daemon process.
+# The setting is particularly useful for tweaking memory settings.
+# Default value: -Xmx10248m -XX:MaxPermSize=256m
+# org.gradle.jvmargs=-Xmx2048m -XX:MaxPermSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
+
+# When configured, Gradle will run in incubating parallel mode.
+# This option should only be used with decoupled projects. More details, visit
+# http://www.gradle.org/docs/current/userguide/multi_project_builds.html#sec:decoupled_projects
+# org.gradle.parallel=true
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/example/android/gradle/wrapper/gradle-wrapper.properties",
+    "theContent": "distributionBase=GRADLE_USER_HOME
+distributionPath=wrapper/dists
+distributionUrl=https\\\\://services.gradle.org/distributions/gradle-5.4.1-all.zip
+zipStoreBase=GRADLE_USER_HOME
+zipStorePath=wrapper/dists
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/example/android/gradlew",
+    "theContent": "#!/usr/bin/env sh
+
+#
+# Copyright 2015 the original author or authors.
+#
+# Licensed under the Apache License, Version 2.0 (the \\"License\\");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an \\"AS IS\\" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+##############################################################################
+##
+##  Gradle start up script for UN*X
+##
+##############################################################################
+
+# Attempt to set APP_HOME
+# Resolve links: $0 may be a link
+PRG=\\"$0\\"
+# Need this for relative symlinks.
+while [ -h \\"$PRG\\" ] ; do
+    ls=\`ls -ld \\"$PRG\\"\`
+    link=\`expr \\"$ls\\" : '.*-> \\\\(.*\\\\)$'\`
+    if expr \\"$link\\" : '/.*' > /dev/null; then
+        PRG=\\"$link\\"
+    else
+        PRG=\`dirname \\"$PRG\\"\`\\"/$link\\"
+    fi
+done
+SAVED=\\"\`pwd\`\\"
+cd \\"\`dirname \\\\\\"$PRG\\\\\\"\`/\\" >/dev/null
+APP_HOME=\\"\`pwd -P\`\\"
+cd \\"$SAVED\\" >/dev/null
+
+APP_NAME=\\"Gradle\\"
+APP_BASE_NAME=\`basename \\"$0\\"\`
+
+# Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
+DEFAULT_JVM_OPTS='\\"-Xmx64m\\" \\"-Xms64m\\"'
+
+# Use the maximum available, or set MAX_FD != -1 to use that value.
+MAX_FD=\\"maximum\\"
+
+warn () {
+    echo \\"$*\\"
+}
+
+die () {
+    echo
+    echo \\"$*\\"
+    echo
+    exit 1
+}
+
+# OS specific support (must be 'true' or 'false').
+cygwin=false
+msys=false
+darwin=false
+nonstop=false
+case \\"\`uname\`\\" in
+  CYGWIN* )
+    cygwin=true
+    ;;
+  Darwin* )
+    darwin=true
+    ;;
+  MINGW* )
+    msys=true
+    ;;
+  NONSTOP* )
+    nonstop=true
+    ;;
+esac
+
+CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
+
+# Determine the Java command to use to start the JVM.
+if [ -n \\"$JAVA_HOME\\" ] ; then
+    if [ -x \\"$JAVA_HOME/jre/sh/java\\" ] ; then
+        # IBM's JDK on AIX uses strange locations for the executables
+        JAVACMD=\\"$JAVA_HOME/jre/sh/java\\"
+    else
+        JAVACMD=\\"$JAVA_HOME/bin/java\\"
+    fi
+    if [ ! -x \\"$JAVACMD\\" ] ; then
+        die \\"ERROR: JAVA_HOME is set to an invalid directory: $JAVA_HOME
+
+Please set the JAVA_HOME variable in your environment to match the
+location of your Java installation.\\"
+    fi
+else
+    JAVACMD=\\"java\\"
+    which java >/dev/null 2>&1 || die \\"ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
+
+Please set the JAVA_HOME variable in your environment to match the
+location of your Java installation.\\"
+fi
+
+# Increase the maximum file descriptors if we can.
+if [ \\"$cygwin\\" = \\"false\\" -a \\"$darwin\\" = \\"false\\" -a \\"$nonstop\\" = \\"false\\" ] ; then
+    MAX_FD_LIMIT=\`ulimit -H -n\`
+    if [ $? -eq 0 ] ; then
+        if [ \\"$MAX_FD\\" = \\"maximum\\" -o \\"$MAX_FD\\" = \\"max\\" ] ; then
+            MAX_FD=\\"$MAX_FD_LIMIT\\"
+        fi
+        ulimit -n $MAX_FD
+        if [ $? -ne 0 ] ; then
+            warn \\"Could not set maximum file descriptor limit: $MAX_FD\\"
+        fi
+    else
+        warn \\"Could not query maximum file descriptor limit: $MAX_FD_LIMIT\\"
+    fi
+fi
+
+# For Darwin, add options to specify how the application appears in the dock
+if $darwin; then
+    GRADLE_OPTS=\\"$GRADLE_OPTS \\\\\\"-Xdock:name=$APP_NAME\\\\\\" \\\\\\"-Xdock:icon=$APP_HOME/media/gradle.icns\\\\\\"\\"
+fi
+
+# For Cygwin, switch paths to Windows format before running java
+if $cygwin ; then
+    APP_HOME=\`cygpath --path --mixed \\"$APP_HOME\\"\`
+    CLASSPATH=\`cygpath --path --mixed \\"$CLASSPATH\\"\`
+    JAVACMD=\`cygpath --unix \\"$JAVACMD\\"\`
+
+    # We build the pattern for arguments to be converted via cygpath
+    ROOTDIRSRAW=\`find -L / -maxdepth 1 -mindepth 1 -type d 2>/dev/null\`
+    SEP=\\"\\"
+    for dir in $ROOTDIRSRAW ; do
+        ROOTDIRS=\\"$ROOTDIRS$SEP$dir\\"
+        SEP=\\"|\\"
+    done
+    OURCYGPATTERN=\\"(^($ROOTDIRS))\\"
+    # Add a user-defined pattern to the cygpath arguments
+    if [ \\"$GRADLE_CYGPATTERN\\" != \\"\\" ] ; then
+        OURCYGPATTERN=\\"$OURCYGPATTERN|($GRADLE_CYGPATTERN)\\"
+    fi
+    # Now convert the arguments - kludge to limit ourselves to /bin/sh
+    i=0
+    for arg in \\"$@\\" ; do
+        CHECK=\`echo \\"$arg\\"|egrep -c \\"$OURCYGPATTERN\\" -\`
+        CHECK2=\`echo \\"$arg\\"|egrep -c \\"^-\\"\`                                 ### Determine if an option
+
+        if [ $CHECK -ne 0 ] && [ $CHECK2 -eq 0 ] ; then                    ### Added a condition
+            eval \`echo args$i\`=\`cygpath --path --ignore --mixed \\"$arg\\"\`
+        else
+            eval \`echo args$i\`=\\"\\\\\\"$arg\\\\\\"\\"
+        fi
+        i=$((i+1))
+    done
+    case $i in
+        (0) set -- ;;
+        (1) set -- \\"$args0\\" ;;
+        (2) set -- \\"$args0\\" \\"$args1\\" ;;
+        (3) set -- \\"$args0\\" \\"$args1\\" \\"$args2\\" ;;
+        (4) set -- \\"$args0\\" \\"$args1\\" \\"$args2\\" \\"$args3\\" ;;
+        (5) set -- \\"$args0\\" \\"$args1\\" \\"$args2\\" \\"$args3\\" \\"$args4\\" ;;
+        (6) set -- \\"$args0\\" \\"$args1\\" \\"$args2\\" \\"$args3\\" \\"$args4\\" \\"$args5\\" ;;
+        (7) set -- \\"$args0\\" \\"$args1\\" \\"$args2\\" \\"$args3\\" \\"$args4\\" \\"$args5\\" \\"$args6\\" ;;
+        (8) set -- \\"$args0\\" \\"$args1\\" \\"$args2\\" \\"$args3\\" \\"$args4\\" \\"$args5\\" \\"$args6\\" \\"$args7\\" ;;
+        (9) set -- \\"$args0\\" \\"$args1\\" \\"$args2\\" \\"$args3\\" \\"$args4\\" \\"$args5\\" \\"$args6\\" \\"$args7\\" \\"$args8\\" ;;
+    esac
+fi
+
+# Escape application args
+save () {
+    for i do printf %s\\\\\\\\n \\"$i\\" | sed \\"s/'/'\\\\\\\\\\\\\\\\''/g;1s/^/'/;\\\\$s/\\\\$/' \\\\\\\\\\\\\\\\/\\" ; done
+    echo \\" \\"
+}
+APP_ARGS=$(save \\"$@\\")
+
+# Collect all arguments for the java command, following the shell quoting and substitution rules
+eval set -- $DEFAULT_JVM_OPTS $JAVA_OPTS $GRADLE_OPTS \\"\\\\\\"-Dorg.gradle.appname=$APP_BASE_NAME\\\\\\"\\" -classpath \\"\\\\\\"$CLASSPATH\\\\\\"\\" org.gradle.wrapper.GradleWrapperMain \\"$APP_ARGS\\"
+
+# by default we should be in the correct project dir, but when run from Finder on Mac, the cwd is wrong
+if [ \\"$(uname)\\" = \\"Darwin\\" ] && [ \\"$HOME\\" = \\"$PWD\\" ]; then
+  cd \\"$(dirname \\"$0\\")\\"
+fi
+
+exec \\"$JAVACMD\\" \\"$@\\"
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/example/android/gradlew.bat",
+    "theContent": "@rem
+@rem Copyright 2015 the original author or authors.
+@rem
+@rem Licensed under the Apache License, Version 2.0 (the \\"License\\");
+@rem you may not use this file except in compliance with the License.
+@rem You may obtain a copy of the License at
+@rem
+@rem      http://www.apache.org/licenses/LICENSE-2.0
+@rem
+@rem Unless required by applicable law or agreed to in writing, software
+@rem distributed under the License is distributed on an \\"AS IS\\" BASIS,
+@rem WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+@rem See the License for the specific language governing permissions and
+@rem limitations under the License.
+@rem
+
+@if \\"%DEBUG%\\" == \\"\\" @echo off
+@rem ##########################################################################
+@rem
+@rem  Gradle startup script for Windows
+@rem
+@rem ##########################################################################
+
+@rem Set local scope for the variables with windows NT shell
+if \\"%OS%\\"==\\"Windows_NT\\" setlocal
+
+set DIRNAME=%~dp0
+if \\"%DIRNAME%\\" == \\"\\" set DIRNAME=.
+set APP_BASE_NAME=%~n0
+set APP_HOME=%DIRNAME%
+
+@rem Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
+set DEFAULT_JVM_OPTS=\\"-Xmx64m\\" \\"-Xms64m\\"
+
+@rem Find java.exe
+if defined JAVA_HOME goto findJavaFromJavaHome
+
+set JAVA_EXE=java.exe
+%JAVA_EXE% -version >NUL 2>&1
+if \\"%ERRORLEVEL%\\" == \\"0\\" goto init
+
+echo.
+echo ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
+echo.
+echo Please set the JAVA_HOME variable in your environment to match the
+echo location of your Java installation.
+
+goto fail
+
+:findJavaFromJavaHome
+set JAVA_HOME=%JAVA_HOME:\\"=%
+set JAVA_EXE=%JAVA_HOME%/bin/java.exe
+
+if exist \\"%JAVA_EXE%\\" goto init
+
+echo.
+echo ERROR: JAVA_HOME is set to an invalid directory: %JAVA_HOME%
+echo.
+echo Please set the JAVA_HOME variable in your environment to match the
+echo location of your Java installation.
+
+goto fail
+
+:init
+@rem Get command-line arguments, handling Windows variants
+
+if not \\"%OS%\\" == \\"Windows_NT\\" goto win9xME_args
+
+:win9xME_args
+@rem Slurp the command line arguments.
+set CMD_LINE_ARGS=
+set _SKIP=2
+
+:win9xME_args_slurp
+if \\"x%~1\\" == \\"x\\" goto execute
+
+set CMD_LINE_ARGS=%*
+
+:execute
+@rem Setup the command line
+
+set CLASSPATH=%APP_HOME%\\\\gradle\\\\wrapper\\\\gradle-wrapper.jar
+
+@rem Execute Gradle
+\\"%JAVA_EXE%\\" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %GRADLE_OPTS% \\"-Dorg.gradle.appname=%APP_BASE_NAME%\\" -classpath \\"%CLASSPATH%\\" org.gradle.wrapper.GradleWrapperMain %CMD_LINE_ARGS%
+
+:end
+@rem End local scope for the variables with windows NT shell
+if \\"%ERRORLEVEL%\\"==\\"0\\" goto mainEnd
+
+:fail
+rem Set variable GRADLE_EXIT_CONSOLE if you need the _script_ return code instead of
+rem the _cmd.exe /c_ return code!
+if  not \\"\\" == \\"%GRADLE_EXIT_CONSOLE%\\" exit 1
+exit /b 1
+
+:mainEnd
+if \\"%OS%\\"==\\"Windows_NT\\" endlocal
+
+:omega
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/example/android/keystores/BUCK",
+    "theContent": "keystore(
+    name = \\"debug\\",
+    properties = \\"debug.keystore.properties\\",
+    store = \\"debug.keystore\\",
+    visibility = [
+        \\"PUBLIC\\",
+    ],
+)
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/example/android/keystores/debug.keystore.properties",
+    "theContent": "key.store=debug.keystore
+key.alias=androiddebugkey
+key.store.password=android
+key.alias.password=android
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/example/android/settings.gradle",
+    "theContent": "rootProject.name = 'example'
+include ':react-native-integration-test-package-with-example'
+project(':react-native-integration-test-package-with-example').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-integration-test-package-with-example/android')
+
+include ':app'
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/example/app.json",
+    "theContent": "{
+  \\"name\\": \\"example\\",
+  \\"displayName\\": \\"example\\"
+}",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/example/babel.config.js",
+    "theContent": "module.exports = {
+  presets: ['module:metro-react-native-babel-preset'],
+};
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/example/index.js",
+    "theContent": "/**
+ * @format
+ */
+
+import {AppRegistry} from 'react-native';
+import App from './App';
+import {name as appName} from './app.json';
+
+AppRegistry.registerComponent(appName, () => App);
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/example/metro.config.js",
+    "theContent": "/**
+ * Metro configuration for React Native
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ */
+
+module.exports = {
+  transformer: {
+    getTransformOptions: async () => ({
+      transform: {
+        experimentalImportSupport: false,
+        inlineRequires: false,
+      },
+    }),
+  },
+};
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/example/package.json",
+    "theContent": "{
+  \\"name\\": \\"example\\",
+  \\"version\\": \\"0.0.1\\",
+  \\"private\\": true,
+  \\"scripts\\": {
+    \\"start\\": \\"node node_modules/react-native/local-cli/cli.js start\\",
+    \\"test\\": \\"jest\\",
+    \\"postinstall\\": \\"node ../scripts/examples_postinstall.js\\"
+  },
+  \\"dependencies\\": {
+    \\"react\\": \\"16.8.3\\",
+    \\"react-native\\": \\"0.59.10\\",
+    \\"react-native-integration-test-package-with-example\\": \\"file:../\\"
+  },
+  \\"devDependencies\\": {
+    \\"@babel/core\\": \\"^7.6.0\\",
+    \\"@babel/runtime\\": \\"^7.6.0\\",
+    \\"babel-jest\\": \\"^24.9.0\\",
+    \\"jest\\": \\"^24.9.0\\",
+    \\"metro-react-native-babel-preset\\": \\"^0.56.0\\",
+    \\"react-test-renderer\\": \\"16.8.3\\"
+  },
+  \\"jest\\": {
+    \\"preset\\": \\"react-native\\"
+  }
+}
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/index.js",
+    "theContent": "import { NativeModules } from 'react-native';
+
+const { IntegrationTestPackageWithExample } = NativeModules;
+
+export default IntegrationTestPackageWithExample;
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/package.json",
+    "theContent": "{
+  \\"name\\": \\"react-native-integration-test-package-with-example\\",
+  \\"title\\": \\"React Native Integration Test Package With Example\\",
+  \\"version\\": \\"1.0.0\\",
+  \\"description\\": \\"TODO\\",
+  \\"main\\": \\"index.js\\",
+  \\"scripts\\": {
+    \\"test\\": \\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\"
+  },
+  \\"repository\\": {
+    \\"type\\": \\"git\\",
+    \\"url\\": \\"git+https://github.com/github_account/react-native-integration-test-package-with-example.git\\",
+    \\"baseUrl\\": \\"https://github.com/github_account/react-native-integration-test-package-with-example\\"
+  },
+  \\"keywords\\": [
+    \\"react-native\\"
+  ],
+  \\"author\\": {
+    \\"name\\": \\"Your Name\\",
+    \\"email\\": \\"yourname@email.com\\"
+  },
+  \\"license\\": \\"MIT\\",
+  \\"licenseFilename\\": \\"LICENSE\\",
+  \\"readmeFilename\\": \\"README.md\\",
+  \\"peerDependencies\\": {
+    \\"react\\": \\"^16.8.1\\",
+    \\"react-native\\": \\">=0.59.0-rc.0 <1.0.x\\"
+  },
+  \\"devDependencies\\": {
+    \\"react\\": \\"^16.8.3\\",
+    \\"react-native\\": \\"^0.59.10\\"
+  }
+}
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package-with-example/scripts/examples_postinstall.js",
+    "theContent": "#!/usr/bin/env node
+
+  /*
+   * Using libraries within examples and linking them within packages.json like:
+   * \\"react-native-library-name\\": \\"file:../\\"
+   * will cause problems with the metro bundler if the example will run via
+   * \`react-native run-[ios|android]\`. This will result in an error as the metro
+   * bundler will find multiple versions for the same module while resolving it.
+   * The reason for that is that if the library is installed it also copies in the
+   * example folder itself as well as the node_modules folder of the library
+   * although their are defined in .npmignore and should be ignored in theory.
+   *
+   * This postinstall script removes the node_modules folder as well as all
+   * entries from the libraries .npmignore file within the examples node_modules
+   * folder after the library was installed. This should resolve the metro
+   * bundler issue mentioned above.
+   *
+   * It is expected this scripts lives in the libraries root folder within a
+   * scripts folder. As first parameter the relative path to the libraries
+   * folder within the example's node_modules folder may be provided.
+   * This script will determine the path from this project's package.json file
+   * if no such relative path is provided.
+   * An example's package.json entry could look like:
+   * \\"postinstall\\": \\"node ../scripts/examples_postinstall.js node_modules/react-native-library-name/\\"
+   */
+
+  'use strict';
+
+  const fs = require('fs');
+  const path = require('path');
+
+  /// Delete all files and directories for the given path
+  const removeFileDirectoryRecursively = fileDirPath => {
+    // Remove file
+    if (!fs.lstatSync(fileDirPath).isDirectory()) {
+      fs.unlinkSync(fileDirPath);
+      return;
+    }
+
+    // Go down the directory an remove each file / directory recursively
+    fs.readdirSync(fileDirPath).forEach(entry => {
+      const entryPath = path.join(fileDirPath, entry);
+      removeFileDirectoryRecursively(entryPath);
+    });
+    fs.rmdirSync(fileDirPath);
+  };
+
+  /// Remove example/node_modules/react-native-library-name/node_modules directory
+  const removeLibraryNodeModulesPath = (libraryNodeModulesPath) => {
+    const nodeModulesPath = path.resolve(libraryNodeModulesPath, 'node_modules')
+
+    if (!fs.existsSync(nodeModulesPath)) {
+      console.log(\`No node_modules path found at \${nodeModulesPath}. Skipping delete.\`)
+      return;
+    }
+
+    console.log(\`Deleting: \${nodeModulesPath}\`)
+    try {
+      removeFileDirectoryRecursively(nodeModulesPath);
+      console.log(\`Successfully deleted: \${nodeModulesPath}\`)
+    } catch (err) {
+      console.log(\`Error deleting \${nodeModulesPath}: \${err.message}\`);
+    }
+  };
+
+  /// Remove all entries from the .npmignore within  example/node_modules/react-native-library-name/
+  const removeLibraryNpmIgnorePaths = (npmIgnorePath, libraryNodeModulesPath) => {
+    if (!fs.existsSync(npmIgnorePath)) {
+      console.log(\`No .npmignore path found at \${npmIgnorePath}. Skipping deleting content.\`);
+      return;
+    }
+
+    fs.readFileSync(npmIgnorePath, 'utf8').split(/\\\\r?\\\\n/).forEach(entry => {
+      if (entry.length === 0) {
+        return
+      }
+
+      const npmIgnoreLibraryNodeModulesEntryPath = path.resolve(libraryNodeModulesPath, entry);
+      if (!fs.existsSync(npmIgnoreLibraryNodeModulesEntryPath)) {
+        return;
+      }
+
+      console.log(\`Deleting: \${npmIgnoreLibraryNodeModulesEntryPath}\`)
+      try {
+        removeFileDirectoryRecursively(npmIgnoreLibraryNodeModulesEntryPath);
+        console.log(\`Successfully deleted: \${npmIgnoreLibraryNodeModulesEntryPath}\`)
+      } catch (err) {
+        console.log(\`Error deleting \${npmIgnoreLibraryNodeModulesEntryPath}: \${err.message}\`);
+      }
+    });
+  };
+
+  // Main start sweeping process
+  (() => {
+    // Read out dir of example project
+    const exampleDir = process.cwd();
+
+    console.log(\`Starting postinstall cleanup for \${exampleDir}\`);
+
+    // Resolve the React Native library's path within the example's node_modules directory
+    const libraryNodeModulesPath = process.argv.length > 2
+      ? path.resolve(exampleDir, process.argv[2])
+      : path.resolve(exampleDir, 'node_modules', require('../package.json').name);
+
+    console.log(\`Removing unwanted artifacts for \${libraryNodeModulesPath}\`);
+
+    removeLibraryNodeModulesPath(libraryNodeModulesPath);
+
+    const npmIgnorePath = path.resolve(__dirname, '../.npmignore');
+    removeLibraryNpmIgnorePaths(npmIgnorePath, libraryNodeModulesPath);
+  })();
+",
+  },
+]
+`;
