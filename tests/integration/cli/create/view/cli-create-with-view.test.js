@@ -8,14 +8,16 @@ const fs = require('fs-extra');
 test('CLI creates correct view module package artifacts on file system using `--view` option (and no other options)', async () => {
   const mysnap = [];
 
+  const name = `integration-view-test-package`;
+
+  const modulePackageName = `react-native-${name}`
+
   // remove test artifacts just in case:
-  fs.removeSync(`react-native-integration-view-test-package`);
+  await fs.remove(modulePackageName);
 
-  await execa.command(
-    `node ${path.resolve('bin/cli.js')} --view integration-view-test-package`);
+  await execa.command(`node ${path.resolve('bin/cli.js')} --view ${name}`);
 
-  const filesUnsorted =
-    await readdirs('react-native-integration-view-test-package');
+  const filesUnsorted = await readdirs(modulePackageName);
 
   // with sorting, since underlying readdirs does not guarantee the order
   // (using [].concat() function call to avoid overwriting a local object)
@@ -31,5 +33,5 @@ test('CLI creates correct view module package artifacts on file system using `--
   expect(mysnap).toMatchSnapshot();
 
   // cleanup generated test artifacts:
-  fs.removeSync(`react-native-integration-view-test-package`);
+  await fs.remove(modulePackageName);
 });

@@ -8,14 +8,16 @@ const fs = require('fs-extra');
 test('CLI creates correct package artifacts on file system, with no options', async () => {
   const mysnap = [];
 
+  const name = `integration-test-package`;
+
+  const modulePackageName = `react-native-${name}`
+
   // remove test artifacts just in case:
-  fs.removeSync(`react-native-integration-test-package`);
+  await fs.remove(modulePackageName);
 
-  await execa.command(
-    `node ${path.resolve('bin/cli.js')} integration-test-package`);
+  await execa.command(`node ${path.resolve('bin/cli.js')} ${name}`);
 
-  const filesUnsorted =
-    await readdirs('react-native-integration-test-package');
+  const filesUnsorted = await readdirs(modulePackageName);
 
   // with sorting, since underlying readdirs does not guarantee the order
   // (using [].concat() function call to avoid overwriting a local object)
@@ -31,5 +33,5 @@ test('CLI creates correct package artifacts on file system, with no options', as
   expect(mysnap).toMatchSnapshot();
 
   // cleanup generated test artifacts:
-  fs.removeSync(`react-native-integration-test-package`);
+  await fs.remove(modulePackageName);
 });
