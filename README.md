@@ -25,12 +25,16 @@ This tool based on [`react-native-create-library`](https://www.npmjs.com/package
 ### General status
 
 - **React Native versions supported:**
-  - recommended: 0.60 (see known quirks and issues below), 0.59
-  - deprecated: 0.58, 0.57 (see [issue #42](https://github.com/brodybits/create-react-native-module/issues/42))
+  - recommended: `0.60`, `0.61-rc` (see known quirks and issues below)
+  - outdated: `0.59`
 - Known quirks & issues on React Native 0.60(+):
-  - [issue #28](https://github.com/brodybits/create-react-native-module/issues/28) - additional `pod install` step needed for RN 0.60 on iOS
+  - [issue #99](https://github.com/brodybits/create-react-native-module/issues/99) - additional `pod install` step needed for RN 0.60 on iOS
   - [issue #29](https://github.com/brodybits/create-react-native-module/issues/29) - View does not work with RN 0.60 on Android (quick patch needed)
-- Windows support is likely to be removed (see [issue #43](https://github.com/brodybits/create-react-native-module/issues/43))
+  - React Native 0.60(+) currently not supported by Expo or react-native-windows
+- Out-of-tree platform support
+  - tvOS platform support - unstable (not tested) (see [issue #95](https://github.com/brodybits/create-react-native-module/issues/95))
+  - Windows - unstable (not tested, see [issue #23](https://github.com/brodybits/create-react-native-module/issues/23)); now deprecated and may be removed in the near future (see [issue #43](https://github.com/brodybits/create-react-native-module/issues/43))
+  - for future consideration: macOS (see [issue #94](https://github.com/brodybits/create-react-native-module/issues/94))
 - Node.js pre-10 support is deprecated and will be removed in the near future (see [issue #38](https://github.com/brodybits/create-react-native-module/issues/38))
 
 ### Why might you need this?
@@ -121,7 +125,7 @@ createLibraryModule({
   prefix: String, /* The prefix for the library (Default: ``) */
   moduleName: String, /* The module library package name to be used in package.json. Default: react-native-(name in param-case) */
   modulePrefix: String, /* The module prefix for the library, ignored if moduleName is specified (Default: react-native) */
-  platforms: Array, /* Platforms the library will be created for. (Default: ['ios', 'android']) */
+  platforms: Array | String, /* Platforms the library will be created for. (Default: ['android', 'ios']) */
   packageIdentifier: String, /* (Android only!) The package name for the Android module (Default: com.reactlibrary) */
   githubAccount: String, /* The github account where the library is hosted (Default: `github_account`) */
   authorName: String, /* The author's name (Default: `Your Name`) */
@@ -132,9 +136,6 @@ createLibraryModule({
   generateExample: Boolean, /* Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally (Default: false) */
   exampleName: String, /* Name for the example project (Default: `example`) */
   exampleReactNativeVersion: String, /* React Native version for the generated example project (Default: `react-native@0.59`) */
-  fs: Object, /* Mockable `fs` object that should provide `ensureDir` and `outputFile` promise methods acdording to the `fs-extra` package API (Default: `require('fs-extra')`) */
-  execa: Object, /* Mockable `execa` object that should provide a `commandSync` method that is equivalent to `require('child_process').execSync` or `require('execa').commandSync` (Default: `{ commandSync: require('child_process').execSync }`
-  jsonfile: Object, /* Mockable `jsonfile` object that should provide synchronous `readFileSync` and `writeFileSync` methods acdording to the `jsonfile` package API (Default: `require('jsonfile')`) */
 }
 ```
 

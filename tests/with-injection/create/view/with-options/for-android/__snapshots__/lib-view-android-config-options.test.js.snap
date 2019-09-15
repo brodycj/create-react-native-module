@@ -1,0 +1,389 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`create alice-bobbi view module with config options for Android only 1`] = `
+Array [
+  "* ensureDir dir: react-native-alice-bobbi
+",
+  "* ensureDir dir: react-native-alice-bobbi/
+",
+  "* ensureDir dir: react-native-alice-bobbi/
+",
+  "* ensureDir dir: react-native-alice-bobbi/
+",
+  "* ensureDir dir: react-native-alice-bobbi/
+",
+  "* ensureDir dir: react-native-alice-bobbi/
+",
+  "* ensureDir dir: react-native-alice-bobbi/
+",
+  "* ensureDir dir: react-native-alice-bobbi/android/
+",
+  "* ensureDir dir: react-native-alice-bobbi/android/src/main/
+",
+  "* ensureDir dir: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/
+",
+  "* ensureDir dir: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/
+",
+  "* ensureDir dir: react-native-alice-bobbi/android/
+",
+  "* outputFile name: react-native-alice-bobbi/README.md
+content:
+--------
+# react-native-alice-bobbi
+
+## Getting started
+
+\`$ npm install react-native-alice-bobbi --save\`
+
+### Mostly automatic installation
+
+\`$ react-native link react-native-alice-bobbi\`
+
+### Manual installation
+
+
+#### Android
+
+1. Open up \`android/app/src/main/java/[...]/MainApplication.java\`
+  - Add \`import com.reactlibrary.AliceBobbiPackage;\` to the imports at the top of the file
+  - Add \`new AliceBobbiPackage()\` to the list returned by the \`getPackages()\` method
+2. Append the following lines to \`android/settings.gradle\`:
+  	\`\`\`
+  	include ':react-native-alice-bobbi'
+  	project(':react-native-alice-bobbi').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-alice-bobbi/android')
+  	\`\`\`
+3. Insert the following lines inside the dependencies block in \`android/app/build.gradle\`:
+  	\`\`\`
+      compile project(':react-native-alice-bobbi')
+  	\`\`\`
+
+
+## Usage
+\`\`\`javascript
+import AliceBobbi from 'react-native-alice-bobbi';
+
+// TODO: What to do with the module?
+AliceBobbi;
+\`\`\`
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/package.json
+content:
+--------
+{
+  \\"name\\": \\"react-native-alice-bobbi\\",
+  \\"title\\": \\"React Native Alice Bobbi\\",
+  \\"version\\": \\"1.0.0\\",
+  \\"description\\": \\"TODO\\",
+  \\"main\\": \\"index.js\\",
+  \\"scripts\\": {
+    \\"test\\": \\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\"
+  },
+  \\"repository\\": {
+    \\"type\\": \\"git\\",
+    \\"url\\": \\"git+https://github.com/alicebits/react-native-alice-bobbi.git\\",
+    \\"baseUrl\\": \\"https://github.com/alicebits/react-native-alice-bobbi\\"
+  },
+  \\"keywords\\": [
+    \\"react-native\\"
+  ],
+  \\"author\\": {
+    \\"name\\": \\"Alice\\",
+    \\"email\\": \\"contact@alice.me\\"
+  },
+  \\"license\\": \\"ISC\\",
+  \\"licenseFilename\\": \\"LICENSE\\",
+  \\"readmeFilename\\": \\"README.md\\",
+  \\"peerDependencies\\": {
+    \\"react\\": \\"^16.8.1\\",
+    \\"react-native\\": \\">=0.59.0-rc.0 <1.0.x\\"
+  },
+  \\"devDependencies\\": {
+    \\"react\\": \\"^16.8.3\\",
+    \\"react-native\\": \\"^0.59.10\\"
+  }
+}
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/index.js
+content:
+--------
+import { requireNativeComponent } from 'react-native';
+
+const AliceBobbi = requireNativeComponent('AliceBobbi', null);
+
+export default AliceBobbi;
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/.gitignore
+content:
+--------
+# OSX
+#
+.DS_Store
+
+# node.js
+#
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Android/IntelliJ
+#
+build/
+.idea
+.gradle
+local.properties
+*.iml
+
+# BUCK
+buck-out/
+\\\\.buckd/
+*.keystore
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/.gitattributes
+content:
+--------
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/.npmignore
+content:
+--------
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/android/build.gradle
+content:
+--------
+buildscript {
+    ext.safeExtGet = {prop, fallback ->
+        rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+    }
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        // Matches recent template from React Native (0.60)
+        // https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L16
+        classpath(\\"com.android.tools.build:gradle:\${safeExtGet('gradlePluginVersion', '3.4.1')}\\")
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+
+// Matches values in recent template from React Native 0.59 / 0.60
+// https://github.com/facebook/react-native/blob/0.59-stable/template/android/build.gradle#L5-L9
+// https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L5-L9
+def DEFAULT_COMPILE_SDK_VERSION = 28
+def DEFAULT_BUILD_TOOLS_VERSION = \\"28.0.3\\"
+def DEFAULT_MIN_SDK_VERSION = 16
+def DEFAULT_TARGET_SDK_VERSION = 28
+
+android {
+  compileSdkVersion safeExtGet('compileSdkVersion', DEFAULT_COMPILE_SDK_VERSION)
+  buildToolsVersion safeExtGet('buildToolsVersion', DEFAULT_BUILD_TOOLS_VERSION)
+
+  defaultConfig {
+    minSdkVersion safeExtGet('minSdkVersion', DEFAULT_MIN_SDK_VERSION)
+    targetSdkVersion safeExtGet('targetSdkVersion', DEFAULT_TARGET_SDK_VERSION)
+    versionCode 1
+    versionName \\"1.0\\"
+  }
+  lintOptions {
+    abortOnError false
+  }
+}
+
+repositories {
+    maven {
+        // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+        // Matches recent template from React Native 0.59 / 0.60
+        // https://github.com/facebook/react-native/blob/0.59-stable/template/android/build.gradle#L30
+        // https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L28
+        url \\"$projectDir/../node_modules/react-native/android\\"
+    }
+    mavenCentral()
+}
+
+dependencies {
+    implementation \\"com.facebook.react:react-native:\${safeExtGet('reactnativeVersion', '+')}\\"
+}
+
+def configureReactNativePom(def pom) {
+    def packageJson = new groovy.json.JsonSlurper().parseText(file('../package.json').text)
+
+    pom.project {
+        name packageJson.title
+        artifactId packageJson.name
+        version = packageJson.version
+        group = \\"com.reactlibrary\\"
+        description packageJson.description
+        url packageJson.repository.baseUrl
+
+        licenses {
+            license {
+                name packageJson.license
+                url packageJson.repository.baseUrl + '/blob/master/' + packageJson.licenseFilename
+                distribution 'repo'
+            }
+        }
+
+        developers {
+            developer {
+                id packageJson.author.username
+                name packageJson.author.name
+            }
+        }
+    }
+}
+
+afterEvaluate { project ->
+
+    task androidJavadoc(type: Javadoc) {
+        source = android.sourceSets.main.java.srcDirs
+        classpath += files(android.bootClasspath)
+        classpath += files(project.getConfigurations().getByName('compile').asList())
+        include '**/*.java'
+    }
+
+    task androidJavadocJar(type: Jar, dependsOn: androidJavadoc) {
+        classifier = 'javadoc'
+        from androidJavadoc.destinationDir
+    }
+
+    task androidSourcesJar(type: Jar) {
+        classifier = 'sources'
+        from android.sourceSets.main.java.srcDirs
+        include '**/*.java'
+    }
+
+    android.libraryVariants.all { variant ->
+        def name = variant.name.capitalize()
+        task \\"jar\${name}\\"(type: Jar, dependsOn: variant.javaCompile) {
+            from variant.javaCompile.destinationDir
+        }
+    }
+
+    artifacts {
+        archives androidSourcesJar
+        archives androidJavadocJar
+    }
+
+    task installArchives(type: Upload) {
+        configuration = configurations.archives
+        repositories.mavenDeployer {
+            // Deploy to react-native-event-bridge/maven, ready to publish to npm
+            repository url: \\"file://\${projectDir}/../android/maven\\"
+
+            configureReactNativePom pom
+        }
+    }
+}
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/android/src/main/AndroidManifest.xml
+content:
+--------
+<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
+          package=\\"com.reactlibrary\\">
+
+</manifest>
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiManager.java
+content:
+--------
+package com.reactlibrary;
+
+import android.view.View;
+
+// AppCompatCheckBox import for React Native pre-0.60:
+import android.support.v7.widget.AppCompatCheckBox;
+// AppCompatCheckBox import for React Native 0.60(+):
+// import androidx.appcompat.widget.AppCompatCheckBox;
+
+import com.facebook.react.uimanager.SimpleViewManager;
+import com.facebook.react.uimanager.ThemedReactContext;
+
+public class AliceBobbiManager extends SimpleViewManager<View> {
+
+    public static final String REACT_CLASS = \\"AliceBobbi\\";
+
+    @Override
+    public String getName() {
+        return REACT_CLASS;
+    }
+
+    @Override
+    public View createViewInstance(ThemedReactContext c) {
+        // TODO: Implement some actually useful functionality
+        AppCompatCheckBox cb = new AppCompatCheckBox(c);
+        cb.setChecked(true);
+        return cb;
+    }
+}
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiPackage.java
+content:
+--------
+package com.reactlibrary;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+import com.facebook.react.ReactPackage;
+import com.facebook.react.bridge.NativeModule;
+import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.uimanager.ViewManager;
+import com.facebook.react.bridge.JavaScriptModule;
+
+public class AliceBobbiPackage implements ReactPackage {
+    @Override
+    public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
+        return Collections.emptyList();
+    }
+
+    @Override
+    public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
+        return Arrays.<ViewManager>asList(new AliceBobbiManager());
+    }
+}
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/android/README.md
+content:
+--------
+README
+======
+
+If you want to publish the lib as a maven dependency, follow these steps before publishing a new version to npm:
+
+1. Be sure to have the Android [SDK](https://developer.android.com/studio/index.html) and [NDK](https://developer.android.com/ndk/guides/index.html) installed
+2. Be sure to have a \`local.properties\` file in this folder that points to the Android SDK and NDK
+\`\`\`
+ndk.dir=/Users/{username}/Library/Android/sdk/ndk-bundle
+sdk.dir=/Users/{username}/Library/Android/sdk
+\`\`\`
+3. Delete the \`maven\` folder
+4. Run \`sudo ./gradlew installArchives\`
+5. Verify that latest set of generated files is in the maven folder with the correct version number
+
+<<<<<<<< ======== >>>>>>>>
+",
+]
+`;

@@ -4,7 +4,8 @@ const windows = require('./windows')('windows');
 
 const general = require('./general');
 
-const updatePlatformInFile = platform => file => Object.assign(file, { platform });
+const updatePlatformInFile = platform => file =>
+  Object.assign({}, file, { platform });
 
 module.exports = [].concat(
   general,

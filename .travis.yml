@@ -1,6 +1,24 @@
 language: node_js
 
-node_js:
-  - 8
-  - 10
-  - 12
+matrix:
+  include:
+  - os: osx
+    node_js: 10
+  - os: linux
+    node_js: 10
+  - os: linux
+    node_js: 8
+  - os: linux
+    node_js: 12
+  - os: windows
+    node_js: 10
+    env:
+    # seems to resolve an issue with Travis CI on Windows ref:
+    # https://travis-ci.community/t/build-timeout-but-actually-succeeded/2763/2
+    - YARN_GPG=no
+  - os: windows
+    node_js: 8
+    env:
+    # seems to resolve an issue with Travis CI on Windows ref:
+    # https://travis-ci.community/t/build-timeout-but-actually-succeeded/2763/2
+    - YARN_GPG=no

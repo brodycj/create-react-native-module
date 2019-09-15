@@ -1,12 +1,13 @@
 {
   "name": "create-react-native-module",
-  "version": "0.7.1-dev",
+  "version": "0.10.3-dev",
   "description": "Tool to create a React Native library module or view module with a single command",
-  "bin": "cli.js",
+  "bin": "bin/cli.js",
   "main": "lib/lib.js",
   "scripts": {
     "jest": "jest",
     "lint": "eslint .",
+    "run-stryker": "stryker run",
     "test": "npm run lint && npm run jest"
   },
   "repository": {
@@ -27,7 +28,7 @@
     "windows"
   ],
   "files": [
-    "cli.js",
+    "bin",
     "lib",
     "templates",
     "README.md"
@@ -39,22 +40,28 @@
   },
   "homepage": "https://github.com/brodybits/create-react-native-module#readme",
   "dependencies": {
-    "commander": "^2.20.0",
+    "commander": "^3.0.1",
+    "execa": "^2.0.4",
     "fs-extra": "^8.1.0",
     "jsonfile": "^5.0.0",
     "node-emoji": "^1.10.0",
     "param-case": "^2.1.1",
     "pascal-case": "^2.0.1",
     "update-notifier": "^3.0.1",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.3"
   },
   "devDependencies": {
-    "eslint": "^6.1.0",
-    "eslint-config-standard": "^13.0.1",
+    "@stryker-mutator/core": "^2.1.0",
+    "@stryker-mutator/html-reporter": "^2.1.0",
+    "@stryker-mutator/javascript-mutator": "^2.1.0",
+    "@stryker-mutator/jest-runner": "^2.1.0",
+    "eslint": "^6.3.0",
+    "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-node": "^9.2.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "jest": "^24.8.0"
+    "eslint-plugin-standard": "^4.0.1",
+    "jest": "^24.9.0",
+    "recursive-readdir": "^2.2.2"
   }
 }

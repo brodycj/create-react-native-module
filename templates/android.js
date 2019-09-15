@@ -12,15 +12,16 @@ module.exports = platform => [{
     dependencies {
         // Matches recent template from React Native (0.60)
         // https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L16
-        classpath("com.android.tools.build:gradle:$\{safeExtGet('gradlePluginVersion', '3.4.1')\}")
+        classpath("com.android.tools.build:gradle:\${safeExtGet('gradlePluginVersion', '3.4.1')}")
     }
 }
 
 apply plugin: 'com.android.library'
 apply plugin: 'maven'
 
-// Matches values in recent template from React Native (0.59)
+// Matches values in recent template from React Native 0.59 / 0.60
 // https://github.com/facebook/react-native/blob/0.59-stable/template/android/build.gradle#L5-L9
+// https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L5-L9
 def DEFAULT_COMPILE_SDK_VERSION = 28
 def DEFAULT_BUILD_TOOLS_VERSION = "28.0.3"
 def DEFAULT_MIN_SDK_VERSION = 16
@@ -44,15 +45,16 @@ android {
 repositories {
     maven {
         // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
-        // Matches recent template from React Native (0.59)
+        // Matches recent template from React Native 0.59 / 0.60
         // https://github.com/facebook/react-native/blob/0.59-stable/template/android/build.gradle#L30
+        // https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L28
         url "$projectDir/../node_modules/react-native/android"
     }
     mavenCentral()
 }
 
 dependencies {
-    implementation "com.facebook.react:react-native:$\{safeExtGet('reactnativeVersion', '+')\}"
+    implementation "com.facebook.react:react-native:\${safeExtGet('reactnativeVersion', '+')}"
 }
 
 def configureReactNativePom(def pom) {
@@ -105,7 +107,7 @@ afterEvaluate { project ->
 
     android.libraryVariants.all { variant ->
         def name = variant.name.capitalize()
-        task "jar$\{name\}"(type: Jar, dependsOn: variant.javaCompile) {
+        task "jar\${name}"(type: Jar, dependsOn: variant.javaCompile) {
             from variant.javaCompile.destinationDir
         }
     }
@@ -119,7 +121,7 @@ afterEvaluate { project ->
         configuration = configurations.archives
         repositories.mavenDeployer {
             // Deploy to react-native-event-bridge/maven, ready to publish to npm
-            repository url: "file://$\{projectDir\}/../android/maven"
+            repository url: "file://\${projectDir}/../android/maven"
 
             configureReactNativePom pom
         }
@@ -179,7 +181,10 @@ public class ${name}Module extends ReactContextBaseJavaModule {
 
 import android.view.View;
 
+// AppCompatCheckBox import for React Native pre-0.60:
 import android.support.v7.widget.AppCompatCheckBox;
+// AppCompatCheckBox import for React Native 0.60(+):
+// import androidx.appcompat.widget.AppCompatCheckBox;
 
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;

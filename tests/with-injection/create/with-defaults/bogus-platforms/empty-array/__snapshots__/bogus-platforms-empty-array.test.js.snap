@@ -1,0 +1,124 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`create alice-bobbi module with defaults, with bogus platforms: [] 1`] = `
+Array [
+  "* ensureDir dir: react-native-alice-bobbi
+",
+  "* ensureDir dir: react-native-alice-bobbi/
+",
+  "* ensureDir dir: react-native-alice-bobbi/
+",
+  "* ensureDir dir: react-native-alice-bobbi/
+",
+  "* ensureDir dir: react-native-alice-bobbi/
+",
+  "* ensureDir dir: react-native-alice-bobbi/
+",
+  "* ensureDir dir: react-native-alice-bobbi/
+",
+  "* outputFile name: react-native-alice-bobbi/README.md
+content:
+--------
+# react-native-alice-bobbi
+
+## Getting started
+
+\`$ npm install react-native-alice-bobbi --save\`
+
+### Mostly automatic installation
+
+\`$ react-native link react-native-alice-bobbi\`
+
+### Manual installation
+
+
+
+## Usage
+\`\`\`javascript
+import AliceBobbi from 'react-native-alice-bobbi';
+
+// TODO: What to do with the module?
+AliceBobbi;
+\`\`\`
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/package.json
+content:
+--------
+{
+  \\"name\\": \\"react-native-alice-bobbi\\",
+  \\"title\\": \\"React Native Alice Bobbi\\",
+  \\"version\\": \\"1.0.0\\",
+  \\"description\\": \\"TODO\\",
+  \\"main\\": \\"index.js\\",
+  \\"scripts\\": {
+    \\"test\\": \\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\"
+  },
+  \\"repository\\": {
+    \\"type\\": \\"git\\",
+    \\"url\\": \\"git+https://github.com/github_account/react-native-alice-bobbi.git\\",
+    \\"baseUrl\\": \\"https://github.com/github_account/react-native-alice-bobbi\\"
+  },
+  \\"keywords\\": [
+    \\"react-native\\"
+  ],
+  \\"author\\": {
+    \\"name\\": \\"Your Name\\",
+    \\"email\\": \\"yourname@email.com\\"
+  },
+  \\"license\\": \\"MIT\\",
+  \\"licenseFilename\\": \\"LICENSE\\",
+  \\"readmeFilename\\": \\"README.md\\",
+  \\"peerDependencies\\": {
+    \\"react\\": \\"^16.8.1\\",
+    \\"react-native\\": \\">=0.59.0-rc.0 <1.0.x\\"
+  },
+  \\"devDependencies\\": {
+    \\"react\\": \\"^16.8.3\\",
+    \\"react-native\\": \\"^0.59.10\\"
+  }
+}
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/index.js
+content:
+--------
+import { NativeModules } from 'react-native';
+
+const { AliceBobbi } = NativeModules;
+
+export default AliceBobbi;
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/.gitignore
+content:
+--------
+# OSX
+#
+.DS_Store
+
+# node.js
+#
+node_modules/
+npm-debug.log
+yarn-error.log
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/.gitattributes
+content:
+--------
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/.npmignore
+content:
+--------
+
+<<<<<<<< ======== >>>>>>>>
+",
+]
+`;
