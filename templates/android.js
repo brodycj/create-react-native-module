@@ -12,7 +12,7 @@ module.exports = platform => [{
     dependencies {
         // Matches recent template from React Native (0.60)
         // https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L16
-        classpath("com.android.tools.build:gradle:$\{safeExtGet('gradlePluginVersion', '3.4.1')\}")
+        classpath("com.android.tools.build:gradle:\${safeExtGet('gradlePluginVersion', '3.4.1')}")
     }
 }
 
@@ -54,7 +54,7 @@ repositories {
 }
 
 dependencies {
-    implementation "com.facebook.react:react-native:$\{safeExtGet('reactnativeVersion', '+')\}"
+    implementation "com.facebook.react:react-native:\${safeExtGet('reactnativeVersion', '+')}"
 }
 
 def configureReactNativePom(def pom) {
@@ -107,7 +107,7 @@ afterEvaluate { project ->
 
     android.libraryVariants.all { variant ->
         def name = variant.name.capitalize()
-        task "jar$\{name\}"(type: Jar, dependsOn: variant.javaCompile) {
+        task "jar\${name}"(type: Jar, dependsOn: variant.javaCompile) {
             from variant.javaCompile.destinationDir
         }
     }
@@ -121,7 +121,7 @@ afterEvaluate { project ->
         configuration = configurations.archives
         repositories.mavenDeployer {
             // Deploy to react-native-event-bridge/maven, ready to publish to npm
-            repository url: "file://$\{projectDir\}/../android/maven"
+            repository url: "file://\${projectDir}/../android/maven"
 
             configureReactNativePom pom
         }
