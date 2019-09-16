@@ -9,6 +9,7 @@ test('create alice-bobbi view module with example, with custom config options', 
 
   const options = {
     name: 'alice-bobbi',
+    tvosEnabled: true,
     githubAccount: 'alicebits',
     authorName: 'Alice',
     authorEmail: 'contact@alice.me',

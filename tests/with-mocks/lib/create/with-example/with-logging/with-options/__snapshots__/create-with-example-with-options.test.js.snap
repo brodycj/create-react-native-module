@@ -12,6 +12,7 @@ Array [
   modulePrefix: react-native
   packageIdentifier: com.alicebits
   platforms: android,ios
+  tvosEnabled: true
   githubAccount: alicebits
   authorName: Alice
   authorEmail: contact@alice.me

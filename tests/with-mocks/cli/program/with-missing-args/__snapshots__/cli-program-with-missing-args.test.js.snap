@@ -70,6 +70,16 @@ Array [
   Object {
     "option": Object {
       "args": Array [
+        "--tvos-enabled",
+        "Generate the module with tvOS build enabled (requires iOS platform to be enabled)",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
         "--github-account [githubAccount]",
         "The github account where the library module is hosted",
         [Function],

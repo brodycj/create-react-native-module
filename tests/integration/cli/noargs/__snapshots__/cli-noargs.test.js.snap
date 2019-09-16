@@ -12,6 +12,7 @@ Options:
   --module-prefix [modulePrefix]                              The module prefix for the library module, ignored if --module-name is specified (default: \\"react-native\\")
   --package-identifier [packageIdentifier]                    (Android only!) The package name for the Android module (default: \\"com.reactlibrary\\")
   --platforms <platforms>                                     Platforms the library module will be created for - comma separated (default: \\"ios,android\\")
+  --tvos-enabled                                              Generate the module with tvOS build enabled (requires iOS platform to be enabled)
   --github-account [githubAccount]                            The github account where the library module is hosted (default: \\"github_account\\")
   --author-name [authorName]                                  The author's name (default: \\"Your Name\\")
   --author-email [authorEmail]                                The author's email (default: \\"yourname@email.com\\")
