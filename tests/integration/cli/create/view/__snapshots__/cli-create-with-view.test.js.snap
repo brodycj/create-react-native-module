@@ -680,7 +680,7 @@ RCT_EXPORT_MODULE()
   },
   \\"devDependencies\\": {
     \\"react\\": \\"^16.8.3\\",
-    \\"react-native\\": \\"^0.59.10\\"
+    \\"react-native\\": \\"^0.60.5\\"
   }
 }
 ",

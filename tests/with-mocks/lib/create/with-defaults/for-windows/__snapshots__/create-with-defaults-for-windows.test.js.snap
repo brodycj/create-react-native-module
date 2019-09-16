@@ -116,7 +116,7 @@ AliceBobbi;
   },
   \\"devDependencies\\": {
     \\"react\\": \\"^16.8.3\\",
-    \\"react-native\\": \\"^0.59.10\\",
+    \\"react-native\\": \\"^0.60.5\\",
     \\"react-native-windows\\": \\"^0.59.0-rc.1\\"
   }
 }

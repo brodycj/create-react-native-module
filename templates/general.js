@@ -86,7 +86,7 @@ ${name};
     const devDependencies =
       `{
     "react": "^16.8.3",
-    "react-native": "^0.59.10"` +
+    "react-native": "^0.60.5"` +
         (withWindows
           ? `,
     "react-native-windows": "^0.59.0-rc.1"`
