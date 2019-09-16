@@ -20,8 +20,6 @@ This tool based on [`react-native-create-library`](https://www.npmjs.com/package
 
 <!-- FUTURE TODO: QUICK USAGE SECTION HERE -->
 
-**LICENSE:** MIT
-
 ### General status
 
 - **React Native versions supported:**
@@ -251,3 +249,7 @@ __Expected result:__
 
 - [`react-native-create-library`](https://www.npmjs.com/package/react-native-create-library) - original basis of this project
 - [`react-native-share`](https://www.npmjs.com/package/react-native-share) - was acknowledged as "a great source of inspiration" for [`react-native-create-library`](https://www.npmjs.com/package/react-native-create-library)
+
+## License
+
+[MIT](./LICENSE)
