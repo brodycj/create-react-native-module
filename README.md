@@ -18,6 +18,11 @@ See below for command-line usage, example with no view, and example with an extr
 
 This tool based on [`react-native-create-library`](https://www.npmjs.com/package/react-native-create-library), with working example callbacks, optional native view, and more updates added by [@brodybits (Christoper J. Brody aka Chris Brody)](https://github.com/brodybits) and other [contributors](https://github.com/brodybits/create-react-native-module/graphs/contributors).
 
+### Support options
+
+- community support via [issues](https://github.com/brodybits/create-react-native-module/issues)
+- commercial support is available, see <http://xpbrew.consulting>
+
 <!-- FUTURE TODO: QUICK USAGE SECTION HERE -->
 
 ### General status
