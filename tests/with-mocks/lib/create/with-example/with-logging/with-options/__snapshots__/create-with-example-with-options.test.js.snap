@@ -10,6 +10,7 @@ Array [
   name: alice-bobbi
   prefix: ABC
   modulePrefix: react-native
+  minimumReactNativeVersion: 0.59.0-rc.0
   packageIdentifier: com.alicebits
   platforms: android,ios
   githubAccount: alicebits

@@ -52,6 +52,16 @@ Array [
   Object {
     "option": Object {
       "args": Array [
+        "--minimum-react-native-version [minimumReactNativeVersion]",
+        "Minimum supported React Native version, must be semver",
+        [Function],
+        "0.59.0-rc.0",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
         "--package-identifier [packageIdentifier]",
         "(Android only!) The package name for the Android module",
         [Function],

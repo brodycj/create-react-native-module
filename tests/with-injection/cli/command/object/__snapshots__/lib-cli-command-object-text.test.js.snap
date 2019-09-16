@@ -21,6 +21,11 @@ Object {
       "description": "The module prefix for the library module, ignored if --module-name is specified",
     },
     Object {
+      "command": "--minimum-react-native-version [minimumReactNativeVersion]",
+      "default": "0.59.0-rc.0",
+      "description": "Minimum supported React Native version, must be semver",
+    },
+    Object {
       "command": "--package-identifier [packageIdentifier]",
       "default": "com.reactlibrary",
       "description": "(Android only!) The package name for the Android module",

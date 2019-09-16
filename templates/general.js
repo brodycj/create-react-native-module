@@ -70,13 +70,13 @@ ${name};
   },
 }, {
   name: () => 'package.json',
-  content: ({ moduleName, platforms, githubAccount, authorName, authorEmail, license }) => {
+  content: ({ moduleName, platforms, minimumReactNativeVersion, githubAccount, authorName, authorEmail, license }) => {
     const withWindows = platforms.indexOf('windows') >= 0;
 
     const peerDependencies =
       `{
     "react": "^16.8.1",
-    "react-native": ">=0.59.0-rc.0 <1.0.x"` +
+    "react-native": ">=${minimumReactNativeVersion} <1.0.x"` +
       (withWindows
         ? `,
     "react-native-windows": ">=0.59.0-rc.0 <1.0.x"`
