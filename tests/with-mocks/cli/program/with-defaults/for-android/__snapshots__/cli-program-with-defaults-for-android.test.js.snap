@@ -55,7 +55,7 @@ Array [
         "--minimum-react-native-version [minimumReactNativeVersion]",
         "Minimum supported React Native version, must be semver",
         [Function],
-        "0.59.0-rc.0",
+        "0.60.0",
       ],
     },
   },
@@ -282,7 +282,7 @@ TestPackage;
   \\"readmeFilename\\": \\"README.md\\",
   \\"peerDependencies\\": {
     \\"react\\": \\"^16.8.1\\",
-    \\"react-native\\": \\">=0.59.0-rc.0 <1.0.x\\"
+    \\"react-native\\": \\">=0.60.0 <1.0.x\\"
   },
   \\"devDependencies\\": {
     \\"react\\": \\"^16.8.3\\",

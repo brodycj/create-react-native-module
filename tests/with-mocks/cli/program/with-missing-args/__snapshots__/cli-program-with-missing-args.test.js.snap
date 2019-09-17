@@ -53,7 +53,7 @@ Array [
         "--minimum-react-native-version [minimumReactNativeVersion]",
         "Minimum supported React Native version, must be semver",
         [Function],
-        "0.59.0-rc.0",
+        "0.60.0",
       ],
     },
   },

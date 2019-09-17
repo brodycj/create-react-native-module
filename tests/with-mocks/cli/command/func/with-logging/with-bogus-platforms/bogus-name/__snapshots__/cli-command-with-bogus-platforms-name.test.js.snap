@@ -16,7 +16,7 @@ Array [
   name: alice-bobbi
   prefix: 
   modulePrefix: react-native
-  minimumReactNativeVersion: 0.59.0-rc.0
+  minimumReactNativeVersion: 0.60.0
   packageIdentifier: com.reactlibrary
   platforms: bogus
   githubAccount: github_account

@@ -22,7 +22,7 @@ Object {
     },
     Object {
       "command": "--minimum-react-native-version [minimumReactNativeVersion]",
-      "default": "0.59.0-rc.0",
+      "default": "0.60.0",
       "description": "Minimum supported React Native version, must be semver",
     },
     Object {

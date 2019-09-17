@@ -29,7 +29,7 @@ This tool based on [`react-native-create-library`](https://www.npmjs.com/package
 
 - **React Native versions supported:**
   - recommended: `0.60`, `0.61-rc` (see known quirks and issues below)
-  - outdated: `0.59`
+  - ~~outdated: `0.59`~~
 - Known quirks & issues on React Native 0.60(+):
   - [issue #99](https://github.com/brodybits/create-react-native-module/issues/99) - additional `pod install` step needed for RN 0.60 on iOS
   - [issue #29](https://github.com/brodybits/create-react-native-module/issues/29) - View does not work with RN 0.60 on Android (quick patch needed)
@@ -94,7 +94,7 @@ Options:
   --prefix <prefix>                         The prefix for the library module (Default: ``)
   --module-name <moduleName>                The module library package name to be used in package.json. Default: react-native-(name in param-case)
   --module-prefix <modulePrefix>            The module prefix for the library module, ignored if --module-name is specified (Default: `react-native`)
-  --minimum-react-native-version <version>  Minimum supported React Native version, must be semver (default: `0.59.0-rc.0`)
+  --minimum-react-native-version <version>  Minimum supported React Native version, must be semver (default: `0.60.0`)
   --package-identifier <packageIdentifier>  (Android only!) The package name for the Android module (Default: `com.reactlibrary`)
   --platforms <platforms>                   Platforms the library module will be created for - comma separated (Default: `ios,android`)
   --github-account <githubAccount>          The github account where the library module is hosted (Default: `github_account`)
@@ -129,7 +129,7 @@ createLibraryModule({
   prefix: String, /* The prefix for the library (Default: ``) */
   moduleName: String, /* The module library package name to be used in package.json. Default: react-native-(name in param-case) */
   modulePrefix: String, /* The module prefix for the library, ignored if moduleName is specified (Default: react-native) */
-  minimumReactNativeVersion: String, /* Minimum supported React Native version, must be semver (Default: `0.59.0-rc.0`) */
+  minimumReactNativeVersion: String, /* Minimum supported React Native version, must be semver (Default: `0.60.0`) */
   platforms: Array | String, /* Platforms the library will be created for. (Default: ['android', 'ios']) */
   packageIdentifier: String, /* (Android only!) The package name for the Android module (Default: com.reactlibrary) */
   githubAccount: String, /* The github account where the library is hosted (Default: `github_account`) */
