@@ -36,7 +36,7 @@ This tool based on [`react-native-create-library`](https://www.npmjs.com/package
   - React Native 0.60(+) currently not supported by Expo or react-native-windows
 - Out-of-tree platform support
   - tvOS platform support - unstable (not tested) (see [issue #95](https://github.com/brodybits/create-react-native-module/issues/95))
-  - Windows - unstable (not tested, see [issue #23](https://github.com/brodybits/create-react-native-module/issues/23)); now deprecated and may be removed in the near future (see [issue #43](https://github.com/brodybits/create-react-native-module/issues/43))
+  - Windows - unstable _and known to be broken by the recent updates_ (not tested, see [issue #23](https://github.com/brodybits/create-react-native-module/issues/23)); now deprecated and may be removed in the near future (see [issue #43](https://github.com/brodybits/create-react-native-module/issues/43))
   - for future consideration: macOS (see [issue #94](https://github.com/brodybits/create-react-native-module/issues/94))
 - Node.js pre-10 support is deprecated and will be removed in the near future (see [issue #38](https://github.com/brodybits/create-react-native-module/issues/38))
 
