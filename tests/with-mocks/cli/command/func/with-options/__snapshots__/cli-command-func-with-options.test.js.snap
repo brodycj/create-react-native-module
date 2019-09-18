@@ -203,7 +203,9 @@ buck-out/
   },
   Object {
     "outputFileName": "react-native-alice-bobbi/android/build.gradle",
-    "theContent": "buildscript {
+    "theContent": "// android/build.gradle
+
+buildscript {
     ext.safeExtGet = {prop, fallback ->
         rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
     }
@@ -231,18 +233,17 @@ def DEFAULT_MIN_SDK_VERSION = 16
 def DEFAULT_TARGET_SDK_VERSION = 28
 
 android {
-  compileSdkVersion safeExtGet('compileSdkVersion', DEFAULT_COMPILE_SDK_VERSION)
-  buildToolsVersion safeExtGet('buildToolsVersion', DEFAULT_BUILD_TOOLS_VERSION)
-
-  defaultConfig {
-    minSdkVersion safeExtGet('minSdkVersion', DEFAULT_MIN_SDK_VERSION)
-    targetSdkVersion safeExtGet('targetSdkVersion', DEFAULT_TARGET_SDK_VERSION)
-    versionCode 1
-    versionName \\"1.0\\"
-  }
-  lintOptions {
-    abortOnError false
-  }
+    compileSdkVersion safeExtGet('compileSdkVersion', DEFAULT_COMPILE_SDK_VERSION)
+    buildToolsVersion safeExtGet('buildToolsVersion', DEFAULT_BUILD_TOOLS_VERSION)
+    defaultConfig {
+        minSdkVersion safeExtGet('minSdkVersion', DEFAULT_MIN_SDK_VERSION)
+        targetSdkVersion safeExtGet('targetSdkVersion', DEFAULT_TARGET_SDK_VERSION)
+        versionCode 1
+        versionName \\"1.0\\"
+    }
+    lintOptions {
+        abortOnError false
+    }
 }
 
 repositories {
@@ -257,7 +258,10 @@ repositories {
 }
 
 dependencies {
-    implementation \\"com.facebook.react:react-native:\${safeExtGet('reactnativeVersion', '+')}\\"
+    // ref:
+    // https://github.com/facebook/react-native/blob/0.61-stable/template/android/app/build.gradle#L192
+    //noinspection GradleDynamicVersion
+    implementation 'com.facebook.react:react-native:+'  // From node_modules
 }
 
 def configureReactNativePom(def pom) {
@@ -289,7 +293,8 @@ def configureReactNativePom(def pom) {
 }
 
 afterEvaluate { project ->
-
+    // some Gradle build hooks ref:
+    // https://www.oreilly.com/library/view/gradle-beyond-the/9781449373801/ch03.html
     task androidJavadoc(type: Javadoc) {
         source = android.sourceSets.main.java.srcDirs
         classpath += files(android.bootClasspath)
@@ -325,7 +330,6 @@ afterEvaluate { project ->
         repositories.mavenDeployer {
             // Deploy to react-native-event-bridge/maven, ready to publish to npm
             repository url: \\"file://\${projectDir}/../android/maven\\"
-
             configureReactNativePom pom
         }
     }
