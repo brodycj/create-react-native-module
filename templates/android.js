@@ -53,7 +53,8 @@ repositories {
 }
 
 dependencies {
-    implementation "com.facebook.react:react-native:\${safeExtGet('reactnativeVersion', '+')}"
+    //noinspection GradleDynamicVersion
+    implementation 'com.facebook.react:react-native:+'  // From node_modules
 }
 
 def configureReactNativePom(def pom) {
