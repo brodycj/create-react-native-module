@@ -124,7 +124,9 @@ sdk.dir=/Users/{username}/Library/Android/sdk
   },
   Object {
     "name": "react-native-integration-view-test-package/android/build.gradle",
-    "theContent": "buildscript {
+    "theContent": "// android/build.gradle
+
+buildscript {
     ext.safeExtGet = {prop, fallback ->
         rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
     }

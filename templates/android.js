@@ -1,6 +1,8 @@
 module.exports = platform => [{
   name: () => `${platform}/build.gradle`,
-  content: ({ packageIdentifier }) => `buildscript {
+  content: ({ packageIdentifier }) => `// ${platform}/build.gradle
+
+buildscript {
     ext.safeExtGet = {prop, fallback ->
         rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
     }
