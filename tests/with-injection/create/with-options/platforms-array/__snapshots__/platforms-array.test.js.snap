@@ -199,6 +199,8 @@ content:
   "* outputFile name: react-native-alice-bobbi/android/build.gradle
 content:
 --------
+// android/build.gradle
+
 buildscript {
     ext.safeExtGet = {prop, fallback ->
         rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
@@ -332,6 +334,8 @@ afterEvaluate { project ->
   "* outputFile name: react-native-alice-bobbi/android/src/main/AndroidManifest.xml
 content:
 --------
+<!-- AndroidManifest.xml -->
+
 <manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
           package=\\"com.reactlibrary\\">
 
@@ -342,6 +346,8 @@ content:
   "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/ABCAliceBobbiModule.java
 content:
 --------
+// ABCAliceBobbiModule.java
+
 package com.reactlibrary;
 
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -375,6 +381,8 @@ public class ABCAliceBobbiModule extends ReactContextBaseJavaModule {
   "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/ABCAliceBobbiPackage.java
 content:
 --------
+// ABCAliceBobbiPackage.java
+
 package com.reactlibrary;
 
 import java.util.Arrays;

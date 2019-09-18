@@ -1,6 +1,8 @@
 module.exports = platform => [{
   name: () => `${platform}/build.gradle`,
-  content: ({ packageIdentifier }) => `buildscript {
+  content: ({ packageIdentifier }) => `// ${platform}/build.gradle
+
+buildscript {
     ext.safeExtGet = {prop, fallback ->
         rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
     }
@@ -130,7 +132,9 @@ afterEvaluate { project ->
 `,
 }, {
   name: () => `${platform}/src/main/AndroidManifest.xml`,
-  content: ({ packageIdentifier }) => `<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  content: ({ packageIdentifier }) => `<!-- AndroidManifest.xml -->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="${packageIdentifier}">
 
 </manifest>
@@ -142,7 +146,9 @@ afterEvaluate { project ->
       `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${name}Module.java`,
   content: ({ packageIdentifier, name, view }) =>
     !view &&
-      `package ${packageIdentifier};
+      `// ${name}Module.java
+
+package ${packageIdentifier};
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -177,7 +183,9 @@ public class ${name}Module extends ReactContextBaseJavaModule {
       `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${name}Manager.java`,
   content: ({ packageIdentifier, name, view }) =>
     view &&
-      `package ${packageIdentifier};
+      `// ${name}Manager.java
+
+package ${packageIdentifier};
 
 import android.view.View;
 
@@ -214,7 +222,9 @@ public class ${name}Manager extends SimpleViewManager<View> {
       `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${name}Package.java`,
   content: ({ packageIdentifier, name, view }) =>
     !view &&
-      `package ${packageIdentifier};
+      `// ${name}Package.java
+
+package ${packageIdentifier};
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -245,7 +255,9 @@ public class ${name}Package implements ReactPackage {
       `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${name}Package.java`,
   content: ({ packageIdentifier, name, view }) =>
     view &&
-      `package ${packageIdentifier};
+      `${name}Package.java
+
+package ${packageIdentifier};
 
 import java.util.Arrays;
 import java.util.Collections;
