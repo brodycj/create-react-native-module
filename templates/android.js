@@ -5,6 +5,8 @@ module.exports = platform => [{
 project.logger.lifecycle('** defining STANDALONE_BUILD_TOOLS_CLASSPATH')
 def STANDALONE_BUILD_TOOLS_CLASSPATH = 'com.android.tools.build:gradle:3.4.1'
 
+def isStandalone = (project == rootProject)
+
 def safeExtGet(prop, fallback) {
     rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
 }
@@ -14,7 +16,7 @@ buildscript {
     // The Android Gradle plugin is only required when opening the android folder stand-alone.
     // This avoids unnecessary downloads and potential conflicts when the library is included as a
     // module dependency in an application project.
-    if (project == rootProject) {
+    if (isStandalone) {
         repositories {
             google()
             jcenter()
