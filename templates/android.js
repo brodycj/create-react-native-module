@@ -2,6 +2,8 @@ module.exports = platform => [{
   name: () => `${platform}/build.gradle`,
   content: ({ packageIdentifier }) => `// ${platform}/build.gradle
 
+def ANDROID_BUILD_TOOLS_CLASSPATH = 'com.android.tools.build:gradle:3.4.1'
+
 def DEFAULT_COMPILE_SDK_VERSION = 28
 def DEFAULT_BUILD_TOOLS_VERSION = '28.0.3'
 def DEFAULT_MIN_SDK_VERSION = 16
@@ -21,7 +23,7 @@ buildscript {
             jcenter()
         }
         dependencies {
-            classpath 'com.android.tools.build:gradle:3.4.1'
+            classpath(ANDROID_BUILD_TOOLS_CLASSPATH)
         }
     }
 }
