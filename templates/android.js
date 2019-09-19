@@ -2,6 +2,8 @@ module.exports = platform => [{
   name: () => `${platform}/build.gradle`,
   content: ({ packageIdentifier }) => `// ${platform}/build.gradle
 
+def ANDROID_BUILD_TOOLS_CLASSPATH = 'com.android.tools.build:gradle:3.4.1'
+
 def safeExtGet(prop, fallback) {
     rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
 }
@@ -16,7 +18,7 @@ buildscript {
             jcenter()
         }
         dependencies {
-            classpath 'com.android.tools.build:gradle:3.4.1'
+            classpath(ANDROID_BUILD_TOOLS_CLASSPATH)
         }
     }
 }
