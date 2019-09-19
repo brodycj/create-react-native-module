@@ -126,19 +126,22 @@ sdk.dir=/Users/{username}/Library/Android/sdk
     "name": "react-native-integration-test-package/android/build.gradle",
     "theContent": "// android/build.gradle
 
-buildscript {
-    ext.safeExtGet = {prop, fallback ->
-        rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
-    }
-    repositories {
-        google()
-        jcenter()
-    }
+def safeExtGet(prop, fallback) {
+    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+}
 
-    dependencies {
-        // Matches recent template from React Native (0.60)
-        // https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L16
-        classpath(\\"com.android.tools.build:gradle:\${safeExtGet('gradlePluginVersion', '3.4.1')}\\")
+buildscript {
+    // The Android Gradle plugin is only required when opening the android folder stand-alone.
+    // This avoids unnecessary downloads and potential conflicts when the library is included as a
+    // module dependency in an application project.
+    if (project == rootProject) {
+        repositories {
+            google()
+            jcenter()
+        }
+        dependencies {
+            classpath 'com.android.tools.build:gradle:3.4.1'
+        }
     }
 }
 
@@ -168,14 +171,17 @@ android {
 }
 
 repositories {
+    mavenLocal()
     maven {
         // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
-        // Matches recent template from React Native 0.59 / 0.60
-        // https://github.com/facebook/react-native/blob/0.59-stable/template/android/build.gradle#L30
-        // https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L28
-        url \\"$projectDir/../node_modules/react-native/android\\"
+        url \\"$rootDir/../node_modules/react-native/android\\"
     }
-    mavenCentral()
+    maven {
+        // Android JSC is installed from npm
+        url \\"$rootDir/../node_modules/jsc-android/dist\\"
+    }
+    google()
+    jcenter()
 }
 
 dependencies {
