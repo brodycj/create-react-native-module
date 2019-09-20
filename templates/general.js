@@ -22,14 +22,14 @@ module.exports = [{
   - Add \`import ${packageIdentifier}.${name}Package;\` to the imports at the top of the file
   - Add \`new ${name}Package()\` to the list returned by the \`getPackages()\` method
 2. Append the following lines to \`android/settings.gradle\`:
-  	\`\`\`
-  	include ':${moduleName}'
-  	project(':${moduleName}').projectDir = new File(rootProject.projectDir, 	'../node_modules/${moduleName}/android')
-  	\`\`\`
+	\`\`\`
+	include ':${moduleName}'
+	project(':${moduleName}').projectDir = new File(rootProject.projectDir, '../node_modules/${moduleName}/android')
+	\`\`\`
 3. Insert the following lines inside the dependencies block in \`android/app/build.gradle\`:
-  	\`\`\`
+	\`\`\`
       compile project(':${moduleName}')
-  	\`\`\`
+	\`\`\`
 `;
     }
 
