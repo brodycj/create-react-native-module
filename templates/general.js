@@ -110,6 +110,13 @@ ${name};
   "keywords": [
     "react-native"
   ],
+  "files": [
+    "README.md",
+    "android",
+    "index.js",
+    "ios",
+    "package.json"
+  ],
   "author": {
     "name": "${authorName}",
     "email": "${authorEmail}"
