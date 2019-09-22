@@ -17,7 +17,6 @@ module.exports = platform => [{
 // * https://www.baeldung.com/maven-local-repository
 // * https://docs.gradle.org/current/userguide/tutorial_using_tasks.html#sec:build_script_external_dependencies
 
-
 def safeExtGet(prop, fallback) {
     rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
 }
