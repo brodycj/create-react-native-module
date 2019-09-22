@@ -323,7 +323,7 @@ repositories {
 }
 
 dependencies {
-    // reference react-native from node_modules:
+    // use \`react-native\` from \`node_modules\`:
     //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'
 }
