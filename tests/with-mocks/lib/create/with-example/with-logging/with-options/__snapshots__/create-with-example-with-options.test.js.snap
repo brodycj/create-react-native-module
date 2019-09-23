@@ -1034,8 +1034,8 @@ const styles = StyleSheet.create({
     "json": "{
   \\"name\\": \\"x\\",
   \\"scripts\\": {
-    \\"test\\": \\"exit 1\\",
-    \\"postinstall\\": \\"node ../scripts/examples_postinstall.js\\"
+    \\"postinstall\\": \\"node ../scripts/examples_postinstall.js\\",
+    \\"test\\": \\"exit 1\\"
   }
 }
 ",
