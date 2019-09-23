@@ -8,10 +8,11 @@ test('create module with example, with `yarn --version` not working', async () =
   const inject = {
     ...ioInject2,
     execa: {
-      commandSync: (command, _) => {
+      command: (command, _) => {
         if (/yarn/.test(command)) {
-          throw new Error('command not found');
+          return Promise.reject(new Error('command not found'));
         }
+        return Promise.resolve();
       }
     }
   };

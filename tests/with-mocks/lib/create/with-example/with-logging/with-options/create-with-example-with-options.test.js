@@ -28,8 +28,9 @@ jest.mock('fs-extra', () => ({
   },
 }));
 jest.mock('execa', () => ({
-  commandSync: (command, options) => {
-    mockpushit({ commandSync: command, options });
+  command: (command, options) => {
+    mockpushit({ command: command, options });
+    return Promise.resolve();
   }
 }));
 
