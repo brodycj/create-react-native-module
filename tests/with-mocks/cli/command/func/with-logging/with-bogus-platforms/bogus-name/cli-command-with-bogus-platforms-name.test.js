@@ -5,11 +5,14 @@ const mysnap = [];
 const mockpushit = x => mysnap.push(x);
 jest.mock('fs-extra', () => ({
   outputFile: (outputFileName, theContent) => {
-    mockpushit({ outputFileName, theContent });
+    mockpushit({
+      outputFileName: outputFileName.replace(/\\/g, '/'),
+      theContent
+    });
     return Promise.resolve();
   },
   ensureDir: (dir) => {
-    mockpushit({ ensureDir: dir });
+    mockpushit({ ensureDir: dir.replace(/\\/g, '/') });
     return Promise.resolve();
   },
 }));
@@ -20,7 +23,10 @@ global.console = {
     mockpushit({ info: [].concat(args) });
   },
   log: (...args) => {
-    mockpushit({ log: [].concat(args) });
+    mockpushit({
+      // TBD EXTRA WORKAROUND HACK for non-deterministic elapsed time in log
+      log: args.map(line => line.replace(/It took.*s/g, 'It took XXX'))
+    });
   },
   warn: (...args) => {
     mockpushit({ warn: [].concat(args) });
@@ -33,6 +39,8 @@ test(`create alice-bobbi module with logging, with platforms: 'bogus'`, async ()
   const options = { platforms: 'bogus' };
 
   func(args, null, options);
+
+  await new Promise((resolve) => setTimeout(resolve, 1));
 
   expect(mysnap).toMatchSnapshot();
 });
