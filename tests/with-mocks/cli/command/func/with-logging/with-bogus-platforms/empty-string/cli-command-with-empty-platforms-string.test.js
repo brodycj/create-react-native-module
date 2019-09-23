@@ -38,9 +38,7 @@ test(`create alice-bobbi module with logging, with platforms: ''`, async () => {
 
   const options = { platforms: '' };
 
-  func(args, null, options);
-
-  await new Promise((resolve) => setTimeout(resolve, 1));
+  await func(args, null, options);
 
   expect(mysnap).toMatchSnapshot();
 });
