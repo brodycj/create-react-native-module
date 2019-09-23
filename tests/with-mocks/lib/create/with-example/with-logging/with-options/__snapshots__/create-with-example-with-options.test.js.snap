@@ -8,13 +8,12 @@ Array [
 
   root moduleName: react-native-alice-bobbi
   name: alice-bobbi
-  prefix: 
+  prefix: ABC
   modulePrefix: react-native
   packageIdentifier: com.alicebits
   platforms: android,ios
   githubAccount: alicebits
   authorName: Alice
-  authorEmail: contact@alice.me
   authorEmail: contact@alice.me
   license: ISC
   view: false
@@ -107,10 +106,10 @@ Array [
     "ensureDir": "react-native-alice-bobbi/ios/",
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/ios/AliceBobbi.xcworkspace/",
+    "ensureDir": "react-native-alice-bobbi/ios/ABCAliceBobbi.xcworkspace/",
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/ios/AliceBobbi.xcodeproj/",
+    "ensureDir": "react-native-alice-bobbi/ios/ABCAliceBobbi.xcodeproj/",
   },
   Object {
     "outputFileName": "react-native-alice-bobbi/README.md",
@@ -130,15 +129,15 @@ Array [
 #### iOS
 
 1. In XCode, in the project navigator, right click \`Libraries\` ➜ \`Add Files to [your project's name]\`
-2. Go to \`node_modules\` ➜ \`react-native-alice-bobbi\` and add \`AliceBobbi.xcodeproj\`
-3. In XCode, in the project navigator, select your project. Add \`libAliceBobbi.a\` to your project's \`Build Phases\` ➜ \`Link Binary With Libraries\`
+2. Go to \`node_modules\` ➜ \`react-native-alice-bobbi\` and add \`ABCAliceBobbi.xcodeproj\`
+3. In XCode, in the project navigator, select your project. Add \`libABCAliceBobbi.a\` to your project's \`Build Phases\` ➜ \`Link Binary With Libraries\`
 4. Run your project (\`Cmd+R\`)<
 
 #### Android
 
 1. Open up \`android/app/src/main/java/[...]/MainApplication.java\`
-  - Add \`import com.alicebits.AliceBobbiPackage;\` to the imports at the top of the file
-  - Add \`new AliceBobbiPackage()\` to the list returned by the \`getPackages()\` method
+  - Add \`import com.alicebits.ABCAliceBobbiPackage;\` to the imports at the top of the file
+  - Add \`new ABCAliceBobbiPackage()\` to the list returned by the \`getPackages()\` method
 2. Append the following lines to \`android/settings.gradle\`:
   	\`\`\`
   	include ':react-native-alice-bobbi'
@@ -152,10 +151,10 @@ Array [
 
 ## Usage
 \`\`\`javascript
-import AliceBobbi from 'react-native-alice-bobbi';
+import ABCAliceBobbi from 'react-native-alice-bobbi';
 
 // TODO: What to do with the module?
-AliceBobbi;
+ABCAliceBobbi;
 \`\`\`
 ",
   },
@@ -200,9 +199,9 @@ AliceBobbi;
     "outputFileName": "react-native-alice-bobbi/index.js",
     "theContent": "import { NativeModules } from 'react-native';
 
-const { AliceBobbi } = NativeModules;
+const { ABCAliceBobbi } = NativeModules;
 
-export default AliceBobbi;
+export default ABCAliceBobbi;
 ",
   },
   Object {
@@ -263,19 +262,24 @@ buck-out/
   },
   Object {
     "outputFileName": "react-native-alice-bobbi/android/build.gradle",
-    "theContent": "buildscript {
-    ext.safeExtGet = {prop, fallback ->
-        rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
-    }
-    repositories {
-        google()
-        jcenter()
-    }
+    "theContent": "// android/build.gradle
 
-    dependencies {
-        // Matches recent template from React Native (0.60)
-        // https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L16
-        classpath(\\"com.android.tools.build:gradle:\${safeExtGet('gradlePluginVersion', '3.4.1')}\\")
+def safeExtGet(prop, fallback) {
+    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+}
+
+buildscript {
+    // The Android Gradle plugin is only required when opening the android folder stand-alone.
+    // This avoids unnecessary downloads and potential conflicts when the library is included as a
+    // module dependency in an application project.
+    if (project == rootProject) {
+        repositories {
+            google()
+            jcenter()
+        }
+        dependencies {
+            classpath 'com.android.tools.build:gradle:3.4.1'
+        }
     }
 }
 
@@ -291,33 +295,38 @@ def DEFAULT_MIN_SDK_VERSION = 16
 def DEFAULT_TARGET_SDK_VERSION = 28
 
 android {
-  compileSdkVersion safeExtGet('compileSdkVersion', DEFAULT_COMPILE_SDK_VERSION)
-  buildToolsVersion safeExtGet('buildToolsVersion', DEFAULT_BUILD_TOOLS_VERSION)
-
-  defaultConfig {
-    minSdkVersion safeExtGet('minSdkVersion', DEFAULT_MIN_SDK_VERSION)
-    targetSdkVersion safeExtGet('targetSdkVersion', DEFAULT_TARGET_SDK_VERSION)
-    versionCode 1
-    versionName \\"1.0\\"
-  }
-  lintOptions {
-    abortOnError false
-  }
+    compileSdkVersion safeExtGet('compileSdkVersion', DEFAULT_COMPILE_SDK_VERSION)
+    buildToolsVersion safeExtGet('buildToolsVersion', DEFAULT_BUILD_TOOLS_VERSION)
+    defaultConfig {
+        minSdkVersion safeExtGet('minSdkVersion', DEFAULT_MIN_SDK_VERSION)
+        targetSdkVersion safeExtGet('targetSdkVersion', DEFAULT_TARGET_SDK_VERSION)
+        versionCode 1
+        versionName \\"1.0\\"
+    }
+    lintOptions {
+        abortOnError false
+    }
 }
 
 repositories {
+    mavenLocal()
     maven {
         // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
-        // Matches recent template from React Native 0.59 / 0.60
-        // https://github.com/facebook/react-native/blob/0.59-stable/template/android/build.gradle#L30
-        // https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L28
-        url \\"$projectDir/../node_modules/react-native/android\\"
+        url \\"$rootDir/../node_modules/react-native/android\\"
     }
-    mavenCentral()
+    maven {
+        // Android JSC is installed from npm
+        url \\"$rootDir/../node_modules/jsc-android/dist\\"
+    }
+    google()
+    jcenter()
 }
 
 dependencies {
-    implementation \\"com.facebook.react:react-native:\${safeExtGet('reactnativeVersion', '+')}\\"
+    // ref:
+    // https://github.com/facebook/react-native/blob/0.61-stable/template/android/app/build.gradle#L192
+    //noinspection GradleDynamicVersion
+    implementation 'com.facebook.react:react-native:+'  // From node_modules
 }
 
 def configureReactNativePom(def pom) {
@@ -349,7 +358,8 @@ def configureReactNativePom(def pom) {
 }
 
 afterEvaluate { project ->
-
+    // some Gradle build hooks ref:
+    // https://www.oreilly.com/library/view/gradle-beyond-the/9781449373801/ch03.html
     task androidJavadoc(type: Javadoc) {
         source = android.sourceSets.main.java.srcDirs
         classpath += files(android.bootClasspath)
@@ -385,7 +395,6 @@ afterEvaluate { project ->
         repositories.mavenDeployer {
             // Deploy to react-native-event-bridge/maven, ready to publish to npm
             repository url: \\"file://\${projectDir}/../android/maven\\"
-
             configureReactNativePom pom
         }
     }
@@ -401,7 +410,7 @@ afterEvaluate { project ->
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/android/src/main/java/com/alicebits/AliceBobbiModule.java",
+    "outputFileName": "react-native-alice-bobbi/android/src/main/java/com/alicebits/ABCAliceBobbiModule.java",
     "theContent": "package com.alicebits;
 
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -409,18 +418,18 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
 
-public class AliceBobbiModule extends ReactContextBaseJavaModule {
+public class ABCAliceBobbiModule extends ReactContextBaseJavaModule {
 
     private final ReactApplicationContext reactContext;
 
-    public AliceBobbiModule(ReactApplicationContext reactContext) {
+    public ABCAliceBobbiModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
     }
 
     @Override
     public String getName() {
-        return \\"AliceBobbi\\";
+        return \\"ABCAliceBobbi\\";
     }
 
     @ReactMethod
@@ -432,7 +441,7 @@ public class AliceBobbiModule extends ReactContextBaseJavaModule {
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/android/src/main/java/com/alicebits/AliceBobbiPackage.java",
+    "outputFileName": "react-native-alice-bobbi/android/src/main/java/com/alicebits/ABCAliceBobbiPackage.java",
     "theContent": "package com.alicebits;
 
 import java.util.Arrays;
@@ -445,10 +454,10 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 import com.facebook.react.bridge.JavaScriptModule;
 
-public class AliceBobbiPackage implements ReactPackage {
+public class ABCAliceBobbiPackage implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-        return Arrays.<NativeModule>asList(new AliceBobbiModule(reactContext));
+        return Arrays.<NativeModule>asList(new ABCAliceBobbiModule(reactContext));
     }
 
     @Override
@@ -472,7 +481,7 @@ ndk.dir=/Users/{username}/Library/Android/sdk/ndk-bundle
 sdk.dir=/Users/{username}/Library/Android/sdk
 \`\`\`
 3. Delete the \`maven\` folder
-4. Run \`sudo ./gradlew installArchives\`
+4. Run \`./gradlew installArchives\`
 5. Verify that latest set of generated files is in the maven folder with the correct version number
 ",
   },
@@ -507,20 +516,20 @@ end
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/ios/AliceBobbi.h",
+    "outputFileName": "react-native-alice-bobbi/ios/ABCAliceBobbi.h",
     "theContent": "#import <React/RCTBridgeModule.h>
 
-@interface AliceBobbi : NSObject <RCTBridgeModule>
+@interface ABCAliceBobbi : NSObject <RCTBridgeModule>
 
 @end
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/ios/AliceBobbi.m",
-    "theContent": "#import \\"AliceBobbi.h\\"
+    "outputFileName": "react-native-alice-bobbi/ios/ABCAliceBobbi.m",
+    "theContent": "#import \\"ABCAliceBobbi.h\\"
 
 
-@implementation AliceBobbi
+@implementation ABCAliceBobbi
 
 RCT_EXPORT_MODULE()
 
@@ -534,18 +543,18 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/ios/AliceBobbi.xcworkspace/contents.xcworkspacedata",
+    "outputFileName": "react-native-alice-bobbi/ios/ABCAliceBobbi.xcworkspace/contents.xcworkspacedata",
     "theContent": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
 <Workspace
    version = \\"1.0\\">
    <FileRef
-      location = \\"group:AliceBobbi.xcodeproj\\">
+      location = \\"group:ABCAliceBobbi.xcodeproj\\">
    </FileRef>
 </Workspace>
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/ios/AliceBobbi.xcodeproj/project.pbxproj",
+    "outputFileName": "react-native-alice-bobbi/ios/ABCAliceBobbi.xcodeproj/project.pbxproj",
     "theContent": "// !$*UTF8*$!
 {
 	archiveVersion = 1;
@@ -555,7 +564,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B3E7B58A1CC2AC0600A0062D /* AliceBobbi.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* AliceBobbi.m */; };
+		B3E7B58A1CC2AC0600A0062D /* ABCAliceBobbi.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* ABCAliceBobbi.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -571,9 +580,9 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		134814201AA4EA6300B7C361 /* libAliceBobbi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAliceBobbi.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3E7B5881CC2AC0600A0062D /* AliceBobbi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliceBobbi.h; sourceTree = \\"<group>\\"; };
-		B3E7B5891CC2AC0600A0062D /* AliceBobbi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliceBobbi.m; sourceTree = \\"<group>\\"; };
+		134814201AA4EA6300B7C361 /* libABCAliceBobbi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libABCAliceBobbi.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3E7B5881CC2AC0600A0062D /* ABCAliceBobbi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCAliceBobbi.h; sourceTree = \\"<group>\\"; };
+		B3E7B5891CC2AC0600A0062D /* ABCAliceBobbi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCAliceBobbi.m; sourceTree = \\"<group>\\"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -590,7 +599,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 		134814211AA4EA7D00B7C361 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				134814201AA4EA6300B7C361 /* libAliceBobbi.a */,
+				134814201AA4EA6300B7C361 /* libABCAliceBobbi.a */,
 			);
 			name = Products;
 			sourceTree = \\"<group>\\";
@@ -598,8 +607,8 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-				B3E7B5881CC2AC0600A0062D /* AliceBobbi.h */,
-				B3E7B5891CC2AC0600A0062D /* AliceBobbi.m */,
+				B3E7B5881CC2AC0600A0062D /* ABCAliceBobbi.h */,
+				B3E7B5891CC2AC0600A0062D /* ABCAliceBobbi.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
 			);
 			sourceTree = \\"<group>\\";
@@ -607,9 +616,9 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		58B511DA1A9E6C8500147676 /* AliceBobbi */ = {
+		58B511DA1A9E6C8500147676 /* ABCAliceBobbi */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget \\"AliceBobbi\\" */;
+			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget \\"ABCAliceBobbi\\" */;
 			buildPhases = (
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
@@ -619,9 +628,9 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 			);
 			dependencies = (
 			);
-			name = AliceBobbi;
+			name = ABCAliceBobbi;
 			productName = RCTDataManager;
-			productReference = 134814201AA4EA6300B7C361 /* libAliceBobbi.a */;
+			productReference = 134814201AA4EA6300B7C361 /* libABCAliceBobbi.a */;
 			productType = \\"com.apple.product-type.library.static\\";
 		};
 /* End PBXNativeTarget section */
@@ -638,7 +647,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 					};
 				};
 			};
-			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject \\"AliceBobbi\\" */;
+			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject \\"ABCAliceBobbi\\" */;
 			compatibilityVersion = \\"Xcode 3.2\\";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -650,7 +659,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 			projectDirPath = \\"\\";
 			projectRoot = \\"\\";
 			targets = (
-				58B511DA1A9E6C8500147676 /* AliceBobbi */,
+				58B511DA1A9E6C8500147676 /* ABCAliceBobbi */,
 			);
 		};
 /* End PBXProject section */
@@ -660,7 +669,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3E7B58A1CC2AC0600A0062D /* AliceBobbi.m in Sources */,
+				B3E7B58A1CC2AC0600A0062D /* ABCAliceBobbi.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,7 +780,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 				);
 				LIBRARY_SEARCH_PATHS = \\"$(inherited)\\";
 				OTHER_LDFLAGS = \\"-ObjC\\";
-				PRODUCT_NAME = AliceBobbi;
+				PRODUCT_NAME = ABCAliceBobbi;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -787,7 +796,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 				);
 				LIBRARY_SEARCH_PATHS = \\"$(inherited)\\";
 				OTHER_LDFLAGS = \\"-ObjC\\";
-				PRODUCT_NAME = AliceBobbi;
+				PRODUCT_NAME = ABCAliceBobbi;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -795,7 +804,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject \\"AliceBobbi\\" */ = {
+		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject \\"ABCAliceBobbi\\" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				58B511ED1A9E6C8500147676 /* Debug */,
@@ -804,7 +813,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget \\"AliceBobbi\\" */ = {
+		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget \\"ABCAliceBobbi\\" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				58B511F01A9E6C8500147676 /* Debug */,
@@ -966,7 +975,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
-import AliceBobbi from 'react-native-alice-bobbi';
+import ABCAliceBobbi from 'react-native-alice-bobbi';
 
 export default class App extends Component<{}> {
   state = {
@@ -974,7 +983,7 @@ export default class App extends Component<{}> {
     message: '--'
   };
   componentDidMount() {
-    AliceBobbi.sampleMethod('Testing', 123, (message) => {
+    ABCAliceBobbi.sampleMethod('Testing', 123, (message) => {
       this.setState({
         status: 'native callback received',
         message
@@ -984,7 +993,7 @@ export default class App extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>☆AliceBobbi example☆</Text>
+        <Text style={styles.welcome}>☆ABCAliceBobbi example☆</Text>
         <Text style={styles.instructions}>STATUS: {this.state.status}</Text>
         <Text style={styles.welcome}>☆NATIVE CALLBACK MESSAGE☆</Text>
         <Text style={styles.instructions}>{this.state.message}</Text>

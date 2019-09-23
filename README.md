@@ -18,23 +18,26 @@ See below for command-line usage, example with no view, and example with an extr
 
 This tool based on [`react-native-create-library`](https://www.npmjs.com/package/react-native-create-library), with working example callbacks, optional native view, and more updates added by [@brodybits (Christoper J. Brody aka Chris Brody)](https://github.com/brodybits) and other [contributors](https://github.com/brodybits/create-react-native-module/graphs/contributors).
 
-<!-- FUTURE TODO: QUICK USAGE SECTION HERE -->
+### Support options
 
-**LICENSE:** MIT
+- community support via [issues](https://github.com/brodybits/create-react-native-module/issues)
+- commercial support is available, see <http://xpbrew.consulting>
+
+<!-- FUTURE TODO: QUICK USAGE SECTION HERE -->
 
 ### General status
 
 - KNOWN ISSUE IN DEPENDENCIES: unwanted and outdated `babel-runtime`, `core-js`, and `browser-process-hrtime` dependencies are pulled in by `elapsed-time@0.0.1`
 - **React Native versions supported:**
-  - recommended: `0.60` (see known quirks and issues below)
-  - `0.59`
+  - recommended: `0.60`, `0.61-rc` (see known quirks and issues below)
+  - outdated: `0.59`
 - Known quirks & issues on React Native 0.60(+):
-  - [issue #28](https://github.com/brodybits/create-react-native-module/issues/28) - additional `pod install` step needed for RN 0.60 on iOS
+  - [issue #99](https://github.com/brodybits/create-react-native-module/issues/99) - additional `pod install` step needed for RN 0.60 on iOS
   - [issue #29](https://github.com/brodybits/create-react-native-module/issues/29) - View does not work with RN 0.60 on Android (quick patch needed)
-  - React Native 0.60 currently not supported by Expo or react-native-windows
+  - React Native 0.60(+) currently not supported by Expo or react-native-windows
 - Out-of-tree platform support
-  - tvOS platform support - not tested (see [issue #95](https://github.com/brodybits/create-react-native-module/issues/95))
-  - Windows - not tested; unstable (see [issue #23](https://github.com/brodybits/create-react-native-module/issues/23)); now deprecated and may be removed in the near future (see [issue #43](https://github.com/brodybits/create-react-native-module/issues/43))
+  - tvOS platform support - unstable with very limited testing, minimum react-native-tvos version is 0.60 (see [issue #95](https://github.com/brodybits/create-react-native-module/issues/95))
+  - Windows - unstable (not tested, see [issue #23](https://github.com/brodybits/create-react-native-module/issues/23)); now deprecated and may be removed in the near future (see [issue #43](https://github.com/brodybits/create-react-native-module/issues/43))
   - for future consideration: macOS (see [issue #94](https://github.com/brodybits/create-react-native-module/issues/94))
 - Node.js pre-10 support is deprecated and will be removed in the near future (see [issue #38](https://github.com/brodybits/create-react-native-module/issues/38))
 
@@ -252,3 +255,7 @@ __Expected result:__
 
 - [`react-native-create-library`](https://www.npmjs.com/package/react-native-create-library) - original basis of this project
 - [`react-native-share`](https://www.npmjs.com/package/react-native-share) - was acknowledged as "a great source of inspiration" for [`react-native-create-library`](https://www.npmjs.com/package/react-native-create-library)
+
+## License
+
+[MIT](./LICENSE)

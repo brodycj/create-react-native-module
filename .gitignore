@@ -32,3 +32,6 @@ npm-debug.log
 .stryker-tmp
 reports
 stryker.log
+
+# CLI create integration test output to be ignored
+react-native-integration-*
