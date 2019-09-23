@@ -1043,7 +1043,7 @@ const styles = StyleSheet.create({
       "fs": Object {
         "ensureDir": [Function],
         "outputFile": [Function],
-        "readFileSync": [Function],
+        "readFile": [Function],
         "writeFileSync": [Function],
       },
       "spaces": 2,

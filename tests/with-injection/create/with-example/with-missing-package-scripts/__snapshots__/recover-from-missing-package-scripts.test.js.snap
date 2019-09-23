@@ -976,7 +976,7 @@ const styles = StyleSheet.create({
 <<<<<<<< ======== >>>>>>>>
 ",
   Object {
-    "call": "fs.readFileSync",
+    "call": "fs.readFile",
     "jsonFilePath": "./react-native-alice-bobbi/example/package.json",
   },
   Object {
@@ -984,9 +984,9 @@ const styles = StyleSheet.create({
     "filePath": "./react-native-alice-bobbi/example/package.json",
     "json": "{
   \\"name\\": \\"example\\",
-  \\"version\\": \\"0.0.1\\",
   \\"scripts\\": {
-    \\"postinstall\\": \\"node ../scripts/examples_postinstall.js\\"
+    \\"postinstall\\": \\"node ../scripts/examples_postinstall.js\\",
+    \\"test\\": \\"echo 'not implemented' && exit 1\\"
   }
 }
 ",
@@ -994,6 +994,7 @@ const styles = StyleSheet.create({
       "fs": Object {
         "ensureDir": [Function],
         "outputFile": [Function],
+        "readFile": [Function],
         "readFileSync": [Function],
         "writeFileSync": [Function],
       },
