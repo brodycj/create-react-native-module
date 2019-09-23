@@ -38,13 +38,7 @@ test(`create alice-bobbi module with logging, with platforms: ''`, async () => {
 
   const options = { platforms: '' };
 
-  func(args, null, options);
-
-  // Using a 1 ms timer to wait for the
-  // CLI command function to finish.
-  // FUTURE TBD this looks like a bad smell
-  // that should be resolved someday.
-  await new Promise((resolve) => setTimeout(resolve, 1));
+  await func(args, null, options);
 
   expect(mysnap).toMatchSnapshot();
 });
