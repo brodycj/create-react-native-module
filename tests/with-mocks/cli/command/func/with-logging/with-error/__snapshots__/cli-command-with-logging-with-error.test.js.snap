@@ -21,7 +21,6 @@ Array [
   githubAccount: github_account
   authorName: Your Name
   authorEmail: yourname@email.com
-  authorEmail: yourname@email.com
   license: MIT
   view: false
   useCocoapods: false
@@ -47,9 +46,9 @@ Array [
     "error": Array [
       "Error: ENOPERM not permitted
     at Object.ensureDir (.../tests/with-mocks/cli/command/func/with-logging/with-error/cli-command-with-logging-with-error.test.js:16:27)
-    at ensureDir (.../lib/lib.js:134:15)
-    at generateLibraryModule (.../lib/lib.js:227:10)
-    at generateWithOptions (.../lib/lib.js:244:10)
+    at ensureDir (.../lib/lib.js:147:15)
+    at generateLibraryModule (.../lib/lib.js:240:10)
+    at generateWithNormalizedOptions (.../lib/lib.js:257:10)
     at createLibraryModule (.../lib/cli-command.js:...
     at Object.func (.../tests/with-mocks/cli/command/func/with-logging/with-error/cli-command-with-logging-with-error.test.js:64:10)
     ",
