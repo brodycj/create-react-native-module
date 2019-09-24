@@ -30,5 +30,5 @@ test('create module with example, with `EACCES permission denied` error', async 
     error = e;
   }
   expect(error).toBeDefined();
-  expect(error.message).toMatch(/alice-bettty.example.package.json: EACCES permission denied/);
+  expect(error.message).toMatch(/EACCES permission denied/);
 });
