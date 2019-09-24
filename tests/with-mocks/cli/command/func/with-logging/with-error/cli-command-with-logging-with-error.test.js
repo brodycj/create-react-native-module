@@ -48,7 +48,7 @@ global.console = {
   },
 };
 
-xtest('create alice-bobbi module with logging, with fs error (with defaults for Android & iOS)', async () => {
+test('create alice-bobbi module with logging, with fs error (with defaults for Android & iOS)', async () => {
   const args = ['alice-bobbi'];
 
   const config = 'bogus';
