@@ -9,7 +9,9 @@ test('create module with example, with `EACCES permission denied` error', async 
     ...ioInject2,
     fs: {
       ...ioInject2.fs,
-      readFileSync: (_) => {
+      readFile: (path, _, cb) => {
+        // XXX TBD ???:
+        // cb(new Error('EACCES permission denied'));
         throw new Error('EACCES permission denied');
       }
     }

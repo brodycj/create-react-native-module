@@ -9,7 +9,9 @@ test('create module with example, with `ENOENT` error', async () => {
     ...ioInject2,
     fs: {
       ...ioInject2.fs,
-      readFileSync: (_) => {
+      readFile: (path, _, cb) => {
+        // XXX TBD ???:
+        // cb(new Error('ENOENT file not found: package.json'));
         throw new Error('ENOENT file not found: package.json');
       }
     }
