@@ -810,7 +810,8 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
     "error": Array [
       "Error: ENOSPC no space left
     at Object.outputFile (.../tests/with-mocks/cli/command/func/with-logging/with-nospc-error/cli-command-with-logging-with-nospc-error.test.js:14:27)
-    at outputFile (.../lib/lib.js:44:8)",
+    at outputFile (.../lib/lib.js:46:8)
+    at process._tickCallback (internal/process/next_tick.js:68:7)",
     ],
   },
 ]
