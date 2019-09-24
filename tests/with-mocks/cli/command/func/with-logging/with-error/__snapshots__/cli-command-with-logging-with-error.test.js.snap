@@ -46,7 +46,7 @@ Array [
     "error": Array [
       "Error: ENOPERM not permitted
     at Object.ensureDir (.../tests/with-mocks/cli/command/func/with-logging/with-error/cli-command-with-logging-with-error.test.js:9:27)
-    at ensureDir (.../lib/lib.js:145:15)
+    at ensureDir (.../lib/lib.js:147:15)
     at process._tickCallback (internal/process/next_tick.js:68:7)",
     ],
   },
