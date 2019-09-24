@@ -45,9 +45,10 @@ Array [
   Object {
     "error": Array [
       "Error: ENOPERM not permitted
-    at Object.ensureDir (.../tests/with-mocks/cli/command/func/with-logging/with-error/cli-command-with-logging-with-error.test.js:9:27)
-    at ensureDir (.../lib/lib.js:147:15)
-    at process._tickCallback (internal/process/next_tick.js:68:7)",
+    at ensureDir (.../tests/with-mocks/cli/command/func/with-logging/with-error/cli-command-with-logging-with-error.test.js:9:27)
+    at f (.../lib/lib.js:53:52)
+    at f (.../lib/lib.js:43:34)
+    at .../node_modules/promise.pipe/index.js:25:18",
     ],
   },
 ]
