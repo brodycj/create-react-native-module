@@ -50,7 +50,7 @@ Array [
     at generateLibraryModule (.../lib/lib.js:240:10)
     at generateWithNormalizedOptions (.../lib/lib.js:257:10)
     at createLibraryModule (.../lib/cli-command.js:...
-    at Object.func (.../tests/with-mocks/cli/command/func/with-logging/with-error/cli-command-with-logging-with-error.test.js:66:10)
+    at Object.func (.../tests/with-mocks/cli/command/func/with-logging/with-error/cli-command-with-logging-with-error.test.js:66:9)
     ",
     ],
   },

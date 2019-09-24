@@ -58,11 +58,12 @@ global.console = {
   },
 };
 
-test('create alice-bobbi module with logging, with fs error (with defaults for Android & iOS)', () => {
+test('create alice-bobbi module with logging, with fs error (with defaults for Android & iOS)', async () => {
   const args = ['alice-bobbi'];
 
   const config = 'bogus';
 
-  return func(args, config, {})
-    .then(() => { expect(mysnap).toMatchSnapshot(); });
+  await func(args, config, {});
+
+  expect(mysnap).toMatchSnapshot();
 });
