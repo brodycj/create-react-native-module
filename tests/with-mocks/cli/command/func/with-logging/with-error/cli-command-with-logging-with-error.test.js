@@ -49,6 +49,8 @@ global.console = {
             // in order to avoid sensitivity to mutation testing
             // (miss potentially surviving mutants)
             .replace(/cli-command.js:.*/, 'cli-command.js:...')
+            // WORKAROUND for Windows:
+            .replace(/\\/g, '/')
         ),
         rest
       )
