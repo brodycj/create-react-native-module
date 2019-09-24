@@ -3,6 +3,13 @@ const func = require('../../../../../../../lib/cli-command.js').func;
 // special compact mocks for this test:
 const mysnap = [];
 const mockpushit = x => mysnap.push(x);
+jest.mock('elapsed-time', () => ({
+  new: () => ({
+    start: () => ({
+      getValue: () => `12.345s`
+    })
+  })
+}));
 jest.mock('fs-extra', () => ({
   ensureDir: (dir) => {
     mockpushit({ ensureDir: dir });
@@ -21,10 +28,7 @@ global.console = {
     mockpushit({ info: [].concat(args) });
   },
   log: (...args) => {
-    mockpushit({
-      // TBD EXTRA WORKAROUND HACK for non-deterministic elapsed time in log
-      log: args.map(line => line.replace(/It took.*s/g, 'It took XXX'))
-    });
+    mockpushit({ log: [].concat(args) });
   },
   warn: (...args) => {
     mockpushit({ warn: [].concat(args) });
