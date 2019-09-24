@@ -1044,11 +1044,11 @@ const styles = StyleSheet.create({
         "ensureDir": [Function],
         "outputFile": [Function],
         "readFile": [Function],
-        "writeFileSync": [Function],
+        "writeFile": [Function],
       },
       "spaces": 2,
     },
-    "writeFileSyncToPath": "./react-native-alice-bobbi/example/package.json",
+    "writeFileToPath": "./react-native-alice-bobbi/example/package.json",
   },
   Object {
     "info": Array [

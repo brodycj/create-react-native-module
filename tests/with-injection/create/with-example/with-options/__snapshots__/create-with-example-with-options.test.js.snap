@@ -1026,7 +1026,7 @@ const styles = StyleSheet.create({
     "jsonFilePath": "./react-native-alice-bobbi/test-demo/package.json",
   },
   Object {
-    "call": "fs.writeFileSync",
+    "call": "fs.writeFile",
     "filePath": "./react-native-alice-bobbi/test-demo/package.json",
     "json": "{
   \\"name\\": \\"example\\",
@@ -1041,7 +1041,7 @@ const styles = StyleSheet.create({
         "ensureDir": [Function],
         "outputFile": [Function],
         "readFile": [Function],
-        "writeFileSync": [Function],
+        "writeFile": [Function],
       },
       "spaces": 2,
     },
