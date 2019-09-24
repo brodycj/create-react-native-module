@@ -37,11 +37,12 @@ global.console = {
   },
 };
 
-test('create alice-bobbi module with logging with --use-cocoapods for iOS', () => {
+test('create alice-bobbi module with logging with --use-cocoapods for iOS', async () => {
   const args = ['alice-bobbi'];
 
   const config = 'bogus';
 
-  return func(args, config, { platforms: 'ios', useCocoapods: true })
-    .then(() => { expect(mysnap).toMatchSnapshot(); });
+  await func(args, config, { platforms: 'ios', useCocoapods: true });
+
+  expect(mysnap).toMatchSnapshot();
 });
