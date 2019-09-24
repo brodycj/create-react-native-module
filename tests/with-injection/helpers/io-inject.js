@@ -38,9 +38,10 @@ ${content}
     },
   },
   execa: {
-    commandSync: (command, options) => {
+    command: (command, options) => {
       mysnap.push(
-        `* execa.commandSync command: ${command} options: ${JSON.stringify(options)}\n`);
+        `* execa.command command: ${command} options: ${JSON.stringify(options)}\n`);
+      return Promise.resolve();
     },
   },
 });

@@ -28,11 +28,12 @@ jest.mock('fs-extra', () => ({
   },
 }));
 jest.mock('execa', () => ({
-  commandSync: (command, options) => {
-    mockpushit({ commandSync: command, options });
+  command: (command, options) => {
+    mockpushit({ command, options });
     if (/yarn add/.test(command)) {
       throw new Error('ENOPERM not permitted');
     }
+    return Promise.resolve();
   }
 }));
 

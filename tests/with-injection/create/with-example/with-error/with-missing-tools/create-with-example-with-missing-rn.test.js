@@ -10,8 +10,9 @@ test('create module with example, with `react-native --version` not working', as
     execa: {
       commandSync: (command, _) => {
         if (/react-native/.test(command)) {
-          throw new Error('command not found');
+          return Promise.reject(new Error('command not found'));
         }
+        return Promise.resolve();
       }
     }
   };

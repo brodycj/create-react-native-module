@@ -2,9 +2,9 @@
 
 exports[`create alice-bobbi view module with example, with defaults 1`] = `
 Array [
-  "* execa.commandSync command: react-native --version options: {\\"stdio\\":\\"inherit\\"}
+  "* execa.command command: react-native --version options: {\\"stdio\\":\\"inherit\\"}
 ",
-  "* execa.commandSync command: yarn --version options: {\\"stdio\\":\\"inherit\\"}
+  "* execa.command command: yarn --version options: {\\"stdio\\":\\"inherit\\"}
 ",
   "* ensureDir dir: react-native-alice-bobbi
 ",
@@ -796,7 +796,7 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* execa.commandSync command: react-native init example --version react-native@0.59 options: {\\"cwd\\":\\"./react-native-alice-bobbi\\",\\"stdio\\":\\"inherit\\"}
+  "* execa.command command: react-native init example --version react-native@0.59 options: {\\"cwd\\":\\"./react-native-alice-bobbi\\",\\"stdio\\":\\"inherit\\"}
 ",
   "* ensureDir dir: react-native-alice-bobbi/scripts/
 ",
@@ -995,9 +995,9 @@ const styles = StyleSheet.create({
       "spaces": 2,
     },
   },
-  "* execa.commandSync command: yarn add file:../ options: {\\"cwd\\":\\"./react-native-alice-bobbi/example\\",\\"stdio\\":\\"inherit\\"}
+  "* execa.command command: yarn add file:../ options: {\\"cwd\\":\\"./react-native-alice-bobbi/example\\",\\"stdio\\":\\"inherit\\"}
 ",
-  "* execa.commandSync command: react-native link options: {\\"cwd\\":\\"./react-native-alice-bobbi/example\\",\\"stdio\\":\\"inherit\\"}
+  "* execa.command command: react-native link options: {\\"cwd\\":\\"./react-native-alice-bobbi/example\\",\\"stdio\\":\\"inherit\\"}
 ",
 ]
 `;
