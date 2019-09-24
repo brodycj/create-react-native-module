@@ -39,12 +39,6 @@ global.console = {
             // * https://stackoverflow.com/questions/1144783/how-to-replace-all-occurrences-of-a-string/1145525#1145525
             // * https://github.com/tunnckoCore/clean-stacktrace-relative-paths/blob/v1.0.4/index.js#L59
             .split(process.cwd()).join('...')
-            // IGNORE test-dependant trace info
-            .split(/at.*JestTest/)[0]
-            // IGNORE line number in cli-command.js
-            // in order to avoid sensitivity to mutation testing
-            // (miss potentially surviving mutants)
-            .replace(/cli-command.js:.*/, 'cli-command.js:...')
             // WORKAROUND for Windows:
             .replace(/\\/g, '/')
         ),
