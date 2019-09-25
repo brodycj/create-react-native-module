@@ -53,7 +53,7 @@ Array [
     "option": Object {
       "args": Array [
         "--package-identifier [packageIdentifier]",
-        "(Android only!) The package name for the Android module",
+        "[Android] The package identifier for the Android module",
         [Function],
         "com.reactlibrary",
       ],
