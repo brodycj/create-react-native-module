@@ -55,8 +55,8 @@ Object {
       "description": "Generate the module as a very simple native view component",
     },
     Object {
-      "command": "--use-cocoapods",
-      "description": "[iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: Use \`AFNetworking\` dependency as a sample in the podspec; use it from the iOS code & add \`ios/Podfile\` to generated example",
+      "command": "--use-apple-networking",
+      "description": "[iOS] Use \`AFNetworking\` dependency as a sample in the podspec & use it from the iOS code",
     },
     Object {
       "command": "--generate-example",

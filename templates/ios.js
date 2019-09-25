@@ -1,6 +1,6 @@
 module.exports = platform => [{
   name: ({ moduleName }) => `${moduleName}.podspec`,
-  content: ({ moduleName, githubAccount, authorName, authorEmail, useCocoapods }) => `require "json"
+  content: ({ moduleName, githubAccount, authorName, authorEmail, useAppleNetworking }) => `require "json"
 
 package = JSON.parse(File.read(File.join(__dir__, "package.json")))
 
@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.dependency "React"
-	${useCocoapods ? `s.dependency 'AFNetworking', '~> 3.0'` : ``}
+	${useAppleNetworking ? `s.dependency 'AFNetworking', '~> 3.0'` : ``}
   # s.dependency "..."
 end
 
@@ -39,9 +39,9 @@ end
 }, {
   // implementation of module without view:
   name: ({ name, view }) => !view && `${platform}/${name}.m`,
-  content: ({ name, useCocoapods }) => `#import "${name}.h"
+  content: ({ name, useAppleNetworking }) => `#import "${name}.h"
 
-${useCocoapods ? `#import <AFNetworking/AFNetworking.h>
+${useAppleNetworking ? `#import <AFNetworking/AFNetworking.h>
 ` : ``}
 @implementation ${name}
 
@@ -50,7 +50,7 @@ RCT_EXPORT_MODULE()
 RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnull NSNumber *)numberArgument callback:(RCTResponseSenderBlock)callback)
 {
     // TODO: Implement some actually useful functionality
-	${useCocoapods
+	${useAppleNetworking
     ? `AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
 	manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
 	[manager GET:@"https://httpstat.us/200" parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {

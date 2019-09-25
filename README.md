@@ -101,7 +101,7 @@ Options:
   --author-email <authorEmail>              The author's email (Default: `yourname@email.com`)
   --license <license>                       The license type (Default: `MIT`)
   --view                                    Generate the module as a very simple native view component
-  --use-cocoapods                           [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: Use `AFNetworking` dependency as a sample in the podspec; use it from the iOS code & add `ios/Podfile` to generated example
+  --use-apple-networking                    [iOS] Use `AFNetworking` dependency as a sample in the podspec & use it from the iOS code
   --generate-example                        Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally
   --example-name <exampleName>              Name for the example project (default: `example`)
   --example-react-native-version <version>  React Native version for the generated example project (default: `react-native@0.59`)
@@ -134,7 +134,7 @@ createLibraryModule({
   authorName: String, /* The author's name (Default: `Your Name`) */
   authorEmail: String, /* The author's email (Default: `yourname@email.com`) */
   license: String, /* The license type of this library (Default: `MIT`) */
-  useCocoapods: Boolean, /* [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: Use `AFNetworking` dependency as a sample in the podspec; use it from the iOS code & add `ios/Podfile` to generated example (Default: false) */
+  useAppleNetworking: Boolean, /* [iOS] Use `AFNetworking` dependency as a sample in the podspec & use it from the iOS code (Default: false) */
   view: Boolean, /* Generate the module as a very simple native view component (Default: false) */
   generateExample: Boolean, /* Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally (Default: false) */
   exampleName: String, /* Name for the example project (Default: `example`) */
