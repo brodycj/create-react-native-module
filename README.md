@@ -94,7 +94,7 @@ Options:
   --prefix <prefix>                         The prefix for the library module (Default: ``)
   --module-name <moduleName>                The module library package name to be used in package.json. Default: react-native-(name in param-case)
   --module-prefix <modulePrefix>            The module prefix for the library module, ignored if --module-name is specified (Default: `react-native`)
-  --package-identifier <packageIdentifier>  [Android] The package identifier for the Android module (Default: `com.reactlibrary`)
+  --package-identifier <packageIdentifier>  [Android] The Java package identifier used by the Android module (Default: `com.reactlibrary`)
   --platforms <platforms>                   Platforms the library module will be created for - comma separated (Default: `ios,android`)
   --github-account <githubAccount>          The github account where the library module is hosted (Default: `github_account`)
   --author-name <authorName>                The author's name (Default: `Your Name`)
@@ -129,7 +129,7 @@ createLibraryModule({
   moduleName: String, /* The module library package name to be used in package.json. Default: react-native-(name in param-case) */
   modulePrefix: String, /* The module prefix for the library, ignored if moduleName is specified (Default: react-native) */
   platforms: Array | String, /* Platforms the library will be created for. (Default: ['android', 'ios']) */
-  packageIdentifier: String, /* [Android] The package identifier for the Android module (Default: com.reactlibrary) */
+  packageIdentifier: String, /* [Android] The Java package identifier used by the Android module (Default: com.reactlibrary) */
   githubAccount: String, /* The github account where the library is hosted (Default: `github_account`) */
   authorName: String, /* The author's name (Default: `Your Name`) */
   authorEmail: String, /* The author's email (Default: `yourname@email.com`) */

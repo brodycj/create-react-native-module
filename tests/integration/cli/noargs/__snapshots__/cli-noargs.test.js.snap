@@ -10,7 +10,7 @@ Options:
   --prefix [prefix]                                           The prefix for the library module (default: \\"\\")
   --module-name [moduleName]                                  The module library package name to be used in package.json. Default: react-native-(name in param-case)
   --module-prefix [modulePrefix]                              The module prefix for the library module, ignored if --module-name is specified (default: \\"react-native\\")
-  --package-identifier [packageIdentifier]                    [Android] The package identifier for the Android module (default: \\"com.reactlibrary\\")
+  --package-identifier [packageIdentifier]                    [Android] The Java package identifier used by the Android module (default: \\"com.reactlibrary\\")
   --platforms <platforms>                                     Platforms the library module will be created for - comma separated (default: \\"ios,android\\")
   --github-account [githubAccount]                            The github account where the library module is hosted (default: \\"github_account\\")
   --author-name [authorName]                                  The author's name (default: \\"Your Name\\")

@@ -23,7 +23,7 @@ Object {
     Object {
       "command": "--package-identifier [packageIdentifier]",
       "default": "com.reactlibrary",
-      "description": "[Android] The package identifier for the Android module",
+      "description": "[Android] The Java package identifier used by the Android module",
     },
     Object {
       "command": "--platforms <platforms>",
