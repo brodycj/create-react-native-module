@@ -123,7 +123,7 @@ Array [
     "option": Object {
       "args": Array [
         "--use-cocoapods",
-        "[iOS] Use \`AFNetworking\` dependency as a sample in the podspec and use it from the iOS code",
+        "[iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: Use \`AFNetworking\` dependency as a sample in the podspec; use it from the iOS code & add \`ios/Podfile\` to generated example",
         [Function],
         undefined,
       ],
