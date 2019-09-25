@@ -56,7 +56,7 @@ Object {
     },
     Object {
       "command": "--use-cocoapods",
-      "description": "Generate a library with a sample podspec and third party pod usage example",
+      "description": "[iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: Use \`AFNetworking\` dependency as a sample in the podspec; use it from the iOS code & add \`ios/Podfile\` to generated example",
     },
     Object {
       "command": "--generate-example",
