@@ -1,4 +1,4 @@
-const func = require('../../../../../../../../lib/cli-command.js').func;
+const func = require('../../../../../../../lib/cli-command.js').func;
 
 // special compact mocks for this test:
 const mysnap = [];
@@ -37,12 +37,12 @@ global.console = {
   },
 };
 
-test(`create alice-bobbi module with logging, with platforms: 'bogus'`, async () => {
+test('create alice-bobbi module with logging with --use-cocoapods for iOS', async () => {
   const args = ['alice-bobbi'];
 
-  const options = { platforms: 'bogus' };
+  const config = 'bogus';
 
-  await func(args, null, options);
+  await func(args, config, { platforms: 'ios', useCocoapods: true });
 
   expect(mysnap).toMatchSnapshot();
 });
