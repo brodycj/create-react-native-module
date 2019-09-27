@@ -264,6 +264,8 @@ buck-out/
     "outputFileName": "react-native-alice-bobbi/android/build.gradle",
     "theContent": "// android/build.gradle
 
+def STANDALONE_BUILD_TOOLS_CLASSPATH = 'com.android.tools.build:gradle:3.4.1'
+
 def safeExtGet(prop, fallback) {
     rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
 }
@@ -278,7 +280,7 @@ buildscript {
             jcenter()
         }
         dependencies {
-            classpath 'com.android.tools.build:gradle:3.4.1'
+            classpath(STANDALONE_BUILD_TOOLS_CLASSPATH)
         }
     }
 }
