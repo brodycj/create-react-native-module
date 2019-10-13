@@ -10,12 +10,12 @@ test('create alice-bobbi module with defaults, recover from missing scripts in e
     ...ioInject2,
     fs: {
       ...ioInject2.fs,
-      readFileSync: (jsonFilePath) => {
+      readFile: (jsonFilePath, _, cb) => {
         mysnap.push({
-          call: 'fs.readFileSync',
+          call: 'fs.readFile',
           jsonFilePath: jsonFilePath.replace(/\\/g, '/'),
         });
-        return `{ "name": "example", "version": "0.0.1" }`;
+        cb(null, `{ "name": "example", "version": "0.0.1" }`);
       }
     }
   };

@@ -16,31 +16,33 @@ ${content}
       mysnap.push(`* ensureDir dir: ${dir.replace(/\\/g, '/')}\n`);
       return Promise.resolve();
     },
-    readFileSync: (jsonFilePath) => {
+    readFile: (jsonFilePath, _, cb) => {
       mysnap.push({
-        call: 'fs.readFileSync',
+        call: 'fs.readFile',
         jsonFilePath: jsonFilePath.replace(/\\/g, '/'),
       });
-      return `{
+      return cb(null, `{
   "name": "example",
   "scripts": {
     "test": "echo 'not implemented' && exit 1"
   }
-}`;
+}`);
     },
-    writeFileSync: (path, json, options) => {
+    writeFile: (path, json, options, cb) => {
       mysnap.push({
-        call: 'fs.writeFileSync',
+        call: 'fs.writeFile',
         filePath: path.replace(/\\/g, '/'),
         json,
         options,
       });
+      cb();
     },
   },
   execa: {
-    commandSync: (command, options) => {
+    command: (command, options) => {
       mysnap.push(
-        `* execa.commandSync command: ${command} options: ${JSON.stringify(options)}\n`);
+        `* execa.command command: ${command} options: ${JSON.stringify(options)}\n`);
+      return Promise.resolve();
     },
   },
 });

@@ -35,7 +35,7 @@ Array [
     ],
   },
   Object {
-    "commandSync": "react-native --version",
+    "command": "react-native --version",
     "options": Object {
       "stdio": "inherit",
     },
@@ -51,7 +51,7 @@ Array [
     ],
   },
   Object {
-    "commandSync": "yarn --version",
+    "command": "yarn --version",
     "options": Object {
       "stdio": "inherit",
     },
@@ -840,7 +840,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
     ],
   },
   Object {
-    "commandSync": "react-native init example --version react-native@0.59",
+    "command": "react-native init example --version react-native@0.59",
     "options": Object {
       "cwd": "./react-native-alice-bobbi",
       "stdio": "inherit",
@@ -1040,8 +1040,8 @@ const styles = StyleSheet.create({
     "json": "{
   \\"name\\": \\"x\\",
   \\"scripts\\": {
-    \\"test\\": \\"exit 1\\",
-    \\"postinstall\\": \\"node ../scripts/examples_postinstall.js\\"
+    \\"postinstall\\": \\"node ../scripts/examples_postinstall.js\\",
+    \\"test\\": \\"exit 1\\"
   }
 }
 ",
@@ -1049,12 +1049,12 @@ const styles = StyleSheet.create({
       "fs": Object {
         "ensureDir": [Function],
         "outputFile": [Function],
-        "readFileSync": [Function],
-        "writeFileSync": [Function],
+        "readFile": [Function],
+        "writeFile": [Function],
       },
       "spaces": 2,
     },
-    "writeFileSyncToPath": "./react-native-alice-bobbi/example/package.json",
+    "writeFileToPath": "./react-native-alice-bobbi/example/package.json",
   },
   Object {
     "info": Array [
@@ -1062,14 +1062,14 @@ const styles = StyleSheet.create({
     ],
   },
   Object {
-    "commandSync": "yarn add file:../",
+    "command": "yarn add file:../",
     "options": Object {
       "cwd": "./react-native-alice-bobbi/example",
       "stdio": "inherit",
     },
   },
   Object {
-    "commandSync": "react-native link",
+    "command": "react-native link",
     "options": Object {
       "cwd": "./react-native-alice-bobbi/example",
       "stdio": "inherit",
