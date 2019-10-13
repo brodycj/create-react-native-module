@@ -94,14 +94,14 @@ Options:
   --prefix <prefix>                         The prefix for the library module (Default: ``)
   --module-name <moduleName>                The module library package name to be used in package.json. Default: react-native-(name in param-case)
   --module-prefix <modulePrefix>            The module prefix for the library module, ignored if --module-name is specified (Default: `react-native`)
-  --package-identifier <packageIdentifier>  (Android only!) The package name for the Android module (Default: `com.reactlibrary`)
+  --package-identifier <packageIdentifier>  [Android] The Java package identifier used by the Android module (Default: `com.reactlibrary`)
   --platforms <platforms>                   Platforms the library module will be created for - comma separated (Default: `ios,android`)
   --github-account <githubAccount>          The github account where the library module is hosted (Default: `github_account`)
   --author-name <authorName>                The author's name (Default: `Your Name`)
   --author-email <authorEmail>              The author's email (Default: `yourname@email.com`)
   --license <license>                       The license type (Default: `MIT`)
   --view                                    Generate the module as a very simple native view component
-  --use-cocoapods                           Generate a library with a sample podspec and third party pod usage example
+  --use-cocoapods                           [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: Use `AFNetworking` dependency as a sample in the podspec; use it from the iOS code & add `ios/Podfile` to generated example
   --generate-example                        Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally
   --example-name <exampleName>              Name for the example project (default: `example`)
   --example-react-native-version <version>  React Native version for the generated example project (default: `react-native@0.59`)
@@ -129,12 +129,12 @@ createLibraryModule({
   moduleName: String, /* The module library package name to be used in package.json. Default: react-native-(name in param-case) */
   modulePrefix: String, /* The module prefix for the library, ignored if moduleName is specified (Default: react-native) */
   platforms: Array | String, /* Platforms the library will be created for. (Default: ['android', 'ios']) */
-  packageIdentifier: String, /* (Android only!) The package name for the Android module (Default: com.reactlibrary) */
+  packageIdentifier: String, /* [Android] The Java package identifier used by the Android module (Default: com.reactlibrary) */
   githubAccount: String, /* The github account where the library is hosted (Default: `github_account`) */
   authorName: String, /* The author's name (Default: `Your Name`) */
   authorEmail: String, /* The author's email (Default: `yourname@email.com`) */
   license: String, /* The license type of this library (Default: `MIT`) */
-  useCocoapods: Boolean, /* Generate a library with a sample podspec and third party pod usage example (Default: false) */
+  useCocoapods: Boolean, /* [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: Use `AFNetworking` dependency as a sample in the podspec; use it from the iOS code & add `ios/Podfile` to generated example (Default: false) */
   view: Boolean, /* Generate the module as a very simple native view component (Default: false) */
   generateExample: Boolean, /* Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally (Default: false) */
   exampleName: String, /* Name for the example project (Default: `example`) */
