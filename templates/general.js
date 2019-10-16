@@ -1,7 +1,7 @@
 module.exports = [{
   name: () => 'README.md',
-  content: ({ moduleName, packageIdentifier, name, namespace, platforms }) => {
-    return `# ${moduleName}
+  content: ({ moduleName, name }) =>
+    `# ${moduleName}
 
 ## Getting started
 
@@ -18,8 +18,7 @@ import ${name} from '${moduleName}';
 // TODO: What to do with the module?
 ${name};
 \`\`\`
-`;
-  },
+`,
 }, {
   name: () => 'package.json',
   content: ({ moduleName, platforms, githubAccount, authorName, authorEmail, license }) => {
