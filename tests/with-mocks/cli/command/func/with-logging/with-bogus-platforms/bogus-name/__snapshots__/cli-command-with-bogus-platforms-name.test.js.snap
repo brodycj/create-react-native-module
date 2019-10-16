@@ -67,10 +67,6 @@ Array [
 
 \`$ react-native link react-native-alice-bobbi\`
 
-### Manual installation
-
-
-
 ## Usage
 \`\`\`javascript
 import AliceBobbi from 'react-native-alice-bobbi';

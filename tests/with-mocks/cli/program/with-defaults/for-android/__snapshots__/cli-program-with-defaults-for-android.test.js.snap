@@ -216,25 +216,6 @@ Array [
 
 \`$ react-native link react-native-test-package\`
 
-### Manual installation
-
-
-#### Android
-
-1. Open up \`android/app/src/main/java/[...]/MainApplication.java\`
-  - Add \`import com.reactlibrary.TestPackagePackage;\` to the imports at the top of the file
-  - Add \`new TestPackagePackage()\` to the list returned by the \`getPackages()\` method
-2. Append the following lines to \`android/settings.gradle\`:
-  	\`\`\`
-  	include ':react-native-test-package'
-  	project(':react-native-test-package').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-test-package/android')
-  	\`\`\`
-3. Insert the following lines inside the dependencies block in \`android/app/build.gradle\`:
-  	\`\`\`
-      compile project(':react-native-test-package')
-  	\`\`\`
-
-
 ## Usage
 \`\`\`javascript
 import TestPackage from 'react-native-test-package';
