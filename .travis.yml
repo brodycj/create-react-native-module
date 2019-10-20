@@ -1,7 +1,14 @@
 language: node_js
 
+env:
+  global:
+    secure: QH+xKvov8SnvMNtO0h1hJl+uNZ9053iE4hdpi4RBYRmP08UtWsf4AfJagGHDu1VS0NdDPeDG7GyC320WtrJYI1Xk7e15CwnyUuvnaDSEdPJ6vLMns6ZZk5D6rFcs8tKcR2uxjqR0vnCB/Jt5VFu2LAGWN2YixAdSTa6KjmqaZaiuQYVqAyxcFseCAC+hrnei3KepSHBiojNpUhKXb/uJMJL/lCDjztLZ/sQ0FqYXQDGyMRDLUKqxbdtC3xolyElHVbyoRVkyYaxhoBE31D3yivnU58TNpVaNiN0AI8990w5MOE9uL6OZesvsPcfBHjmv0Hd57D1UKdHiNdSHudYTV8dvh1xN519S9impzOWbLy1Gj3HUI7bVtioDMrknCb3Vu4wBPMNo+02PPKbVmRwOHIRuzw26VpShYe4Fy8We9BpZR1GHH28Z1ETwzn6tA0Oc+1SxsEA6sP0fF51EjWO3/txW+e7vO7PwpfmTlXYyE9DsoJNJp4Vusg5xsNIYL1imlF+idjQCaLeEsb3C8THohRD20sSSK9ErzmkVUvwrzhH5SjZEZJ/U6xm2WPvvK0Z5tsrZ4t0kY5FlLHaDSK1cFXuk1Ht/go7g4NY2p7rqFFmRHOPpdrt3v/nRzeoEaCgQsb1hY9ircdDK0uikXfKNGSOa3sO5PNBGvsz0hViRQHU=
+
 matrix:
   include:
+  - os: linux
+    node_js: 10
+    script: npx stryker run --reporters clear-text,progress,dots,dashboard
   - os: osx
     node_js: 10
   - os: linux
