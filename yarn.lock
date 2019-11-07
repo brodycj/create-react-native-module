@@ -310,10 +310,10 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
   integrity sha512-9NET910DNaIPngYnLLPeg+Ogzqsi9uM4mSboU5y6p8S5DzMTVEsJZrawi+BoDNUVBa2DhJqQYUFvMDfgU062LQ==
 
-"@stryker-mutator/api@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@stryker-mutator/api/-/api-2.1.0.tgz#488ac3bc22cbf08af73fa1a2fdac3bf53a806912"
-  integrity sha512-zas7PNOEFnepjT/OfTte2Tu6vQ5Q30ZGGRigBqY75fe7PJZXon/1cGyB+SS6nN29tlY29t5Err5zOFX/qtxf8g==
+"@stryker-mutator/api@^2.1.0", "@stryker-mutator/api@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@stryker-mutator/api/-/api-2.2.1.tgz#36f343f8c2c02a7465cf1feb3a3ae2af91f98ca3"
+  integrity sha512-XJc/2HOW+XGUO+zrKmUY2B5jsct+e8wz3234rAHm6qz3/njxLvzoWhNKFp/3Glagg26+TFTVsRoWuR/aNIS4UA==
   dependencies:
     mutation-testing-report-schema "^1.0.0"
     tslib "~1.10.0"
@@ -346,12 +346,12 @@
     typed-rest-client "~1.5.0"
 
 "@stryker-mutator/html-reporter@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@stryker-mutator/html-reporter/-/html-reporter-2.1.0.tgz#3031724ced4d7bffe0616eadf9aa37007b512a38"
-  integrity sha512-yCHhBVlGbm3CwK+8hsWPI0RI78mGlas1TntnT3z4VIWUS+RAoZj3ZMf42tB7D9SMp1l2nq5Fe0QKuIf9FfFHDw==
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@stryker-mutator/html-reporter/-/html-reporter-2.2.1.tgz#5506198ac52079ddebe8ff23294e9d9167f446c0"
+  integrity sha512-gTup4l2fDAeRVNXWDQFTKuHas4ZKyPwZRv4AIPebAfpW7xplXPuDNKoHMZ6X5ATf1VYf/QNprCHODTWg+3Dw1Q==
   dependencies:
-    "@stryker-mutator/api" "^2.1.0"
-    "@stryker-mutator/util" "^2.1.0"
+    "@stryker-mutator/api" "^2.2.1"
+    "@stryker-mutator/util" "^2.2.1"
     file-url "~3.0.0"
     mkdirp "~0.5.1"
     mutation-testing-elements "^1.0.2"
@@ -377,10 +377,10 @@
     "@stryker-mutator/api" "^2.1.0"
     semver "~6.3.0"
 
-"@stryker-mutator/util@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@stryker-mutator/util/-/util-2.1.0.tgz#2f4cc2d14f8a4df221deb09fb3e2758f8ad200fd"
-  integrity sha512-J0DzkKEQU39dzfc4tO9crgW3tPOW0nuKIkEDtrDK2P8qQBRMZyP7Gla10LDQSqSYIBSAVzLKZgrin64s5g6KXA==
+"@stryker-mutator/util@^2.1.0", "@stryker-mutator/util@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@stryker-mutator/util/-/util-2.2.1.tgz#73d3de612342eb9788114bc8806c2015b0a0a592"
+  integrity sha512-wxb+pQPuwzUBRsfNYdIpve8cSWXMthP9oVTp5D9734blZ1ujWwgAbGfstPsFQZkC65qWbCYF51Eqfag3AmITeQ==
 
 "@szmarczak/http-timer@^1.1.2":
   version "1.1.2"
