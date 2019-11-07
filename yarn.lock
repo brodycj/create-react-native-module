@@ -310,10 +310,10 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
   integrity sha512-9NET910DNaIPngYnLLPeg+Ogzqsi9uM4mSboU5y6p8S5DzMTVEsJZrawi+BoDNUVBa2DhJqQYUFvMDfgU062LQ==
 
-"@stryker-mutator/api@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@stryker-mutator/api/-/api-2.1.0.tgz#488ac3bc22cbf08af73fa1a2fdac3bf53a806912"
-  integrity sha512-zas7PNOEFnepjT/OfTte2Tu6vQ5Q30ZGGRigBqY75fe7PJZXon/1cGyB+SS6nN29tlY29t5Err5zOFX/qtxf8g==
+"@stryker-mutator/api@^2.1.0", "@stryker-mutator/api@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@stryker-mutator/api/-/api-2.2.1.tgz#36f343f8c2c02a7465cf1feb3a3ae2af91f98ca3"
+  integrity sha512-XJc/2HOW+XGUO+zrKmUY2B5jsct+e8wz3234rAHm6qz3/njxLvzoWhNKFp/3Glagg26+TFTVsRoWuR/aNIS4UA==
   dependencies:
     mutation-testing-report-schema "^1.0.0"
     tslib "~1.10.0"
@@ -370,11 +370,11 @@
     tslib "~1.10.0"
 
 "@stryker-mutator/jest-runner@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@stryker-mutator/jest-runner/-/jest-runner-2.1.0.tgz#295aeacb7d45e4138351bac665a2e4a578cbbf96"
-  integrity sha512-Ogw9LQbvcbWfFA+aqIu6ZTdznTsf8Kst7QgA9qqX/7JuTtv0K23BjUD864FLJfTHIkOCclwa8SSynSNME4LO5A==
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@stryker-mutator/jest-runner/-/jest-runner-2.2.1.tgz#6c7a917a7f2c9f6e01fab6f9b01209569568928c"
+  integrity sha512-B6ocgPAfGt7JfPyg58ft+mw2OQoJqxp3+92zSr3IZgHgtWd1RTQrQ+ufOPQXL+U/TTW+8oWvtBfX9KQe3m0Zhw==
   dependencies:
-    "@stryker-mutator/api" "^2.1.0"
+    "@stryker-mutator/api" "^2.2.1"
     semver "~6.3.0"
 
 "@stryker-mutator/util@^2.1.0":
