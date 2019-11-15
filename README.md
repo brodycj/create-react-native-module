@@ -37,7 +37,7 @@ This tool based on [`react-native-create-library`](https://www.npmjs.com/package
 - Platform fork support
   - tvOS platform support
     - requires the [`react-native-tvos`](https://www.npmjs.com/package/react-native-tvos) fork (see discussion in [react-native-community/react-native-tvos#11](https://github.com/react-native-community/react-native-tvos/issues/11))
-    - unstable with very limited testing and no active support from the primary maintainer
+    - unstable with very limited testing, with limited if any active support from the primary maintainer [@brodybits](https://github.com/brodybits)
     - minimum react-native-tvos version is 0.60 (see [issue #95](https://github.com/brodybits/create-react-native-module/issues/95))
 - Out-of-tree platform support
   - Windows - unstable (not tested, see [issue #23](https://github.com/brodybits/create-react-native-module/issues/23)); now deprecated and may be removed in the near future (see [issue #43](https://github.com/brodybits/create-react-native-module/issues/43))
