@@ -299,10 +299,9 @@ repositories {
 }
 
 dependencies {
-    // ref:
-    // https://github.com/facebook/react-native/blob/0.61-stable/template/android/app/build.gradle#L192
+    // use \`react-native\` from \`node_modules\`:
     //noinspection GradleDynamicVersion
-    implementation 'com.facebook.react:react-native:+'  // From node_modules
+    implementation 'com.facebook.react:react-native:+'
 }
 
 def configureReactNativePom(def pom) {
