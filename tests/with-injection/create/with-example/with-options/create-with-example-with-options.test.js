@@ -9,6 +9,7 @@ test('create alice-bobbi module with example, with config options', () => {
 
   const options = {
     name: 'alice-bobbi',
+    tvosEnabled: true,
     githubAccount: 'alicebits',
     authorName: 'Alice',
     authorEmail: 'contact@alice.me',
@@ -16,7 +17,8 @@ test('create alice-bobbi module with example, with config options', () => {
     generateExample: true,
     exampleName: 'test-demo',
     exampleReactNativeVersion: 'react-native@0.60',
-    useCocoapods: true
+    useAppleNetworking: true,
+    writeExamplePodfile: true,
   };
 
   return lib(options, inject)

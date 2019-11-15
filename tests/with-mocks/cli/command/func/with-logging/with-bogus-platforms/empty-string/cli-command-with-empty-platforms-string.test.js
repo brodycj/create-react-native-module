@@ -23,7 +23,10 @@ global.console = {
     mockpushit({ info: [].concat(args) });
   },
   log: (...args) => {
-    mockpushit({ log: [].concat(args) });
+    mockpushit({
+      // TBD EXTRA WORKAROUND HACK for non-deterministic elapsed time in log
+      log: args.map(line => line.replace(/It took.*s/g, 'It took XXX'))
+    });
   },
   warn: (...args) => {
     mockpushit({ warn: [].concat(args) });
@@ -35,7 +38,7 @@ test(`create alice-bobbi module with logging, with platforms: ''`, async () => {
 
   const options = { platforms: '' };
 
-  func(args, null, options);
+  await func(args, null, options);
 
   expect(mysnap).toMatchSnapshot();
 });
