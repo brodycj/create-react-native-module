@@ -17,7 +17,7 @@ test('create alice-bobbi module with example, with config options', () => {
     generateExample: true,
     exampleName: 'test-demo',
     exampleReactNativeVersion: 'react-native@0.60',
-    useCocoapods: true
+    useAppleNetworking: true
   };
 
   return lib(options, inject)
