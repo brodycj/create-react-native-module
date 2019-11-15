@@ -10,11 +10,12 @@ test('create alice-bobbi module with config options for iOS only', () => {
   const options = {
     platforms: ['ios'],
     name: 'alice-bobbi',
+    tvosEnabled: true,
     githubAccount: 'alicebits',
     authorName: 'Alice',
     authorEmail: 'contact@alice.me',
     license: 'ISC',
-    useCocoapods: true
+    useAppleNetworking: true
   };
 
   return lib(options, inject)

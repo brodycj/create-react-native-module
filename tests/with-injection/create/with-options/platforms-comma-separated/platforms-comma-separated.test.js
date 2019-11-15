@@ -10,6 +10,7 @@ test('create alice-bobbi module with config options for android,ios comma separa
   const options = {
     platforms: 'android,ios',
     name: 'alice-bobbi',
+    tvosEnabled: true,
     githubAccount: 'alicebits',
     authorName: 'Alice',
     authorEmail: 'contact@alice.me',
