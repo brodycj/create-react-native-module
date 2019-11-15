@@ -32,7 +32,7 @@ Object {
     },
     Object {
       "command": "--tvos-enabled",
-      "description": "Generate the module with tvOS build enabled (requires iOS platform to be enabled)",
+      "description": "Generate the module with tvOS build enabled (requires iOS platform to be enabled and minimum react-native-tvos version is 0.60)",
     },
     Object {
       "command": "--github-account [githubAccount]",
