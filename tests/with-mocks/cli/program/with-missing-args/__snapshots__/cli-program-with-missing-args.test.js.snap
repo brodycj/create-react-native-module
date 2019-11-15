@@ -71,7 +71,7 @@ Array [
     "option": Object {
       "args": Array [
         "--tvos-enabled",
-        "Generate the module with tvOS build enabled (requires iOS platform to be enabled)",
+        "Generate the module with tvOS build enabled (requires react-native-tvos fork, with minimum version of 0.60, and iOS platform to be enabled)",
         [Function],
         undefined,
       ],
