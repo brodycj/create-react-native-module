@@ -18,9 +18,10 @@ Array [
   authorEmail: contact@alice.me
   license: ISC
   view: false
-  useCocoapods: false
+  useAppleNetworking: false
   generateExample: true
   exampleName: example
+  writeExamplePodfile: false
   ",
     ],
   },

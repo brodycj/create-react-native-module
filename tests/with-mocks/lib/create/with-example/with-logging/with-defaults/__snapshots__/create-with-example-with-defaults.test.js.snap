@@ -24,9 +24,10 @@ Array [
   authorEmail: yourname@email.com
   license: MIT
   view: false
-  useCocoapods: false
+  useAppleNetworking: false
   generateExample: true
   exampleName: example
+  writeExamplePodfile: false
   ",
     ],
   },

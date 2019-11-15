@@ -24,9 +24,10 @@ Array [
   authorEmail: yourname@email.com
   license: MIT
   view: false
-  useCocoapods: false
+  useAppleNetworking: false
   generateExample: false
   exampleName: example
+  writeExamplePodfile: false
   ",
     ],
   },
@@ -157,6 +158,9 @@ To build and run iOS example project, do:
 ----
 cd react-native-alice-bobbi/undefined
 yarn
+cd ios
+pod install # required starting with React Native 0.60
+cd ..
 react-native run-ios
 ----
 ",

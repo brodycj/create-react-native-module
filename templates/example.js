@@ -114,13 +114,13 @@ module.exports = [{
   })();
 `
 }, {
-  name: ({ useCocoapods, exampleName }) =>
-    useCocoapods ? `${exampleName}/ios/Podfile` : undefined,
+  name: ({ exampleName, writeExamplePodfile }) =>
+    writeExamplePodfile ? `${exampleName}/ios/Podfile` : undefined,
   content: ({ moduleName, exampleName }) => `platform :ios, '10.0'
 
 	target '${exampleName}' do
 		rn_path = '../node_modules/react-native'
-	
+
 		pod 'yoga', path: "#{rn_path}/ReactCommon/yoga/yoga.podspec"
 		pod 'DoubleConversion', :podspec => "#{rn_path}/third-party-podspecs/DoubleConversion.podspec"
 		pod 'Folly', :podspec => "#{rn_path}/third-party-podspecs/Folly.podspec"
@@ -144,7 +144,7 @@ module.exports = [{
 			'RCTGeolocation',
 			'DevSupport'
 		]
-	
+
 		pod '${moduleName}', :path => '../../${moduleName}.podspec'
 	end
 `,
