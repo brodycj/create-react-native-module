@@ -111,6 +111,7 @@ Options:
   --generate-example                        Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally
   --example-name <exampleName>              Name for the example project (default: `example`)
   --example-react-native-version <version>  React Native version for the generated example project (default: `react-native@0.59`)
+  --write-example-podfile                   [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile
   -h, --help                                output usage information
 ```
 
@@ -146,6 +147,7 @@ createLibraryModule({
   generateExample: Boolean, /* Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally (Default: false) */
   exampleName: String, /* Name for the example project (Default: `example`) */
   exampleReactNativeVersion: String, /* React Native version for the generated example project (Default: `react-native@0.59`) */
+  writeExamplePodfile: Boolean, /* [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile (Default: false) */
 }
 ```
 

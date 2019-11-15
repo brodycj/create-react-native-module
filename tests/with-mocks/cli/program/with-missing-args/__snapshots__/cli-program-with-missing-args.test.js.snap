@@ -168,6 +168,16 @@ Array [
     },
   },
   Object {
+    "option": Object {
+      "args": Array [
+        "--write-example-podfile",
+        "[iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
     "parse": Object {
       "argv": Array [
         "node",

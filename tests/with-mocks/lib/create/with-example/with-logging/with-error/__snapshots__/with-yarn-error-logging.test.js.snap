@@ -27,6 +27,7 @@ Array [
   useAppleNetworking: false
   generateExample: true
   exampleName: example
+  writeExamplePodfile: false
   ",
     ],
   },

@@ -76,6 +76,10 @@ Object {
       "default": "react-native@0.59",
       "description": "React Native version for the generated example project",
     },
+    Object {
+      "command": "--write-example-podfile",
+      "description": "[iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile",
+    },
   ],
   "usage": "[options] <name>",
 }

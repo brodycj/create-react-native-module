@@ -22,5 +22,6 @@ Options:
   --generate-example                                          Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally
   --example-name [exampleName]                                Name for the example project (default: \\"example\\")
   --example-react-native-version [exampleReactNativeVersion]  React Native version for the generated example project (default: \\"react-native@0.59\\")
+  --write-example-podfile                                     [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile
   -h, --help                                                  output usage information"
 `;
