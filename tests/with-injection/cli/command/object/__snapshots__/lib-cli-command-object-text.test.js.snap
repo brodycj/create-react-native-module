@@ -23,7 +23,7 @@ Object {
     Object {
       "command": "--package-identifier [packageIdentifier]",
       "default": "com.reactlibrary",
-      "description": "(Android only!) The package name for the Android module",
+      "description": "[Android] The Java package identifier used by the Android module",
     },
     Object {
       "command": "--platforms <platforms>",
@@ -60,7 +60,7 @@ Object {
     },
     Object {
       "command": "--use-cocoapods",
-      "description": "Generate a library with a sample podspec and third party pod usage example",
+      "description": "[iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: Use \`AFNetworking\` dependency as a sample in the podspec; use it from the iOS code & add \`ios/Podfile\` to generated example",
     },
     Object {
       "command": "--generate-example",
