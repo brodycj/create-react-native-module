@@ -18,6 +18,7 @@ Array [
   modulePrefix: react-native
   packageIdentifier: com.reactlibrary
   platforms: android,ios
+  tvosEnabled: false
   githubAccount: github_account
   authorName: Your Name
   authorEmail: yourname@email.com
@@ -46,9 +47,9 @@ Array [
     "error": Array [
       "Error: ENOPERM not permitted
     at Object.ensureDir (.../tests/with-mocks/cli/command/func/with-logging/with-error/cli-command-with-logging-with-error.test.js:9:27)
-    at ensureDir (.../lib/lib.js:147:15)
-    at generateLibraryModule (.../lib/lib.js:240:10)
-    at generateWithNormalizedOptions (.../lib/lib.js:257:10)
+    at ensureDir (.../lib/lib.js:149:15)
+    at generateLibraryModule (.../lib/lib.js:243:10)
+    at generateWithNormalizedOptions (.../lib/lib.js:260:10)
     at createLibraryModule (.../lib/cli-command.js:...
     at Object.func (.../tests/with-mocks/cli/command/func/with-logging/with-error/cli-command-with-logging-with-error.test.js:62:9)
     ",

@@ -10,6 +10,7 @@ test('create alice-bobbi view module with config options for iOS only', () => {
   const options = {
     platforms: ['ios'],
     name: 'alice-bobbi',
+    tvosEnabled: true,
     githubAccount: 'alicebits',
     authorName: 'Alice',
     authorEmail: 'contact@alice.me',

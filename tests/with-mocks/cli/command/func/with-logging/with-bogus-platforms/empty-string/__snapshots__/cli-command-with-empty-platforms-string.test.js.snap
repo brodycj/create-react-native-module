@@ -18,6 +18,7 @@ Array [
   modulePrefix: react-native
   packageIdentifier: com.reactlibrary
   platforms: 
+  tvosEnabled: false
   githubAccount: github_account
   authorName: Your Name
   authorEmail: yourname@email.com
