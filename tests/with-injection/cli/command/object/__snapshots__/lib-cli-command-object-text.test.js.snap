@@ -31,6 +31,10 @@ Object {
       "description": "Platforms the library module will be created for - comma separated",
     },
     Object {
+      "command": "--tvos-enabled",
+      "description": "Generate the module with tvOS build enabled (requires react-native-tvos fork, with minimum version of 0.60, and iOS platform to be enabled)",
+    },
+    Object {
       "command": "--github-account [githubAccount]",
       "default": "github_account",
       "description": "The github account where the library module is hosted",

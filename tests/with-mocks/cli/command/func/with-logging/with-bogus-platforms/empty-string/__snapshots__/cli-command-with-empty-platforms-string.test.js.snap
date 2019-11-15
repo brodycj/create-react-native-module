@@ -18,6 +18,7 @@ Array [
   modulePrefix: react-native
   packageIdentifier: com.reactlibrary
   platforms: 
+  tvosEnabled: false
   githubAccount: github_account
   authorName: Your Name
   authorEmail: yourname@email.com
@@ -66,10 +67,6 @@ Array [
 ### Mostly automatic installation
 
 \`$ react-native link react-native-alice-bobbi\`
-
-### Manual installation
-
-
 
 ## Usage
 \`\`\`javascript
