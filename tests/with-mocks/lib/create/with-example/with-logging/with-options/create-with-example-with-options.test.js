@@ -52,6 +52,7 @@ test('create alice-bobbi module using mocked lib with logging, with example, for
     name: 'alice-bobbi',
     prefix: 'ABC',
     packageIdentifier: 'com.alicebits',
+    tvosEnabled: true,
     githubAccount: 'alicebits',
     authorName: 'Alice',
     authorEmail: 'contact@alice.me',

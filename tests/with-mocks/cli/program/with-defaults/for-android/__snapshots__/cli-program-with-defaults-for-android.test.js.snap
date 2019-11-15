@@ -53,7 +53,7 @@ Array [
     "option": Object {
       "args": Array [
         "--package-identifier [packageIdentifier]",
-        "(Android only!) The package name for the Android module",
+        "[Android] The Java package identifier used by the Android module",
         [Function],
         "com.reactlibrary",
       ],
@@ -66,6 +66,16 @@ Array [
         "Platforms the library module will be created for - comma separated",
         [Function],
         "ios,android",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--tvos-enabled",
+        "Generate the module with tvOS build enabled (requires react-native-tvos fork, with minimum version of 0.60, and iOS platform to be enabled)",
+        [Function],
+        undefined,
       ],
     },
   },
@@ -122,8 +132,8 @@ Array [
   Object {
     "option": Object {
       "args": Array [
-        "--use-cocoapods",
-        "Generate a library with a sample podspec and third party pod usage example",
+        "--use-apple-networking",
+        "[iOS] Use \`AFNetworking\` dependency as a sample in the podspec & use it from the iOS code",
         [Function],
         undefined,
       ],
@@ -156,6 +166,16 @@ Array [
         "React Native version for the generated example project",
         [Function],
         "react-native@0.59",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--write-example-podfile",
+        "[iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile",
+        [Function],
+        undefined,
       ],
     },
   },
@@ -215,25 +235,6 @@ Array [
 ### Mostly automatic installation
 
 \`$ react-native link react-native-test-package\`
-
-### Manual installation
-
-
-#### Android
-
-1. Open up \`android/app/src/main/java/[...]/MainApplication.java\`
-  - Add \`import com.reactlibrary.TestPackagePackage;\` to the imports at the top of the file
-  - Add \`new TestPackagePackage()\` to the list returned by the \`getPackages()\` method
-2. Append the following lines to \`android/settings.gradle\`:
-  	\`\`\`
-  	include ':react-native-test-package'
-  	project(':react-native-test-package').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-test-package/android')
-  	\`\`\`
-3. Insert the following lines inside the dependencies block in \`android/app/build.gradle\`:
-  	\`\`\`
-      compile project(':react-native-test-package')
-  	\`\`\`
-
 
 ## Usage
 \`\`\`javascript

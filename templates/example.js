@@ -114,8 +114,8 @@ module.exports = [{
   })();
 `
 }, {
-  name: ({ useCocoapods, exampleName }) =>
-    useCocoapods ? `${exampleName}/ios/Podfile` : undefined,
+  name: ({ exampleName, writeExamplePodfile }) =>
+    writeExamplePodfile ? `${exampleName}/ios/Podfile` : undefined,
   content: ({ moduleName, exampleName }) => `platform :ios, '10.0'
 
 	target '${exampleName}' do
