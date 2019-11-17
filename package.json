@@ -43,7 +43,6 @@
     "commander": "^3.0.1",
     "execa": "^3.3.0",
     "fs-extra": "^8.1.0",
-    "gulp": "^4.0.2",
     "jsonfile": "^5.0.0",
     "node-emoji": "^1.10.0",
     "param-case": "^2.1.1",
