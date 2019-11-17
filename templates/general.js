@@ -25,6 +25,8 @@ module.exports = [{
 }, {
   name: () => 'package.json',
   content: ({ moduleName, platforms, githubAccount, authorName, authorEmail, license }) => {
+    // NOTE: placeholder template in templates/common/package.json
+    // is ignored and completely overwritten for now.
     const withWindows = platforms.indexOf('windows') >= 0;
 
     const peerDependencies =

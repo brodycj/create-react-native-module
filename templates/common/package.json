@@ -1,0 +1,12 @@
+{
+  "name": "placeholder",
+  "version": "1.0.0",
+  "description": "placeholder for generated package.json ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "TBD",
+  "license": "TBD"
+}
