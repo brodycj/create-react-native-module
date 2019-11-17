@@ -96,7 +96,7 @@ export default ${name};
 }, {
   name: () => '.gitignore',
   content: ({ platforms }) => {
-    let content = `# OSX
+    return `# OSX
 #
 .DS_Store
 
@@ -105,11 +105,7 @@ export default ${name};
 node_modules/
 npm-debug.log
 yarn-error.log
-`;
 
-    if (platforms.indexOf('ios') >= 0) {
-      content +=
-        `
 # Xcode
 #
 build/
@@ -129,12 +125,7 @@ DerivedData
 *.ipa
 *.xcuserstate
 project.xcworkspace
-`;
-    }
 
-    if (platforms.indexOf('android') >= 0) {
-      content +=
-        `
 # Android/IntelliJ
 #
 build/
@@ -148,18 +139,11 @@ buck-out/
 \\.buckd/
 *.keystore
 `;
-    }
-
-    return content;
   },
 }, {
   name: () => '.gitattributes',
   content: ({ platforms }) => {
-    if (platforms.indexOf('ios') >= 0) {
-      return '*.pbxproj -text\n';
-    }
-
-    return '';
+    return '*.pbxproj -text\n';
   }
 }, {
   name: () => '.npmignore',

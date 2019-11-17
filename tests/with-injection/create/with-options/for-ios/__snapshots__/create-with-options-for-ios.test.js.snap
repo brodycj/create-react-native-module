@@ -132,6 +132,19 @@ DerivedData
 *.xcuserstate
 project.xcworkspace
 
+# Android/IntelliJ
+#
+build/
+.idea
+.gradle
+local.properties
+*.iml
+
+# BUCK
+buck-out/
+\\\\.buckd/
+*.keystore
+
 <<<<<<<< ======== >>>>>>>>
 ",
   "* outputFile name: react-native-alice-bobbi/.gitattributes
