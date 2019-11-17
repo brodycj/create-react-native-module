@@ -59,19 +59,19 @@ buck-out/
   },
   Object {
     "name": "react-native-integration-test-package/README.md",
-    "theContent": "# react-native-integration-test-package
+    "theContent": "# react-native-integration-test-package-tmp
 
 ## Getting started
 
-\`$ npm install react-native-integration-test-package --save\`
+\`$ npm install react-native-integration-test-package-tmp --save\`
 
 ### Mostly automatic installation
 
-\`$ react-native link react-native-integration-test-package\`
+\`$ react-native link react-native-integration-test-package-tmp\`
 
 ## Usage
 \`\`\`javascript
-import IntegrationTestPackage from 'react-native-integration-test-package';
+import IntegrationTestPackage from 'react-native-integration-test-package-tmp';
 
 // TODO: What to do with the module?
 IntegrationTestPackage;
@@ -638,8 +638,8 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
   Object {
     "name": "react-native-integration-test-package/package.json",
     "theContent": "{
-  \\"name\\": \\"react-native-integration-test-package\\",
-  \\"title\\": \\"React Native Integration Test Package\\",
+  \\"name\\": \\"react-native-integration-test-package-tmp\\",
+  \\"title\\": \\"React Native Integration Test Package Tmp\\",
   \\"version\\": \\"1.0.0\\",
   \\"description\\": \\"TODO\\",
   \\"main\\": \\"index.js\\",
@@ -648,8 +648,8 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
   },
   \\"repository\\": {
     \\"type\\": \\"git\\",
-    \\"url\\": \\"git+https://github.com/github_account/react-native-integration-test-package.git\\",
-    \\"baseUrl\\": \\"https://github.com/github_account/react-native-integration-test-package\\"
+    \\"url\\": \\"git+https://github.com/github_account/react-native-integration-test-package-tmp.git\\",
+    \\"baseUrl\\": \\"https://github.com/github_account/react-native-integration-test-package-tmp\\"
   },
   \\"keywords\\": [
     \\"react-native\\"
@@ -673,24 +673,24 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 ",
   },
   Object {
-    "name": "react-native-integration-test-package/react-native-integration-test-package.podspec",
+    "name": "react-native-integration-test-package/react-native-integration-test-package-tmp.podspec",
     "theContent": "require \\"json\\"
 
 package = JSON.parse(File.read(File.join(__dir__, \\"package.json\\")))
 
 Pod::Spec.new do |s|
-  s.name         = \\"react-native-integration-test-package\\"
+  s.name         = \\"react-native-integration-test-package-tmp\\"
   s.version      = package[\\"version\\"]
   s.summary      = package[\\"description\\"]
   s.description  = <<-DESC
-                  react-native-integration-test-package
+                  react-native-integration-test-package-tmp
                    DESC
-  s.homepage     = \\"https://github.com/github_account/react-native-integration-test-package\\"
+  s.homepage     = \\"https://github.com/github_account/react-native-integration-test-package-tmp\\"
   s.license      = \\"MIT\\"
   # s.license    = { :type => \\"MIT\\", :file => \\"FILE_LICENSE\\" }
   s.authors      = { \\"Your Name\\" => \\"yourname@email.com\\" }
   s.platforms    = { :ios => \\"9.0\\" }
-  s.source       = { :git => \\"https://github.com/github_account/react-native-integration-test-package.git\\", :tag => \\"#{s.version}\\" }
+  s.source       = { :git => \\"https://github.com/github_account/react-native-integration-test-package-tmp.git\\", :tag => \\"#{s.version}\\" }
 
   s.source_files = \\"ios/**/*.{h,m,swift}\\"
   s.requires_arc = true

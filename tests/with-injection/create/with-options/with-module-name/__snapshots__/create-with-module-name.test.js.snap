@@ -2,56 +2,56 @@
 
 exports[`create alice-bobbi module with moduleName: 'custom-native-module' 1`] = `
 Array [
-  "* ensureDir dir: custom-native-module
+  "* ensureDir dir: custom-native-module-tmp
 ",
-  "* ensureDir dir: custom-native-module/
+  "* ensureDir dir: custom-native-module-tmp/
 ",
-  "* ensureDir dir: custom-native-module/
+  "* ensureDir dir: custom-native-module-tmp/
 ",
-  "* ensureDir dir: custom-native-module/
+  "* ensureDir dir: custom-native-module-tmp/
 ",
-  "* ensureDir dir: custom-native-module/
+  "* ensureDir dir: custom-native-module-tmp/
 ",
-  "* ensureDir dir: custom-native-module/
+  "* ensureDir dir: custom-native-module-tmp/
 ",
-  "* ensureDir dir: custom-native-module/
+  "* ensureDir dir: custom-native-module-tmp/
 ",
-  "* ensureDir dir: custom-native-module/android/
+  "* ensureDir dir: custom-native-module-tmp/android/
 ",
-  "* ensureDir dir: custom-native-module/android/src/main/
+  "* ensureDir dir: custom-native-module-tmp/android/src/main/
 ",
-  "* ensureDir dir: custom-native-module/android/src/main/java/com/reactlibrary/
+  "* ensureDir dir: custom-native-module-tmp/android/src/main/java/com/reactlibrary/
 ",
-  "* ensureDir dir: custom-native-module/android/src/main/java/com/reactlibrary/
+  "* ensureDir dir: custom-native-module-tmp/android/src/main/java/com/reactlibrary/
 ",
-  "* ensureDir dir: custom-native-module/android/
+  "* ensureDir dir: custom-native-module-tmp/android/
 ",
-  "* ensureDir dir: custom-native-module/
+  "* ensureDir dir: custom-native-module-tmp/
 ",
-  "* ensureDir dir: custom-native-module/ios/
+  "* ensureDir dir: custom-native-module-tmp/ios/
 ",
-  "* ensureDir dir: custom-native-module/ios/
+  "* ensureDir dir: custom-native-module-tmp/ios/
 ",
-  "* ensureDir dir: custom-native-module/ios/AliceBobbi.xcworkspace/
+  "* ensureDir dir: custom-native-module-tmp/ios/AliceBobbi.xcworkspace/
 ",
-  "* ensureDir dir: custom-native-module/ios/AliceBobbi.xcodeproj/
+  "* ensureDir dir: custom-native-module-tmp/ios/AliceBobbi.xcodeproj/
 ",
-  "* outputFile name: custom-native-module/README.md
+  "* outputFile name: custom-native-module-tmp/README.md
 content:
 --------
-# custom-native-module
+# custom-native-module-tmp
 
 ## Getting started
 
-\`$ npm install custom-native-module --save\`
+\`$ npm install custom-native-module-tmp --save\`
 
 ### Mostly automatic installation
 
-\`$ react-native link custom-native-module\`
+\`$ react-native link custom-native-module-tmp\`
 
 ## Usage
 \`\`\`javascript
-import AliceBobbi from 'custom-native-module';
+import AliceBobbi from 'custom-native-module-tmp';
 
 // TODO: What to do with the module?
 AliceBobbi;
@@ -59,12 +59,12 @@ AliceBobbi;
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-module/package.json
+  "* outputFile name: custom-native-module-tmp/package.json
 content:
 --------
 {
-  \\"name\\": \\"custom-native-module\\",
-  \\"title\\": \\"Custom Native Module\\",
+  \\"name\\": \\"custom-native-module-tmp\\",
+  \\"title\\": \\"Custom Native Module Tmp\\",
   \\"version\\": \\"1.0.0\\",
   \\"description\\": \\"TODO\\",
   \\"main\\": \\"index.js\\",
@@ -73,8 +73,8 @@ content:
   },
   \\"repository\\": {
     \\"type\\": \\"git\\",
-    \\"url\\": \\"git+https://github.com/github_account/custom-native-module.git\\",
-    \\"baseUrl\\": \\"https://github.com/github_account/custom-native-module\\"
+    \\"url\\": \\"git+https://github.com/github_account/custom-native-module-tmp.git\\",
+    \\"baseUrl\\": \\"https://github.com/github_account/custom-native-module-tmp\\"
   },
   \\"keywords\\": [
     \\"react-native\\"
@@ -98,7 +98,7 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-module/index.js
+  "* outputFile name: custom-native-module-tmp/index.js
 content:
 --------
 import { NativeModules } from 'react-native';
@@ -109,7 +109,7 @@ export default AliceBobbi;
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-module/.gitignore
+  "* outputFile name: custom-native-module-tmp/.gitignore
 content:
 --------
 # OSX
@@ -157,20 +157,20 @@ buck-out/
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-module/.gitattributes
+  "* outputFile name: custom-native-module-tmp/.gitattributes
 content:
 --------
 *.pbxproj -text
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-module/.npmignore
+  "* outputFile name: custom-native-module-tmp/.npmignore
 content:
 --------
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-module/android/build.gradle
+  "* outputFile name: custom-native-module-tmp/android/build.gradle
 content:
 --------
 // android/build.gradle
@@ -323,7 +323,7 @@ afterEvaluate { project ->
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-module/android/src/main/AndroidManifest.xml
+  "* outputFile name: custom-native-module-tmp/android/src/main/AndroidManifest.xml
 content:
 --------
 <manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
@@ -333,7 +333,7 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-module/android/src/main/java/com/reactlibrary/AliceBobbiModule.java
+  "* outputFile name: custom-native-module-tmp/android/src/main/java/com/reactlibrary/AliceBobbiModule.java
 content:
 --------
 package com.reactlibrary;
@@ -366,7 +366,7 @@ public class AliceBobbiModule extends ReactContextBaseJavaModule {
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-module/android/src/main/java/com/reactlibrary/AliceBobbiPackage.java
+  "* outputFile name: custom-native-module-tmp/android/src/main/java/com/reactlibrary/AliceBobbiPackage.java
 content:
 --------
 package com.reactlibrary;
@@ -395,7 +395,7 @@ public class AliceBobbiPackage implements ReactPackage {
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-module/android/README.md
+  "* outputFile name: custom-native-module-tmp/android/README.md
 content:
 --------
 README
@@ -415,7 +415,7 @@ sdk.dir=/Users/{username}/Library/Android/sdk
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-module/custom-native-module.podspec
+  "* outputFile name: custom-native-module-tmp/custom-native-module-tmp.podspec
 content:
 --------
 require \\"json\\"
@@ -423,18 +423,18 @@ require \\"json\\"
 package = JSON.parse(File.read(File.join(__dir__, \\"package.json\\")))
 
 Pod::Spec.new do |s|
-  s.name         = \\"custom-native-module\\"
+  s.name         = \\"custom-native-module-tmp\\"
   s.version      = package[\\"version\\"]
   s.summary      = package[\\"description\\"]
   s.description  = <<-DESC
-                  custom-native-module
+                  custom-native-module-tmp
                    DESC
-  s.homepage     = \\"https://github.com/github_account/custom-native-module\\"
+  s.homepage     = \\"https://github.com/github_account/custom-native-module-tmp\\"
   s.license      = \\"MIT\\"
   # s.license    = { :type => \\"MIT\\", :file => \\"FILE_LICENSE\\" }
   s.authors      = { \\"Your Name\\" => \\"yourname@email.com\\" }
   s.platforms    = { :ios => \\"9.0\\" }
-  s.source       = { :git => \\"https://github.com/github_account/custom-native-module.git\\", :tag => \\"#{s.version}\\" }
+  s.source       = { :git => \\"https://github.com/github_account/custom-native-module-tmp.git\\", :tag => \\"#{s.version}\\" }
 
   s.source_files = \\"ios/**/*.{h,m,swift}\\"
   s.requires_arc = true
@@ -447,7 +447,7 @@ end
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-module/ios/AliceBobbi.h
+  "* outputFile name: custom-native-module-tmp/ios/AliceBobbi.h
 content:
 --------
 #import <React/RCTBridgeModule.h>
@@ -458,7 +458,7 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-module/ios/AliceBobbi.m
+  "* outputFile name: custom-native-module-tmp/ios/AliceBobbi.m
 content:
 --------
 #import \\"AliceBobbi.h\\"
@@ -478,7 +478,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-module/ios/AliceBobbi.xcworkspace/contents.xcworkspacedata
+  "* outputFile name: custom-native-module-tmp/ios/AliceBobbi.xcworkspace/contents.xcworkspacedata
 content:
 --------
 <?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
@@ -491,7 +491,7 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-module/ios/AliceBobbi.xcodeproj/project.pbxproj
+  "* outputFile name: custom-native-module-tmp/ios/AliceBobbi.xcodeproj/project.pbxproj
 content:
 --------
 // !$*UTF8*$!

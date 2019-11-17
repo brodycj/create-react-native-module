@@ -69,71 +69,71 @@ Array [
     ],
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi",
+    "ensureDir": "react-native-alice-bobbi-tmp",
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/",
+    "ensureDir": "react-native-alice-bobbi-tmp/",
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/",
+    "ensureDir": "react-native-alice-bobbi-tmp/",
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/",
+    "ensureDir": "react-native-alice-bobbi-tmp/",
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/",
+    "ensureDir": "react-native-alice-bobbi-tmp/",
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/",
+    "ensureDir": "react-native-alice-bobbi-tmp/",
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/",
+    "ensureDir": "react-native-alice-bobbi-tmp/",
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/android/",
+    "ensureDir": "react-native-alice-bobbi-tmp/android/",
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/android/src/main/",
+    "ensureDir": "react-native-alice-bobbi-tmp/android/src/main/",
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/android/src/main/java/com/reactlibrary/",
+    "ensureDir": "react-native-alice-bobbi-tmp/android/src/main/java/com/reactlibrary/",
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/android/src/main/java/com/reactlibrary/",
+    "ensureDir": "react-native-alice-bobbi-tmp/android/src/main/java/com/reactlibrary/",
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/android/",
+    "ensureDir": "react-native-alice-bobbi-tmp/android/",
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/",
+    "ensureDir": "react-native-alice-bobbi-tmp/",
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/ios/",
+    "ensureDir": "react-native-alice-bobbi-tmp/ios/",
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/ios/",
+    "ensureDir": "react-native-alice-bobbi-tmp/ios/",
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/ios/AliceBobbi.xcworkspace/",
+    "ensureDir": "react-native-alice-bobbi-tmp/ios/AliceBobbi.xcworkspace/",
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/ios/AliceBobbi.xcodeproj/",
+    "ensureDir": "react-native-alice-bobbi-tmp/ios/AliceBobbi.xcodeproj/",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/README.md",
-    "theContent": "# react-native-alice-bobbi
+    "outputFileName": "react-native-alice-bobbi-tmp/README.md",
+    "theContent": "# react-native-alice-bobbi-tmp
 
 ## Getting started
 
-\`$ npm install react-native-alice-bobbi --save\`
+\`$ npm install react-native-alice-bobbi-tmp --save\`
 
 ### Mostly automatic installation
 
-\`$ react-native link react-native-alice-bobbi\`
+\`$ react-native link react-native-alice-bobbi-tmp\`
 
 ## Usage
 \`\`\`javascript
-import AliceBobbi from 'react-native-alice-bobbi';
+import AliceBobbi from 'react-native-alice-bobbi-tmp';
 
 // TODO: What to do with the module?
 AliceBobbi;
@@ -141,10 +141,10 @@ AliceBobbi;
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/package.json",
+    "outputFileName": "react-native-alice-bobbi-tmp/package.json",
     "theContent": "{
-  \\"name\\": \\"react-native-alice-bobbi\\",
-  \\"title\\": \\"React Native Alice Bobbi\\",
+  \\"name\\": \\"react-native-alice-bobbi-tmp\\",
+  \\"title\\": \\"React Native Alice Bobbi Tmp\\",
   \\"version\\": \\"1.0.0\\",
   \\"description\\": \\"TODO\\",
   \\"main\\": \\"index.js\\",
@@ -153,8 +153,8 @@ AliceBobbi;
   },
   \\"repository\\": {
     \\"type\\": \\"git\\",
-    \\"url\\": \\"git+https://github.com/github_account/react-native-alice-bobbi.git\\",
-    \\"baseUrl\\": \\"https://github.com/github_account/react-native-alice-bobbi\\"
+    \\"url\\": \\"git+https://github.com/github_account/react-native-alice-bobbi-tmp.git\\",
+    \\"baseUrl\\": \\"https://github.com/github_account/react-native-alice-bobbi-tmp\\"
   },
   \\"keywords\\": [
     \\"react-native\\"
@@ -178,7 +178,7 @@ AliceBobbi;
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/index.js",
+    "outputFileName": "react-native-alice-bobbi-tmp/index.js",
     "theContent": "import { NativeModules } from 'react-native';
 
 const { AliceBobbi } = NativeModules;
@@ -187,7 +187,7 @@ export default AliceBobbi;
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/.gitignore",
+    "outputFileName": "react-native-alice-bobbi-tmp/.gitignore",
     "theContent": "# OSX
 #
 .DS_Store
@@ -233,17 +233,17 @@ buck-out/
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/.gitattributes",
+    "outputFileName": "react-native-alice-bobbi-tmp/.gitattributes",
     "theContent": "*.pbxproj -text
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/.npmignore",
+    "outputFileName": "react-native-alice-bobbi-tmp/.npmignore",
     "theContent": "example
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/android/build.gradle",
+    "outputFileName": "react-native-alice-bobbi-tmp/android/build.gradle",
     "theContent": "// android/build.gradle
 
 // based on:
@@ -394,7 +394,7 @@ afterEvaluate { project ->
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/android/src/main/AndroidManifest.xml",
+    "outputFileName": "react-native-alice-bobbi-tmp/android/src/main/AndroidManifest.xml",
     "theContent": "<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
           package=\\"com.reactlibrary\\">
 
@@ -402,7 +402,7 @@ afterEvaluate { project ->
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiModule.java",
+    "outputFileName": "react-native-alice-bobbi-tmp/android/src/main/java/com/reactlibrary/AliceBobbiModule.java",
     "theContent": "package com.reactlibrary;
 
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -433,7 +433,7 @@ public class AliceBobbiModule extends ReactContextBaseJavaModule {
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiPackage.java",
+    "outputFileName": "react-native-alice-bobbi-tmp/android/src/main/java/com/reactlibrary/AliceBobbiPackage.java",
     "theContent": "package com.reactlibrary;
 
 import java.util.Arrays;
@@ -460,7 +460,7 @@ public class AliceBobbiPackage implements ReactPackage {
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/android/README.md",
+    "outputFileName": "react-native-alice-bobbi-tmp/android/README.md",
     "theContent": "README
 ======
 
@@ -478,24 +478,24 @@ sdk.dir=/Users/{username}/Library/Android/sdk
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/react-native-alice-bobbi.podspec",
+    "outputFileName": "react-native-alice-bobbi-tmp/react-native-alice-bobbi-tmp.podspec",
     "theContent": "require \\"json\\"
 
 package = JSON.parse(File.read(File.join(__dir__, \\"package.json\\")))
 
 Pod::Spec.new do |s|
-  s.name         = \\"react-native-alice-bobbi\\"
+  s.name         = \\"react-native-alice-bobbi-tmp\\"
   s.version      = package[\\"version\\"]
   s.summary      = package[\\"description\\"]
   s.description  = <<-DESC
-                  react-native-alice-bobbi
+                  react-native-alice-bobbi-tmp
                    DESC
-  s.homepage     = \\"https://github.com/github_account/react-native-alice-bobbi\\"
+  s.homepage     = \\"https://github.com/github_account/react-native-alice-bobbi-tmp\\"
   s.license      = \\"MIT\\"
   # s.license    = { :type => \\"MIT\\", :file => \\"FILE_LICENSE\\" }
   s.authors      = { \\"Your Name\\" => \\"yourname@email.com\\" }
   s.platforms    = { :ios => \\"9.0\\" }
-  s.source       = { :git => \\"https://github.com/github_account/react-native-alice-bobbi.git\\", :tag => \\"#{s.version}\\" }
+  s.source       = { :git => \\"https://github.com/github_account/react-native-alice-bobbi-tmp.git\\", :tag => \\"#{s.version}\\" }
 
   s.source_files = \\"ios/**/*.{h,m,swift}\\"
   s.requires_arc = true
@@ -508,7 +508,7 @@ end
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/ios/AliceBobbi.h",
+    "outputFileName": "react-native-alice-bobbi-tmp/ios/AliceBobbi.h",
     "theContent": "#import <React/RCTBridgeModule.h>
 
 @interface AliceBobbi : NSObject <RCTBridgeModule>
@@ -517,7 +517,7 @@ end
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/ios/AliceBobbi.m",
+    "outputFileName": "react-native-alice-bobbi-tmp/ios/AliceBobbi.m",
     "theContent": "#import \\"AliceBobbi.h\\"
 
 
@@ -535,7 +535,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/ios/AliceBobbi.xcworkspace/contents.xcworkspacedata",
+    "outputFileName": "react-native-alice-bobbi-tmp/ios/AliceBobbi.xcworkspace/contents.xcworkspacedata",
     "theContent": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
 <Workspace
    version = \\"1.0\\">
@@ -546,7 +546,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/ios/AliceBobbi.xcodeproj/project.pbxproj",
+    "outputFileName": "react-native-alice-bobbi-tmp/ios/AliceBobbi.xcodeproj/project.pbxproj",
     "theContent": "// !$*UTF8*$!
 {
 	archiveVersion = 1;
