@@ -81,13 +81,13 @@ module.exports = [{
 }, {
   // for module without view:
   name: ({ view }) => !view && 'index.js',
-  content: ({ name }) =>
-    `import { NativeModules } from 'react-native';
+  content: ({ name }) => {
+    // FUTURE TBD async:
+    const content = fs.readFileSync(`${rootPath}/templates/library/index.js`);
 
-const { ${name} } = NativeModules;
-
-export default ${name};
-`,
+    return (`${content}`
+      .replace(/MyNativeModuleName/g, name));
+  }
 }, {
   // for module with view:
   name: ({ view }) => view && 'index.js',
