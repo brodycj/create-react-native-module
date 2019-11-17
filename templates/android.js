@@ -1,3 +1,17 @@
+const fs = require('fs');
+
+const path = require('path');
+
+// FUTURE TBD consider making more reusable utility function or package
+
+// THANKS for *partial* guidance:
+// https://stackoverflow.com/questions/12752622/require-file-as-string/12753026#12753026
+const packageJsonPath = require.resolve('../package.json');
+
+// THANKS for guidance:
+// https://stackoverflow.com/questions/42956127/get-parent-directory-name-in-node-js/43779639#43779639
+const rootPath = path.dirname(packageJsonPath);
+
 module.exports = platform => [{
   name: () => `${platform}/build.gradle`,
   content: ({ packageIdentifier }) => `// ${platform}/build.gradle
@@ -150,11 +164,13 @@ afterEvaluate { project ->
 `,
 }, {
   name: () => `${platform}/src/main/AndroidManifest.xml`,
-  content: ({ packageIdentifier }) => `<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="${packageIdentifier}">
+  content: ({ packageIdentifier }) => {
+    // FUTURE TBD async:
+    const content = fs.readFileSync(`${rootPath}/templates/common/android/src/main/AndroidManifest.xml`);
 
-</manifest>
-`,
+    return (`${content}`
+      .replace(/packageIdentifier/g, packageIdentifier));
+  }
 }, {
   // for module without view:
   name: ({ packageIdentifier, name, view }) =>
