@@ -101,54 +101,16 @@ module.exports = [{
 }, {
   name: () => '.gitignore',
   content: ({ platforms }) => {
-    return `# OSX
-#
-.DS_Store
-
-# node.js
-#
-node_modules/
-npm-debug.log
-yarn-error.log
-
-# Xcode
-#
-build/
-*.pbxuser
-!default.pbxuser
-*.mode1v3
-!default.mode1v3
-*.mode2v3
-!default.mode2v3
-*.perspectivev3
-!default.perspectivev3
-xcuserdata
-*.xccheckout
-*.moved-aside
-DerivedData
-*.hmap
-*.ipa
-*.xcuserstate
-project.xcworkspace
-
-# Android/IntelliJ
-#
-build/
-.idea
-.gradle
-local.properties
-*.iml
-
-# BUCK
-buck-out/
-\\.buckd/
-*.keystore
-`;
+    // FUTURE TBD async:
+    const content = fs.readFileSync(`${rootPath}/templates/common/.gitignore`);
+    return `${content}`;
   },
 }, {
   name: () => '.gitattributes',
-  content: ({ platforms }) => {
-    return '*.pbxproj -text\n';
+  content: () => {
+    // FUTURE TBD async:
+    const content = fs.readFileSync(`${rootPath}/templates/common/.gitattributes`);
+    return `${content}`;
   }
 }, {
   name: () => '.npmignore',
