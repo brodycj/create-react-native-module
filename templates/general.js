@@ -91,13 +91,13 @@ module.exports = [{
 }, {
   // for module with view:
   name: ({ view }) => view && 'index.js',
-  content: ({ name }) =>
-    `import { requireNativeComponent } from 'react-native';
+  content: ({ name }) => {
+    // FUTURE TBD async:
+    const content = fs.readFileSync(`${rootPath}/templates/view/index.js`);
 
-const ${name} = requireNativeComponent('${name}', null);
-
-export default ${name};
-`,
+    return (`${content}`
+      .replace(/MyNativeModuleName/g, name));
+  }
 }, {
   name: () => '.gitignore',
   content: ({ platforms }) => {
