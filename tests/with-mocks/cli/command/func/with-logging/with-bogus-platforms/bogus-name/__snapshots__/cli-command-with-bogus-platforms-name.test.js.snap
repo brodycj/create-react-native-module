@@ -126,7 +126,7 @@ export default AliceBobbi;
   },
   Object {
     "outputFileName": "react-native-alice-bobbi/.gitignore",
-    "theContent": "# OSX
+    "theContent": "# macOS
 #
 .DS_Store
 
@@ -135,6 +135,8 @@ export default AliceBobbi;
 node_modules/
 npm-debug.log
 yarn-error.log
+
+# iOS only:
 
 # Xcode
 #
@@ -156,6 +158,8 @@ DerivedData
 *.xcuserstate
 project.xcworkspace
 
+# Android only:
+
 # Android/IntelliJ
 #
 build/
@@ -172,7 +176,8 @@ buck-out/
   },
   Object {
     "outputFileName": "react-native-alice-bobbi/.gitattributes",
-    "theContent": "*.pbxproj -text
+    "theContent": "# iOS only:
+*.pbxproj -text
 ",
   },
   Object {

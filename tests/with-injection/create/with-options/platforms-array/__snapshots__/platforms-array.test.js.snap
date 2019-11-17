@@ -112,7 +112,7 @@ export default ABCAliceBobbi;
   "* outputFile name: react-native-alice-bobbi/.gitignore
 content:
 --------
-# OSX
+# macOS
 #
 .DS_Store
 
@@ -121,6 +121,8 @@ content:
 node_modules/
 npm-debug.log
 yarn-error.log
+
+# iOS only:
 
 # Xcode
 #
@@ -142,6 +144,8 @@ DerivedData
 *.xcuserstate
 project.xcworkspace
 
+# Android only:
+
 # Android/IntelliJ
 #
 build/
@@ -160,6 +164,7 @@ buck-out/
   "* outputFile name: react-native-alice-bobbi/.gitattributes
 content:
 --------
+# iOS only:
 *.pbxproj -text
 
 <<<<<<<< ======== >>>>>>>>

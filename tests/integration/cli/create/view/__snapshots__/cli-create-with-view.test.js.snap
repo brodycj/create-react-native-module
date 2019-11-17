@@ -4,12 +4,13 @@ exports[`CLI creates correct view module package artifacts on file system using 
 Array [
   Object {
     "name": "react-native-integration-view-test-package/.gitattributes",
-    "theContent": "*.pbxproj -text
+    "theContent": "# iOS only:
+*.pbxproj -text
 ",
   },
   Object {
     "name": "react-native-integration-view-test-package/.gitignore",
-    "theContent": "# OSX
+    "theContent": "# macOS
 #
 .DS_Store
 
@@ -18,6 +19,8 @@ Array [
 node_modules/
 npm-debug.log
 yarn-error.log
+
+# iOS only:
 
 # Xcode
 #
@@ -38,6 +41,8 @@ DerivedData
 *.ipa
 *.xcuserstate
 project.xcworkspace
+
+# Android only:
 
 # Android/IntelliJ
 #
