@@ -64,6 +64,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "gulp": "^4.0.2",
     "jest": "^24.9.0",
-    "recursive-readdir": "^2.2.2"
+    "recursive-readdir": "^2.2.2",
+    "vinyl-fs-mock": "^0.1.2"
   }
 }
