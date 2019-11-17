@@ -1,24 +1,27 @@
+const fs = require('fs');
+
+const path = require('path');
+
+// FUTURE TBD consider making more reusable utility function or package
+
+// THANKS for *partial* guidance:
+// https://stackoverflow.com/questions/12752622/require-file-as-string/12753026#12753026
+const packageJsonPath = require.resolve('../package.json');
+
+// THANKS for guidance:
+// https://stackoverflow.com/questions/42956127/get-parent-directory-name-in-node-js/43779639#43779639
+const rootPath = path.dirname(packageJsonPath);
+
 module.exports = [{
   name: () => 'README.md',
-  content: ({ moduleName, name }) =>
-    `# ${moduleName}
+  content: ({ moduleName, name }) => {
+    // FUTURE TBD async:
+    const content = fs.readFileSync(`${rootPath}/templates/common/README.md`);
 
-## Getting started
-
-\`$ npm install ${moduleName} --save\`
-
-### Mostly automatic installation
-
-\`$ react-native link ${moduleName}\`
-
-## Usage
-\`\`\`javascript
-import ${name} from '${moduleName}';
-
-// TODO: What to do with the module?
-${name};
-\`\`\`
-`,
+    return (`${content}`
+      .replace(/react-native-output-module-name/g, moduleName)
+      .replace(/MyNativeModuleName/g, name));
+  }
 }, {
   name: () => 'package.json',
   content: ({ moduleName, platforms, githubAccount, authorName, authorEmail, license }) => {
