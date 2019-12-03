@@ -1208,6 +1208,13 @@ domexception@^1.0.1:
   dependencies:
     webidl-conversions "^4.0.2"
 
+dot-case@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/dot-case/-/dot-case-3.0.1.tgz#36a881ae1ec223349185c7e65d4516a9044c5a3b"
+  integrity sha512-PZqwKvBN+ybVtYwjDX5BTtw2Dj6/ypwwkQj2V2ZzFHH08LShkLRVD9zr7jvh1A34A8XDVHb7CcRFrLbRTablqw==
+  dependencies:
+    no-case "^3.0.1"
+
 dot-prop@^4.1.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/dot-prop/-/dot-prop-4.2.0.tgz#1f19e0c2e1aa0e32797c49799f2837ac6af69c57"
@@ -2969,6 +2976,11 @@ lower-case@^1.1.1:
   resolved "https://registry.yarnpkg.com/lower-case/-/lower-case-1.1.4.tgz#9a2cabd1b9e8e0ae993a4bf7d5875c39c42e8eac"
   integrity sha1-miyr0bno4K6ZOkv31YdcOcQujqw=
 
+lower-case@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/lower-case/-/lower-case-2.0.0.tgz#8f07128bd5ffd0247d15106e7e8d17d223312faa"
+  integrity sha512-OJifkIqIt8iu216sXZ0Fpo5tK4QhJjOYQIUd09SNkoc71NvU9157VTXsT4aRsx7TTpCtykmbCYal3B7y5L9/wg==
+
 lowercase-keys@^1.0.0, lowercase-keys@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/lowercase-keys/-/lowercase-keys-1.0.1.tgz#6f9e30b47084d971a7c820ff15a6c5167b74c26f"
@@ -3211,6 +3223,13 @@ no-case@^2.2.0:
   integrity sha512-rmTZ9kz+f3rCvK2TD1Ue/oZlns7OGoIWP4fc3llxxRXlOkHKoWPPWJOfFYpITabSow43QJbRIoHQXtt10VldyQ==
   dependencies:
     lower-case "^1.1.1"
+
+no-case@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/no-case/-/no-case-3.0.1.tgz#f7ea2e4aac2d8128ec305a8d4d114cca0106295c"
+  integrity sha512-Ztcsd1yeHK915kymn/544pEoxL0rrzRL6WBlYexz0/Msikdj98f54DE2JliJcrt8IQdfPqrD3WOfQkU5AC+VOg==
+  dependencies:
+    lower-case "^2.0.0"
 
 node-emoji@^1.10.0:
   version "1.10.0"
@@ -3516,12 +3535,12 @@ package-json@^6.3.0:
     registry-url "^5.0.0"
     semver "^6.1.1"
 
-param-case@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/param-case/-/param-case-2.1.1.tgz#df94fd8cf6531ecf75e6bef9a0858fbc72be2247"
-  integrity sha1-35T9jPZTHs915r75oIWPvHK+Ikc=
+param-case@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/param-case/-/param-case-3.0.1.tgz#cddb765f247e6d32cc12647e40255d67b4559cfb"
+  integrity sha512-lZMlNdvO7XU8clYJzy4aqKZjfIkBJPlYhmrAox9MeCsNu9X/7FU686HwX9VC4ROJMpXtLEm2DYGNgaSomqoFxA==
   dependencies:
-    no-case "^2.2.0"
+    dot-case "^3.0.1"
 
 parent-module@^1.0.0:
   version "1.0.1"
