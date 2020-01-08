@@ -189,56 +189,56 @@ Array [
     },
   },
   Object {
-    "ensureDir": "react-native-test-package",
+    "ensureDir": "react-native-test-package-tmp",
   },
   Object {
-    "ensureDir": "react-native-test-package/",
+    "ensureDir": "react-native-test-package-tmp/",
   },
   Object {
-    "ensureDir": "react-native-test-package/",
+    "ensureDir": "react-native-test-package-tmp/",
   },
   Object {
-    "ensureDir": "react-native-test-package/",
+    "ensureDir": "react-native-test-package-tmp/",
   },
   Object {
-    "ensureDir": "react-native-test-package/",
+    "ensureDir": "react-native-test-package-tmp/",
   },
   Object {
-    "ensureDir": "react-native-test-package/",
+    "ensureDir": "react-native-test-package-tmp/",
   },
   Object {
-    "ensureDir": "react-native-test-package/",
+    "ensureDir": "react-native-test-package-tmp/",
   },
   Object {
-    "ensureDir": "react-native-test-package/android/",
+    "ensureDir": "react-native-test-package-tmp/android/",
   },
   Object {
-    "ensureDir": "react-native-test-package/android/src/main/",
+    "ensureDir": "react-native-test-package-tmp/android/src/main/",
   },
   Object {
-    "ensureDir": "react-native-test-package/android/src/main/java/com/reactlibrary/",
+    "ensureDir": "react-native-test-package-tmp/android/src/main/java/com/reactlibrary/",
   },
   Object {
-    "ensureDir": "react-native-test-package/android/src/main/java/com/reactlibrary/",
+    "ensureDir": "react-native-test-package-tmp/android/src/main/java/com/reactlibrary/",
   },
   Object {
-    "ensureDir": "react-native-test-package/android/",
+    "ensureDir": "react-native-test-package-tmp/android/",
   },
   Object {
-    "outputFileName": "react-native-test-package/README.md",
-    "theContent": "# react-native-test-package
+    "outputFileName": "react-native-test-package-tmp/README.md",
+    "theContent": "# react-native-test-package-tmp
 
 ## Getting started
 
-\`$ npm install react-native-test-package --save\`
+\`$ npm install react-native-test-package-tmp --save\`
 
 ### Mostly automatic installation
 
-\`$ react-native link react-native-test-package\`
+\`$ react-native link react-native-test-package-tmp\`
 
 ## Usage
 \`\`\`javascript
-import TestPackage from 'react-native-test-package';
+import TestPackage from 'react-native-test-package-tmp';
 
 // TODO: What to do with the module?
 TestPackage;
@@ -246,10 +246,10 @@ TestPackage;
 ",
   },
   Object {
-    "outputFileName": "react-native-test-package/package.json",
+    "outputFileName": "react-native-test-package-tmp/package.json",
     "theContent": "{
-  \\"name\\": \\"react-native-test-package\\",
-  \\"title\\": \\"React Native Test Package\\",
+  \\"name\\": \\"react-native-test-package-tmp\\",
+  \\"title\\": \\"React Native Test Package Tmp\\",
   \\"version\\": \\"1.0.0\\",
   \\"description\\": \\"TODO\\",
   \\"main\\": \\"index.js\\",
@@ -258,8 +258,8 @@ TestPackage;
   },
   \\"repository\\": {
     \\"type\\": \\"git\\",
-    \\"url\\": \\"git+https://github.com/github_account/react-native-test-package.git\\",
-    \\"baseUrl\\": \\"https://github.com/github_account/react-native-test-package\\"
+    \\"url\\": \\"git+https://github.com/github_account/react-native-test-package-tmp.git\\",
+    \\"baseUrl\\": \\"https://github.com/github_account/react-native-test-package-tmp\\"
   },
   \\"keywords\\": [
     \\"react-native\\"
@@ -283,7 +283,7 @@ TestPackage;
 ",
   },
   Object {
-    "outputFileName": "react-native-test-package/index.js",
+    "outputFileName": "react-native-test-package-tmp/index.js",
     "theContent": "import { NativeModules } from 'react-native';
 
 const { TestPackage } = NativeModules;
@@ -292,7 +292,7 @@ export default TestPackage;
 ",
   },
   Object {
-    "outputFileName": "react-native-test-package/.gitignore",
+    "outputFileName": "react-native-test-package-tmp/.gitignore",
     "theContent": "# OSX
 #
 .DS_Store
@@ -318,15 +318,15 @@ buck-out/
 ",
   },
   Object {
-    "outputFileName": "react-native-test-package/.gitattributes",
+    "outputFileName": "react-native-test-package-tmp/.gitattributes",
     "theContent": "",
   },
   Object {
-    "outputFileName": "react-native-test-package/.npmignore",
+    "outputFileName": "react-native-test-package-tmp/.npmignore",
     "theContent": "",
   },
   Object {
-    "outputFileName": "react-native-test-package/android/build.gradle",
+    "outputFileName": "react-native-test-package-tmp/android/build.gradle",
     "theContent": "// android/build.gradle
 
 // based on:
@@ -479,7 +479,7 @@ afterEvaluate { project ->
 ",
   },
   Object {
-    "outputFileName": "react-native-test-package/android/src/main/AndroidManifest.xml",
+    "outputFileName": "react-native-test-package-tmp/android/src/main/AndroidManifest.xml",
     "theContent": "<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
           package=\\"com.reactlibrary\\">
 
@@ -487,7 +487,7 @@ afterEvaluate { project ->
 ",
   },
   Object {
-    "outputFileName": "react-native-test-package/android/src/main/java/com/reactlibrary/TestPackageModule.java",
+    "outputFileName": "react-native-test-package-tmp/android/src/main/java/com/reactlibrary/TestPackageModule.java",
     "theContent": "package com.reactlibrary;
 
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -518,7 +518,7 @@ public class TestPackageModule extends ReactContextBaseJavaModule {
 ",
   },
   Object {
-    "outputFileName": "react-native-test-package/android/src/main/java/com/reactlibrary/TestPackagePackage.java",
+    "outputFileName": "react-native-test-package-tmp/android/src/main/java/com/reactlibrary/TestPackagePackage.java",
     "theContent": "package com.reactlibrary;
 
 import java.util.Arrays;
@@ -545,7 +545,7 @@ public class TestPackagePackage implements ReactPackage {
 ",
   },
   Object {
-    "outputFileName": "react-native-test-package/android/README.md",
+    "outputFileName": "react-native-test-package-tmp/android/README.md",
     "theContent": "README
 ======
 

@@ -2,36 +2,36 @@
 
 exports[`create alice-bobbi module with defaults, with platforms: 'bogus' 1`] = `
 Array [
-  "* ensureDir dir: react-native-alice-bobbi
+  "* ensureDir dir: react-native-alice-bobbi-tmp
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* ensureDir dir: react-native-alice-bobbi-tmp/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* ensureDir dir: react-native-alice-bobbi-tmp/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* ensureDir dir: react-native-alice-bobbi-tmp/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* ensureDir dir: react-native-alice-bobbi-tmp/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* ensureDir dir: react-native-alice-bobbi-tmp/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* ensureDir dir: react-native-alice-bobbi-tmp/
 ",
-  "* outputFile name: react-native-alice-bobbi/README.md
+  "* outputFile name: react-native-alice-bobbi-tmp/README.md
 content:
 --------
-# react-native-alice-bobbi
+# react-native-alice-bobbi-tmp
 
 ## Getting started
 
-\`$ npm install react-native-alice-bobbi --save\`
+\`$ npm install react-native-alice-bobbi-tmp --save\`
 
 ### Mostly automatic installation
 
-\`$ react-native link react-native-alice-bobbi\`
+\`$ react-native link react-native-alice-bobbi-tmp\`
 
 ## Usage
 \`\`\`javascript
-import AliceBobbi from 'react-native-alice-bobbi';
+import AliceBobbi from 'react-native-alice-bobbi-tmp';
 
 // TODO: What to do with the module?
 AliceBobbi;
@@ -39,12 +39,12 @@ AliceBobbi;
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/package.json
+  "* outputFile name: react-native-alice-bobbi-tmp/package.json
 content:
 --------
 {
-  \\"name\\": \\"react-native-alice-bobbi\\",
-  \\"title\\": \\"React Native Alice Bobbi\\",
+  \\"name\\": \\"react-native-alice-bobbi-tmp\\",
+  \\"title\\": \\"React Native Alice Bobbi Tmp\\",
   \\"version\\": \\"1.0.0\\",
   \\"description\\": \\"TODO\\",
   \\"main\\": \\"index.js\\",
@@ -53,8 +53,8 @@ content:
   },
   \\"repository\\": {
     \\"type\\": \\"git\\",
-    \\"url\\": \\"git+https://github.com/github_account/react-native-alice-bobbi.git\\",
-    \\"baseUrl\\": \\"https://github.com/github_account/react-native-alice-bobbi\\"
+    \\"url\\": \\"git+https://github.com/github_account/react-native-alice-bobbi-tmp.git\\",
+    \\"baseUrl\\": \\"https://github.com/github_account/react-native-alice-bobbi-tmp\\"
   },
   \\"keywords\\": [
     \\"react-native\\"
@@ -78,7 +78,7 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/index.js
+  "* outputFile name: react-native-alice-bobbi-tmp/index.js
 content:
 --------
 import { NativeModules } from 'react-native';
@@ -89,7 +89,7 @@ export default AliceBobbi;
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/.gitignore
+  "* outputFile name: react-native-alice-bobbi-tmp/.gitignore
 content:
 --------
 # OSX
@@ -104,13 +104,13 @@ yarn-error.log
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/.gitattributes
+  "* outputFile name: react-native-alice-bobbi-tmp/.gitattributes
 content:
 --------
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/.npmignore
+  "* outputFile name: react-native-alice-bobbi-tmp/.npmignore
 content:
 --------
 

@@ -2,46 +2,46 @@
 
 exports[`create alice-bobbi module with config options for Android only 1`] = `
 Array [
-  "* ensureDir dir: react-native-alice-bobbi
+  "* ensureDir dir: react-native-alice-bobbi-tmp
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* ensureDir dir: react-native-alice-bobbi-tmp/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* ensureDir dir: react-native-alice-bobbi-tmp/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* ensureDir dir: react-native-alice-bobbi-tmp/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* ensureDir dir: react-native-alice-bobbi-tmp/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* ensureDir dir: react-native-alice-bobbi-tmp/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* ensureDir dir: react-native-alice-bobbi-tmp/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/android/
+  "* ensureDir dir: react-native-alice-bobbi-tmp/android/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/android/src/main/
+  "* ensureDir dir: react-native-alice-bobbi-tmp/android/src/main/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/android/src/main/java/com/alicebits/
+  "* ensureDir dir: react-native-alice-bobbi-tmp/android/src/main/java/com/alicebits/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/android/src/main/java/com/alicebits/
+  "* ensureDir dir: react-native-alice-bobbi-tmp/android/src/main/java/com/alicebits/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/android/
+  "* ensureDir dir: react-native-alice-bobbi-tmp/android/
 ",
-  "* outputFile name: react-native-alice-bobbi/README.md
+  "* outputFile name: react-native-alice-bobbi-tmp/README.md
 content:
 --------
-# react-native-alice-bobbi
+# react-native-alice-bobbi-tmp
 
 ## Getting started
 
-\`$ npm install react-native-alice-bobbi --save\`
+\`$ npm install react-native-alice-bobbi-tmp --save\`
 
 ### Mostly automatic installation
 
-\`$ react-native link react-native-alice-bobbi\`
+\`$ react-native link react-native-alice-bobbi-tmp\`
 
 ## Usage
 \`\`\`javascript
-import AliceBobbi from 'react-native-alice-bobbi';
+import AliceBobbi from 'react-native-alice-bobbi-tmp';
 
 // TODO: What to do with the module?
 AliceBobbi;
@@ -49,12 +49,12 @@ AliceBobbi;
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/package.json
+  "* outputFile name: react-native-alice-bobbi-tmp/package.json
 content:
 --------
 {
-  \\"name\\": \\"react-native-alice-bobbi\\",
-  \\"title\\": \\"React Native Alice Bobbi\\",
+  \\"name\\": \\"react-native-alice-bobbi-tmp\\",
+  \\"title\\": \\"React Native Alice Bobbi Tmp\\",
   \\"version\\": \\"1.0.0\\",
   \\"description\\": \\"TODO\\",
   \\"main\\": \\"index.js\\",
@@ -63,8 +63,8 @@ content:
   },
   \\"repository\\": {
     \\"type\\": \\"git\\",
-    \\"url\\": \\"git+https://github.com/alicebits/react-native-alice-bobbi.git\\",
-    \\"baseUrl\\": \\"https://github.com/alicebits/react-native-alice-bobbi\\"
+    \\"url\\": \\"git+https://github.com/alicebits/react-native-alice-bobbi-tmp.git\\",
+    \\"baseUrl\\": \\"https://github.com/alicebits/react-native-alice-bobbi-tmp\\"
   },
   \\"keywords\\": [
     \\"react-native\\"
@@ -88,7 +88,7 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/index.js
+  "* outputFile name: react-native-alice-bobbi-tmp/index.js
 content:
 --------
 import { NativeModules } from 'react-native';
@@ -99,7 +99,7 @@ export default AliceBobbi;
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/.gitignore
+  "* outputFile name: react-native-alice-bobbi-tmp/.gitignore
 content:
 --------
 # OSX
@@ -127,19 +127,19 @@ buck-out/
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/.gitattributes
+  "* outputFile name: react-native-alice-bobbi-tmp/.gitattributes
 content:
 --------
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/.npmignore
+  "* outputFile name: react-native-alice-bobbi-tmp/.npmignore
 content:
 --------
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/android/build.gradle
+  "* outputFile name: react-native-alice-bobbi-tmp/android/build.gradle
 content:
 --------
 // android/build.gradle
@@ -294,7 +294,7 @@ afterEvaluate { project ->
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/android/src/main/AndroidManifest.xml
+  "* outputFile name: react-native-alice-bobbi-tmp/android/src/main/AndroidManifest.xml
 content:
 --------
 <manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
@@ -304,7 +304,7 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/alicebits/AliceBobbiModule.java
+  "* outputFile name: react-native-alice-bobbi-tmp/android/src/main/java/com/alicebits/AliceBobbiModule.java
 content:
 --------
 package com.alicebits;
@@ -337,7 +337,7 @@ public class AliceBobbiModule extends ReactContextBaseJavaModule {
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/alicebits/AliceBobbiPackage.java
+  "* outputFile name: react-native-alice-bobbi-tmp/android/src/main/java/com/alicebits/AliceBobbiPackage.java
 content:
 --------
 package com.alicebits;
@@ -366,7 +366,7 @@ public class AliceBobbiPackage implements ReactPackage {
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/android/README.md
+  "* outputFile name: react-native-alice-bobbi-tmp/android/README.md
 content:
 --------
 README

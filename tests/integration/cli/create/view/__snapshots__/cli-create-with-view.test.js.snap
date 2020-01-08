@@ -59,19 +59,19 @@ buck-out/
   },
   Object {
     "name": "react-native-integration-view-test-package/README.md",
-    "theContent": "# react-native-integration-view-test-package
+    "theContent": "# react-native-integration-view-test-package-tmp
 
 ## Getting started
 
-\`$ npm install react-native-integration-view-test-package --save\`
+\`$ npm install react-native-integration-view-test-package-tmp --save\`
 
 ### Mostly automatic installation
 
-\`$ react-native link react-native-integration-view-test-package\`
+\`$ react-native link react-native-integration-view-test-package-tmp\`
 
 ## Usage
 \`\`\`javascript
-import IntegrationViewTestPackage from 'react-native-integration-view-test-package';
+import IntegrationViewTestPackage from 'react-native-integration-view-test-package-tmp';
 
 // TODO: What to do with the module?
 IntegrationViewTestPackage;
@@ -647,8 +647,8 @@ RCT_EXPORT_MODULE()
   Object {
     "name": "react-native-integration-view-test-package/package.json",
     "theContent": "{
-  \\"name\\": \\"react-native-integration-view-test-package\\",
-  \\"title\\": \\"React Native Integration View Test Package\\",
+  \\"name\\": \\"react-native-integration-view-test-package-tmp\\",
+  \\"title\\": \\"React Native Integration View Test Package Tmp\\",
   \\"version\\": \\"1.0.0\\",
   \\"description\\": \\"TODO\\",
   \\"main\\": \\"index.js\\",
@@ -657,8 +657,8 @@ RCT_EXPORT_MODULE()
   },
   \\"repository\\": {
     \\"type\\": \\"git\\",
-    \\"url\\": \\"git+https://github.com/github_account/react-native-integration-view-test-package.git\\",
-    \\"baseUrl\\": \\"https://github.com/github_account/react-native-integration-view-test-package\\"
+    \\"url\\": \\"git+https://github.com/github_account/react-native-integration-view-test-package-tmp.git\\",
+    \\"baseUrl\\": \\"https://github.com/github_account/react-native-integration-view-test-package-tmp\\"
   },
   \\"keywords\\": [
     \\"react-native\\"
@@ -682,24 +682,24 @@ RCT_EXPORT_MODULE()
 ",
   },
   Object {
-    "name": "react-native-integration-view-test-package/react-native-integration-view-test-package.podspec",
+    "name": "react-native-integration-view-test-package/react-native-integration-view-test-package-tmp.podspec",
     "theContent": "require \\"json\\"
 
 package = JSON.parse(File.read(File.join(__dir__, \\"package.json\\")))
 
 Pod::Spec.new do |s|
-  s.name         = \\"react-native-integration-view-test-package\\"
+  s.name         = \\"react-native-integration-view-test-package-tmp\\"
   s.version      = package[\\"version\\"]
   s.summary      = package[\\"description\\"]
   s.description  = <<-DESC
-                  react-native-integration-view-test-package
+                  react-native-integration-view-test-package-tmp
                    DESC
-  s.homepage     = \\"https://github.com/github_account/react-native-integration-view-test-package\\"
+  s.homepage     = \\"https://github.com/github_account/react-native-integration-view-test-package-tmp\\"
   s.license      = \\"MIT\\"
   # s.license    = { :type => \\"MIT\\", :file => \\"FILE_LICENSE\\" }
   s.authors      = { \\"Your Name\\" => \\"yourname@email.com\\" }
   s.platforms    = { :ios => \\"9.0\\" }
-  s.source       = { :git => \\"https://github.com/github_account/react-native-integration-view-test-package.git\\", :tag => \\"#{s.version}\\" }
+  s.source       = { :git => \\"https://github.com/github_account/react-native-integration-view-test-package-tmp.git\\", :tag => \\"#{s.version}\\" }
 
   s.source_files = \\"ios/**/*.{h,m,swift}\\"
   s.requires_arc = true
