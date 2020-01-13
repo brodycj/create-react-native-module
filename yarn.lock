@@ -310,12 +310,12 @@
   resolved "https://registry.yarnpkg.com/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
   integrity sha512-9NET910DNaIPngYnLLPeg+Ogzqsi9uM4mSboU5y6p8S5DzMTVEsJZrawi+BoDNUVBa2DhJqQYUFvMDfgU062LQ==
 
-"@stryker-mutator/api@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@stryker-mutator/api/-/api-2.1.0.tgz#488ac3bc22cbf08af73fa1a2fdac3bf53a806912"
-  integrity sha512-zas7PNOEFnepjT/OfTte2Tu6vQ5Q30ZGGRigBqY75fe7PJZXon/1cGyB+SS6nN29tlY29t5Err5zOFX/qtxf8g==
+"@stryker-mutator/api@^2.1.0", "@stryker-mutator/api@^2.5.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@stryker-mutator/api/-/api-2.5.0.tgz#5108d738054d17d27d89d470dcd54ae42465394c"
+  integrity sha512-6z2AZeGcI+ZzqZEBX6h+vWt11uBzLfAg24kV0b/CJZ69zNELRLkjJnLaE4aU1o5uE6OyFGKJJ0OVxtZrnvZSuQ==
   dependencies:
-    mutation-testing-report-schema "^1.0.0"
+    mutation-testing-report-schema "^1.1.0"
     tslib "~1.10.0"
 
 "@stryker-mutator/core@^2.1.0":
@@ -370,11 +370,11 @@
     tslib "~1.10.0"
 
 "@stryker-mutator/jest-runner@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@stryker-mutator/jest-runner/-/jest-runner-2.1.0.tgz#295aeacb7d45e4138351bac665a2e4a578cbbf96"
-  integrity sha512-Ogw9LQbvcbWfFA+aqIu6ZTdznTsf8Kst7QgA9qqX/7JuTtv0K23BjUD864FLJfTHIkOCclwa8SSynSNME4LO5A==
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@stryker-mutator/jest-runner/-/jest-runner-2.5.0.tgz#057c8527343b580f02cef688450540e3196f870d"
+  integrity sha512-awpfybEv2AL9l/rX2YSOZ68jMRjv7aHsTqt+TXIzc7XvcXPHjDo1oIB/UrgVbGr83lxcujjBAa/bUriwlxwkMw==
   dependencies:
-    "@stryker-mutator/api" "^2.1.0"
+    "@stryker-mutator/api" "^2.5.0"
     semver "~6.3.0"
 
 "@stryker-mutator/util@^2.1.0":
@@ -3149,7 +3149,12 @@ mutation-testing-metrics@^1.1.1:
     lodash.groupby "^4.6.0"
     mutation-testing-report-schema "^1.1.1"
 
-mutation-testing-report-schema@^1.0.0, mutation-testing-report-schema@^1.1.1:
+mutation-testing-report-schema@^1.1.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/mutation-testing-report-schema/-/mutation-testing-report-schema-1.2.0.tgz#ed89cde7302833108b75703d4ef62085b1bb490e"
+  integrity sha512-4LdCuO33sH8R2YJ1idP+GUTjPR/VeSEml1tboQX0+5dSwH2YccUrw73rzAEOzkbeD+IyzBDHLzQKmanScV4smA==
+
+mutation-testing-report-schema@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/mutation-testing-report-schema/-/mutation-testing-report-schema-1.1.1.tgz#95c4f05c92f5ee4d18978202f47a3de095a14f59"
   integrity sha512-rinrA3i16hHQAE2L0FRinKrIIq1X52LijmeW/EjO3o3gkV5LrG3njGbE6Yezj4/edGBiriJXpLz82hkMG7aKNg==
