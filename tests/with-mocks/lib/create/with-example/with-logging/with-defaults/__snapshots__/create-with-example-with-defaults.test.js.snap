@@ -1056,12 +1056,5 @@ const styles = StyleSheet.create({
       "stdio": "inherit",
     },
   },
-  Object {
-    "commandSync": "react-native link",
-    "options": Object {
-      "cwd": "./react-native-alice-bobbi/example",
-      "stdio": "inherit",
-    },
-  },
 ]
 `;

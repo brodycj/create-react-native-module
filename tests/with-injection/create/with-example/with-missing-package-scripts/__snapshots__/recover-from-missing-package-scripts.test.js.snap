@@ -988,7 +988,5 @@ const styles = StyleSheet.create({
   },
   "* execa.commandSync command: yarn add file:../ options: {\\"cwd\\":\\"./react-native-alice-bobbi/example\\",\\"stdio\\":\\"inherit\\"}
 ",
-  "* execa.commandSync command: react-native link options: {\\"cwd\\":\\"./react-native-alice-bobbi/example\\",\\"stdio\\":\\"inherit\\"}
-",
 ]
 `;
