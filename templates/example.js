@@ -114,6 +114,14 @@ module.exports = [{
   })();
 `
 }, {
+  name: ({ exampleName }) => `${exampleName}/metro.config.js`,
+  content: ({ moduleName, exampleName }) => `// metro.config.js
+
+module.exports = {
+  watchFolders: ['.', '..']
+}
+`,
+}, {
   name: ({ exampleName, writeExamplePodfile }) =>
     writeExamplePodfile ? `${exampleName}/ios/Podfile` : undefined,
   content: ({ moduleName, exampleName }) => `platform :ios, '10.0'
