@@ -17,7 +17,8 @@ test('create module with example, with `EACCES permission denied` error', async 
 
   const options = {
     name: 'alice-bettty',
-    generateExample: true
+    generateExample: true,
+    addExamplePostinstallScript: true,
   };
 
   let error;
