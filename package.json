@@ -48,7 +48,7 @@
     "param-case": "^2.1.1",
     "pascal-case": "^2.0.1",
     "update-notifier": "^3.0.1",
-    "uuid": "^3.3.3"
+    "uuid": "^3.4.0"
   },
   "devDependencies": {
     "@stryker-mutator/core": "^2.5.0",
