@@ -775,7 +775,7 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* execa.commandSync command: react-native init example --version react-native@0.59 options: {\\"cwd\\":\\"./react-native-alice-bobbi\\",\\"stdio\\":\\"inherit\\"}
+  "* execa.commandSync command: react-native init example --version react-native@0.61 options: {\\"cwd\\":\\"./react-native-alice-bobbi\\",\\"stdio\\":\\"inherit\\"}
 ",
   "* ensureDir dir: react-native-alice-bobbi/scripts/
 ",

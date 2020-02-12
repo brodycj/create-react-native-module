@@ -818,11 +818,11 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
   },
   Object {
     "info": Array [
-      "CREATE example app with the following command: react-native init example --version react-native@0.59",
+      "CREATE example app with the following command: react-native init example --version react-native@0.61",
     ],
   },
   Object {
-    "commandSync": "react-native init example --version react-native@0.59",
+    "commandSync": "react-native init example --version react-native@0.61",
     "options": Object {
       "cwd": "./react-native-alice-bobbi",
       "stdio": "inherit",
