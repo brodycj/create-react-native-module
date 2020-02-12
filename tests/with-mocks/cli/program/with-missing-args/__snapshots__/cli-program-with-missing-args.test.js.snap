@@ -178,6 +178,16 @@ Array [
     },
   },
   Object {
+    "option": Object {
+      "args": Array [
+        "--add-example-postinstall-script",
+        "DEPRECATED - no longer needed): add example postinstall script",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
     "parse": Object {
       "argv": Array [
         "node",

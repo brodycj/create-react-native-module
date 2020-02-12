@@ -23,5 +23,6 @@ Options:
   --example-name [exampleName]                                Name for the example project (default: \\"example\\")
   --example-react-native-version [exampleReactNativeVersion]  React Native version for the generated example project (default: \\"react-native@0.59\\")
   --write-example-podfile                                     [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile
+  --add-example-postinstall-script                            DEPRECATED - no longer needed): add example postinstall script
   -h, --help                                                  output usage information"
 `;

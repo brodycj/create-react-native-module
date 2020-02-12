@@ -28,6 +28,7 @@ Array [
   generateExample: false
   exampleName: example
   writeExamplePodfile: false
+  addExamplePostinstallScript: false
   ",
     ],
   },
@@ -48,9 +49,9 @@ Array [
     "error": Array [
       "Error: ENOPERM not permitted
     at Object.ensureDir (.../tests/with-mocks/cli/command/func/with-logging/with-error/cli-command-with-logging-with-error.test.js:9:27)
-    at ensureDir (.../lib/lib.js:150:15)
-    at generateLibraryModule (.../lib/lib.js:245:10)
-    at generateWithNormalizedOptions (.../lib/lib.js:262:10)
+    at ensureDir (.../lib/lib.js:152:15)
+    at generateLibraryModule (.../lib/lib.js:251:10)
+    at generateWithNormalizedOptions (.../lib/lib.js:268:10)
     at createLibraryModule (.../lib/cli-command.js:...
     at Object.func (.../tests/with-mocks/cli/command/func/with-logging/with-error/cli-command-with-logging-with-error.test.js:62:9)
     ",

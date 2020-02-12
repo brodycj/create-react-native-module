@@ -80,6 +80,10 @@ Object {
       "command": "--write-example-podfile",
       "description": "[iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile",
     },
+    Object {
+      "command": "--add-example-postinstall-script",
+      "description": "DEPRECATED - no longer needed): add example postinstall script",
+    },
   ],
   "usage": "[options] <name>",
 }

@@ -785,6 +785,8 @@ content:
 ",
   "* ensureDir dir: react-native-alice-bobbi/scripts/
 ",
+  "* ensureDir dir: react-native-alice-bobbi/test-demo/
+",
   "* ensureDir dir: react-native-alice-bobbi/test-demo/ios/
 ",
   "* ensureDir dir: react-native-alice-bobbi/test-demo/
@@ -903,6 +905,17 @@ content:
     const npmIgnorePath = path.resolve(__dirname, '../.npmignore');
     removeLibraryNpmIgnorePaths(npmIgnorePath, libraryNodeModulesPath);
   })();
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/test-demo/metro.config.js
+content:
+--------
+// metro.config.js
+
+module.exports = {
+  watchFolders: ['.', '..']
+}
 
 <<<<<<<< ======== >>>>>>>>
 ",
@@ -1031,7 +1044,7 @@ const styles = StyleSheet.create({
       "spaces": 2,
     },
   },
-  "* execa.commandSync command: yarn add file:../ options: {\\"cwd\\":\\"./react-native-alice-bobbi/test-demo\\",\\"stdio\\":\\"inherit\\"}
+  "* execa.commandSync command: yarn add link:../ options: {\\"cwd\\":\\"./react-native-alice-bobbi/test-demo\\",\\"stdio\\":\\"inherit\\"}
 ",
   "* execa.commandSync command: react-native link options: {\\"cwd\\":\\"./react-native-alice-bobbi/test-demo\\",\\"stdio\\":\\"inherit\\"}
 ",

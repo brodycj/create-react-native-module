@@ -22,6 +22,7 @@ Array [
   generateExample: true
   exampleName: example
   writeExamplePodfile: false
+  addExamplePostinstallScript: false
   ",
     ],
   },
@@ -835,6 +836,9 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
     "ensureDir": "react-native-alice-bobbi/example/",
   },
   Object {
+    "ensureDir": "react-native-alice-bobbi/example/",
+  },
+  Object {
     "outputFileName": "react-native-alice-bobbi/scripts/examples_postinstall.js",
     "theContent": "#!/usr/bin/env node
 
@@ -950,6 +954,15 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 ",
   },
   Object {
+    "outputFileName": "react-native-alice-bobbi/example/metro.config.js",
+    "theContent": "// metro.config.js
+
+module.exports = {
+  watchFolders: ['.', '..']
+}
+",
+  },
+  Object {
     "outputFileName": "react-native-alice-bobbi/example/App.js",
     "theContent": "/**
  * Sample React Native App
@@ -1012,39 +1025,11 @@ const styles = StyleSheet.create({
   },
   Object {
     "info": Array [
-      "Adding cleanup postinstall task to the example app",
-    ],
-  },
-  Object {
-    "readFileSyncFromPath": "./react-native-alice-bobbi/example/package.json",
-  },
-  Object {
-    "json": "{
-  \\"name\\": \\"x\\",
-  \\"scripts\\": {
-    \\"test\\": \\"exit 1\\",
-    \\"postinstall\\": \\"node ../scripts/examples_postinstall.js\\"
-  }
-}
-",
-    "options": Object {
-      "fs": Object {
-        "ensureDir": [Function],
-        "outputFile": [Function],
-        "readFileSync": [Function],
-        "writeFileSync": [Function],
-      },
-      "spaces": 2,
-    },
-    "writeFileSyncToPath": "./react-native-alice-bobbi/example/package.json",
-  },
-  Object {
-    "info": Array [
       "Linking the new module library to the example app",
     ],
   },
   Object {
-    "commandSync": "yarn add file:../",
+    "commandSync": "yarn add link:../",
     "options": Object {
       "cwd": "./react-native-alice-bobbi/example",
       "stdio": "inherit",
