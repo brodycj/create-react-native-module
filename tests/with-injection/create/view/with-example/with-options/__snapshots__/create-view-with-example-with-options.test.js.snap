@@ -983,5 +983,9 @@ const styles = StyleSheet.create({
   },
   "* execa.commandSync command: yarn add file:../ options: {\\"cwd\\":\\"./react-native-alice-bobbi/test-demo\\",\\"stdio\\":\\"inherit\\"}
 ",
+  "* execa.commandSync command: pod --version options: {\\"cwd\\":\\"./react-native-alice-bobbi/test-demo/ios\\",\\"stdio\\":\\"inherit\\"}
+",
+  "* execa.commandSync command: pod install options: {\\"cwd\\":\\"./react-native-alice-bobbi/test-demo/ios\\",\\"stdio\\":\\"inherit\\"}
+",
 ]
 `;
