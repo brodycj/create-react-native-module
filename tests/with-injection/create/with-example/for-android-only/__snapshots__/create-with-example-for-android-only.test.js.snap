@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`create alice-bobbi module with example, with config options 1`] = `
+exports[`create alice-bobbi module with example for Android only 1`] = `
 Array [
   "* execa.commandSync command: react-native --version options: {\\"stdio\\":\\"inherit\\"}
 ",
@@ -29,16 +29,6 @@ Array [
   "* ensureDir dir: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/
 ",
   "* ensureDir dir: react-native-alice-bobbi/android/
-",
-  "* ensureDir dir: react-native-alice-bobbi/
-",
-  "* ensureDir dir: react-native-alice-bobbi/ios/
-",
-  "* ensureDir dir: react-native-alice-bobbi/ios/
-",
-  "* ensureDir dir: react-native-alice-bobbi/ios/AliceBobbi.xcworkspace/
-",
-  "* ensureDir dir: react-native-alice-bobbi/ios/AliceBobbi.xcodeproj/
 ",
   "* outputFile name: react-native-alice-bobbi/README.md
 content:
@@ -77,17 +67,17 @@ content:
   },
   \\"repository\\": {
     \\"type\\": \\"git\\",
-    \\"url\\": \\"git+https://github.com/alicebits/react-native-alice-bobbi.git\\",
-    \\"baseUrl\\": \\"https://github.com/alicebits/react-native-alice-bobbi\\"
+    \\"url\\": \\"git+https://github.com/github_account/react-native-alice-bobbi.git\\",
+    \\"baseUrl\\": \\"https://github.com/github_account/react-native-alice-bobbi\\"
   },
   \\"keywords\\": [
     \\"react-native\\"
   ],
   \\"author\\": {
-    \\"name\\": \\"Alice\\",
-    \\"email\\": \\"contact@alice.me\\"
+    \\"name\\": \\"Your Name\\",
+    \\"email\\": \\"yourname@email.com\\"
   },
-  \\"license\\": \\"ISC\\",
+  \\"license\\": \\"MIT\\",
   \\"licenseFilename\\": \\"LICENSE\\",
   \\"readmeFilename\\": \\"README.md\\",
   \\"peerDependencies\\": {
@@ -126,26 +116,6 @@ node_modules/
 npm-debug.log
 yarn-error.log
 
-# Xcode
-#
-build/
-*.pbxuser
-!default.pbxuser
-*.mode1v3
-!default.mode1v3
-*.mode2v3
-!default.mode2v3
-*.perspectivev3
-!default.perspectivev3
-xcuserdata
-*.xccheckout
-*.moved-aside
-DerivedData
-*.hmap
-*.ipa
-*.xcuserstate
-project.xcworkspace
-
 # Android/IntelliJ
 #
 build/
@@ -164,14 +134,13 @@ buck-out/
   "* outputFile name: react-native-alice-bobbi/.gitattributes
 content:
 --------
-*.pbxproj -text
 
 <<<<<<<< ======== >>>>>>>>
 ",
   "* outputFile name: react-native-alice-bobbi/.npmignore
 content:
 --------
-test-demo
+example
 
 <<<<<<<< ======== >>>>>>>>
 ",
@@ -422,372 +391,11 @@ sdk.dir=/Users/{username}/Library/Android/sdk
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/react-native-alice-bobbi.podspec
-content:
---------
-require \\"json\\"
-
-package = JSON.parse(File.read(File.join(__dir__, \\"package.json\\")))
-
-Pod::Spec.new do |s|
-  s.name         = \\"react-native-alice-bobbi\\"
-  s.version      = package[\\"version\\"]
-  s.summary      = package[\\"description\\"]
-  s.description  = <<-DESC
-                  react-native-alice-bobbi
-                   DESC
-  s.homepage     = \\"https://github.com/alicebits/react-native-alice-bobbi\\"
-  s.license      = \\"MIT\\"
-  # s.license    = { :type => \\"MIT\\", :file => \\"FILE_LICENSE\\" }
-  s.authors      = { \\"Alice\\" => \\"contact@alice.me\\" }
-  s.platforms    = { :ios => \\"9.0\\", :tvos => \\"10.0\\" }
-  s.source       = { :git => \\"https://github.com/alicebits/react-native-alice-bobbi.git\\", :tag => \\"#{s.version}\\" }
-
-  s.source_files = \\"ios/**/*.{h,m,swift}\\"
-  s.requires_arc = true
-
-  s.dependency \\"React\\"
-  s.dependency 'AFNetworking', '~> 3.0'
-  # s.dependency \\"...\\"
-end
-
-
-<<<<<<<< ======== >>>>>>>>
-",
-  "* outputFile name: react-native-alice-bobbi/ios/AliceBobbi.h
-content:
---------
-#import <React/RCTBridgeModule.h>
-
-@interface AliceBobbi : NSObject <RCTBridgeModule>
-
-@end
-
-<<<<<<<< ======== >>>>>>>>
-",
-  "* outputFile name: react-native-alice-bobbi/ios/AliceBobbi.m
-content:
---------
-#import \\"AliceBobbi.h\\"
-
-#import <AFNetworking/AFNetworking.h>
-
-@implementation AliceBobbi
-
-RCT_EXPORT_MODULE()
-
-RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnull NSNumber *)numberArgument callback:(RCTResponseSenderBlock)callback)
-{
-	AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-	manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@\\"text/plain\\"];
-	[manager GET:@\\"https://httpstat.us/200\\" parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-			callback(@[[NSString stringWithFormat: @\\"numberArgument: %@ stringArgument: %@ resp: %@\\", numberArgument, stringArgument, responseObject]]);
-	} failure:^(NSURLSessionTask *operation, NSError *error) {
-			callback(@[[NSString stringWithFormat: @\\"numberArgument: %@ stringArgument: %@ err: %@\\", numberArgument, stringArgument, error]]);
-	}];
-}
-
-@end
-
-<<<<<<<< ======== >>>>>>>>
-",
-  "* outputFile name: react-native-alice-bobbi/ios/AliceBobbi.xcworkspace/contents.xcworkspacedata
-content:
---------
-<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
-<Workspace
-   version = \\"1.0\\">
-   <FileRef
-      location = \\"group:AliceBobbi.xcodeproj\\">
-   </FileRef>
-</Workspace>
-
-<<<<<<<< ======== >>>>>>>>
-",
-  "* outputFile name: react-native-alice-bobbi/ios/AliceBobbi.xcodeproj/project.pbxproj
-content:
---------
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		B3E7B58A1CC2AC0600A0062D /* AliceBobbi.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* AliceBobbi.m */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		58B511D91A9E6C8500147676 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = \\"include/$(PRODUCT_NAME)\\";
-			dstSubfolderSpec = 16;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
-/* Begin PBXFileReference section */
-		134814201AA4EA6300B7C361 /* libAliceBobbi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAliceBobbi.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3E7B5881CC2AC0600A0062D /* AliceBobbi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliceBobbi.h; sourceTree = \\"<group>\\"; };
-		B3E7B5891CC2AC0600A0062D /* AliceBobbi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliceBobbi.m; sourceTree = \\"<group>\\"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		58B511D81A9E6C8500147676 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		134814211AA4EA7D00B7C361 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				134814201AA4EA6300B7C361 /* libAliceBobbi.a */,
-			);
-			name = Products;
-			sourceTree = \\"<group>\\";
-		};
-		58B511D21A9E6C8500147676 = {
-			isa = PBXGroup;
-			children = (
-				B3E7B5881CC2AC0600A0062D /* AliceBobbi.h */,
-				B3E7B5891CC2AC0600A0062D /* AliceBobbi.m */,
-				134814211AA4EA7D00B7C361 /* Products */,
-			);
-			sourceTree = \\"<group>\\";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		58B511DA1A9E6C8500147676 /* AliceBobbi */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget \\"AliceBobbi\\" */;
-			buildPhases = (
-				58B511D71A9E6C8500147676 /* Sources */,
-				58B511D81A9E6C8500147676 /* Frameworks */,
-				58B511D91A9E6C8500147676 /* CopyFiles */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = AliceBobbi;
-			productName = RCTDataManager;
-			productReference = 134814201AA4EA6300B7C361 /* libAliceBobbi.a */;
-			productType = \\"com.apple.product-type.library.static\\";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		58B511D31A9E6C8500147676 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastUpgradeCheck = 0920;
-				ORGANIZATIONNAME = Facebook;
-				TargetAttributes = {
-					58B511DA1A9E6C8500147676 = {
-						CreatedOnToolsVersion = 6.1.1;
-					};
-				};
-			};
-			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject \\"AliceBobbi\\" */;
-			compatibilityVersion = \\"Xcode 3.2\\";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
-			mainGroup = 58B511D21A9E6C8500147676;
-			productRefGroup = 58B511D21A9E6C8500147676;
-			projectDirPath = \\"\\";
-			projectRoot = \\"\\";
-			targets = (
-				58B511DA1A9E6C8500147676 /* AliceBobbi */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXSourcesBuildPhase section */
-		58B511D71A9E6C8500147676 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B3E7B58A1CC2AC0600A0062D /* AliceBobbi.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin XCBuildConfiguration section */
-		58B511ED1A9E6C8500147676 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = \\"gnu++0x\\";
-				CLANG_CXX_LIBRARY = \\"libc++\\";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					\\"DEBUG=1\\",
-					\\"$(inherited)\\",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-			};
-			name = Debug;
-		};
-		58B511EE1A9E6C8500147676 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = \\"gnu++0x\\";
-				CLANG_CXX_LIBRARY = \\"libc++\\";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		58B511F01A9E6C8500147676 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				HEADER_SEARCH_PATHS = (
-				\\"$(inherited)\\",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					\\"$(SRCROOT)/../../../React/**\\",
-					\\"$(SRCROOT)/../../react-native/React/**\\",
-				);
-				LIBRARY_SEARCH_PATHS = \\"$(inherited)\\";
-				OTHER_LDFLAGS = \\"-ObjC\\";
-				PRODUCT_NAME = AliceBobbi;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		58B511F11A9E6C8500147676 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				HEADER_SEARCH_PATHS = (
-					\\"$(inherited)\\",
-					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					\\"$(SRCROOT)/../../../React/**\\",
-					\\"$(SRCROOT)/../../react-native/React/**\\",
-				);
-				LIBRARY_SEARCH_PATHS = \\"$(inherited)\\";
-				OTHER_LDFLAGS = \\"-ObjC\\";
-				PRODUCT_NAME = AliceBobbi;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject \\"AliceBobbi\\" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				58B511ED1A9E6C8500147676 /* Debug */,
-				58B511EE1A9E6C8500147676 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget \\"AliceBobbi\\" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				58B511F01A9E6C8500147676 /* Debug */,
-				58B511F11A9E6C8500147676 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = 58B511D31A9E6C8500147676 /* Project object */;
-}
-
-<<<<<<<< ======== >>>>>>>>
-",
-  "* execa.commandSync command: react-native init test-demo --version react-native@0.60 options: {\\"cwd\\":\\"./react-native-alice-bobbi\\",\\"stdio\\":\\"inherit\\"}
+  "* execa.commandSync command: react-native init example --version react-native@0.61 options: {\\"cwd\\":\\"./react-native-alice-bobbi\\",\\"stdio\\":\\"inherit\\"}
 ",
   "* ensureDir dir: react-native-alice-bobbi/scripts/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/test-demo/ios/
-",
-  "* ensureDir dir: react-native-alice-bobbi/test-demo/
+  "* ensureDir dir: react-native-alice-bobbi/example/
 ",
   "* outputFile name: react-native-alice-bobbi/scripts/examples_postinstall.js
 content:
@@ -839,7 +447,7 @@ content:
     fs.rmdirSync(fileDirPath);
   };
 
-  /// Remove test-demo/node_modules/react-native-library-name/node_modules directory
+  /// Remove example/node_modules/react-native-library-name/node_modules directory
   const removeLibraryNodeModulesPath = (libraryNodeModulesPath) => {
     const nodeModulesPath = path.resolve(libraryNodeModulesPath, 'node_modules')
 
@@ -857,7 +465,7 @@ content:
     }
   };
 
-  /// Remove all entries from the .npmignore within  test-demo/node_modules/react-native-library-name/
+  /// Remove all entries from the .npmignore within  example/node_modules/react-native-library-name/
   const removeLibraryNpmIgnorePaths = (npmIgnorePath, libraryNodeModulesPath) => {
     if (!fs.existsSync(npmIgnorePath)) {
       console.log(\`No .npmignore path found at \${npmIgnorePath}. Skipping deleting content.\`);
@@ -906,44 +514,7 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/test-demo/ios/Podfile
-content:
---------
-platform :ios, '10.0'
-
-	target 'test-demo' do
-		rn_path = '../node_modules/react-native'
-
-		pod 'yoga', path: \\"#{rn_path}/ReactCommon/yoga/yoga.podspec\\"
-		pod 'DoubleConversion', :podspec => \\"#{rn_path}/third-party-podspecs/DoubleConversion.podspec\\"
-		pod 'Folly', :podspec => \\"#{rn_path}/third-party-podspecs/Folly.podspec\\"
-		pod 'glog', :podspec => \\"#{rn_path}/third-party-podspecs/GLog.podspec\\"
-		pod 'React', path: rn_path, subspecs: [
-			'Core',
-			'CxxBridge',
-			'RCTAnimation',
-			'RCTActionSheet',
-			'RCTImage',
-			'RCTLinkingIOS',
-			'RCTNetwork',
-			'RCTSettings',
-			'RCTText',
-			'RCTVibration',
-			'RCTWebSocket',
-			'RCTPushNotification',
-			'RCTCameraRoll',
-			'RCTSettings',
-			'RCTBlob',
-			'RCTGeolocation',
-			'DevSupport'
-		]
-
-		pod 'react-native-alice-bobbi', :path => '../../react-native-alice-bobbi.podspec'
-	end
-
-<<<<<<<< ======== >>>>>>>>
-",
-  "* outputFile name: react-native-alice-bobbi/test-demo/App.js
+  "* outputFile name: react-native-alice-bobbi/example/App.js
 content:
 --------
 /**
@@ -1008,11 +579,11 @@ const styles = StyleSheet.create({
 ",
   Object {
     "call": "fs.readFileSync",
-    "jsonFilePath": "./react-native-alice-bobbi/test-demo/package.json",
+    "jsonFilePath": "./react-native-alice-bobbi/example/package.json",
   },
   Object {
     "call": "fs.writeFileSync",
-    "filePath": "./react-native-alice-bobbi/test-demo/package.json",
+    "filePath": "./react-native-alice-bobbi/example/package.json",
     "json": "{
   \\"name\\": \\"example\\",
   \\"scripts\\": {
@@ -1031,11 +602,7 @@ const styles = StyleSheet.create({
       "spaces": 2,
     },
   },
-  "* execa.commandSync command: yarn add file:../ options: {\\"cwd\\":\\"./react-native-alice-bobbi/test-demo\\",\\"stdio\\":\\"inherit\\"}
-",
-  "* execa.commandSync command: pod --version options: {\\"cwd\\":\\"./react-native-alice-bobbi/test-demo/ios\\",\\"stdio\\":\\"inherit\\"}
-",
-  "* execa.commandSync command: pod install options: {\\"cwd\\":\\"./react-native-alice-bobbi/test-demo/ios\\",\\"stdio\\":\\"inherit\\"}
+  "* execa.commandSync command: yarn add file:../ options: {\\"cwd\\":\\"./react-native-alice-bobbi/example\\",\\"stdio\\":\\"inherit\\"}
 ",
 ]
 `;

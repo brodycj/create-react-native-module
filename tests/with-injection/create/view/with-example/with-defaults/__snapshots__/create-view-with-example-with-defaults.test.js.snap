@@ -92,11 +92,11 @@ content:
   \\"readmeFilename\\": \\"README.md\\",
   \\"peerDependencies\\": {
     \\"react\\": \\"^16.8.1\\",
-    \\"react-native\\": \\">=0.59.0-rc.0 <1.0.x\\"
+    \\"react-native\\": \\">=0.60.0-rc.0 <1.0.x\\"
   },
   \\"devDependencies\\": {
-    \\"react\\": \\"^16.8.3\\",
-    \\"react-native\\": \\"^0.59.10\\"
+    \\"react\\": \\"^16.9.0\\",
+    \\"react-native\\": \\"^0.61.5\\"
   }
 }
 
@@ -347,10 +347,7 @@ package com.reactlibrary;
 
 import android.view.View;
 
-// AppCompatCheckBox import for React Native pre-0.60:
-import android.support.v7.widget.AppCompatCheckBox;
-// AppCompatCheckBox import for React Native 0.60(+):
-// import androidx.appcompat.widget.AppCompatCheckBox;
+import androidx.appcompat.widget.AppCompatCheckBox;
 
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
@@ -782,7 +779,7 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* execa.commandSync command: react-native init example --version react-native@0.59 options: {\\"cwd\\":\\"./react-native-alice-bobbi\\",\\"stdio\\":\\"inherit\\"}
+  "* execa.commandSync command: react-native init example --version react-native@0.61 options: {\\"cwd\\":\\"./react-native-alice-bobbi\\",\\"stdio\\":\\"inherit\\"}
 ",
   "* ensureDir dir: react-native-alice-bobbi/scripts/
 ",
@@ -983,7 +980,9 @@ const styles = StyleSheet.create({
   },
   "* execa.commandSync command: yarn add file:../ options: {\\"cwd\\":\\"./react-native-alice-bobbi/example\\",\\"stdio\\":\\"inherit\\"}
 ",
-  "* execa.commandSync command: react-native link options: {\\"cwd\\":\\"./react-native-alice-bobbi/example\\",\\"stdio\\":\\"inherit\\"}
+  "* execa.commandSync command: pod --version options: {\\"cwd\\":\\"./react-native-alice-bobbi/example/ios\\",\\"stdio\\":\\"inherit\\"}
+",
+  "* execa.commandSync command: pod install options: {\\"cwd\\":\\"./react-native-alice-bobbi/example/ios\\",\\"stdio\\":\\"inherit\\"}
 ",
 ]
 `;
