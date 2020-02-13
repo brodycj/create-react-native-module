@@ -27,10 +27,10 @@ ${name};
     const peerDependencies =
       `{
     "react": "^16.8.1",
-    "react-native": ">=0.59.0-rc.0 <1.0.x"` +
+    "react-native": ">=0.60.0-rc.0 <1.0.x"` +
       (withWindows
         ? `,
-    "react-native-windows": ">=0.59.0-rc.0 <1.0.x"`
+    "react-native-windows": ">=0.60.0-0 <1.0.x"`
         : ``) + `
   }`;
 
