@@ -28,12 +28,8 @@ This tool based on [`react-native-create-library`](https://www.npmjs.com/package
 ### General status
 
 - **React Native versions supported:**
-  - recommended: `0.61`, `0.60` (see known quirks and issues below)
-  - outdated: `0.59`
-- Known quirks & issues on React Native 0.60(+):
-  - [issue #99](https://github.com/brodybits/create-react-native-module/issues/99) - additional `pod install` step needed for RN 0.60 on iOS
-  - [issue #29](https://github.com/brodybits/create-react-native-module/issues/29) - View does not work with RN 0.60 on Android (quick patch needed)
-  - React Native 0.60(+) currently not supported by Expo or react-native-windows
+  - recommended: `0.61`
+  - minimum (outdated): `0.60`
 - Platform fork support
   - tvOS platform fork
     - requires use of `--tvos-enabled` option as documented below
