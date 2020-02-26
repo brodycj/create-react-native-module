@@ -169,11 +169,11 @@ AliceBobbi;
   \\"readmeFilename\\": \\"README.md\\",
   \\"peerDependencies\\": {
     \\"react\\": \\"^16.8.1\\",
-    \\"react-native\\": \\">=0.59.0-rc.0 <1.0.x\\"
+    \\"react-native\\": \\">=0.60.0-rc.0 <1.0.x\\"
   },
   \\"devDependencies\\": {
-    \\"react\\": \\"^16.8.3\\",
-    \\"react-native\\": \\"^0.59.10\\"
+    \\"react\\": \\"^16.9.0\\",
+    \\"react-native\\": \\"^0.61.5\\"
   }
 }
 ",
@@ -825,11 +825,11 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
   },
   Object {
     "info": Array [
-      "CREATE example app with the following command: react-native init example --version react-native@0.59",
+      "CREATE example app with the following command: react-native init example --version react-native@0.61",
     ],
   },
   Object {
-    "commandSync": "react-native init example --version react-native@0.59",
+    "commandSync": "react-native init example --version react-native@0.61",
     "options": Object {
       "cwd": "./react-native-alice-bobbi",
       "stdio": "inherit",
@@ -1042,9 +1042,26 @@ const styles = StyleSheet.create({
     },
   },
   Object {
-    "commandSync": "react-native link",
+    "log": Array [
+      "check for valid pod version in ./react-native-alice-bobbi/example/ios",
+    ],
+  },
+  Object {
+    "commandSync": "pod --version",
     "options": Object {
-      "cwd": "./react-native-alice-bobbi/example",
+      "cwd": "./react-native-alice-bobbi/example/ios",
+      "stdio": "inherit",
+    },
+  },
+  Object {
+    "log": Array [
+      "running pod install in ./react-native-alice-bobbi/example/ios",
+    ],
+  },
+  Object {
+    "commandSync": "pod install",
+    "options": Object {
+      "cwd": "./react-native-alice-bobbi/example/ios",
       "stdio": "inherit",
     },
   },

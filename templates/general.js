@@ -27,20 +27,20 @@ ${name};
     const peerDependencies =
       `{
     "react": "^16.8.1",
-    "react-native": ">=0.59.0-rc.0 <1.0.x"` +
+    "react-native": ">=0.60.0-rc.0 <1.0.x"` +
       (withWindows
         ? `,
-    "react-native-windows": ">=0.59.0-rc.0 <1.0.x"`
+    "react-native-windows": ">=0.60.0-0 <1.0.x"`
         : ``) + `
   }`;
 
     const devDependencies =
       `{
-    "react": "^16.8.3",
-    "react-native": "^0.59.10"` +
+    "react": "^16.9.0",
+    "react-native": "^0.61.5"` +
         (withWindows
           ? `,
-    "react-native-windows": "^0.59.0-rc.1"`
+    "react-native-windows": "^0.61.0-beta.5"`
           : ``) + `
   }`;
 

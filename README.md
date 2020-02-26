@@ -28,18 +28,15 @@ This tool based on [`react-native-create-library`](https://www.npmjs.com/package
 ### General status
 
 - **React Native versions supported:**
-  - recommended: `0.61`, `0.60` (see known quirks and issues below)
-  - outdated: `0.59`
-- Known quirks & issues on React Native 0.60(+):
-  - [issue #99](https://github.com/brodybits/create-react-native-module/issues/99) - additional `pod install` step needed for RN 0.60 on iOS
-  - [issue #29](https://github.com/brodybits/create-react-native-module/issues/29) - View does not work with RN 0.60 on Android (quick patch needed)
-  - React Native 0.60(+) currently not supported by Expo or react-native-windows
+  - recommended: `0.61`
+  - minimum (outdated): `0.60`
 - Platform fork support
   - tvOS platform fork
     - requires use of `--tvos-enabled` option as documented below
     - requires the [`react-native-tvos`](https://www.npmjs.com/package/react-native-tvos) fork, with minimum version of 0.60 ref:  [react-native-community/react-native-tvos#11](https://github.com/react-native-community/react-native-tvos/issues/11)), [issue #95](https://github.com/brodybits/create-react-native-module/issues/95)
     - unstable with very limited testing, with limited if any active support from the primary maintainer [@brodybits](https://github.com/brodybits) (see [issue #127](https://github.com/brodybits/create-react-native-module/issues/127))
-- Out-of-tree platform support
+- Out-of-tree platforms
+  - not supported by generated example
   - Windows - unstable (not tested, see [issue #23](https://github.com/brodybits/create-react-native-module/issues/23)); now deprecated and may be removed in the near future (see [issue #43](https://github.com/brodybits/create-react-native-module/issues/43))
   - for future consideration: macOS (see [issue #94](https://github.com/brodybits/create-react-native-module/issues/94))
 - Node.js pre-10 support is deprecated and will be removed in the near future (see [issue #38](https://github.com/brodybits/create-react-native-module/issues/38))
@@ -109,7 +106,7 @@ Options:
   --use-apple-networking                    [iOS] Use `AFNetworking` dependency as a sample in the podspec & use it from the iOS code
   --generate-example                        Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally
   --example-name <exampleName>              Name for the example project (default: `example`)
-  --example-react-native-version <version>  React Native version for the generated example project (default: `react-native@0.59`)
+  --example-react-native-version <version>  React Native version for the generated example project (default: `react-native@0.61`)
   --write-example-podfile                   [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile
   -h, --help                                output usage information
 ```
@@ -145,7 +142,7 @@ createLibraryModule({
   view: Boolean, /* Generate the module as a very simple native view component (Default: false) */
   generateExample: Boolean, /* Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally (Default: false) */
   exampleName: String, /* Name for the example project (Default: `example`) */
-  exampleReactNativeVersion: String, /* React Native version for the generated example project (Default: `react-native@0.59`) */
+  exampleReactNativeVersion: String, /* React Native version for the generated example project (Default: `react-native@0.61`) */
   writeExamplePodfile: Boolean, /* [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile (Default: false) */
 }
 ```

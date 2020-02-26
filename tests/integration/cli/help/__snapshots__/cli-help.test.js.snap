@@ -21,7 +21,7 @@ Options:
   --use-apple-networking                                      [iOS] Use \`AFNetworking\` dependency as a sample in the podspec & use it from the iOS code
   --generate-example                                          Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally
   --example-name [exampleName]                                Name for the example project (default: \\"example\\")
-  --example-react-native-version [exampleReactNativeVersion]  React Native version for the generated example project (default: \\"react-native@0.59\\")
+  --example-react-native-version [exampleReactNativeVersion]  React Native version for the generated example project (default: \\"react-native@0.61\\")
   --write-example-podfile                                     [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile
   --add-example-postinstall-script                            DEPRECATED - no longer needed): add example postinstall script
   -h, --help                                                  output usage information"
