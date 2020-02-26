@@ -1,6 +1,6 @@
 module.exports = platform => [{
   name: ({ moduleName }) => `${moduleName}.podspec`,
-  content: ({ moduleName, tvosEnabled, githubAccount, authorName, authorEmail, useAppleNetworking }) => `require "json"
+  content: ({ moduleName, tvosEnabled, githubAccount, authorName, authorEmail, license, useAppleNetworking }) => `require "json"
 
 package = JSON.parse(File.read(File.join(__dir__, "package.json")))
 
@@ -12,8 +12,8 @@ Pod::Spec.new do |s|
                   ${moduleName}
                    DESC
   s.homepage     = "https://github.com/${githubAccount}/${moduleName}"
-  s.license      = "MIT"
-  # s.license    = { :type => "MIT", :file => "FILE_LICENSE" }
+  s.license      = "${license}"
+  # s.license    = { :type => "${license}", :file => "FILE_LICENSE" }
   s.authors      = { "${authorName}" => "${authorEmail}" }
   s.platforms    = { :ios => "9.0"${tvosEnabled ? `, :tvos => "10.0"` : ``} }
   s.source       = { :git => "https://github.com/${githubAccount}/${moduleName}.git", :tag => "#{s.version}" }
