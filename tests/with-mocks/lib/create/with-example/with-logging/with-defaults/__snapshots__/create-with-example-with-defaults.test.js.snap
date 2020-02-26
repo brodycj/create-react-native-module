@@ -25,10 +25,11 @@ Array [
   license: MIT
   view: false
   useAppleNetworking: false
+
   generateExample: true
   exampleName: example
   writeExamplePodfile: false
-  ",
+",
     ],
   },
   Object {

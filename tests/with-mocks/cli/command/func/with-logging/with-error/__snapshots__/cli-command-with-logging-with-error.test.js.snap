@@ -25,10 +25,7 @@ Array [
   license: MIT
   view: false
   useAppleNetworking: false
-  generateExample: false
-  exampleName: example
-  writeExamplePodfile: false
-  ",
+",
     ],
   },
   Object {
@@ -48,9 +45,9 @@ Array [
     "error": Array [
       "Error: ENOPERM not permitted
     at Object.ensureDir (.../tests/with-mocks/cli/command/func/with-logging/with-error/cli-command-with-logging-with-error.test.js:9:27)
-    at ensureDir (.../lib/lib.js:153:15)
-    at generateLibraryModule (.../lib/lib.js:279:10)
-    at generateWithNormalizedOptions (.../lib/lib.js:296:10)
+    at ensureDir (.../lib/lib.js:155:15)
+    at generateLibraryModule (.../lib/lib.js:281:10)
+    at generateWithNormalizedOptions (.../lib/lib.js:298:10)
     at createLibraryModule (.../lib/cli-command.js:...
     at Object.func (.../tests/with-mocks/cli/command/func/with-logging/with-error/cli-command-with-logging-with-error.test.js:62:9)
     ",

@@ -19,10 +19,11 @@ Array [
   license: ISC
   view: false
   useAppleNetworking: false
+
   generateExample: true
   exampleName: example
   writeExamplePodfile: false
-  ",
+",
     ],
   },
   Object {
