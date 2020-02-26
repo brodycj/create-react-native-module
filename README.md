@@ -142,7 +142,7 @@ createLibraryModule({
   view: Boolean, /* Generate the module as a very simple native view component (Default: false) */
   generateExample: Boolean, /* Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally (Default: false) */
   exampleName: String, /* Name for the example project (Default: `example`) */
-  exampleReactNativeVersion: String, /* React Native version for the generated example project (Default: `react-native@0.59`) */
+  exampleReactNativeVersion: String, /* React Native version for the generated example project (Default: `react-native@0.61`) */
   writeExamplePodfile: Boolean, /* [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile (Default: false) */
 }
 ```
