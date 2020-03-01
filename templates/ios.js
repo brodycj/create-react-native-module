@@ -12,7 +12,9 @@ Pod::Spec.new do |s|
                   ${moduleName}
                    DESC
   s.homepage     = "https://github.com/${githubAccount}/${moduleName}"
+  # brief license entry:
   s.license      = "${license}"
+  # optional - use expanded license entry instead:
   # s.license    = { :type => "${license}", :file => "FILE_LICENSE" }
   s.authors      = { "${authorName}" => "${authorEmail}" }
   s.platforms    = { :ios => "9.0"${tvosEnabled ? `, :tvos => "10.0"` : ``} }
