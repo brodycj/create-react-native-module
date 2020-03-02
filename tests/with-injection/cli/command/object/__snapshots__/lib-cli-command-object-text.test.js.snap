@@ -73,7 +73,7 @@ Object {
     },
     Object {
       "command": "--example-react-native-version [exampleReactNativeVersion]",
-      "default": "react-native@0.61",
+      "default": "react-native@latest",
       "description": "React Native version for the generated example project",
     },
     Object {

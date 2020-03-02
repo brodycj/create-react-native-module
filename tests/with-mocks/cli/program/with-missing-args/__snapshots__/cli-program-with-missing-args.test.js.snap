@@ -163,7 +163,7 @@ Array [
         "--example-react-native-version [exampleReactNativeVersion]",
         "React Native version for the generated example project",
         [Function],
-        "react-native@0.61",
+        "react-native@latest",
       ],
     },
   },
