@@ -7,7 +7,11 @@ module.exports = config => {
       'unsupported-platforms/**/*.js'
     ],
     packageManager: 'yarn',
-    reporters: ['html', 'clear-text', 'progress'],
+    reporters: [
+      'html',
+      'clear-text',
+      'progress'
+    ],
     testRunner: 'jest',
     transpilers: [],
     coverageAnalysis: 'off'
