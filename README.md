@@ -258,7 +258,10 @@ yarn start
 
 To run on Android: do `react-native run-android` as described for the other example above.
 
-To run on iOS: do `pod install` in `ios` subdirectory _in case of clean checkout only_, then do `react-native run-ios` or `open ios/example.xcodeproj` as described for the other example above.
+To run on iOS (as described above):
+
+- _in case of clean checkout **only**_: do `pod install` in `ios` subdirectory
+- do `react-native run-ios` or `open ios/example.xcodeproj`
 
 __Expected result:__
 
