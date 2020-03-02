@@ -1,4 +1,4 @@
-const windowsTemplate = require('../../../../templates/windows');
+const windowsTemplate = require('../../../../unsupported-platforms/windows-csharp');
 
 // injected uuid:
 const uuid = 'E22606E0-B47F-11E9-A3F0-07F70A25DAFB';
