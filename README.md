@@ -148,10 +148,6 @@ createLibraryModule({
 }
 ```
 
-## Behavior not tested or supported
-
-- Windows platform support
-
 ## Examples
 
 ### Example module with no view
