@@ -7,7 +7,7 @@
   "scripts": {
     "jest": "jest",
     "lint": "eslint .",
-    "run-stryker": "stryker run",
+    "stryker": "stryker run",
     "test": "npm run lint && npm run jest"
   },
   "repository": {
