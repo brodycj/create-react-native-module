@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`create alice-bobbi module using mocked lib with defaults on Windows 1`] = `
+exports[`unsupported Windows C# template with defaults 1`] = `
 Array [
   Object {
     "ensureDir": "react-native-alice-bobbi",

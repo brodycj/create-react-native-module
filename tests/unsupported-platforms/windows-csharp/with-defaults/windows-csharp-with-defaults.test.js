@@ -1,4 +1,4 @@
-const lib = require('../../../../../../lib/lib.js');
+const lib = require('../../../../lib/lib.js');
 
 // special compact mocks for this test
 // with mock uuid for Windows:
@@ -21,15 +21,10 @@ jest.mock('fs-extra', () => ({
   },
 }));
 
-test('create alice-bobbi module using mocked lib with config options on Windows', () => {
+test('unsupported Windows C# template with defaults', () => {
   const options = {
     platforms: ['windows'],
     name: 'alice-bobbi',
-    githubAccount: 'alicebits',
-    authorName: 'Alice',
-    authorEmail: 'contact@alice.me',
-    license: 'ISC',
-    namespace: 'Carol',
   };
 
   return lib(options)
