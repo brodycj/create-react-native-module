@@ -1,147 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`create alice-bobbi module using mocked lib with defaults on Windows 1`] = `
+exports[`unsupported Windows C# template with options 1`] = `
 Array [
   Object {
-    "ensureDir": "react-native-alice-bobbi",
-  },
-  Object {
-    "ensureDir": "react-native-alice-bobbi/",
-  },
-  Object {
-    "ensureDir": "react-native-alice-bobbi/",
-  },
-  Object {
-    "ensureDir": "react-native-alice-bobbi/",
-  },
-  Object {
-    "ensureDir": "react-native-alice-bobbi/",
-  },
-  Object {
-    "ensureDir": "react-native-alice-bobbi/",
-  },
-  Object {
-    "ensureDir": "react-native-alice-bobbi/",
-  },
-  Object {
-    "ensureDir": "react-native-alice-bobbi/windows/",
-  },
-  Object {
-    "ensureDir": "react-native-alice-bobbi/windows/",
-  },
-  Object {
-    "ensureDir": "react-native-alice-bobbi/windows/",
-  },
-  Object {
-    "ensureDir": "react-native-alice-bobbi/windows/AliceBobbi/",
-  },
-  Object {
-    "ensureDir": "react-native-alice-bobbi/windows/AliceBobbi/",
-  },
-  Object {
-    "ensureDir": "react-native-alice-bobbi/windows/AliceBobbi/",
-  },
-  Object {
-    "ensureDir": "react-native-alice-bobbi/windows/AliceBobbi/",
-  },
-  Object {
-    "ensureDir": "react-native-alice-bobbi/windows/AliceBobbi/Properties/",
-  },
-  Object {
-    "ensureDir": "react-native-alice-bobbi/windows/AliceBobbi/Properties/",
-  },
-  Object {
-    "outputFileName": "react-native-alice-bobbi/README.md",
-    "theContent": "# react-native-alice-bobbi
-
-## Getting started
-
-\`$ npm install react-native-alice-bobbi --save\`
-
-### Mostly automatic installation
-
-\`$ react-native link react-native-alice-bobbi\`
-
-## Usage
-\`\`\`javascript
-import AliceBobbi from 'react-native-alice-bobbi';
-
-// TODO: What to do with the module?
-AliceBobbi;
-\`\`\`
-",
-  },
-  Object {
-    "outputFileName": "react-native-alice-bobbi/package.json",
-    "theContent": "{
-  \\"name\\": \\"react-native-alice-bobbi\\",
-  \\"title\\": \\"React Native Alice Bobbi\\",
-  \\"version\\": \\"1.0.0\\",
-  \\"description\\": \\"TODO\\",
-  \\"main\\": \\"index.js\\",
-  \\"scripts\\": {
-    \\"test\\": \\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\"
-  },
-  \\"repository\\": {
-    \\"type\\": \\"git\\",
-    \\"url\\": \\"git+https://github.com/github_account/react-native-alice-bobbi.git\\",
-    \\"baseUrl\\": \\"https://github.com/github_account/react-native-alice-bobbi\\"
-  },
-  \\"keywords\\": [
-    \\"react-native\\"
-  ],
-  \\"author\\": {
-    \\"name\\": \\"Your Name\\",
-    \\"email\\": \\"yourname@email.com\\"
-  },
-  \\"license\\": \\"MIT\\",
-  \\"licenseFilename\\": \\"LICENSE\\",
-  \\"readmeFilename\\": \\"README.md\\",
-  \\"peerDependencies\\": {
-    \\"react\\": \\"^16.8.1\\",
-    \\"react-native\\": \\">=0.60.0-rc.0 <1.0.x\\",
-    \\"react-native-windows\\": \\">=0.60.0-0 <1.0.x\\"
-  },
-  \\"devDependencies\\": {
-    \\"react\\": \\"^16.9.0\\",
-    \\"react-native\\": \\"^0.61.5\\",
-    \\"react-native-windows\\": \\"^0.61.0-beta.5\\"
-  }
-}
-",
-  },
-  Object {
-    "outputFileName": "react-native-alice-bobbi/index.js",
-    "theContent": "import { NativeModules } from 'react-native';
-
-const { AliceBobbi } = NativeModules;
-
-export default AliceBobbi;
-",
-  },
-  Object {
-    "outputFileName": "react-native-alice-bobbi/.gitignore",
-    "theContent": "# OSX
-#
-.DS_Store
-
-# node.js
-#
-node_modules/
-npm-debug.log
-yarn-error.log
-",
-  },
-  Object {
-    "outputFileName": "react-native-alice-bobbi/.gitattributes",
-    "theContent": "",
-  },
-  Object {
-    "outputFileName": "react-native-alice-bobbi/.npmignore",
-    "theContent": "",
-  },
-  Object {
-    "outputFileName": "react-native-alice-bobbi/windows/AliceBobbi.sln",
+    "outputFileName": "windows/AliceBobbi.sln",
     "theContent": "Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
@@ -233,7 +95,7 @@ EndGlobal
   ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/windows/.gitignore",
+    "outputFileName": "windows/.gitignore",
     "theContent": "*AppPackages*
 *BundleArtifacts*
 *ReactAssets*
@@ -315,7 +177,7 @@ packages/
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/windows/.npmignore",
+    "outputFileName": "windows/.npmignore",
     "theContent": "
 # Make sure we don't publish build artifacts to NPM
 ARM/
@@ -328,7 +190,7 @@ obj/
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/windows/AliceBobbi/project.json",
+    "outputFileName": "windows/AliceBobbi/project.json",
     "theContent": "{
   \\"dependencies\\": {
     \\"Microsoft.NETCore.UniversalWindowsPlatform\\": \\"5.2.2\\"
@@ -348,7 +210,7 @@ obj/
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/windows/AliceBobbi/AliceBobbi.csproj",
+    "outputFileName": "windows/AliceBobbi/AliceBobbi.csproj",
     "theContent": "<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>
 <Project ToolsVersion=\\"14.0\\" DefaultTargets=\\"Build\\" xmlns=\\"http://schemas.microsoft.com/developer/msbuild/2003\\">
   <Import Project=\\"$(MSBuildExtensionsPath)\\\\$(MSBuildToolsVersion)\\\\Microsoft.Common.props\\" Condition=\\"Exists('$(MSBuildExtensionsPath)\\\\$(MSBuildToolsVersion)\\\\Microsoft.Common.props')\\" />
@@ -358,8 +220,8 @@ obj/
     <ProjectGuid>{E22606E0-B47F-11E9-A3F0-07F70A25DAFB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Alice.Bobbi</RootNamespace>
-    <AssemblyName>Alice.Bobbi</AssemblyName>
+    <RootNamespace>Carol</RootNamespace>
+    <AssemblyName>Carol</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
@@ -505,14 +367,14 @@ obj/
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/windows/AliceBobbi/AliceBobbiModule.cs",
+    "outputFileName": "windows/AliceBobbi/AliceBobbiModule.cs",
     "theContent": "using ReactNative.Bridge;
 using System;
 using System.Collections.Generic;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 
-namespace Alice.Bobbi.AliceBobbi
+namespace Carol.AliceBobbi
 {
     /// <summary>
     /// A module that allows JS to share data.
@@ -542,14 +404,14 @@ namespace Alice.Bobbi.AliceBobbi
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/windows/AliceBobbi/AliceBobbiPackage.cs",
+    "outputFileName": "windows/AliceBobbi/AliceBobbiPackage.cs",
     "theContent": "using ReactNative.Bridge;
 using ReactNative.Modules.Core;
 using ReactNative.UIManager;
 using System;
 using System.Collections.Generic;
 
-namespace Alice.Bobbi.AliceBobbi
+namespace Carol.AliceBobbi
 {
     /// <summary>
     /// Package defining core framework modules (e.g., <see cref=\\"UIManagerModule\\"/>).
@@ -599,7 +461,7 @@ namespace Alice.Bobbi.AliceBobbi
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/windows/AliceBobbi/Properties/AliceBobbi.rd.xml",
+    "outputFileName": "windows/AliceBobbi/Properties/AliceBobbi.rd.xml",
     "theContent": "<?xml version=\\"1.0\\" encoding=\\"utf-8\\"?>
 <!--
     This file contains Runtime Directives, specifications about types your application accesses
@@ -631,7 +493,7 @@ namespace Alice.Bobbi.AliceBobbi
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/windows/AliceBobbi/Properties/AssemblyInfo.cs",
+    "outputFileName": "windows/AliceBobbi/Properties/AssemblyInfo.cs",
     "theContent": "using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;

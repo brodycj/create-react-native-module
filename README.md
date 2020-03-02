@@ -36,8 +36,7 @@ This tool based on [`react-native-create-library`](https://www.npmjs.com/package
     - requires the [`react-native-tvos`](https://www.npmjs.com/package/react-native-tvos) fork, with minimum version of 0.60 ref:  [react-native-community/react-native-tvos#11](https://github.com/react-native-community/react-native-tvos/issues/11)), [issue #95](https://github.com/brodybits/create-react-native-module/issues/95)
     - unstable with very limited testing, with limited if any active support from the primary maintainer [@brodybits](https://github.com/brodybits) (see [issue #127](https://github.com/brodybits/create-react-native-module/issues/127))
 - Out-of-tree platforms
-  - not supported by generated example
-  - Windows - unstable (not tested, see [issue #23](https://github.com/brodybits/create-react-native-module/issues/23)); now deprecated and may be removed in the near future (see [issue #43](https://github.com/brodybits/create-react-native-module/issues/43))
+  - Windows - no longer supported for reasons discussed in issues [#23](https://github.com/brodybits/create-react-native-module/issues/23) and [#43](https://github.com/brodybits/create-react-native-module/issues/43) (existing Windows C# template is kept in `unsupported-platforms` for now (at least) and further discussion would be welcome in a new issue on GitHub)
   - for future consideration: macOS (see [issue #94](https://github.com/brodybits/create-react-native-module/issues/94))
 - Node.js pre-10 support is deprecated and will be removed in the near future (see [issue #38](https://github.com/brodybits/create-react-native-module/issues/38))
 
@@ -148,10 +147,6 @@ createLibraryModule({
   writeExamplePodfile: Boolean, /* [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile (Default: false) */
 }
 ```
-
-## Behavior not tested or supported
-
-- Windows platform support
 
 ## Examples
 
