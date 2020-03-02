@@ -50,8 +50,10 @@ Why not use `react-native new-library`? Unfortunately that command doesn't creat
 
 ### Alternatives
 
-- [`react-native-create-library`](https://www.npmjs.com/package/react-native-create-library)
-- [`react-native-create-bridge`](https://github.com/peggyrayzis/react-native-create-bridge)
+- [`brodybits/react-native-module-init`](https://github.com/brodybits/react-native-module-init) - new interactive CLI that uses the templates from this utiity
+- [`react-native-community/bob`](https://github.com/react-native-community/bob) - opinionated, interactive library CLI that is designed to support both native libraries and libraries with web support
+
+__Outdated alternatives:__ see [acknowledgements](#acknowledgements) below
 
 ## Installation
 
