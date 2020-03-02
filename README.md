@@ -171,12 +171,16 @@ cd react-native-alice-helper/example
 
 #### Running the example app
 
-__Within the example test app subdirectory:__
+**Recommended:** Follow the instructions shown in the end of the console log output, which are more likely to be up-to-date.
+
+__Extra notes:__
+
+_Within the example test app subdirectory:_
 
 It is *recommended* to start the Metro Bundler manually (within `react-native-alice-helper/example`), which would run in the foreground:
 
 ```
-npm start
+yarn start
 ```
 
 Otherwise, React Native will open its own window to run the Metro Bundler.
@@ -195,7 +199,7 @@ ANDROID_HOME=~/Library/Android/sdk react-native run-android
 
 For iOS:
 
-Extra installation step needed on React Native 0.60(+) (see [issue #28](https://github.com/brodybits/create-react-native-module/issues/28)):
+Extra installation step needed _in case of clean checkout only_:
 
 ```
 cd ios && pod install && cd ..
@@ -213,7 +217,7 @@ or do the following command to open the iOS project in Xcode:
 open ios/example.xcodeproj
 ```
 
-__Expected result:__
+#### Expected result
 
 The example app shows the following indications:
 
@@ -238,17 +242,26 @@ Then go into the example app subdirectory:
 cd react-native-carol-widget/example
 ```
 
-__Within the example test app subdirectory:__
+#### Running the view example app
+
+**Recommended:** Follow the instructions shown in the end of the console log output, which are more likely to be up-to-date.
+
+__Some extra notes:__
+
+_Within the example test app subdirectory:_
 
 It is *recommended* to start the Metro Bundler manually as described above (within `react-native-carol-widget/example`):
 
 ```
-npm start
+yarn start
 ```
 
 To run on Android: do `react-native run-android` as described for the other example above.
 
-To run on iOS: do `pod install` in `ios` subdirectory for React Native 0.60(+) (see above), then do `react-native run-ios` or `open ios/example.xcodeproj` as described for the other example above.
+To run on iOS (as described above):
+
+- _in case of clean checkout **only**_: do `pod install` in `ios` subdirectory
+- do `react-native run-ios` or `open ios/example.xcodeproj`
 
 __Expected result:__
 
