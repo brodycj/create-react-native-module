@@ -8,7 +8,7 @@
     "jest": "cross-env CI=1 jest",
     "lint": "eslint .",
     "stryker": "stryker run",
-    "test": "npm run lint && npm run jest"
+    "test": "npm run lint && cross-env CI=1 jest"
   },
   "repository": {
     "type": "git",
