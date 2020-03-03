@@ -65,7 +65,6 @@ test(`create alice-bobbi module with logging, with example, with options`, async
     generateExample: true,
   };
 
-
   await func(args, null, options);
 
   expect(mysnap).toMatchSnapshot();
