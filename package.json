@@ -5,10 +5,10 @@
   "bin": "bin/cli.js",
   "main": "lib/lib.js",
   "scripts": {
-    "jest": "cross-env CI=1 jest",
+    "jest": "cross-env CI=true jest",
     "lint": "eslint .",
     "stryker": "stryker run",
-    "test": "npm run lint && cross-env CI=1 jest"
+    "test": "npm run lint && cross-env CI=true jest"
   },
   "repository": {
     "type": "git",
