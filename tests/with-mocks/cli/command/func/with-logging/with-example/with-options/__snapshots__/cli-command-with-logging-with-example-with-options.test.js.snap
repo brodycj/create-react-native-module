@@ -1086,17 +1086,17 @@ YOU'RE ALL SET!
 
 💡 check out the example app in react-native-alice-bobbi/undefined
 💡 recommended: run Metro Bundler in a new shell
-[34mℹ[39m (cd react-native-alice-bobbi/undefined && yarn start)
+ℹ (cd react-native-alice-bobbi/undefined && yarn start)
 💡 enter the following commands to run the example app:
-[34mℹ[39m cd react-native-alice-bobbi/undefined
-[34mℹ[39m react-native run-android
-[34mℹ[39m react-native run-ios
-[33m⚠[39m first steps in case of a clean checkout
-[34mℹ[39m run Yarn in react-native-alice-bobbi/undefined/ios
-[34mℹ[39m (cd react-native-alice-bobbi/undefined && yarn)
-[34mℹ[39m do \`pod install\` for iOS in react-native-alice-bobbi/undefined/ios
-[34mℹ[39m cd react-native-alice-bobbi/undefined
-[34mℹ[39m (cd ios && pod install)
+ℹ cd react-native-alice-bobbi/undefined
+ℹ react-native run-android
+ℹ react-native run-ios
+⚠ first steps in case of a clean checkout
+ℹ run Yarn in react-native-alice-bobbi/undefined/ios
+ℹ (cd react-native-alice-bobbi/undefined && yarn)
+ℹ do \`pod install\` for iOS in react-native-alice-bobbi/undefined/ios
+ℹ cd react-native-alice-bobbi/undefined
+ℹ (cd ios && pod install)
 ",
     ],
   },
