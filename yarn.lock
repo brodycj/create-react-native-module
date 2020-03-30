@@ -448,17 +448,10 @@
     typed-inject "~2.1.1"
     typed-rest-client "~1.7.1"
 
-"@stryker-mutator/html-reporter@^2.5.0":
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/@stryker-mutator/html-reporter/-/html-reporter-2.5.0.tgz#4698ec900d874e912364f0acf940b73111103f5c"
-  integrity sha512-QB83lsYnaG7AtaMCpcSigw4Db0TqaThDonA7XrlOC6aaAyQIf+4/eyp7wMrFBELSs4TFcQFtI3+LBZuKZTAkXw==
-  dependencies:
-    "@stryker-mutator/api" "^2.5.0"
-    "@stryker-mutator/util" "^2.5.0"
-    file-url "~3.0.0"
-    mkdirp "~0.5.1"
-    mutation-testing-elements "^1.0.2"
-    rimraf "~3.0.0"
+"@stryker-mutator/html-reporter@^3.1.0":
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/@stryker-mutator/html-reporter/-/html-reporter-3.1.0.tgz#b89692338037a0d168f9153457f5c71360c0c8c6"
+  integrity sha512-Lpn9YGt4NS9lLYhjBNZ1yZ9tCX9FWa66skR6Ieij3wMMtQvPlSswar6fmVqUiyPl/wmpTGSoptOcWDFEZ5qp8A==
 
 "@stryker-mutator/javascript-mutator@^2.5.0":
   version "2.5.0"
@@ -1804,11 +1797,6 @@ file-entry-cache@^5.0.1:
   integrity sha512-bCg29ictuBaKUwwArK4ouCaqDgLZcysCFLmM/Yn/FDoqndh/9vNuQfXRDvTuXKLxfD/JtZQGKFT8MGcJBK644g==
   dependencies:
     flat-cache "^2.0.1"
-
-file-url@~3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/file-url/-/file-url-3.0.0.tgz#247a586a746ce9f7a8ed05560290968afc262a77"
-  integrity sha512-g872QGsHexznxkIAdK8UiZRe7SkE6kvylShU4Nsj8NvfvZag7S0QuQ4IgvPDkk75HxgjIVDwycFTDAgIiO4nDA==
 
 fill-range@^4.0.0:
   version "4.0.0"
@@ -3336,11 +3324,6 @@ ms@^2.1.1:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
-
-mutation-testing-elements@^1.0.2:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/mutation-testing-elements/-/mutation-testing-elements-1.1.1.tgz#55c62067207ae38b7742cf4c93f96c9816a407a5"
-  integrity sha512-fnBf8pz1gW0MbnxSYPshJcghjzNz/h7WLxiF+Ux4wkBhwSs+YYl+IVaAdmITYylHvLzLkJOR9fuNcPNv5VgCKw==
 
 mutation-testing-metrics@^1.1.1:
   version "1.1.1"
