@@ -55,6 +55,9 @@
     "update-notifier": "^4.1.0"
   },
   "devDependencies": {
+    "@stryker-mutator/core": "^3.1.0",
+    "@stryker-mutator/javascript-mutator": "^3.1.0",
+    "@stryker-mutator/jest-runner": "^3.1.0",
     "eslint": "^6.4.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
