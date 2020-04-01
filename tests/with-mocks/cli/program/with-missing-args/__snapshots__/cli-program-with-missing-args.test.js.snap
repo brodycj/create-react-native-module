@@ -3,6 +3,14 @@
 exports[`mocked cli-program.js shows help in case of missing args 1`] = `
 Array [
   Object {
+    "please-upgrade-node": Object {
+      "engines": Object {
+        "node": ">= 8",
+      },
+      "name": "create-react-native-module",
+    },
+  },
+  Object {
     "notify": Object {},
   },
   Object {
