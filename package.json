@@ -4,6 +4,9 @@
   "description": "Tool to create a React Native library module or view module with a single command",
   "bin": "bin/cli.js",
   "main": "lib/lib.js",
+  "engines": {
+    "node": ">= 8"
+  },
   "scripts": {
     "jest": "cross-env CI=true jest",
     "lint": "eslint .",
@@ -48,21 +51,21 @@
     "node-emoji": "^1.10.0",
     "param-case": "^2.1.1",
     "pascal-case": "^2.0.1",
+    "please-upgrade-node": "^3.2.0",
     "update-notifier": "^4.1.0"
   },
   "devDependencies": {
-    "@stryker-mutator/core": "^2.5.0",
-    "@stryker-mutator/html-reporter": "^2.5.0",
-    "@stryker-mutator/javascript-mutator": "^2.5.0",
-    "@stryker-mutator/jest-runner": "^2.5.0",
+    "@stryker-mutator/core": "^3.1.0",
+    "@stryker-mutator/javascript-mutator": "^3.1.0",
+    "@stryker-mutator/jest-runner": "^3.1.0",
     "cross-env": "^7.0.0",
-    "eslint": "^6.4.0",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-node": "^11.0.0",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "jest": "^24.9.0",
+    "jest": "^25.2.4",
     "recursive-readdir": "^2.2.2"
   }
 }
