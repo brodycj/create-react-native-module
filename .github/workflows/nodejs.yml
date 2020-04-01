@@ -15,6 +15,9 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     strategy:
+      # ref:
+      # - https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow#configuring-a-build-matrix
+      # - https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idstrategymatrix
       matrix:
         os:
         - macos-latest
@@ -22,6 +25,10 @@ jobs:
         node-version:
         - 10.x
         - 12.x
+        # exclude slow combination(s)
+        exclude:
+          - os: macos-latest
+            node-version: 10.x
 
     steps:
     - uses: actions/checkout@v2
