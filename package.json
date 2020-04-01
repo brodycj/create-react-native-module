@@ -4,6 +4,9 @@
   "description": "Tool to create a React Native library module or view module with a single command",
   "bin": "bin/cli.js",
   "main": "lib/lib.js",
+  "engines": {
+    "node": ">= 8"
+  },
   "scripts": {
     "jest": "jest",
     "lint": "eslint .",
@@ -48,6 +51,7 @@
     "node-emoji": "^1.10.0",
     "param-case": "^2.1.1",
     "pascal-case": "^2.0.1",
+    "please-upgrade-node": "^3.2.0",
     "update-notifier": "^4.1.0"
   },
   "devDependencies": {
