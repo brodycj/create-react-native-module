@@ -23,12 +23,9 @@ jobs:
         - macos-latest
         - windows-latest
         node-version:
+        - 8.x
         - 10.x
         - 12.x
-        # exclude slow combination(s)
-        exclude:
-          - os: macos-latest
-            node-version: 10.x
 
     steps:
     - uses: actions/checkout@v2
