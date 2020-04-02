@@ -93,7 +93,7 @@ Usage: create-react-native-module [options] <name>
 Options:
 
   -V, --version                             output the version number
-  --prefix <prefix>                         The prefix of the library module object to be exported by both JavaScript and native code (Default: `')
+  --prefix <prefix>                         The prefix of the library module object to be exported by both JavaScript and native code (Default: ``)
   --module-name <moduleName>                The module library package name to be used in package.json. Default: react-native-(name in param-case)
   --module-prefix <modulePrefix>            The prefix of the library module object, ignored if --module-name is specified (Default: `react-native`)
   --package-identifier <packageIdentifier>  [Android] The Java package identifier used by the Android module (Default: `com.reactlibrary`)
