@@ -21,7 +21,7 @@ ${name};
 `,
 }, {
   name: () => 'package.json',
-  content: ({ moduleName, platforms, githubAccount, authorName, authorEmail, license }) => {
+  content: ({ moduleName, packageIdentifier, platforms, githubAccount, authorName, authorEmail, license }) => {
     const peerDependencies =
       `{
     "react": "^16.8.1",
@@ -58,6 +58,9 @@ ${name};
   "license": "${license}",
   "licenseFilename": "LICENSE",
   "readmeFilename": "README.md",
+  "native": {
+    "packageIdentifier": "${packageIdentifier}"
+  },
   "peerDependencies": ${peerDependencies},
   "devDependencies": ${devDependencies}
 }

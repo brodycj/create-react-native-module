@@ -1,6 +1,6 @@
 module.exports = platform => [{
   name: () => `${platform}/build.gradle`,
-  content: ({ packageIdentifier }) => `// ${platform}/build.gradle
+  content: () => `// ${platform}/build.gradle
 
 // based on:
 //
@@ -84,7 +84,7 @@ def configureReactNativePom(def pom) {
         name packageJson.title
         artifactId packageJson.name
         version = packageJson.version
-        group = "${packageIdentifier}"
+        group = packageJson.native.packageIdentifier
         description packageJson.description
         url packageJson.repository.baseUrl
 
