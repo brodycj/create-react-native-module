@@ -429,7 +429,7 @@ Pod::Spec.new do |s|
   # brief license entry:
   s.license      = \\"ISC\\"
   # optional - use expanded license entry instead:
-  # s.license    = { :type => \\"ISC\\", :file => \\"FILE_LICENSE\\" }
+  # s.license    = { :type => \\"ISC\\", :file => \\"LICENSE\\" }
   s.authors      = { \\"Alice\\" => \\"contact@alice.me\\" }
   s.platforms    = { :ios => \\"9.0\\", :tvos => \\"10.0\\" }
   s.source       = { :git => \\"https://github.com/alicebits/react-native-alice-bobbi.git\\", :tag => \\"#{s.version}\\" }

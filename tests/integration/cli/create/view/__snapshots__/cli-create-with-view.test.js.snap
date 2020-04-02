@@ -695,7 +695,7 @@ Pod::Spec.new do |s|
   # brief license entry:
   s.license      = \\"MIT\\"
   # optional - use expanded license entry instead:
-  # s.license    = { :type => \\"MIT\\", :file => \\"FILE_LICENSE\\" }
+  # s.license    = { :type => \\"MIT\\", :file => \\"LICENSE\\" }
   s.authors      = { \\"Your Name\\" => \\"yourname@email.com\\" }
   s.platforms    = { :ios => \\"9.0\\" }
   s.source       = { :git => \\"https://github.com/github_account/react-native-integration-view-test-package.git\\", :tag => \\"#{s.version}\\" }
