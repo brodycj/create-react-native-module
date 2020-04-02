@@ -128,7 +128,7 @@ createLibraryModule({
 
 ```javascript
 {
-  name: String, /* The name of the library (Default: Library) */
+  name: String, /* The name of the library (mandatory) */
   prefix: String, /* The prefix for the library (Default: ``) */
   moduleName: String, /* The module library package name to be used in package.json. Default: react-native-(name in param-case) */
   modulePrefix: String, /* The module prefix for the library, ignored if moduleName is specified (Default: react-native) */
