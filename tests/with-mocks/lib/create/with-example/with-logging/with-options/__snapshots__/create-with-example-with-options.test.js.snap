@@ -161,9 +161,7 @@ ABCAliceBobbi;
   \\"license\\": \\"ISC\\",
   \\"licenseFilename\\": \\"LICENSE\\",
   \\"readmeFilename\\": \\"README.md\\",
-  \\"android\\": {
-    \\"packageIdentifier\\": \\"com.alicebits\\"
-  },
+  \\"androidPackageIdentifier\\": \\"com.alicebits\\",
   \\"peerDependencies\\": {
     \\"react\\": \\"^16.8.1\\",
     \\"react-native\\": \\">=0.60.0-rc.0 <1.0.x\\"
@@ -326,7 +324,7 @@ def configureReactNativePom(def pom) {
         name packageJson.title
         artifactId packageJson.name
         version = packageJson.version
-        group = packageJson.android.packageIdentifier
+        group = packageJson.androidPackageIdentifier
         description packageJson.description
         url packageJson.repository.baseUrl
 
