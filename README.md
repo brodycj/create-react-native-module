@@ -27,9 +27,7 @@ This tool based on [`react-native-create-library`](https://www.npmjs.com/package
 
 ### General status
 
-- **React Native versions supported:**
-  - recommended: `0.61`
-  - minimum (outdated): `0.60`
+- Minimum React Native version: 0.60 (outdated), 0.61 (recommended)
 - Platform fork support
   - tvOS platform fork
     - requires use of `--tvos-enabled` option as documented below
