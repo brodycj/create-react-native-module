@@ -432,7 +432,9 @@ Pod::Spec.new do |s|
                   custom-native-alice-bobbi
                    DESC
   s.homepage     = \\"https://github.com/github_account/custom-native-alice-bobbi\\"
+  # brief license entry:
   s.license      = \\"MIT\\"
+  # optional - use expanded license entry instead:
   # s.license    = { :type => \\"MIT\\", :file => \\"FILE_LICENSE\\" }
   s.authors      = { \\"Your Name\\" => \\"yourname@email.com\\" }
   s.platforms    = { :ios => \\"9.0\\" }

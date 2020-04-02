@@ -432,7 +432,9 @@ Pod::Spec.new do |s|
                   custom-native-module
                    DESC
   s.homepage     = \\"https://github.com/github_account/custom-native-module\\"
+  # brief license entry:
   s.license      = \\"MIT\\"
+  # optional - use expanded license entry instead:
   # s.license    = { :type => \\"MIT\\", :file => \\"FILE_LICENSE\\" }
   s.authors      = { \\"Your Name\\" => \\"yourname@email.com\\" }
   s.platforms    = { :ios => \\"9.0\\" }
