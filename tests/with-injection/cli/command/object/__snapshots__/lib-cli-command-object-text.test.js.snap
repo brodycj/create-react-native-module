@@ -9,7 +9,7 @@ Object {
     Object {
       "command": "--prefix [prefix]",
       "default": "",
-      "description": "The prefix for the library module",
+      "description": "The prefix of the library module object to be exported by both JavaScript and native code",
     },
     Object {
       "command": "--module-name [moduleName]",
@@ -18,7 +18,7 @@ Object {
     Object {
       "command": "--module-prefix [modulePrefix]",
       "default": "react-native",
-      "description": "The module prefix for the library module, ignored if --module-name is specified",
+      "description": "The prefix of the library module object, ignored if --module-name is specified",
     },
     Object {
       "command": "--package-identifier [packageIdentifier]",
