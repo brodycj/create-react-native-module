@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   # brief license entry:
   s.license      = "${license}"
   # optional - use expanded license entry instead:
-  # s.license    = { :type => "${license}", :file => "FILE_LICENSE" }
+  # s.license    = { :type => "${license}", :file => "LICENSE" }
   s.authors      = { "${authorName}" => "${authorEmail}" }
   s.platforms    = { :ios => "9.0"${tvosEnabled ? `, :tvos => "10.0"` : ``} }
   s.source       = { :git => "https://github.com/${githubAccount}/${moduleName}.git", :tag => "#{s.version}" }
