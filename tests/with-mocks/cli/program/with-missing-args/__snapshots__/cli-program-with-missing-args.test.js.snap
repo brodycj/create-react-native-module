@@ -29,7 +29,7 @@ Array [
     "option": Object {
       "args": Array [
         "--prefix [prefix]",
-        "The prefix of the native library module, ignored if --class-name is specified",
+        "The prefix of the library module object to be exported by both JavaScript and native code",
         [Function],
         "",
       ],
@@ -48,18 +48,8 @@ Array [
   Object {
     "option": Object {
       "args": Array [
-        "--class-name [className]",
-        "The name of the native object to be exported by the JavaScript and by the native code. Default: (prefix)(name in PascalCase)",
-        [Function],
-        undefined,
-      ],
-    },
-  },
-  Object {
-    "option": Object {
-      "args": Array [
         "--module-prefix [modulePrefix]",
-        "The native module prefix for the library module package name, ignored if --module-name is specified",
+        "The prefix of the library module object, ignored if --module-name is specified",
         [Function],
         "react-native",
       ],
