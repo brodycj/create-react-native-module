@@ -58,7 +58,7 @@ ${name};
   "license": "${license}",
   "licenseFilename": "LICENSE",
   "readmeFilename": "README.md",
-  "native": {
+  "android": {
     "packageIdentifier": "${packageIdentifier}"
   },
   "peerDependencies": ${peerDependencies},
