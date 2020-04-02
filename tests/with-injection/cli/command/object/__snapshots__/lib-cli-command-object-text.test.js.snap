@@ -2,8 +2,8 @@
 
 exports[`cli-command object 1`] = `
 Object {
+  "action": [Function],
   "description": "creates a React Native library module for one or more platforms",
-  "func": [Function],
   "name": "create-library",
   "options": Array [
     Object {
