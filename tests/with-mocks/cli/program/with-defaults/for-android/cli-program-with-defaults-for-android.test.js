@@ -56,7 +56,7 @@ const mockCommander = {
     mockpushit({ parse: { argv } });
     mockCommanderState.actionFunction.apply(
       { opts: () => ({ platforms: 'android' }) },
-      ['test-package']);
+      [{ bogus: {} }, ['test-package']]);
   },
   help: () => {
     throw new Error('help call not expected in this test');

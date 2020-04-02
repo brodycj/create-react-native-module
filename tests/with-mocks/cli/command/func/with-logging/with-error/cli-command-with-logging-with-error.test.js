@@ -1,4 +1,4 @@
-const func = require('../../../../../../../lib/cli-command.js').func;
+const action = require('../../../../../../../lib/cli-command.js').action;
 
 // special compact mocks for this test:
 const mysnap = [];
@@ -61,9 +61,7 @@ global.console = {
 test('create alice-bobbi module with logging, with fs error (with defaults for Android & iOS)', async () => {
   const args = ['alice-bobbi'];
 
-  const config = 'bogus';
-
-  await func(args, config, {});
+  await action(args, {});
 
   expect(mysnap).toMatchSnapshot();
 });
