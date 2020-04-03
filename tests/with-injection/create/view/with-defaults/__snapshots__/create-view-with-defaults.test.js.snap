@@ -431,8 +431,10 @@ Pod::Spec.new do |s|
                   react-native-alice-bobbi
                    DESC
   s.homepage     = \\"https://github.com/github_account/react-native-alice-bobbi\\"
+  # brief license entry:
   s.license      = \\"MIT\\"
-  # s.license    = { :type => \\"MIT\\", :file => \\"FILE_LICENSE\\" }
+  # optional - use expanded license entry instead:
+  # s.license    = { :type => \\"MIT\\", :file => \\"LICENSE\\" }
   s.authors      = { \\"Your Name\\" => \\"yourname@email.com\\" }
   s.platforms    = { :ios => \\"9.0\\" }
   s.source       = { :git => \\"https://github.com/github_account/react-native-alice-bobbi.git\\", :tag => \\"#{s.version}\\" }

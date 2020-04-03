@@ -1,4 +1,4 @@
-const func = require('../../../../../../../lib/cli-command.js').func;
+const action = require('../../../../../../../lib/cli-command.js').action;
 
 // special compact mocks for this test:
 const mysnap = [];
@@ -34,6 +34,9 @@ global.console = {
       error: [].concat(
         [].concat(
           first
+            // QUICK WORKAROUND for Node.js 8 vs ...
+            .split(/at.*ensureDir/)[0].concat('<...>')
+            /* NOT NEEDED with QUICK WORKAROUND above:
             // Check trace with relative path
             // THANKS for guidance:
             // * https://stackoverflow.com/questions/1144783/how-to-replace-all-occurrences-of-a-string/1145525#1145525
@@ -44,9 +47,10 @@ global.console = {
             // IGNORE line number in cli-command.js
             // in order to avoid sensitivity to mutation testing
             // (miss potentially surviving mutants)
-            .replace(/cli-command.js:.*/, 'cli-command.js:...')
+            .replace(/cli-command.js:.*\)/, 'cli-command.js:...')
             // WORKAROUND for Windows:
             .replace(/\\/g, '/')
+            // ... */
         ),
         rest
       )
@@ -57,9 +61,7 @@ global.console = {
 test('create alice-bobbi module with logging, with fs error (with defaults for Android & iOS)', async () => {
   const args = ['alice-bobbi'];
 
-  const config = 'bogus';
-
-  await func(args, config, {});
+  await action(args, {});
 
   expect(mysnap).toMatchSnapshot();
 });

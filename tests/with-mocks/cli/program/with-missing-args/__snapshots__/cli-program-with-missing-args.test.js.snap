@@ -3,6 +3,14 @@
 exports[`mocked cli-program.js shows help in case of missing args 1`] = `
 Array [
   Object {
+    "please-upgrade-node": Object {
+      "engines": Object {
+        "node": ">= 8",
+      },
+      "name": "create-react-native-module",
+    },
+  },
+  Object {
     "notify": Object {},
   },
   Object {
@@ -21,7 +29,7 @@ Array [
     "option": Object {
       "args": Array [
         "--prefix [prefix]",
-        "The prefix for the library module",
+        "The prefix of the library module object to be exported by both JavaScript and native code",
         [Function],
         "",
       ],
@@ -41,7 +49,7 @@ Array [
     "option": Object {
       "args": Array [
         "--module-prefix [modulePrefix]",
-        "The module prefix for the library module, ignored if --module-name is specified",
+        "The prefix of the library module object, ignored if --module-name is specified",
         [Function],
         "react-native",
       ],
@@ -163,7 +171,7 @@ Array [
         "--example-react-native-version [exampleReactNativeVersion]",
         "React Native version for the generated example project",
         [Function],
-        "react-native@0.61",
+        "react-native@latest",
       ],
     },
   },

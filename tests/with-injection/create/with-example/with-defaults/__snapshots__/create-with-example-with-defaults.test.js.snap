@@ -437,8 +437,10 @@ Pod::Spec.new do |s|
                   react-native-alice-bobbi
                    DESC
   s.homepage     = \\"https://github.com/github_account/react-native-alice-bobbi\\"
+  # brief license entry:
   s.license      = \\"MIT\\"
-  # s.license    = { :type => \\"MIT\\", :file => \\"FILE_LICENSE\\" }
+  # optional - use expanded license entry instead:
+  # s.license    = { :type => \\"MIT\\", :file => \\"LICENSE\\" }
   s.authors      = { \\"Your Name\\" => \\"yourname@email.com\\" }
   s.platforms    = { :ios => \\"9.0\\" }
   s.source       = { :git => \\"https://github.com/github_account/react-native-alice-bobbi.git\\", :tag => \\"#{s.version}\\" }
@@ -775,7 +777,7 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* execa.commandSync command: react-native init example --version react-native@0.61 options: {\\"cwd\\":\\"./react-native-alice-bobbi\\",\\"stdio\\":\\"inherit\\"}
+  "* execa.commandSync command: react-native init example --version react-native@latest options: {\\"cwd\\":\\"./react-native-alice-bobbi\\",\\"stdio\\":\\"inherit\\"}
 ",
   "* ensureDir dir: react-native-alice-bobbi/scripts/
 ",

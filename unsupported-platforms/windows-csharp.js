@@ -1,8 +1,6 @@
-const uuid = require('uuid').v1().toUpperCase();
-
 module.exports = platform => [{
   name: ({ name }) => `${platform}/${name}.sln`,
-  content: ({ name }) =>
+  content: ({ name, uuid }) =>
     `Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
@@ -209,7 +207,7 @@ obj/
 `,
 }, {
   name: ({ name }) => `${platform}/${name}/${name}.csproj`,
-  content: ({ name, namespace }) =>
+  content: ({ name, namespace, uuid }) =>
     `<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\\$(MSBuildToolsVersion)\\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\\$(MSBuildToolsVersion)\\Microsoft.Common.props')" />

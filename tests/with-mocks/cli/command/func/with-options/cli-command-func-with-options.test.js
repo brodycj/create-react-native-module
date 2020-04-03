@@ -1,4 +1,4 @@
-const func = require('../../../../../../lib/cli-command.js').func;
+const action = require('../../../../../../lib/cli-command.js').action;
 
 // special compact mocks for this test:
 const mysnap = [];
@@ -20,8 +20,6 @@ jest.mock('fs-extra', () => ({
 test('create alice-bobbi module with explicit config options for Android & iOS', () => {
   const args = ['alice-bobbi'];
 
-  const config = 'bogus';
-
   const options = {
     platforms: 'android,ios',
     tvosEnabled: true,
@@ -31,6 +29,6 @@ test('create alice-bobbi module with explicit config options for Android & iOS',
     license: 'ISC',
   };
 
-  return func(args, config, options)
+  return action(args, options)
     .then(() => { expect(mysnap).toMatchSnapshot(); });
 });

@@ -25,11 +25,7 @@ Array [
   license: MIT
   view: false
   useAppleNetworking: false
-  generateExample: false
-  exampleName: example
-  writeExamplePodfile: false
-  addExamplePostinstallScript: false
-  ",
+",
     ],
   },
   Object {
@@ -155,12 +151,7 @@ yarn-error.log
 ====================================================
 YOU'RE ALL SET!
 
-To build and run iOS example project, do:
-----
-cd react-native-alice-bobbi/undefined
-yarn
-react-native run-ios
-----
+💡 next time consider using \`--generate-example\` to add a generated example!
 ",
     ],
   },
