@@ -133,7 +133,10 @@ buildscript {
             jcenter()
         }
         dependencies {
-            classpath 'com.android.tools.build:gradle:3.4.1'
+            // ref:
+            // * https://github.com/facebook/react-native/blob/0.61-stable/template/android/build.gradle#L15
+            // * https://mvnrepository.com/artifact/com.android.tools.build/gradle?repo=google
+            classpath 'com.android.tools.build:gradle:3.5.0'
         }
     }
 }
