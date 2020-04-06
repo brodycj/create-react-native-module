@@ -1,6 +1,6 @@
 # Changelog
 
-### 0.17.0-rc
+### 0.17.0
 
 * bugfix: quick fixes to handle CLI args errors (#306)
 * test cleanup: rename tests/with-mocks/cli/command/func directory
