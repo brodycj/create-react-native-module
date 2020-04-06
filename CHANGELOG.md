@@ -29,7 +29,7 @@
 
 * use react-native@latest in example by default (#263)
 * doc: update alternatives in README.md (#262)
-* cleanup: refactoring: move require('uuid') out of templates (#261)
+* cleanup: refactoring: move `require('uuid')` out of templates (#261)
 * doc: example app doc updates (quick updates) (#260)
 * log more example app info in the end (#259)
 
@@ -152,7 +152,7 @@
 * test cleanup: reorganize tests with mocks into tests/with-mocks
 * test cleanup: rename ioMocks to ioInject in tests/with-injection
 * test cleanup: reorganize tests with injection
-* testing: add Stryker mutator
+* testing: add Stryker Mutator for mutation testing
 
 ### 0.9.0
 
@@ -209,7 +209,7 @@
 
 ### 0.6.1
 
-* restore cli.js in package.json files list, which was accidentally removed during cleanup in #33 (#49)
+* restore cli.js in package.json files list, which was accidentally removed during cleanup in PR #33 (#49)
 
 ### 0.6.0
 
@@ -271,7 +271,7 @@
 * Update programmatic function name
 * do not import hasPrefix in lib.js
 * Add '-V, --version' option
-* Add exception handling when there is no library's name (#103)
+* Add exception handling when there is no library's name (frostney/react-native-create-library#103)
 
 ### 0.3.0
 
