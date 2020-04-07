@@ -1,5 +1,7 @@
 module.exports = [{
-  name: () => 'scripts/examples_postinstall.js',
+  // only needed in case of `exampleFileLinkage: true`:
+  name: ({ exampleFileLinkage }) =>
+    exampleFileLinkage ? 'scripts/examples_postinstall.js' : undefined,
   content: ({ exampleName }) =>
     `#!/usr/bin/env node
 

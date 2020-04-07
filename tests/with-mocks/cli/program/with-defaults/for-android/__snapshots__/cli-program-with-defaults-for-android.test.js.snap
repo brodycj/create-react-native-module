@@ -161,7 +161,7 @@ Array [
     "option": Object {
       "args": Array [
         "--example-file-linkage",
-        "DEPRECATED: do \`yarn add file:../\` instead of \`yarn add link:../\` in a generated example project, and add a postinstall package script entry, with no overwrite of example metro.config.js",
+        "DEPRECATED: do \`yarn add file:../\` instead of \`yarn add link:../\` in a generated example project, and add a postinstall workaround script, with no overwrite of example metro.config.js",
         [Function],
         undefined,
       ],
