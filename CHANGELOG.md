@@ -1,5 +1,9 @@
 # Changelog
 
+### 0.17.1
+
+* log & document issue with example lib dependencies (#310)
+
 ### 0.17.0
 
 * bugfix: quick fixes to handle CLI args errors (#306)
