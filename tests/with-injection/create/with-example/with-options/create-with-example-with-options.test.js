@@ -2,8 +2,7 @@ const lib = require('../../../../../lib/lib.js');
 
 const ioInject = require('../../../helpers/io-inject.js');
 
-// with `exampleFileLinkage: true`
-test('create alice-bobbi module with example, with config options', () => {
+test('create alice-bobbi module with example, with config options including `exampleFileLinkage: true`', () => {
   const mysnap = [];
 
   const inject = ioInject(mysnap);
