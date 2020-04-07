@@ -2,6 +2,7 @@ const lib = require('../../../../../lib/lib.js');
 
 const ioInject = require('../../../helpers/io-inject.js');
 
+// with `exampleFileLinkage: true`
 test('create alice-bobbi module with example, with config options', () => {
   const mysnap = [];
 
@@ -15,6 +16,7 @@ test('create alice-bobbi module with example, with config options', () => {
     authorEmail: 'contact@alice.me',
     license: 'ISC',
     generateExample: true,
+    exampleFileLinkage: true,
     exampleName: 'test-demo',
     exampleReactNativeVersion: 'react-native@0.60',
     useAppleNetworking: true,

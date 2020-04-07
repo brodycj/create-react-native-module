@@ -2,6 +2,7 @@ const lib = require('../../../../../../lib/lib.js');
 
 const ioInject = require('../../../../helpers/io-inject.js');
 
+// (with `exampleFileLinkage: true`, as needed to try injecting this error)
 test('create module with example, with `EACCES permission denied` error', async () => {
   // with snapshot info ignored in this test
   const ioInject2 = ioInject([]);
@@ -17,7 +18,8 @@ test('create module with example, with `EACCES permission denied` error', async 
 
   const options = {
     name: 'alice-bettty',
-    generateExample: true
+    generateExample: true,
+    exampleFileLinkage: true
   };
 
   let error;

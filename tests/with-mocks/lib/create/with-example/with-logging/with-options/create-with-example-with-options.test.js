@@ -46,6 +46,7 @@ global.console = {
   },
 };
 
+// with `exampleFileLinkage: true`
 test('create alice-bobbi module using mocked lib with logging, with example, for Android & iOS with config options', async () => {
   const options = {
     platforms: ['android', 'ios'],
@@ -58,6 +59,7 @@ test('create alice-bobbi module using mocked lib with logging, with example, for
     authorEmail: 'contact@alice.me',
     license: 'ISC',
     generateExample: true,
+    exampleFileLinkage: true,
   };
 
   await lib(options);

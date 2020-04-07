@@ -64,7 +64,11 @@ Object {
     },
     Object {
       "command": "--generate-example",
-      "description": "Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally",
+      "description": "Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires both react-native-cli and yarn to be installed globally",
+    },
+    Object {
+      "command": "--example-file-linkage",
+      "description": "DEPRECATED: do \`yarn add file:../\` instead of \`yarn add link:../\` in a generated example project, and add a postinstall package script entry, with no overwrite of example metro.config.js",
     },
     Object {
       "command": "--example-name [exampleName]",

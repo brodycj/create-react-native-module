@@ -114,6 +114,22 @@ module.exports = [{
   })();
 `
 }, {
+  // metro.config.js workaround needed in case of `exampleFileLinkage: false`:
+  name: ({ exampleName, exampleFileLinkage }) =>
+    exampleFileLinkage ? undefined : `${exampleName}/metro.config.js`,
+  content: ({ moduleName, exampleName }) => `// metro.config.js
+// with workaround solution to the issue with symlinks
+// (see <https://github.com/facebook/metro/issues/1>)
+
+module.exports = {
+  // quick workaround solution to the issue with symlinks,
+  // with thanks to @johnryan (<https://github.com/johnryan>)
+  // for the pointer in this comment:
+  // https://github.com/facebook/metro/issues/1#issuecomment-541642857
+  watchFolders: ['.', '..']
+}
+`,
+}, {
   name: ({ exampleName, writeExamplePodfile }) =>
     writeExamplePodfile ? `${exampleName}/ios/Podfile` : undefined,
   content: ({ moduleName, exampleName }) => `platform :ios, '10.0'
