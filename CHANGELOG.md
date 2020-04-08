@@ -1,5 +1,9 @@
 # Changelog
 
+### 0.18.0
+
+* generate example with symlink by default, with multiple workarounds in example metro.config.js (#309)
+
 ### 0.17.1
 
 * log & document issue with example lib dependencies (#310)
