@@ -28,7 +28,7 @@ This tool based on [`react-native-create-library`](https://www.npmjs.com/package
 ### General status
 
 - Minimum React Native version: 0.60 (outdated), 0.61 (recommended)
-- generated example app with known issue with adding dependencies to the library root - see [issue #308](https://github.com/brodybits/create-react-native-module/issues/308)
+- generated example app with symlink by default, has known issue with adding dependencies to the library root - see [issue #308](https://github.com/brodybits/create-react-native-module/issues/308)
 - Platform fork support
   - tvOS platform fork
     - requires use of `--tvos-enabled` option as documented below
