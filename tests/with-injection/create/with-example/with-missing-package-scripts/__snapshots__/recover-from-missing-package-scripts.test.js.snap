@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`create alice-bobbi module with defaults, recover from missing scripts in example package.json 1`] = `
+exports[`create alice-bobbi module with example, with \`exampleFileLinkage: true\` then recover from missing scripts in example package.json 1`] = `
 Array [
   "* execa.commandSync command: react-native --version options: {\\"stdio\\":\\"inherit\\"}
 ",

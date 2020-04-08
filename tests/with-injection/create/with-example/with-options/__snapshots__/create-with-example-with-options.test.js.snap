@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`create alice-bobbi module with example, with config options 1`] = `
+exports[`create alice-bobbi module with example, with config options including \`exampleFileLinkage: true\` 1`] = `
 Array [
   "* execa.commandSync command: react-native --version options: {\\"stdio\\":\\"inherit\\"}
 ",

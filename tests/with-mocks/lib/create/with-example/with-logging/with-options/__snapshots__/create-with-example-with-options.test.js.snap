@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`create alice-bobbi module using mocked lib with logging, with example, for Android & iOS with config options 1`] = `
+exports[`create alice-bobbi module using mocked lib with logging, with example, for Android & iOS with config options including \`exampleFileLinkage: true\` 1`] = `
 Array [
   Object {
     "info": Array [
@@ -21,6 +21,7 @@ Array [
   useAppleNetworking: false
 
   generateExample: true
+  exampleFileLinkage: true
   exampleName: example
   writeExamplePodfile: false
 ",
@@ -1015,7 +1016,7 @@ const styles = StyleSheet.create({
   },
   Object {
     "info": Array [
-      "Adding cleanup postinstall task to the example app",
+      "Adding the cleanup postinstall *workaround* task to the example app",
     ],
   },
   Object {
