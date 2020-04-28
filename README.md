@@ -37,7 +37,6 @@ This tool based on [`react-native-create-library`](https://www.npmjs.com/package
 - Out-of-tree platforms
   - Windows - no longer supported for reasons discussed in issues [#23](https://github.com/brodybits/create-react-native-module/issues/23) and [#43](https://github.com/brodybits/create-react-native-module/issues/43) (existing Windows C# template is kept in `unsupported-platforms` for now (at least) and further discussion would be welcome in a new issue on GitHub)
   - for future consideration: macOS (see [issue #94](https://github.com/brodybits/create-react-native-module/issues/94))
-- Node.js pre-10 support is deprecated and will be removed in the near future (see [issue #38](https://github.com/brodybits/create-react-native-module/issues/38))
 
 ### Why might you need this?
 
