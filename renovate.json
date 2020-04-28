@@ -1,5 +1,7 @@
 {
   "extends": [
     "config:base"
-  ]
+  ],
+  "commitMessageExtra": "-> {{#if isMajor}}{{{newMajor}}}{{else}}{{#if isSingleVersion}}{{{toVersion}}}{{else}}{{{newValue}}}{{/if}}{{/if}}",
+  "commitMessageTopic": "{{depName}}"
 }
