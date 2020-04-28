@@ -5,7 +5,7 @@ Array [
   Object {
     "please-upgrade-node": Object {
       "engines": Object {
-        "node": ">= 8",
+        "node": ">= 10.20",
       },
       "name": "create-react-native-module",
     },
