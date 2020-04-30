@@ -12,9 +12,10 @@ Array [
     "info": Array [
       "CREATE new React Native module with the following options:
 
-          root moduleName: react-native-alice-bobbi
+                     name: alice-bobbi
+    root moduleName
+      (full package name): react-native-alice-bobbi
                   is view: false
-        full package name: alice-bobbi
  object class name prefix: 
         object class name: AliceBobbi
      library modulePrefix: react-native
