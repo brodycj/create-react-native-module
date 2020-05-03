@@ -151,13 +151,4 @@ buck-out/
 
     return '';
   }
-}, {
-  name: () => '.npmignore',
-  content: ({ generateExample, exampleName }) => {
-    if (generateExample) {
-      return `${exampleName}\n`;
-    }
-
-    return '';
-  }
 }];
