@@ -119,7 +119,7 @@ module.exports = [{
   // metro.config.js workarounds needed in case of `exampleFileLinkage: false`:
   name: ({ exampleName, exampleFileLinkage }) =>
     exampleFileLinkage ? undefined : `${exampleName}/metro.config.js`,
-  content: ({ moduleName, exampleName }) => `// metro.config.js
+  content: () => `// metro.config.js
 //
 // with multiple workarounds for this issue with symlinks:
 // https://github.com/facebook/metro/issues/1
