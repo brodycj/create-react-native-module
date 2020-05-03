@@ -21,7 +21,7 @@ ${name};
 `,
 }, {
   name: () => 'package.json',
-  content: ({ moduleName, platforms, githubAccount, authorName, authorEmail, license }) => {
+  content: ({ moduleName, githubAccount, authorName, authorEmail, license }) => {
     const peerDependencies =
       `{
     "react": "^16.8.1",
