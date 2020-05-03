@@ -7,18 +7,22 @@ Object {
   "name": "create-library",
   "options": Array [
     Object {
+      "command": "--module-name [moduleName]",
+      "description": "The module package name to be used in package.json. Default: react-native-(name in param-case)",
+    },
+    Object {
+      "command": "--view",
+      "description": "Generate the package as a very simple native view component",
+    },
+    Object {
       "command": "--prefix [prefix]",
       "default": "",
       "description": "The prefix of the library module object to be exported by both JavaScript and native code",
     },
     Object {
-      "command": "--module-name [moduleName]",
-      "description": "The module library package name to be used in package.json. Default: react-native-(name in param-case)",
-    },
-    Object {
       "command": "--module-prefix [modulePrefix]",
       "default": "react-native",
-      "description": "The prefix of the library module object, ignored if --module-name is specified",
+      "description": "The prefix of the generated module package name, ignored if --module-name is specified",
     },
     Object {
       "command": "--package-identifier [packageIdentifier]",
@@ -53,10 +57,6 @@ Object {
       "command": "--license [license]",
       "default": "MIT",
       "description": "The license type",
-    },
-    Object {
-      "command": "--view",
-      "description": "Generate the module as a very simple native view component",
     },
     Object {
       "command": "--use-apple-networking",
