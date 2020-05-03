@@ -91,9 +91,10 @@ Usage: create-react-native-module [options] <name>
 Options:
 
   -V, --version                             output the version number
+  --module-name <moduleName>                The module package name to be used in package.json. Default: react-native-(name in param-case)
+  --view                                    Generate the package as a very simple native view component
   --prefix <prefix>                         The prefix of the library module object to be exported by both JavaScript and native code (Default: ``)
-  --module-name <moduleName>                The module library package name to be used in package.json. Default: react-native-(name in param-case)
-  --module-prefix <modulePrefix>            The prefix of the library module object, ignored if --module-name is specified (Default: `react-native`)
+  --module-prefix <modulePrefix>            The prefix of the generated module package name, ignored if --module-name is specified (Default: `react-native`)
   --package-identifier <packageIdentifier>  [Android] The Java package identifier used by the Android module (Default: `com.reactlibrary`)
   --platforms <platforms>                   Platforms the library module will be created for - comma separated (Default: `ios,android`)
   --tvos-enabled                            Generate the module with tvOS build enabled (requires react-native-tvos fork, with minimum version of 0.60, and iOS platform to be enabled)
@@ -101,7 +102,6 @@ Options:
   --author-name <authorName>                The author's name (Default: `Your Name`)
   --author-email <authorEmail>              The author's email (Default: `yourname@email.com`)
   --license <license>                       The license type (Default: `MIT`)
-  --view                                    Generate the module as a very simple native view component
   --use-apple-networking                    [iOS] Use `AFNetworking` dependency as a sample in the podspec & use it from the iOS code
   --generate-example                        Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires both react-native-cli and yarn to be installed globally
   --example-file-linkage                    DEPRECATED: do `yarn add file:../` instead of `yarn add link:../` in a generated example project, and add a postinstall workaround script, with no overwrite of example metro.config.js
@@ -128,9 +128,11 @@ createLibraryModule({
 ```javascript
 {
   name: String, /* The name of the library (mandatory) */
-  prefix: String, /* The prefix of the library module object to be exported by both JavaScript and native code (Default: ``) */
-  moduleName: String, /* The module library package name to be used in package.json. Default: react-native-(name in param-case) */
-  modulePrefix: String, /* The prefix of the library module object, ignored if moduleName is specified (Default: `react-native`) */
+  moduleName: String, /* The module package name to be used in package.json. Default: react-native-(name in param-case) */
+  view: Boolean, /* Generate the package as a very simple native view component (Default: false) */
+  className: String, /* The name of the object class to be exported by both JavaScript and native code, deprecated due to plans to rename this option (Default: ``) */
+  prefix: String, /* The prefix of the library module object to be exported by both JavaScript and native code, ignored if className is specified (Default: ``) */
+  modulePrefix: String, /* The prefix of the generated module package name, ignored if moduleName is specified (Default: `react-native`) */
   platforms: Array | String, /* Platforms the library will be created for. (Default: ['android', 'ios']) */
   packageIdentifier: String, /* [Android] The Java package identifier used by the Android module (Default: com.reactlibrary) */
   tvosEnabled: Boolean, /* Generate the module with tvOS build enabled (requires react-native-tvos fork, with minimum version of 0.60, and iOS platform to be enabled) */
@@ -139,7 +141,6 @@ createLibraryModule({
   authorEmail: String, /* The author's email (Default: `yourname@email.com`) */
   license: String, /* The license type of this library (Default: `MIT`) */
   useAppleNetworking: Boolean, /* [iOS] Use `AFNetworking` dependency as a sample in the podspec & use it from the iOS code (Default: false) */
-  view: Boolean, /* Generate the module as a very simple native view component (Default: false) */
   generateExample: Boolean, /* Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires both react-native-cli and yarn to be installed globally (Default: false) */
   exampleFileLinkage: Boolean, /* DEPRECATED: do `yarn add file:../` instead of `yarn add link:../` in a generated example project, and add a postinstall workaround script, with no overwrite of example metro.config.js (Default: false) */
   exampleName: String, /* Name for the example project (Default: `example`) */
