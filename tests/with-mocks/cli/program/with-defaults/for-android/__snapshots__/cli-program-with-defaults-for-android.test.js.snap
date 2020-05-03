@@ -225,9 +225,6 @@ Array [
     "ensureDir": "react-native-test-package/",
   },
   Object {
-    "ensureDir": "react-native-test-package/",
-  },
-  Object {
     "ensureDir": "react-native-test-package/android/",
   },
   Object {
@@ -271,6 +268,11 @@ TestPackage;
   \\"version\\": \\"1.0.0\\",
   \\"description\\": \\"TODO\\",
   \\"main\\": \\"index.js\\",
+  \\"files\\": [
+    \\"README.md\\",
+    \\"android\\",
+    \\"index.js\\"
+  ],
   \\"scripts\\": {
     \\"test\\": \\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\"
   },
@@ -337,10 +339,6 @@ buck-out/
   },
   Object {
     "outputFileName": "react-native-test-package/.gitattributes",
-    "theContent": "",
-  },
-  Object {
-    "outputFileName": "react-native-test-package/.npmignore",
     "theContent": "",
   },
   Object {

@@ -14,8 +14,6 @@ Array [
 ",
   "* ensureDir dir: custom-native-module/
 ",
-  "* ensureDir dir: custom-native-module/
-",
   "* ensureDir dir: custom-native-module/android/
 ",
   "* ensureDir dir: custom-native-module/android/src/main/
@@ -68,6 +66,13 @@ content:
   \\"version\\": \\"1.0.0\\",
   \\"description\\": \\"TODO\\",
   \\"main\\": \\"index.js\\",
+  \\"files\\": [
+    \\"README.md\\",
+    \\"android\\",
+    \\"index.js\\",
+    \\"ios\\",
+    \\"custom-native-module.podspec\\"
+  ],
   \\"scripts\\": {
     \\"test\\": \\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\"
   },
@@ -161,12 +166,6 @@ buck-out/
 content:
 --------
 *.pbxproj -text
-
-<<<<<<<< ======== >>>>>>>>
-",
-  "* outputFile name: custom-native-module/.npmignore
-content:
---------
 
 <<<<<<<< ======== >>>>>>>>
 ",

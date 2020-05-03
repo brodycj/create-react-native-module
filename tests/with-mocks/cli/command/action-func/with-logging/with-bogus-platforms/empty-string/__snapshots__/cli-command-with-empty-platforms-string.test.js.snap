@@ -54,9 +54,6 @@ Android packageIdentifier: com.reactlibrary
     "ensureDir": "react-native-alice-bobbi/",
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/",
-  },
-  Object {
     "outputFileName": "react-native-alice-bobbi/README.md",
     "theContent": "# react-native-alice-bobbi
 
@@ -85,6 +82,10 @@ AliceBobbi;
   \\"version\\": \\"1.0.0\\",
   \\"description\\": \\"TODO\\",
   \\"main\\": \\"index.js\\",
+  \\"files\\": [
+    \\"README.md\\",
+    \\"index.js\\"
+  ],
   \\"scripts\\": {
     \\"test\\": \\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\"
   },
@@ -138,10 +139,6 @@ yarn-error.log
   },
   Object {
     "outputFileName": "react-native-alice-bobbi/.gitattributes",
-    "theContent": "",
-  },
-  Object {
-    "outputFileName": "react-native-alice-bobbi/.npmignore",
     "theContent": "",
   },
   Object {

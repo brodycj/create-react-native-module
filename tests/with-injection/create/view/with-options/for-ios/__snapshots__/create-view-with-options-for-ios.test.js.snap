@@ -16,8 +16,6 @@ Array [
 ",
   "* ensureDir dir: react-native-alice-bobbi/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
-",
   "* ensureDir dir: react-native-alice-bobbi/ios/
 ",
   "* ensureDir dir: react-native-alice-bobbi/ios/
@@ -58,6 +56,12 @@ content:
   \\"version\\": \\"1.0.0\\",
   \\"description\\": \\"TODO\\",
   \\"main\\": \\"index.js\\",
+  \\"files\\": [
+    \\"README.md\\",
+    \\"index.js\\",
+    \\"ios\\",
+    \\"react-native-alice-bobbi.podspec\\"
+  ],
   \\"scripts\\": {
     \\"test\\": \\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\"
   },
@@ -138,12 +142,6 @@ project.xcworkspace
 content:
 --------
 *.pbxproj -text
-
-<<<<<<<< ======== >>>>>>>>
-",
-  "* outputFile name: react-native-alice-bobbi/.npmignore
-content:
---------
 
 <<<<<<<< ======== >>>>>>>>
 ",
