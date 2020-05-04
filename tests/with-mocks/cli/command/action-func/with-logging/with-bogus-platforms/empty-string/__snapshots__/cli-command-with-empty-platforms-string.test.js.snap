@@ -51,9 +51,6 @@ Android packageIdentifier: com.reactlibrary
     "ensureDir": "react-native-alice-bobbi/",
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/",
-  },
-  Object {
     "outputFileName": "react-native-alice-bobbi/README.md",
     "theContent": "# react-native-alice-bobbi
 
@@ -136,10 +133,6 @@ node_modules/
 npm-debug.log
 yarn-error.log
 ",
-  },
-  Object {
-    "outputFileName": "react-native-alice-bobbi/.gitattributes",
-    "theContent": "",
   },
   Object {
     "log": Array [

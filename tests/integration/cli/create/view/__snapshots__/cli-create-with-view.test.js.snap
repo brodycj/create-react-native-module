@@ -3,11 +3,6 @@
 exports[`CLI creates correct view module package artifacts on file system using \`--view\` option (and no other options) 1`] = `
 Array [
   Object {
-    "name": "react-native-integration-view-test-package/.gitattributes",
-    "theContent": "*.pbxproj -text
-",
-  },
-  Object {
     "name": "react-native-integration-view-test-package/.gitignore",
     "theContent": "# OSX
 #

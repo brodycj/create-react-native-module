@@ -222,9 +222,6 @@ Array [
     "ensureDir": "react-native-test-package/",
   },
   Object {
-    "ensureDir": "react-native-test-package/",
-  },
-  Object {
     "ensureDir": "react-native-test-package/android/",
   },
   Object {
@@ -336,10 +333,6 @@ buck-out/
 \\\\.buckd/
 *.keystore
 ",
-  },
-  Object {
-    "outputFileName": "react-native-test-package/.gitattributes",
-    "theContent": "",
   },
   Object {
     "outputFileName": "react-native-test-package/android/build.gradle",

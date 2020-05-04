@@ -153,14 +153,5 @@ buck-out/
     }
 
     return content;
-  },
-}, {
-  name: () => '.gitattributes',
-  content: ({ platforms }) => {
-    if (platforms.indexOf('ios') >= 0) {
-      return '*.pbxproj -text\n';
-    }
-
-    return '';
   }
 }];
