@@ -12,8 +12,6 @@ Array [
 ",
   "* ensureDir dir: react-native-alice-bobbi/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
-",
   "* ensureDir dir: react-native-alice-bobbi/android/
 ",
   "* ensureDir dir: react-native-alice-bobbi/android/src/main/
@@ -127,12 +125,6 @@ local.properties
 buck-out/
 \\\\.buckd/
 *.keystore
-
-<<<<<<<< ======== >>>>>>>>
-",
-  "* outputFile name: react-native-alice-bobbi/.gitattributes
-content:
---------
 
 <<<<<<<< ======== >>>>>>>>
 ",

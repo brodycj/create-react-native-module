@@ -14,8 +14,6 @@ Array [
 ",
   "* ensureDir dir: react-native-alice-bobbi/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
-",
   "* ensureDir dir: react-native-alice-bobbi/ios/
 ",
   "* ensureDir dir: react-native-alice-bobbi/ios/
@@ -135,13 +133,6 @@ DerivedData
 *.ipa
 *.xcuserstate
 project.xcworkspace
-
-<<<<<<<< ======== >>>>>>>>
-",
-  "* outputFile name: react-native-alice-bobbi/.gitattributes
-content:
---------
-*.pbxproj -text
 
 <<<<<<<< ======== >>>>>>>>
 ",

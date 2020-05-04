@@ -12,8 +12,6 @@ Array [
 ",
   "* ensureDir dir: react-native-alice-bobbi/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
-",
   "* outputFile name: react-native-alice-bobbi/README.md
 content:
 --------
@@ -103,12 +101,6 @@ content:
 node_modules/
 npm-debug.log
 yarn-error.log
-
-<<<<<<<< ======== >>>>>>>>
-",
-  "* outputFile name: react-native-alice-bobbi/.gitattributes
-content:
---------
 
 <<<<<<<< ======== >>>>>>>>
 ",

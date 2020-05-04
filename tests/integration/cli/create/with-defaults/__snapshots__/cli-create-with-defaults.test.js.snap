@@ -3,11 +3,6 @@
 exports[`CLI creates correct package artifacts on file system, with no options 1`] = `
 Array [
   Object {
-    "name": "react-native-integration-test-package/.gitattributes",
-    "theContent": "*.pbxproj -text
-",
-  },
-  Object {
     "name": "react-native-integration-test-package/.gitignore",
     "theContent": "# OSX
 #

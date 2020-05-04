@@ -88,9 +88,6 @@ Android packageIdentifier: com.reactlibrary
     "ensureDir": "react-native-alice-bobbi/",
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/",
-  },
-  Object {
     "ensureDir": "react-native-alice-bobbi/android/",
   },
   Object {
@@ -238,11 +235,6 @@ local.properties
 buck-out/
 \\\\.buckd/
 *.keystore
-",
-  },
-  Object {
-    "outputFileName": "react-native-alice-bobbi/.gitattributes",
-    "theContent": "*.pbxproj -text
 ",
   },
   Object {
