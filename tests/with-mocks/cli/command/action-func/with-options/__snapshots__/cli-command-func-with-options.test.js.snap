@@ -21,9 +21,6 @@ Array [
     "ensureDir": "react-native-alice-bobbi/",
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/",
-  },
-  Object {
     "ensureDir": "react-native-alice-bobbi/android/",
   },
   Object {
@@ -82,6 +79,13 @@ AliceBobbi;
   \\"version\\": \\"1.0.0\\",
   \\"description\\": \\"TODO\\",
   \\"main\\": \\"index.js\\",
+  \\"files\\": [
+    \\"README.md\\",
+    \\"android\\",
+    \\"index.js\\",
+    \\"ios\\",
+    \\"react-native-alice-bobbi.podspec\\"
+  ],
   \\"scripts\\": {
     \\"test\\": \\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\"
   },
@@ -170,10 +174,6 @@ buck-out/
     "outputFileName": "react-native-alice-bobbi/.gitattributes",
     "theContent": "*.pbxproj -text
 ",
-  },
-  Object {
-    "outputFileName": "react-native-alice-bobbi/.npmignore",
-    "theContent": "",
   },
   Object {
     "outputFileName": "react-native-alice-bobbi/android/build.gradle",

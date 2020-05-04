@@ -22,6 +22,17 @@ ${name};
 }, {
   name: () => 'package.json',
   content: ({ moduleName, platforms, githubAccount, authorName, authorEmail, license }) => {
+    const files =
+      `[
+    "README.md",` +
+    (platforms.indexOf('android') >= 0 ? `
+    "android",` : ``) + `
+    "index.js"` +
+    (platforms.indexOf('ios') >= 0 ? `,
+    "ios",
+    "${moduleName}.podspec"` : ``) + `
+  ]`;
+
     const peerDependencies =
       `{
     "react": "^16.8.1",
@@ -40,6 +51,7 @@ ${name};
   "version": "1.0.0",
   "description": "TODO",
   "main": "index.js",
+  "files": ${files},
   "scripts": {
     "test": "echo \\"Error: no test specified\\" && exit 1"
   },
@@ -147,15 +159,6 @@ buck-out/
   content: ({ platforms }) => {
     if (platforms.indexOf('ios') >= 0) {
       return '*.pbxproj -text\n';
-    }
-
-    return '';
-  }
-}, {
-  name: () => '.npmignore',
-  content: ({ generateExample, exampleName }) => {
-    if (generateExample) {
-      return `${exampleName}\n`;
     }
 
     return '';

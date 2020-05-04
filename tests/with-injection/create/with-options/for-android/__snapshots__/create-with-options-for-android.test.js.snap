@@ -14,8 +14,6 @@ Array [
 ",
   "* ensureDir dir: react-native-alice-bobbi/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
-",
   "* ensureDir dir: react-native-alice-bobbi/android/
 ",
   "* ensureDir dir: react-native-alice-bobbi/android/src/main/
@@ -58,6 +56,11 @@ content:
   \\"version\\": \\"1.0.0\\",
   \\"description\\": \\"TODO\\",
   \\"main\\": \\"index.js\\",
+  \\"files\\": [
+    \\"README.md\\",
+    \\"android\\",
+    \\"index.js\\"
+  ],
   \\"scripts\\": {
     \\"test\\": \\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\"
   },
@@ -128,12 +131,6 @@ buck-out/
 <<<<<<<< ======== >>>>>>>>
 ",
   "* outputFile name: react-native-alice-bobbi/.gitattributes
-content:
---------
-
-<<<<<<<< ======== >>>>>>>>
-",
-  "* outputFile name: react-native-alice-bobbi/.npmignore
 content:
 --------
 

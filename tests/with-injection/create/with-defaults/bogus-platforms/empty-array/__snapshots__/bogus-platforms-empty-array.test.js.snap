@@ -14,8 +14,6 @@ Array [
 ",
   "* ensureDir dir: react-native-alice-bobbi/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
-",
   "* outputFile name: react-native-alice-bobbi/README.md
 content:
 --------
@@ -48,6 +46,10 @@ content:
   \\"version\\": \\"1.0.0\\",
   \\"description\\": \\"TODO\\",
   \\"main\\": \\"index.js\\",
+  \\"files\\": [
+    \\"README.md\\",
+    \\"index.js\\"
+  ],
   \\"scripts\\": {
     \\"test\\": \\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\"
   },
@@ -105,12 +107,6 @@ yarn-error.log
 <<<<<<<< ======== >>>>>>>>
 ",
   "* outputFile name: react-native-alice-bobbi/.gitattributes
-content:
---------
-
-<<<<<<<< ======== >>>>>>>>
-",
-  "* outputFile name: react-native-alice-bobbi/.npmignore
 content:
 --------
 

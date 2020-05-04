@@ -54,10 +54,6 @@ buck-out/
 ",
   },
   Object {
-    "name": "react-native-integration-test-package/.npmignore",
-    "theContent": "",
-  },
-  Object {
     "name": "react-native-integration-test-package/README.md",
     "theContent": "# react-native-integration-test-package
 
@@ -645,6 +641,13 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
   \\"version\\": \\"1.0.0\\",
   \\"description\\": \\"TODO\\",
   \\"main\\": \\"index.js\\",
+  \\"files\\": [
+    \\"README.md\\",
+    \\"android\\",
+    \\"index.js\\",
+    \\"ios\\",
+    \\"react-native-integration-test-package.podspec\\"
+  ],
   \\"scripts\\": {
     \\"test\\": \\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\"
   },
