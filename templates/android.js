@@ -289,7 +289,6 @@ public class ${name}Package implements ReactPackage {
 }
 `,
 }, {
-}, {
   name: () => `${platform}/README.md`,
   content: () => `README
 ======
