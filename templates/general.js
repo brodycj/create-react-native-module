@@ -74,7 +74,7 @@ ${name};
   "devDependencies": ${devDependencies}
 }
 `;
-  },
+  }
 }, {
   // for module without view:
   name: ({ view }) => !view && 'index.js',
