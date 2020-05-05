@@ -288,5 +288,4 @@ public class ${name}Package implements ReactPackage {
     }
 }
 `,
-}, {
 }];
