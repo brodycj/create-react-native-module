@@ -9,7 +9,7 @@ test('create alice-bobbi module with example, with config options including `exa
 
   const options = {
     name: 'alice-bobbi',
-    className: 'SuperAwesomeModule',
+    objectClassName: 'SuperAwesomeModule',
     tvosEnabled: true,
     githubAccount: 'alicebits',
     authorName: 'Alice',

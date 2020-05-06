@@ -130,7 +130,7 @@ createLibraryModule({
   name: String, /* The name of the library (mandatory) */
   moduleName: String, /* The module package name to be used in package.json. Default: react-native-(name in param-case) */
   view: Boolean, /* Generate the package as a very simple native view component (Default: false) */
-  className: String, /* The name of the object class to be exported by both JavaScript and native code, deprecated due to plans to rename this option. Default: (name in PascalCase) */
+  objectClassName: String, /* The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase) */
   prefix: String, /* The prefix of the library module object to be exported by both JavaScript and native code, ignored if className is specified (Default: ``) */
   modulePrefix: String, /* The prefix of the generated module package name, ignored if moduleName is specified (Default: `react-native`) */
   platforms: Array | String, /* Platforms the library will be created for. (Default: ['android', 'ios']) */
