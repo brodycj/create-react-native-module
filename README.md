@@ -93,7 +93,8 @@ Options:
   -V, --version                             output the version number
   --module-name <moduleName>                The module package name to be used in package.json. Default: react-native-(name in param-case)
   --view                                    Generate the package as a very simple native view component
-  --prefix <prefix>                         The prefix of the library module object to be exported by both JavaScript and native code (Default: ``)
+  --object-class-name                       The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase)
+  --prefix <prefix>                         DEPRECATED: The prefix of the name of the object class to be exported by both JavaScript and native code, ignored if --object-class-name is specified (Default: ``)
   --module-prefix <modulePrefix>            The prefix of the generated module package name, ignored if --module-name is specified (Default: `react-native`)
   --package-identifier <packageIdentifier>  [Android] The Java package identifier used by the Android module (Default: `com.reactlibrary`)
   --platforms <platforms>                   Platforms the library module will be created for - comma separated (Default: `ios,android`)
@@ -130,8 +131,8 @@ createLibraryModule({
   name: String, /* The name of the library (mandatory) */
   moduleName: String, /* The module package name to be used in package.json. Default: react-native-(name in param-case) */
   view: Boolean, /* Generate the package as a very simple native view component (Default: false) */
-  className: String, /* The name of the object class to be exported by both JavaScript and native code, deprecated due to plans to rename this option (Default: ``) */
-  prefix: String, /* The prefix of the library module object to be exported by both JavaScript and native code, ignored if className is specified (Default: ``) */
+  objectClassName: String, /* The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase) */
+  prefix: String, /* DEPRECATED: The prefix of the name of the object class to be exported by both JavaScript and native code, ignored if objectClassName is specified (Default: ``) */
   modulePrefix: String, /* The prefix of the generated module package name, ignored if moduleName is specified (Default: `react-native`) */
   platforms: Array | String, /* Platforms the library will be created for. (Default: ['android', 'ios']) */
   packageIdentifier: String, /* [Android] The Java package identifier used by the Android module (Default: com.reactlibrary) */
