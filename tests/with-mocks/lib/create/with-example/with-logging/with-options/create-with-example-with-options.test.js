@@ -59,6 +59,8 @@ test('create alice-bobbi module using mocked lib with logging, with example, for
     license: 'ISC',
     generateExample: true,
     exampleFileLinkage: true,
+    exampleName: 'demo',
+    exampleReactNativeVersion: 'react-native@npm:react-native-tvos'
   };
 
   await lib(options);
