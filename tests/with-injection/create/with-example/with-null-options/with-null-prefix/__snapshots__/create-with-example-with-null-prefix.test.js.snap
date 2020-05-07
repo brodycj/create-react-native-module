@@ -500,10 +500,6 @@ content:
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		B3E7B58A1CC2AC0600A0062D /* AliceBobbi.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* AliceBobbi.m */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		58B511D91A9E6C8500147676 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -518,8 +514,6 @@ content:
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libAliceBobbi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAliceBobbi.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3E7B5881CC2AC0600A0062D /* AliceBobbi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AliceBobbi.h; sourceTree = \\"<group>\\"; };
-		B3E7B5891CC2AC0600A0062D /* AliceBobbi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AliceBobbi.m; sourceTree = \\"<group>\\"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -544,8 +538,6 @@ content:
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-				B3E7B5881CC2AC0600A0062D /* AliceBobbi.h */,
-				B3E7B5891CC2AC0600A0062D /* AliceBobbi.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
 			);
 			sourceTree = \\"<group>\\";
@@ -606,7 +598,6 @@ content:
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3E7B58A1CC2AC0600A0062D /* AliceBobbi.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
