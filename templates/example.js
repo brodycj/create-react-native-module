@@ -185,7 +185,7 @@ module.exports = {
 `,
 }, {
   name: ({ exampleName }) => `${exampleName}/App.js`,
-  content: ({ moduleName, name, view }) =>
+  content: ({ moduleName, objectClassName, view }) =>
     `/**
  * Sample React Native App
  *
@@ -198,7 +198,7 @@ module.exports = {
 
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
-import ${name} from '${moduleName}';` +
+import ${objectClassName} from '${moduleName}';` +
     (!view
       ? `
 
@@ -208,7 +208,7 @@ export default class App extends Component<{}> {
     message: '--'
   };
   componentDidMount() {
-    ${name}.sampleMethod('Testing', 123, (message) => {
+    ${objectClassName}.sampleMethod('Testing', 123, (message) => {
       this.setState({
         status: 'native callback received',
         message
@@ -218,7 +218,7 @@ export default class App extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>☆${name} example☆</Text>
+        <Text style={styles.welcome}>☆${objectClassName} example☆</Text>
         <Text style={styles.instructions}>STATUS: {this.state.status}</Text>
         <Text style={styles.welcome}>☆NATIVE CALLBACK MESSAGE☆</Text>
         <Text style={styles.instructions}>{this.state.message}</Text>
@@ -232,10 +232,10 @@ export default class App extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>☆${name} example☆</Text>
+        <Text style={styles.welcome}>☆${objectClassName} example☆</Text>
         <Text style={styles.instructions}>STATUS: loaded</Text>
         <Text style={styles.welcome}>☆☆☆</Text>
-        <${name} />
+        <${objectClassName} />
       </View>
     );
   }
