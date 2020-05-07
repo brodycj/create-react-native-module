@@ -8,7 +8,7 @@
     "node": ">= 10.20"
   },
   "scripts": {
-    "jest": "jest",
+    "jest": "cross-env CI=true jest",
     "lint": "eslint .",
     "stryker": "stryker run",
     "test": "npm run lint && npm run jest"
