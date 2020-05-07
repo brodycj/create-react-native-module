@@ -25,6 +25,7 @@ Android packageIdentifier: com.alicebits
           generateExample: true
        exampleFileLinkage: true
               exampleName: demo
+exampleReactNativeVersion: react-native@npm:react-native-tvos
       writeExamplePodfile: false
 ",
     ],
