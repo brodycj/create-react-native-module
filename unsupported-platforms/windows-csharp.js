@@ -1,11 +1,11 @@
 module.exports = platform => [{
-  name: ({ name }) => `${platform}/${name}.sln`,
-  content: ({ name, uuid }) =>
+  name: ({ objectClassName }) => `${platform}/${objectClassName}.sln`,
+  content: ({ objectClassName, uuid }) =>
     `Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "${name}", "${name}\\${name}.csproj", "{${uuid}}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "${objectClassName}", "${objectClassName}\\${objectClassName}.csproj", "{${uuid}}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactNative", "..\\node_modules\\react-native-windows\\ReactWindows\\ReactNative\\ReactNative.csproj", "{C7673AD5-E3AA-468C-A5FD-FA38154E205C}"
 EndProject
@@ -186,7 +186,7 @@ obj/
 .vs/
 `
 }, {
-  name: ({ name }) => `${platform}/${name}/project.json`,
+  name: ({ objectClassName }) => `${platform}/${objectClassName}/project.json`,
   content: () =>
     `{
   "dependencies": {
@@ -206,8 +206,8 @@ obj/
 }
 `,
 }, {
-  name: ({ name }) => `${platform}/${name}/${name}.csproj`,
-  content: ({ name, namespace, uuid }) =>
+  name: ({ objectClassName }) => `${platform}/${objectClassName}/${objectClassName}.csproj`,
+  content: ({ objectClassName, namespace, uuid }) =>
     `<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\\$(MSBuildToolsVersion)\\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\\$(MSBuildToolsVersion)\\Microsoft.Common.props')" />
@@ -339,9 +339,9 @@ obj/
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\\AssemblyInfo.cs" />
-    <Compile Include="${name}Module.cs" />
-    <Compile Include="${name}Package.cs" />
-    <EmbeddedResource Include="Properties\\${name}.rd.xml" />
+    <Compile Include="${objectClassName}Module.cs" />
+    <Compile Include="${objectClassName}Package.cs" />
+    <EmbeddedResource Include="Properties\\${objectClassName}.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="$(ReactWindowsRoot)\\react-native-windows\\ReactWindows\\ReactNative\\ReactNative.csproj">
@@ -363,25 +363,25 @@ obj/
 </Project>
 `,
 }, {
-  name: ({ name }) => `${platform}/${name}/${name}Module.cs`,
-  content: ({ name, namespace }) =>
+  name: ({ objectClassName }) => `${platform}/${objectClassName}/${objectClassName}Module.cs`,
+  content: ({ objectClassName, namespace }) =>
     `using ReactNative.Bridge;
 using System;
 using System.Collections.Generic;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 
-namespace ${namespace}.${name}
+namespace ${namespace}.${objectClassName}
 {
     /// <summary>
     /// A module that allows JS to share data.
     /// </summary>
-    class ${name}Module : NativeModuleBase
+    class ${objectClassName}Module : NativeModuleBase
     {
         /// <summary>
-        /// Instantiates the <see cref="${name}Module"/>.
+        /// Instantiates the <see cref="${objectClassName}Module"/>.
         /// </summary>
-        internal ${name}Module()
+        internal ${objectClassName}Module()
         {
 
         }
@@ -393,22 +393,22 @@ namespace ${namespace}.${name}
         {
             get
             {
-                return "${name}";
+                return "${objectClassName}";
             }
         }
     }
 }
 `,
 }, {
-  name: ({ name }) => `${platform}/${name}/${name}Package.cs`,
-  content: ({ name, namespace }) =>
+  name: ({ objectClassName }) => `${platform}/${objectClassName}/${objectClassName}Package.cs`,
+  content: ({ objectClassName, namespace }) =>
     `using ReactNative.Bridge;
 using ReactNative.Modules.Core;
 using ReactNative.UIManager;
 using System;
 using System.Collections.Generic;
 
-namespace ${namespace}.${name}
+namespace ${namespace}.${objectClassName}
 {
     /// <summary>
     /// Package defining core framework modules (e.g., <see cref="UIManagerModule"/>).
@@ -416,7 +416,7 @@ namespace ${namespace}.${name}
     /// other framework parts (e.g., with the list of packages to load view
     /// managers from).
     /// </summary>
-    public class ${name}Package : IReactPackage
+    public class ${objectClassName}Package : IReactPackage
     {
         /// <summary>
         /// Creates the list of native modules to register with the react
@@ -428,7 +428,7 @@ namespace ${namespace}.${name}
         {
             return new List<INativeModule>
             {
-                new ${name}Module(),
+                new ${objectClassName}Module(),
             };
         }
 
@@ -457,8 +457,8 @@ namespace ${namespace}.${name}
 }
 `,
 }, {
-  name: ({ name }) => `${platform}/${name}/Properties/${name}.rd.xml`,
-  content: ({ name }) =>
+  name: ({ objectClassName }) => `${platform}/${objectClassName}/Properties/${objectClassName}.rd.xml`,
+  content: ({ objectClassName }) =>
     `<?xml version="1.0" encoding="utf-8"?>
 <!--
     This file contains Runtime Directives, specifications about types your application accesses
@@ -481,7 +481,7 @@ namespace ${namespace}.${name}
     http://go.microsoft.com/fwlink/?LinkID=391919
 -->
 <Directives xmlns="http://schemas.microsoft.com/netfx/2013/01/metadata">
-  <Library Name="${name}">
+  <Library Name="${objectClassName}">
 
   	<!-- add directives for your library here -->
 
@@ -489,8 +489,8 @@ namespace ${namespace}.${name}
 </Directives>
 `,
 }, {
-  name: ({ name }) => `${platform}/${name}/Properties/AssemblyInfo.cs`,
-  content: ({ name }) =>
+  name: ({ objectClassName }) => `${platform}/${objectClassName}/Properties/AssemblyInfo.cs`,
+  content: ({ objectClassName }) =>
     `using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -498,11 +498,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("${name}")]
+[assembly: AssemblyTitle("${objectClassName}")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("${name}")]
+[assembly: AssemblyProduct("${objectClassName}")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
