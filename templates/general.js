@@ -1,6 +1,6 @@
 module.exports = [{
   name: () => 'README.md',
-  content: ({ moduleName, name }) =>
+  content: ({ moduleName, objectClassName }) =>
     `# ${moduleName}
 
 ## Getting started
@@ -13,10 +13,10 @@ module.exports = [{
 
 ## Usage
 \`\`\`javascript
-import ${name} from '${moduleName}';
+import ${objectClassName} from '${moduleName}';
 
 // TODO: What to do with the module?
-${name};
+${objectClassName};
 \`\`\`
 `,
 }, {
@@ -78,22 +78,22 @@ ${name};
 }, {
   // for module without view:
   name: ({ view }) => !view && 'index.js',
-  content: ({ name }) =>
+  content: ({ objectClassName }) =>
     `import { NativeModules } from 'react-native';
 
-const { ${name} } = NativeModules;
+const { ${objectClassName} } = NativeModules;
 
-export default ${name};
+export default ${objectClassName};
 `,
 }, {
   // for module with view:
   name: ({ view }) => view && 'index.js',
-  content: ({ name }) =>
+  content: ({ objectClassName }) =>
     `import { requireNativeComponent } from 'react-native';
 
-const ${name} = requireNativeComponent('${name}', null);
+const ${objectClassName} = requireNativeComponent('${objectClassName}', null);
 
-export default ${name};
+export default ${objectClassName};
 `,
 }, {
   name: () => '.gitignore',
