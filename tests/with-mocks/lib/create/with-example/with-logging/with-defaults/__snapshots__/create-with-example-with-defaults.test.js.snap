@@ -765,7 +765,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
-				\\"$(inherited)\\",
+					\\"$(inherited)\\",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					\\"$(SRCROOT)/../../../React/**\\",
 					\\"$(SRCROOT)/../../react-native/React/**\\",
