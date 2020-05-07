@@ -121,10 +121,6 @@ RCT_EXPORT_MODULE()
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		B3E7B58A1CC2AC0600A0062D /* ${objectClassName}.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* ${objectClassName}.m */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		58B511D91A9E6C8500147676 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -139,8 +135,6 @@ RCT_EXPORT_MODULE()
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* lib${objectClassName}.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = lib${objectClassName}.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3E7B5881CC2AC0600A0062D /* ${objectClassName}.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ${objectClassName}.h; sourceTree = "<group>"; };
-		B3E7B5891CC2AC0600A0062D /* ${objectClassName}.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ${objectClassName}.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,8 +159,6 @@ RCT_EXPORT_MODULE()
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-				B3E7B5881CC2AC0600A0062D /* ${objectClassName}.h */,
-				B3E7B5891CC2AC0600A0062D /* ${objectClassName}.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -227,7 +219,6 @@ RCT_EXPORT_MODULE()
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3E7B58A1CC2AC0600A0062D /* ${objectClassName}.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
