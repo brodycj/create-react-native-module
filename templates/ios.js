@@ -30,8 +30,8 @@ end
 
 `,
 }, {
-  // header for module without view:
-  name: ({ objectClassName, view }) => !view && `${platform}/${objectClassName}.h`,
+  // header for Objective-C module without view:
+  name: ({ objectClassName, swift, view }) => !swift && !view && `${platform}/${objectClassName}.h`,
   content: ({ objectClassName }) => `#import <React/RCTBridgeModule.h>
 
 @interface ${objectClassName} : NSObject <RCTBridgeModule>
@@ -40,7 +40,7 @@ end
 `,
 }, {
   // implementation of module without view:
-  name: ({ objectClassName, view }) => !view && `${platform}/${objectClassName}.m`,
+  name: ({ objectClassName, swift, view }) => !swift && !view && `${platform}/${objectClassName}.m`,
   content: ({ objectClassName, useAppleNetworking }) => `#import "${objectClassName}.h"
 
 ${useAppleNetworking ? `#import <AFNetworking/AFNetworking.h>
@@ -69,6 +69,41 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 
 @end
 `,
+}, {
+  // bridge header for Swift module without view:
+  name: ({ objectClassName, swift, view }) => swift && !view && `${platform}/${objectClassName}-Bridging-Header.h`,
+  content: ({ objectClassName }) => `// ${platform}/${objectClassName}-Bridging-Header.h
+#import <React/RCTBridgeModule.h>
+`,
+}, {
+  // bridge for Swift module without view:
+  name: ({ objectClassName, swift, view }) => swift && !view && `${platform}/${objectClassName}.m`,
+  content: ({ objectClassName, useAppleNetworking }) => `// ${objectClassName}.m
+
+#import <React/RCTBridge.h>
+
+@interface RCT_EXTERN_MODULE(${objectClassName}, NSObject)
+
+RCT_EXTERN_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnull NSNumber *)numberArgument callback:(RCTResponseSenderBlock)callback)
+
+@end
+`,
+}, {
+  // implementation of Swift module without view:
+  name: ({ objectClassName, swift, view }) => swift && !view && `${platform}/${objectClassName}.swift`,
+  content: ({ objectClassName, useAppleNetworking }) => `// ${objectClassName}.swift
+
+import Foundation
+
+@objc(${objectClassName})
+class ${objectClassName} : NSObject {
+  @objc(sampleMethod:numberParameter:callback:)
+  func sampleMethod(stringArgument: String, numberArgument: NSNumber, callback: RCTResponseSenderBlock) -> Void {
+    // TODO: Implement some actually useful functionality
+    callback([String(format: "numberArgument: %@ stringArgument: %@", numberArgument, stringArgument)])
+  }
+}
+`
 }, {
   // header for module with view:
   name: ({ objectClassName, view }) => view && `${platform}/${objectClassName}.h`,
