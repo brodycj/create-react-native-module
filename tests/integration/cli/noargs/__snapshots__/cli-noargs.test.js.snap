@@ -14,6 +14,7 @@ Options:
   --module-prefix [modulePrefix]                              The prefix of the generated module package name, ignored if --module-name is specified (default: \\"react-native\\")
   --package-identifier [packageIdentifier]                    [Android] The Java package identifier used by the Android module (default: \\"com.reactlibrary\\")
   --platforms <platforms>                                     Platforms the library module will be created for - comma separated (default: \\"ios,android\\")
+  --swift                                                     EXPERIMENAL: Generate the iOS native module in Swift
   --tvos-enabled                                              Generate the module with tvOS build enabled (requires react-native-tvos fork, with minimum version of 0.60, and iOS platform to be enabled)
   --github-account [githubAccount]                            The github account where the library module is hosted (default: \\"github_account\\")
   --author-name [authorName]                                  The author's name (default: \\"Your Name\\")

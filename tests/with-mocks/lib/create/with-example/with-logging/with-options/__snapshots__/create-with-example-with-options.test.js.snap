@@ -15,6 +15,7 @@ Array [
      library modulePrefix: react-native
 Android packageIdentifier: com.alicebits
                 platforms: android,ios
+              swift (iOS): false
         Apple tvosEnabled: true
                authorName: Alice
               authorEmail: contact@alice.me

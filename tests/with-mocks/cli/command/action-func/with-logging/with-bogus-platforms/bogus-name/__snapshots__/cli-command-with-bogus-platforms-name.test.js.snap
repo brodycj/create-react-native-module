@@ -21,6 +21,7 @@ Array [
      library modulePrefix: react-native
 Android packageIdentifier: com.reactlibrary
                 platforms: bogus
+              swift (iOS): false
         Apple tvosEnabled: false
                authorName: Your Name
               authorEmail: yourname@email.com
