@@ -328,7 +328,6 @@ export default IntegrationTestPackage;
     "name": "react-native-integration-test-package/ios/IntegrationTestPackage.m",
     "theContent": "#import \\"IntegrationTestPackage.h\\"
 
-
 @implementation IntegrationTestPackage
 
 RCT_EXPORT_MODULE()

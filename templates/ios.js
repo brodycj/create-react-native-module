@@ -42,8 +42,8 @@ end
   // implementation of module without view:
   name: ({ objectClassName, view }) => !view && `${platform}/${objectClassName}.m`,
   content: ({ objectClassName, useAppleNetworking }) => `#import "${objectClassName}.h"
-
-${useAppleNetworking ? `#import <AFNetworking/AFNetworking.h>
+${useAppleNetworking ? `
+#import <AFNetworking/AFNetworking.h>
 ` : ``}
 @implementation ${objectClassName}
 
