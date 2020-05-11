@@ -457,7 +457,6 @@ content:
 --------
 #import \\"ABCAliceBobbi.h\\"
 
-
 @implementation ABCAliceBobbi
 
 RCT_EXPORT_MODULE()

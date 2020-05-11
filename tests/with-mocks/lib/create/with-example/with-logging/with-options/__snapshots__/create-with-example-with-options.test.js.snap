@@ -514,7 +514,6 @@ end
     "outputFileName": "react-native-alice-bobbi/ios/ABCAliceBobbi.m",
     "theContent": "#import \\"ABCAliceBobbi.h\\"
 
-
 @implementation ABCAliceBobbi
 
 RCT_EXPORT_MODULE()

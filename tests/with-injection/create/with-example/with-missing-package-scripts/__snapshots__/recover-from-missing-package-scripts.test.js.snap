@@ -461,7 +461,6 @@ content:
 --------
 #import \\"AliceBobbi.h\\"
 
-
 @implementation AliceBobbi
 
 RCT_EXPORT_MODULE()
