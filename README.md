@@ -33,7 +33,6 @@ This tool based on [`react-native-create-library`](https://www.npmjs.com/package
   - tvOS platform fork
     - requires use of `--tvos-enabled` option as documented below
     - requires the [`react-native-tvos`](https://www.npmjs.com/package/react-native-tvos) fork, with minimum version of 0.60 ref:  [react-native-community/react-native-tvos#11](https://github.com/react-native-community/react-native-tvos/issues/11)), [issue #95](https://github.com/brodybits/create-react-native-module/issues/95)
-    - unstable with very limited testing, with limited if any active support from the primary maintainer [@brodybits](https://github.com/brodybits) (see [issue #127](https://github.com/brodybits/create-react-native-module/issues/127))
 - Out-of-tree platforms
   - Windows - no longer supported for reasons discussed in issues [#23](https://github.com/brodybits/create-react-native-module/issues/23) and [#43](https://github.com/brodybits/create-react-native-module/issues/43) (existing Windows C# template is kept in `unsupported-platforms` for now (at least) and further discussion would be welcome in a new issue on GitHub)
   - for future consideration: macOS (see [issue #94](https://github.com/brodybits/create-react-native-module/issues/94))
@@ -53,8 +52,6 @@ Why not use `react-native new-library`? Unfortunately that command doesn't creat
 __Outdated alternatives:__ see [acknowledgements](#acknowledgements) below
 
 ## Installation
-
-Requirements: Node 8.0+
 
 Packages required to be installed globally if the recommended example app is generated:
 
@@ -232,8 +229,6 @@ create-react-native-module --prefix CB --package-identifier io.mylibrary --view 
 ```
 
 The module would be generated in the `react-native-carol-widget` subdirectory, and the example test app would be in `react-native-carol-widget/example`.
-
-Note that this needs an adaptation to work on Android on React Native 0.60(+) (see [issue #29](https://github.com/brodybits/create-react-native-module/issues/29)).
 
 Then go into the example app subdirectory:
 
