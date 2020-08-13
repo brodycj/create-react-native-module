@@ -1,0 +1,1222 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`mocked cli-program.js runs correctly with example, with logging 1`] = `
+Array [
+  Object {
+    "please-upgrade-node": Object {
+      "engines": Object {
+        "node": ">= 10.20",
+      },
+      "name": "create-react-native-module",
+    },
+  },
+  Object {
+    "notify": Object {},
+  },
+  Object {
+    "version": "x",
+  },
+  Object {
+    "usage": "[options] <name>",
+  },
+  Object {
+    "description": "creates a React Native library module for one or more platforms",
+  },
+  Object {
+    "action": Object {
+      "actionFunction": [Function],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--module-name [moduleName]",
+        "The module package name to be used in package.json. Default: react-native-(name in param-case)",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--view",
+        "Generate the package as a very simple native view component",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--object-class-name [objectClassName]",
+        "The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase)",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--prefix [prefix]",
+        "DEPRECATED: The prefix of the name of the object class to be exported by both JavaScript and native code, ignored if --object-class-name is specified",
+        [Function],
+        "",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--module-prefix [modulePrefix]",
+        "The prefix of the generated module package name, ignored if --module-name is specified",
+        [Function],
+        "react-native",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--package-identifier [packageIdentifier]",
+        "[Android] The Java package identifier used by the Android module",
+        [Function],
+        "com.reactlibrary",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--platforms <platforms>",
+        "Platforms the library module will be created for - comma separated",
+        [Function],
+        "ios,android",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--tvos-enabled",
+        "Generate the module with tvOS build enabled (requires react-native-tvos fork, with minimum version of 0.60, and iOS platform to be enabled)",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--github-account [githubAccount]",
+        "The github account where the library module is hosted",
+        [Function],
+        "github_account",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--author-name [authorName]",
+        "The author's name",
+        [Function],
+        "Your Name",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--author-email [authorEmail]",
+        "The author's email",
+        [Function],
+        "yourname@email.com",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--license [license]",
+        "The license type",
+        [Function],
+        "MIT",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--use-apple-networking",
+        "[iOS] Use \`AFNetworking\` dependency as a sample in the podspec & use it from the iOS code",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--generate-example",
+        "Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires both react-native-cli and yarn to be installed globally",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--example-file-linkage",
+        "DEPRECATED: do \`yarn add file:../\` instead of \`yarn add link:../\` in a generated example project, and add a postinstall workaround script, with no overwrite of example metro.config.js",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--example-name [exampleName]",
+        "Name for the example project",
+        [Function],
+        "example",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--example-react-native-version [exampleReactNativeVersion]",
+        "React Native version for the generated example project",
+        [Function],
+        "react-native@latest",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--write-example-podfile",
+        "[iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "parse": Object {
+      "argv": Array [
+        "node",
+        "create-cli.js",
+        "test-package",
+      ],
+    },
+  },
+  Object {
+    "warn": Array [
+      "While \`{DEFAULT_PACKAGE_IDENTIFIER}\` is the default package
+      identifier, it is recommended to customize the package identifier.",
+    ],
+  },
+  Object {
+    "info": Array [
+      "CREATE new React Native module with the following options:
+
+                     name: test-package
+    root moduleName
+      (full package name): react-native-test-package
+                  is view: false
+ object class name prefix: 
+        object class name: TestPackage
+     library modulePrefix: react-native
+Android packageIdentifier: com.reactlibrary
+                platforms: android,ios
+        Apple tvosEnabled: false
+               authorName: Your Name
+              authorEmail: yourname@email.com
+     author githubAccount: github_account
+                  license: MIT
+       useAppleNetworking: false
+
+          generateExample: true
+       exampleFileLinkage: false
+              exampleName: example
+exampleReactNativeVersion: react-native@latest
+      writeExamplePodfile: false
+",
+    ],
+  },
+  Object {
+    "info": Array [
+      "CREATE: Check for valid react-native-cli tool version, as needed to generate the example project",
+    ],
+  },
+  Object {
+    "commandSync": "react-native --version",
+    "options": Object {
+      "stdio": "inherit",
+    },
+  },
+  Object {
+    "info": Array [
+      "react-native --version ok",
+    ],
+  },
+  Object {
+    "info": Array [
+      "CREATE: Check for valid Yarn CLI tool version, as needed to generate the example project",
+    ],
+  },
+  Object {
+    "commandSync": "yarn --version",
+    "options": Object {
+      "stdio": "inherit",
+    },
+  },
+  Object {
+    "info": Array [
+      "yarn --version ok",
+    ],
+  },
+  Object {
+    "info": Array [
+      "CREATE: Generating the React Native library module",
+    ],
+  },
+  Object {
+    "ensureDir": "react-native-test-package",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/android/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/android/src/main/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/android/src/main/java/com/reactlibrary/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/android/src/main/java/com/reactlibrary/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/android/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/ios/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/ios/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/ios/TestPackage.xcworkspace/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/ios/TestPackage.xcodeproj/",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/README.md",
+    "theContent": "# react-native-test-package
+
+## Getting started
+
+\`$ npm install react-native-test-package --save\`
+
+### Mostly automatic installation
+
+\`$ react-native link react-native-test-package\`
+
+## Usage
+\`\`\`javascript
+import TestPackage from 'react-native-test-package';
+
+// TODO: What to do with the module?
+TestPackage;
+\`\`\`
+",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/package.json",
+    "theContent": "{
+  \\"name\\": \\"react-native-test-package\\",
+  \\"title\\": \\"React Native Test Package\\",
+  \\"version\\": \\"1.0.0\\",
+  \\"description\\": \\"TODO\\",
+  \\"main\\": \\"index.js\\",
+  \\"files\\": [
+    \\"README.md\\",
+    \\"android\\",
+    \\"index.js\\",
+    \\"ios\\",
+    \\"react-native-test-package.podspec\\"
+  ],
+  \\"scripts\\": {
+    \\"test\\": \\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\"
+  },
+  \\"repository\\": {
+    \\"type\\": \\"git\\",
+    \\"url\\": \\"git+https://github.com/github_account/react-native-test-package.git\\",
+    \\"baseUrl\\": \\"https://github.com/github_account/react-native-test-package\\"
+  },
+  \\"keywords\\": [
+    \\"react-native\\"
+  ],
+  \\"author\\": {
+    \\"name\\": \\"Your Name\\",
+    \\"email\\": \\"yourname@email.com\\"
+  },
+  \\"license\\": \\"MIT\\",
+  \\"licenseFilename\\": \\"LICENSE\\",
+  \\"readmeFilename\\": \\"README.md\\",
+  \\"peerDependencies\\": {
+    \\"react\\": \\"^16.8.1\\",
+    \\"react-native\\": \\">=0.60.0-rc.0 <1.0.x\\"
+  },
+  \\"devDependencies\\": {
+    \\"react\\": \\"^16.9.0\\",
+    \\"react-native\\": \\"^0.61.5\\"
+  }
+}
+",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/index.js",
+    "theContent": "import { NativeModules } from 'react-native';
+
+const { TestPackage } = NativeModules;
+
+export default TestPackage;
+",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/.gitignore",
+    "theContent": "# OSX
+#
+.DS_Store
+
+# node.js
+#
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Xcode
+#
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+project.xcworkspace
+
+# Android/IntelliJ
+#
+build/
+.idea
+.gradle
+local.properties
+*.iml
+
+# BUCK
+buck-out/
+\\\\.buckd/
+*.keystore
+",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/android/build.gradle",
+    "theContent": "// android/build.gradle
+
+// based on:
+//
+// * https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle
+//   original location:
+//   - https://github.com/facebook/react-native/blob/0.58-stable/local-cli/templates/HelloWorld/android/build.gradle
+//
+// * https://github.com/facebook/react-native/blob/0.60-stable/template/android/app/build.gradle
+//   original location:
+//   - https://github.com/facebook/react-native/blob/0.58-stable/local-cli/templates/HelloWorld/android/app/build.gradle
+
+def DEFAULT_COMPILE_SDK_VERSION = 28
+def DEFAULT_BUILD_TOOLS_VERSION = '28.0.3'
+def DEFAULT_MIN_SDK_VERSION = 16
+def DEFAULT_TARGET_SDK_VERSION = 28
+
+def safeExtGet(prop, fallback) {
+    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+
+buildscript {
+    // The Android Gradle plugin is only required when opening the android folder stand-alone.
+    // This avoids unnecessary downloads and potential conflicts when the library is included as a
+    // module dependency in an application project.
+    // ref: https://docs.gradle.org/current/userguide/tutorial_using_tasks.html#sec:build_script_external_dependencies
+    if (project == rootProject) {
+        repositories {
+            google()
+            jcenter()
+        }
+        dependencies {
+            classpath 'com.android.tools.build:gradle:3.4.1'
+        }
+    }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+
+android {
+    compileSdkVersion safeExtGet('compileSdkVersion', DEFAULT_COMPILE_SDK_VERSION)
+    buildToolsVersion safeExtGet('buildToolsVersion', DEFAULT_BUILD_TOOLS_VERSION)
+    defaultConfig {
+        minSdkVersion safeExtGet('minSdkVersion', DEFAULT_MIN_SDK_VERSION)
+        targetSdkVersion safeExtGet('targetSdkVersion', DEFAULT_TARGET_SDK_VERSION)
+        versionCode 1
+        versionName \\"1.0\\"
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+repositories {
+    // ref: https://www.baeldung.com/maven-local-repository
+    mavenLocal()
+    maven {
+        // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+        url \\"$rootDir/../node_modules/react-native/android\\"
+    }
+    maven {
+        // Android JSC is installed from npm
+        url \\"$rootDir/../node_modules/jsc-android/dist\\"
+    }
+    google()
+    jcenter()
+}
+
+dependencies {
+    //noinspection GradleDynamicVersion
+    implementation 'com.facebook.react:react-native:+'  // From node_modules
+}
+
+def configureReactNativePom(def pom) {
+    def packageJson = new groovy.json.JsonSlurper().parseText(file('../package.json').text)
+
+    pom.project {
+        name packageJson.title
+        artifactId packageJson.name
+        version = packageJson.version
+        group = \\"com.reactlibrary\\"
+        description packageJson.description
+        url packageJson.repository.baseUrl
+
+        licenses {
+            license {
+                name packageJson.license
+                url packageJson.repository.baseUrl + '/blob/master/' + packageJson.licenseFilename
+                distribution 'repo'
+            }
+        }
+
+        developers {
+            developer {
+                id packageJson.author.username
+                name packageJson.author.name
+            }
+        }
+    }
+}
+
+afterEvaluate { project ->
+    // some Gradle build hooks ref:
+    // https://www.oreilly.com/library/view/gradle-beyond-the/9781449373801/ch03.html
+    task androidJavadoc(type: Javadoc) {
+        source = android.sourceSets.main.java.srcDirs
+        classpath += files(android.bootClasspath)
+        classpath += files(project.getConfigurations().getByName('compile').asList())
+        include '**/*.java'
+    }
+
+    task androidJavadocJar(type: Jar, dependsOn: androidJavadoc) {
+        classifier = 'javadoc'
+        from androidJavadoc.destinationDir
+    }
+
+    task androidSourcesJar(type: Jar) {
+        classifier = 'sources'
+        from android.sourceSets.main.java.srcDirs
+        include '**/*.java'
+    }
+
+    android.libraryVariants.all { variant ->
+        def name = variant.name.capitalize()
+        def javaCompileTask = variant.javaCompileProvider.get()
+
+        task \\"jar\${name}\\"(type: Jar, dependsOn: javaCompileTask) {
+            from javaCompileTask.destinationDir
+        }
+    }
+
+    artifacts {
+        archives androidSourcesJar
+        archives androidJavadocJar
+    }
+
+    task installArchives(type: Upload) {
+        configuration = configurations.archives
+        repositories.mavenDeployer {
+            // Deploy to react-native-event-bridge/maven, ready to publish to npm
+            repository url: \\"file://\${projectDir}/../android/maven\\"
+            configureReactNativePom pom
+        }
+    }
+}
+",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/android/src/main/AndroidManifest.xml",
+    "theContent": "<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
+          package=\\"com.reactlibrary\\">
+
+</manifest>
+",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/android/src/main/java/com/reactlibrary/TestPackageModule.java",
+    "theContent": "package com.reactlibrary;
+
+import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.bridge.ReactContextBaseJavaModule;
+import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.Callback;
+
+public class TestPackageModule extends ReactContextBaseJavaModule {
+
+    private final ReactApplicationContext reactContext;
+
+    public TestPackageModule(ReactApplicationContext reactContext) {
+        super(reactContext);
+        this.reactContext = reactContext;
+    }
+
+    @Override
+    public String getName() {
+        return \\"TestPackage\\";
+    }
+
+    @ReactMethod
+    public void sampleMethod(String stringArgument, int numberArgument, Callback callback) {
+        // TODO: Implement some actually useful functionality
+        callback.invoke(\\"Received numberArgument: \\" + numberArgument + \\" stringArgument: \\" + stringArgument);
+    }
+}
+",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/android/src/main/java/com/reactlibrary/TestPackagePackage.java",
+    "theContent": "package com.reactlibrary;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
+import com.facebook.react.ReactPackage;
+import com.facebook.react.bridge.NativeModule;
+import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.uimanager.ViewManager;
+import com.facebook.react.bridge.JavaScriptModule;
+
+public class TestPackagePackage implements ReactPackage {
+    @Override
+    public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
+        return Arrays.<NativeModule>asList(new TestPackageModule(reactContext));
+    }
+
+    @Override
+    public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
+        return Collections.emptyList();
+    }
+}
+",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/android/README.md",
+    "theContent": "README
+======
+
+If you want to publish the lib as a maven dependency, follow these steps before publishing a new version to npm:
+
+1. Be sure to have the Android [SDK](https://developer.android.com/studio/index.html) and [NDK](https://developer.android.com/ndk/guides/index.html) installed
+2. Be sure to have a \`local.properties\` file in this folder that points to the Android SDK and NDK
+\`\`\`
+ndk.dir=/Users/{username}/Library/Android/sdk/ndk-bundle
+sdk.dir=/Users/{username}/Library/Android/sdk
+\`\`\`
+3. Delete the \`maven\` folder
+4. Run \`./gradlew installArchives\`
+5. Verify that latest set of generated files is in the maven folder with the correct version number
+",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/react-native-test-package.podspec",
+    "theContent": "require \\"json\\"
+
+package = JSON.parse(File.read(File.join(__dir__, \\"package.json\\")))
+
+Pod::Spec.new do |s|
+  s.name         = \\"react-native-test-package\\"
+  s.version      = package[\\"version\\"]
+  s.summary      = package[\\"description\\"]
+  s.description  = <<-DESC
+                  react-native-test-package
+                   DESC
+  s.homepage     = \\"https://github.com/github_account/react-native-test-package\\"
+  # brief license entry:
+  s.license      = \\"MIT\\"
+  # optional - use expanded license entry instead:
+  # s.license    = { :type => \\"MIT\\", :file => \\"LICENSE\\" }
+  s.authors      = { \\"Your Name\\" => \\"yourname@email.com\\" }
+  s.platforms    = { :ios => \\"9.0\\" }
+  s.source       = { :git => \\"https://github.com/github_account/react-native-test-package.git\\", :tag => \\"#{s.version}\\" }
+
+  s.source_files = \\"ios/**/*.{h,c,m,swift}\\"
+  s.requires_arc = true
+
+  s.dependency \\"React\\"
+  # ...
+  # s.dependency \\"...\\"
+end
+
+",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/ios/TestPackage.h",
+    "theContent": "#import <React/RCTBridgeModule.h>
+
+@interface TestPackage : NSObject <RCTBridgeModule>
+
+@end
+",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/ios/TestPackage.m",
+    "theContent": "#import \\"TestPackage.h\\"
+
+@implementation TestPackage
+
+RCT_EXPORT_MODULE()
+
+RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnull NSNumber *)numberArgument callback:(RCTResponseSenderBlock)callback)
+{
+    // TODO: Implement some actually useful functionality
+    callback(@[[NSString stringWithFormat: @\\"numberArgument: %@ stringArgument: %@\\", numberArgument, stringArgument]]);
+}
+
+@end
+",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/ios/TestPackage.xcworkspace/contents.xcworkspacedata",
+    "theContent": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
+<Workspace
+   version = \\"1.0\\">
+   <FileRef
+      location = \\"group:TestPackage.xcodeproj\\">
+   </FileRef>
+</Workspace>
+",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/ios/TestPackage.xcodeproj/project.pbxproj",
+    "theContent": "// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXCopyFilesBuildPhase section */
+		58B511D91A9E6C8500147676 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = \\"include/$(PRODUCT_NAME)\\";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		134814201AA4EA6300B7C361 /* libTestPackage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTestPackage.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		58B511D81A9E6C8500147676 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		134814211AA4EA7D00B7C361 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				134814201AA4EA6300B7C361 /* libTestPackage.a */,
+			);
+			name = Products;
+			sourceTree = \\"<group>\\";
+		};
+		58B511D21A9E6C8500147676 = {
+			isa = PBXGroup;
+			children = (
+				134814211AA4EA7D00B7C361 /* Products */,
+			);
+			sourceTree = \\"<group>\\";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		58B511DA1A9E6C8500147676 /* TestPackage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget \\"TestPackage\\" */;
+			buildPhases = (
+				58B511D71A9E6C8500147676 /* Sources */,
+				58B511D81A9E6C8500147676 /* Frameworks */,
+				58B511D91A9E6C8500147676 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TestPackage;
+			productName = RCTDataManager;
+			productReference = 134814201AA4EA6300B7C361 /* libTestPackage.a */;
+			productType = \\"com.apple.product-type.library.static\\";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		58B511D31A9E6C8500147676 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = Facebook;
+				TargetAttributes = {
+					58B511DA1A9E6C8500147676 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject \\"TestPackage\\" */;
+			compatibilityVersion = \\"Xcode 3.2\\";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 58B511D21A9E6C8500147676;
+			productRefGroup = 58B511D21A9E6C8500147676;
+			projectDirPath = \\"\\";
+			projectRoot = \\"\\";
+			targets = (
+				58B511DA1A9E6C8500147676 /* TestPackage */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		58B511D71A9E6C8500147676 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		58B511ED1A9E6C8500147676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = \\"gnu++0x\\";
+				CLANG_CXX_LIBRARY = \\"libc++\\";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					\\"DEBUG=1\\",
+					\\"$(inherited)\\",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = \\"/usr/lib/swift $(inherited)\\";
+				LIBRARY_SEARCH_PATHS = (
+					\\"\\\\\\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\\\\\\"\\",
+					\\"\\\\\\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\\\\\\"\\",
+					\\"\\\\\\"$(inherited)\\\\\\"\\",
+				);
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		58B511EE1A9E6C8500147676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = \\"gnu++0x\\";
+				CLANG_CXX_LIBRARY = \\"libc++\\";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = \\"/usr/lib/swift $(inherited)\\";
+				LIBRARY_SEARCH_PATHS = (
+					\\"\\\\\\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\\\\\\"\\",
+					\\"\\\\\\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\\\\\\"\\",
+					\\"\\\\\\"$(inherited)\\\\\\"\\",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		58B511F01A9E6C8500147676 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					\\"$(inherited)\\",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					\\"$(SRCROOT)/../../../React/**\\",
+					\\"$(SRCROOT)/../../react-native/React/**\\",
+				);
+				LIBRARY_SEARCH_PATHS = \\"$(inherited)\\";
+				OTHER_LDFLAGS = \\"-ObjC\\";
+				PRODUCT_NAME = TestPackage;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		58B511F11A9E6C8500147676 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					\\"$(inherited)\\",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					\\"$(SRCROOT)/../../../React/**\\",
+					\\"$(SRCROOT)/../../react-native/React/**\\",
+				);
+				LIBRARY_SEARCH_PATHS = \\"$(inherited)\\";
+				OTHER_LDFLAGS = \\"-ObjC\\";
+				PRODUCT_NAME = TestPackage;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject \\"TestPackage\\" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58B511ED1A9E6C8500147676 /* Debug */,
+				58B511EE1A9E6C8500147676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget \\"TestPackage\\" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				58B511F01A9E6C8500147676 /* Debug */,
+				58B511F11A9E6C8500147676 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 58B511D31A9E6C8500147676 /* Project object */;
+}
+",
+  },
+  Object {
+    "info": Array [
+      "CREATE example app with the following command: react-native init example --version react-native@latest",
+    ],
+  },
+  Object {
+    "commandSync": "react-native init example --version react-native@latest",
+    "options": Object {
+      "cwd": "./react-native-test-package",
+      "stdio": "inherit",
+    },
+  },
+  Object {
+    "ensureDir": "react-native-test-package/example/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/example/",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/example/metro.config.js",
+    "theContent": "// metro.config.js
+//
+// with multiple workarounds for this issue with symlinks:
+// https://github.com/facebook/metro/issues/1
+//
+// with thanks to @johnryan (<https://github.com/johnryan>)
+// for the pointers to multiple workaround solutions here:
+// https://github.com/facebook/metro/issues/1#issuecomment-541642857
+//
+// see also this discussion:
+// https://github.com/brodybits/create-react-native-module/issues/232
+
+const path = require('path')
+
+module.exports = {
+  // workaround for an issue with symlinks encountered starting with
+  // metro@0.55 / React Native 0.61
+  // (not needed with React Native 0.60 / metro@0.54)
+  resolver: {
+    extraNodeModules: new Proxy(
+      {},
+      { get: (_, name) => path.resolve('.', 'node_modules', name) }
+    )
+  },
+
+  // quick workaround for another issue with symlinks
+  watchFolders: ['.', '..']
+}
+",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/example/App.js",
+    "theContent": "/**
+ * Sample React Native App
+ *
+ * adapted from App.js generated by the following command:
+ *
+ * react-native init example
+ *
+ * https://github.com/facebook/react-native
+ */
+
+import React, { Component } from 'react';
+import { Platform, StyleSheet, Text, View } from 'react-native';
+import TestPackage from 'react-native-test-package';
+
+export default class App extends Component<{}> {
+  state = {
+    status: 'starting',
+    message: '--'
+  };
+  componentDidMount() {
+    TestPackage.sampleMethod('Testing', 123, (message) => {
+      this.setState({
+        status: 'native callback received',
+        message
+      });
+    });
+  }
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.welcome}>☆TestPackage example☆</Text>
+        <Text style={styles.instructions}>STATUS: {this.state.status}</Text>
+        <Text style={styles.welcome}>☆NATIVE CALLBACK MESSAGE☆</Text>
+        <Text style={styles.instructions}>{this.state.message}</Text>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+});
+",
+  },
+  Object {
+    "info": Array [
+      "Linking the new module library to the example app",
+    ],
+  },
+  Object {
+    "commandSync": "yarn add link:../",
+    "options": Object {
+      "cwd": "./react-native-test-package/example",
+      "stdio": "inherit",
+    },
+  },
+  Object {
+    "log": Array [
+      "check for valid pod version in ./react-native-test-package/example/ios",
+    ],
+  },
+  Object {
+    "commandSync": "pod --version",
+    "options": Object {
+      "cwd": "./react-native-test-package/example/ios",
+      "stdio": "inherit",
+    },
+  },
+  Object {
+    "log": Array [
+      "running pod install in ./react-native-test-package/example/ios",
+    ],
+  },
+  Object {
+    "commandSync": "pod install",
+    "options": Object {
+      "cwd": "./react-native-test-package/example/ios",
+      "stdio": "inherit",
+    },
+  },
+  Object {
+    "log": Array [
+      "
+📚  Created library module react-native-test-package in \`./react-native-test-package\`.
+🕘  It took XXX.
+
+====================================================
+YOU'RE ALL SET!
+
+💡 check out the example app in react-native-test-package/undefined
+💡 recommended: run Metro Bundler in a new shell
+ℹ (cd react-native-test-package/undefined && yarn start)
+💡 enter the following commands to run the example app:
+ℹ cd react-native-test-package/undefined
+ℹ react-native run-android
+ℹ react-native run-ios
+⚠ IMPORTANT NOTICES
+⚠ After clean checkout, these first steps are needed:
+ℹ run Yarn in react-native-test-package/undefined/ios
+ℹ (cd react-native-test-package/undefined && yarn)
+ℹ do \`pod install\` for iOS in react-native-test-package/undefined/ios
+ℹ cd react-native-test-package/undefined
+ℹ (cd ios && pod install)
+⚠ KNOWN ISSUE with adding dependencies to the library root
+ℹ see https://github.com/brodybits/create-react-native-module/issues/308
+",
+    ],
+  },
+]
+`;

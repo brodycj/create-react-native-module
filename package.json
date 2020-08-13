@@ -8,7 +8,7 @@
     "node": ">= 10.20"
   },
   "scripts": {
-    "jest": "jest",
+    "jest": "cross-env CI=1 jest",
     "lint": "eslint .",
     "stryker": "stryker run",
     "test": "npm run lint && npm run jest"
@@ -59,6 +59,7 @@
     "@stryker-mutator/core": "^3.3.1",
     "@stryker-mutator/javascript-mutator": "^3.3.1",
     "@stryker-mutator/jest-runner": "^3.3.1",
+    "cross-env": "^7.0.2",
     "eslint": "^7.6.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.0",
