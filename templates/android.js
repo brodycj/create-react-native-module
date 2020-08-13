@@ -159,10 +159,10 @@ afterEvaluate { project ->
 `,
 }, {
   // for module without view:
-  name: ({ packageIdentifier, name, view }) =>
+  name: ({ objectClassName, packageIdentifier, view }) =>
     !view &&
-      `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${name}Module.java`,
-  content: ({ packageIdentifier, name, view }) =>
+      `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${objectClassName}Module.java`,
+  content: ({ objectClassName, packageIdentifier, view }) =>
     !view &&
       `package ${packageIdentifier};
 
@@ -171,18 +171,18 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
 
-public class ${name}Module extends ReactContextBaseJavaModule {
+public class ${objectClassName}Module extends ReactContextBaseJavaModule {
 
     private final ReactApplicationContext reactContext;
 
-    public ${name}Module(ReactApplicationContext reactContext) {
+    public ${objectClassName}Module(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
     }
 
     @Override
     public String getName() {
-        return "${name}";
+        return "${objectClassName}";
     }
 
     @ReactMethod
@@ -194,10 +194,10 @@ public class ${name}Module extends ReactContextBaseJavaModule {
 `,
 }, {
   // manager for view:
-  name: ({ packageIdentifier, name, view }) =>
+  name: ({ objectClassName, packageIdentifier, view }) =>
     view &&
-      `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${name}Manager.java`,
-  content: ({ packageIdentifier, name, view }) =>
+      `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${objectClassName}Manager.java`,
+  content: ({ objectClassName, packageIdentifier, view }) =>
     view &&
       `package ${packageIdentifier};
 
@@ -208,9 +208,9 @@ import androidx.appcompat.widget.AppCompatCheckBox;
 import com.facebook.react.uimanager.SimpleViewManager;
 import com.facebook.react.uimanager.ThemedReactContext;
 
-public class ${name}Manager extends SimpleViewManager<View> {
+public class ${objectClassName}Manager extends SimpleViewManager<View> {
 
-    public static final String REACT_CLASS = "${name}";
+    public static final String REACT_CLASS = "${objectClassName}";
 
     @Override
     public String getName() {
@@ -228,10 +228,10 @@ public class ${name}Manager extends SimpleViewManager<View> {
 `,
 }, {
   // package for module without view:
-  name: ({ packageIdentifier, name, view }) =>
+  name: ({ objectClassName, packageIdentifier, view }) =>
     !view &&
-      `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${name}Package.java`,
-  content: ({ packageIdentifier, name, view }) =>
+      `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${objectClassName}Package.java`,
+  content: ({ objectClassName, packageIdentifier, view }) =>
     !view &&
       `package ${packageIdentifier};
 
@@ -245,10 +245,10 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 import com.facebook.react.bridge.JavaScriptModule;
 
-public class ${name}Package implements ReactPackage {
+public class ${objectClassName}Package implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-        return Arrays.<NativeModule>asList(new ${name}Module(reactContext));
+        return Arrays.<NativeModule>asList(new ${objectClassName}Module(reactContext));
     }
 
     @Override
@@ -259,10 +259,10 @@ public class ${name}Package implements ReactPackage {
 `,
 }, {
   // package for manager for view:
-  name: ({ packageIdentifier, name, view }) =>
+  name: ({ objectClassName, packageIdentifier, view }) =>
     view &&
-      `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${name}Package.java`,
-  content: ({ packageIdentifier, name, view }) =>
+      `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${objectClassName}Package.java`,
+  content: ({ objectClassName, packageIdentifier, view }) =>
     view &&
       `package ${packageIdentifier};
 
@@ -276,7 +276,7 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 import com.facebook.react.bridge.JavaScriptModule;
 
-public class ${name}Package implements ReactPackage {
+public class ${objectClassName}Package implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         return Collections.emptyList();
@@ -284,11 +284,10 @@ public class ${name}Package implements ReactPackage {
 
     @Override
     public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
-        return Arrays.<ViewManager>asList(new ${name}Manager());
+        return Arrays.<ViewManager>asList(new ${objectClassName}Manager());
     }
 }
 `,
-}, {
 }, {
   name: () => `${platform}/README.md`,
   content: () => `README

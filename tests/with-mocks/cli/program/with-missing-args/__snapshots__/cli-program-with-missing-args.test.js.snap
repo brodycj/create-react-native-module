@@ -5,7 +5,7 @@ Array [
   Object {
     "please-upgrade-node": Object {
       "engines": Object {
-        "node": ">= 8",
+        "node": ">= 10.20",
       },
       "name": "create-react-native-module",
     },
@@ -28,8 +28,38 @@ Array [
   Object {
     "option": Object {
       "args": Array [
+        "--module-name [moduleName]",
+        "The module package name to be used in package.json. Default: react-native-(name in param-case)",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--view",
+        "Generate the package as a very simple native view component",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--object-class-name [objectClassName]",
+        "The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase)",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
         "--prefix [prefix]",
-        "The prefix of the native library module, ignored if --class-name is specified",
+        "DEPRECATED: The prefix of the name of the object class to be exported by both JavaScript and native code, ignored if --object-class-name is specified",
         [Function],
         "",
       ],
@@ -38,28 +68,8 @@ Array [
   Object {
     "option": Object {
       "args": Array [
-        "--module-name [moduleName]",
-        "The module library package name to be used in package.json. Default: react-native-(name in param-case)",
-        [Function],
-        undefined,
-      ],
-    },
-  },
-  Object {
-    "option": Object {
-      "args": Array [
-        "--class-name [className]",
-        "The name of the native object to be exported by the JavaScript and by the native code. Default: (prefix)(name in PascalCase)",
-        [Function],
-        undefined,
-      ],
-    },
-  },
-  Object {
-    "option": Object {
-      "args": Array [
         "--module-prefix [modulePrefix]",
-        "The native module prefix for the library module package name, ignored if --module-name is specified",
+        "The prefix of the generated module package name, ignored if --module-name is specified",
         [Function],
         "react-native",
       ],
@@ -138,16 +148,6 @@ Array [
   Object {
     "option": Object {
       "args": Array [
-        "--view",
-        "Generate the module as a very simple native view component",
-        [Function],
-        undefined,
-      ],
-    },
-  },
-  Object {
-    "option": Object {
-      "args": Array [
         "--use-apple-networking",
         "[iOS] Use \`AFNetworking\` dependency as a sample in the podspec & use it from the iOS code",
         [Function],
@@ -159,7 +159,17 @@ Array [
     "option": Object {
       "args": Array [
         "--generate-example",
-        "Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally",
+        "Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires both react-native-cli and yarn to be installed globally",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--example-file-linkage",
+        "DEPRECATED: do \`yarn add file:../\` instead of \`yarn add link:../\` in a generated example project, and add a postinstall workaround script, with no overwrite of example metro.config.js",
         [Function],
         undefined,
       ],

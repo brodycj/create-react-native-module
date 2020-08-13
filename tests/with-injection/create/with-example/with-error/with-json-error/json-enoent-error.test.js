@@ -2,7 +2,7 @@ const lib = require('../../../../../../lib/lib.js');
 
 const ioInject = require('../../../../helpers/io-inject.js');
 
-test('create module with example, with `ENOENT` error', async () => {
+test('create module with example with `ENOENT` error, with `exampleFileLinkage: true`', async () => {
   // with snapshot info ignored in this test
   const ioInject2 = ioInject([]);
   const inject = {
@@ -17,7 +17,8 @@ test('create module with example, with `ENOENT` error', async () => {
 
   const options = {
     name: 'alice-bettty',
-    generateExample: true
+    generateExample: true,
+    exampleFileLinkage: true,
   };
 
   let error;

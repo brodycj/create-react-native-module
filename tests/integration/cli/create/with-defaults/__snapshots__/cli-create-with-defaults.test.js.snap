@@ -3,11 +3,6 @@
 exports[`CLI creates correct package artifacts on file system, with no options 1`] = `
 Array [
   Object {
-    "name": "react-native-integration-test-package/.gitattributes",
-    "theContent": "*.pbxproj -text
-",
-  },
-  Object {
     "name": "react-native-integration-test-package/.gitignore",
     "theContent": "# OSX
 #
@@ -52,10 +47,6 @@ buck-out/
 \\\\.buckd/
 *.keystore
 ",
-  },
-  Object {
-    "name": "react-native-integration-test-package/.npmignore",
-    "theContent": "",
   },
   Object {
     "name": "react-native-integration-test-package/README.md",
@@ -337,7 +328,6 @@ export default IntegrationTestPackage;
     "name": "react-native-integration-test-package/ios/IntegrationTestPackage.m",
     "theContent": "#import \\"IntegrationTestPackage.h\\"
 
-
 @implementation IntegrationTestPackage
 
 RCT_EXPORT_MODULE()
@@ -361,10 +351,6 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		B3E7B58A1CC2AC0600A0062D /* IntegrationTestPackage.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* IntegrationTestPackage.m */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		58B511D91A9E6C8500147676 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -379,8 +365,6 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libIntegrationTestPackage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libIntegrationTestPackage.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3E7B5881CC2AC0600A0062D /* IntegrationTestPackage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegrationTestPackage.h; sourceTree = \\"<group>\\"; };
-		B3E7B5891CC2AC0600A0062D /* IntegrationTestPackage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntegrationTestPackage.m; sourceTree = \\"<group>\\"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -405,8 +389,6 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-				B3E7B5881CC2AC0600A0062D /* IntegrationTestPackage.h */,
-				B3E7B5891CC2AC0600A0062D /* IntegrationTestPackage.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
 			);
 			sourceTree = \\"<group>\\";
@@ -447,10 +429,11 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 			};
 			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject \\"IntegrationTestPackage\\" */;
 			compatibilityVersion = \\"Xcode 3.2\\";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 58B511D21A9E6C8500147676;
 			productRefGroup = 58B511D21A9E6C8500147676;
@@ -467,7 +450,6 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3E7B58A1CC2AC0600A0062D /* IntegrationTestPackage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,6 +460,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = \\"gnu++0x\\";
 				CLANG_CXX_LIBRARY = \\"libc++\\";
 				CLANG_ENABLE_MODULES = YES;
@@ -486,12 +469,14 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -517,7 +502,13 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = \\"/usr/lib/swift $(inherited)\\";
+				LIBRARY_SEARCH_PATHS = (
+					\\"\\\\\\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\\\\\\"\\",
+					\\"\\\\\\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\\\\\\"\\",
+					\\"\\\\\\"$(inherited)\\\\\\"\\",
+				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -528,6 +519,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = \\"gnu++0x\\";
 				CLANG_CXX_LIBRARY = \\"libc++\\";
 				CLANG_ENABLE_MODULES = YES;
@@ -536,12 +528,14 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -560,7 +554,13 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = \\"/usr/lib/swift $(inherited)\\";
+				LIBRARY_SEARCH_PATHS = (
+					\\"\\\\\\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\\\\\\"\\",
+					\\"\\\\\\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\\\\\\"\\",
+					\\"\\\\\\"$(inherited)\\\\\\"\\",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -571,7 +571,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
-				\\"$(inherited)\\",
+					\\"$(inherited)\\",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					\\"$(SRCROOT)/../../../React/**\\",
 					\\"$(SRCROOT)/../../react-native/React/**\\",
@@ -645,6 +645,13 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
   \\"version\\": \\"1.0.0\\",
   \\"description\\": \\"TODO\\",
   \\"main\\": \\"index.js\\",
+  \\"files\\": [
+    \\"README.md\\",
+    \\"android\\",
+    \\"index.js\\",
+    \\"ios\\",
+    \\"react-native-integration-test-package.podspec\\"
+  ],
   \\"scripts\\": {
     \\"test\\": \\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\"
   },
@@ -689,13 +696,15 @@ Pod::Spec.new do |s|
                   react-native-integration-test-package
                    DESC
   s.homepage     = \\"https://github.com/github_account/react-native-integration-test-package\\"
+  # brief license entry:
   s.license      = \\"MIT\\"
-  # s.license    = { :type => \\"MIT\\", :file => \\"FILE_LICENSE\\" }
+  # optional - use expanded license entry instead:
+  # s.license    = { :type => \\"MIT\\", :file => \\"LICENSE\\" }
   s.authors      = { \\"Your Name\\" => \\"yourname@email.com\\" }
   s.platforms    = { :ios => \\"9.0\\" }
   s.source       = { :git => \\"https://github.com/github_account/react-native-integration-test-package.git\\", :tag => \\"#{s.version}\\" }
 
-  s.source_files = \\"ios/**/*.{h,m,swift}\\"
+  s.source_files = \\"ios/**/*.{h,c,m,swift}\\"
   s.requires_arc = true
 
   s.dependency \\"React\\"

@@ -46,7 +46,7 @@ global.console = {
   },
 };
 
-test('create alice-bobbi module using mocked lib with logging, with example, for Android & iOS with config options', async () => {
+test('create alice-bobbi module using mocked lib with logging, with example, for Android & iOS with config options including `exampleFileLinkage: true`', async () => {
   const options = {
     platforms: ['android', 'ios'],
     name: 'alice-bobbi',
@@ -58,6 +58,9 @@ test('create alice-bobbi module using mocked lib with logging, with example, for
     authorEmail: 'contact@alice.me',
     license: 'ISC',
     generateExample: true,
+    exampleFileLinkage: true,
+    exampleName: 'demo',
+    exampleReactNativeVersion: 'react-native@npm:react-native-tvos'
   };
 
   await lib(options);

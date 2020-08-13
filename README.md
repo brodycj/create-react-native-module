@@ -4,6 +4,7 @@ Tool to create a React Native library module or native view component, with a si
 
 [![GitHub license](https://img.shields.io/github/license/brodybits/create-react-native-module.svg?color=blue&style=for-the-badge)](./LICENSE)
 [![npm](https://img.shields.io/npm/v/create-react-native-module.svg?color=green&style=for-the-badge)](https://www.npmjs.com/package/create-react-native-module)
+[![Mutation testing badge](https://img.shields.io/endpoint?style=for-the-badge&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fbrodybits%2Fcreate-react-native-module%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/brodybits/create-react-native-module/master)
 [![npm downloads](https://img.shields.io/npm/dw/create-react-native-module.svg?label=npm%20downloads&style=for-the-badge)](https://npmcharts.com/compare/create-react-native-module?minimal=true)
 [![total npm downloads](https://img.shields.io/npm/dt/create-react-native-module.svg?label=total%20npm%20downloads&style=for-the-badge)](https://npmcharts.com/compare/create-react-native-module?minimal=true)
 [![GitHub watchers](https://img.shields.io/github/watchers/brodybits/create-react-native-module.svg?style=for-the-badge)](https://github.com/brodybits/create-react-native-module/watchers)
@@ -12,7 +13,6 @@ Tool to create a React Native library module or native view component, with a si
 [![open bugs](https://img.shields.io/github/issues-raw/brodybits/create-react-native-module/bug.svg?color=d73a4a&label=open%20bugs&style=for-the-badge)](https://github.com/brodybits/create-react-native-module/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen+label%3Abug)
 [![total open issues](https://img.shields.io/github/issues-raw/brodybits/create-react-native-module.svg?label=total%20open%20issues&style=for-the-badge)](https://github.com/brodybits/create-react-native-module/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/brodybits/create-react-native-module.svg?style=for-the-badge)](https://github.com/brodybits/create-react-native-module/pulls)
-[![PRs welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)](https://github.com/brodybits/create-react-native-module/pulls)
 
 See below for command-line usage, example with no view, and example with an extremely simple native view.
 
@@ -27,18 +27,15 @@ This tool based on [`react-native-create-library`](https://www.npmjs.com/package
 
 ### General status
 
-- **React Native versions supported:**
-  - recommended: `0.61`
-  - minimum (outdated): `0.60`
+- Minimum React Native version: 0.60 (outdated), 0.61 (recommended)
+- generated example app with symlink by default, has known issue with adding dependencies to the library root - see [issue #308](https://github.com/brodybits/create-react-native-module/issues/308)
 - Platform fork support
   - tvOS platform fork
     - requires use of `--tvos-enabled` option as documented below
     - requires the [`react-native-tvos`](https://www.npmjs.com/package/react-native-tvos) fork, with minimum version of 0.60 ref:  [react-native-community/react-native-tvos#11](https://github.com/react-native-community/react-native-tvos/issues/11)), [issue #95](https://github.com/brodybits/create-react-native-module/issues/95)
-    - unstable with very limited testing, with limited if any active support from the primary maintainer [@brodybits](https://github.com/brodybits) (see [issue #127](https://github.com/brodybits/create-react-native-module/issues/127))
 - Out-of-tree platforms
   - Windows - no longer supported for reasons discussed in issues [#23](https://github.com/brodybits/create-react-native-module/issues/23) and [#43](https://github.com/brodybits/create-react-native-module/issues/43) (existing Windows C# template is kept in `unsupported-platforms` for now (at least) and further discussion would be welcome in a new issue on GitHub)
   - for future consideration: macOS (see [issue #94](https://github.com/brodybits/create-react-native-module/issues/94))
-- Node.js pre-10 support is deprecated and will be removed in the near future (see [issue #38](https://github.com/brodybits/create-react-native-module/issues/38))
 
 ### Why might you need this?
 
@@ -55,8 +52,6 @@ Why not use `react-native new-library`? Unfortunately that command doesn't creat
 __Outdated alternatives:__ see [acknowledgements](#acknowledgements) below
 
 ## Installation
-
-Requirements: Node 8.0+
 
 Packages required to be installed globally if the recommended example app is generated:
 
@@ -93,10 +88,11 @@ Usage: create-react-native-module [options] <name>
 Options:
 
   -V, --version                             output the version number
-  --prefix <prefix>                         The prefix of the native library module, ignored if --class-name is specified (Default: ``)
-  --module-name <moduleName>                The module library package name to be used in package.json. Default: react-native-(name in param-case)
-  --class-name <className>                  The name of the native object to be exported by the JavaScript and by the native code. Default: (prefix)(name in PascalCase)
-  --module-prefix <modulePrefix>            The native module prefix for the library module package name, ignored if --module-name is specified (Default: `react-native`)
+  --module-name <moduleName>                The module package name to be used in package.json. Default: react-native-(name in param-case)
+  --view                                    Generate the package as a very simple native view component
+  --object-class-name                       The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase)
+  --prefix <prefix>                         DEPRECATED: The prefix of the name of the object class to be exported by both JavaScript and native code, ignored if --object-class-name is specified (Default: ``)
+  --module-prefix <modulePrefix>            The prefix of the generated module package name, ignored if --module-name is specified (Default: `react-native`)
   --package-identifier <packageIdentifier>  [Android] The Java package identifier used by the Android module (Default: `com.reactlibrary`)
   --platforms <platforms>                   Platforms the library module will be created for - comma separated (Default: `ios,android`)
   --tvos-enabled                            Generate the module with tvOS build enabled (requires react-native-tvos fork, with minimum version of 0.60, and iOS platform to be enabled)
@@ -104,9 +100,9 @@ Options:
   --author-name <authorName>                The author's name (Default: `Your Name`)
   --author-email <authorEmail>              The author's email (Default: `yourname@email.com`)
   --license <license>                       The license type (Default: `MIT`)
-  --view                                    Generate the module as a very simple native view component
   --use-apple-networking                    [iOS] Use `AFNetworking` dependency as a sample in the podspec & use it from the iOS code
-  --generate-example                        Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally
+  --generate-example                        Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires both react-native-cli and yarn to be installed globally
+  --example-file-linkage                    DEPRECATED: do `yarn add file:../` instead of `yarn add link:../` in a generated example project, and add a postinstall workaround script, with no overwrite of example metro.config.js
   --example-name <exampleName>              Name for the example project (default: `example`)
   --example-react-native-version <version>  React Native version for the generated example project (default: `react-native@latest`)
   --write-example-podfile                   [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile
@@ -129,11 +125,12 @@ createLibraryModule({
 
 ```javascript
 {
-  name: String, /* The name of the library (Default: Library) */
-  prefix: String, /* The prefix of the native library module, ignored if className is specified (Default: ``) */
-  moduleName: String, /* The module library package name to be used in package.json. Default: react-native-(name in param-case) */
-  className: String, /* The name of the native object to be exported by the JavaScript and by the native code. Default: (prefix)(name in PascalCase) */
-  modulePrefix: String, /* The native module prefix for the library module package name, ignored if moduleName is specified (Default: react-native) */
+  name: String, /* The name of the library (mandatory) */
+  moduleName: String, /* The module package name to be used in package.json. Default: react-native-(name in param-case) */
+  view: Boolean, /* Generate the package as a very simple native view component (Default: false) */
+  objectClassName: String, /* The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase) */
+  prefix: String, /* DEPRECATED: The prefix of the name of the object class to be exported by both JavaScript and native code, ignored if objectClassName is specified (Default: ``) */
+  modulePrefix: String, /* The prefix of the generated module package name, ignored if moduleName is specified (Default: `react-native`) */
   platforms: Array | String, /* Platforms the library will be created for. (Default: ['android', 'ios']) */
   packageIdentifier: String, /* [Android] The Java package identifier used by the Android module (Default: com.reactlibrary) */
   tvosEnabled: Boolean, /* Generate the module with tvOS build enabled (requires react-native-tvos fork, with minimum version of 0.60, and iOS platform to be enabled) */
@@ -142,8 +139,8 @@ createLibraryModule({
   authorEmail: String, /* The author's email (Default: `yourname@email.com`) */
   license: String, /* The license type of this library (Default: `MIT`) */
   useAppleNetworking: Boolean, /* [iOS] Use `AFNetworking` dependency as a sample in the podspec & use it from the iOS code (Default: false) */
-  view: Boolean, /* Generate the module as a very simple native view component (Default: false) */
-  generateExample: Boolean, /* Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally (Default: false) */
+  generateExample: Boolean, /* Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires both react-native-cli and yarn to be installed globally (Default: false) */
+  exampleFileLinkage: Boolean, /* DEPRECATED: do `yarn add file:../` instead of `yarn add link:../` in a generated example project, and add a postinstall workaround script, with no overwrite of example metro.config.js (Default: false) */
   exampleName: String, /* Name for the example project (Default: `example`) */
   exampleReactNativeVersion: String, /* React Native version for the generated example project (Default: `react-native@latest`) */
   writeExamplePodfile: Boolean, /* [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile (Default: false) */
@@ -232,8 +229,6 @@ create-react-native-module --prefix CB --package-identifier io.mylibrary --view 
 ```
 
 The module would be generated in the `react-native-carol-widget` subdirectory, and the example test app would be in `react-native-carol-widget/example`.
-
-Note that this needs an adaptation to work on Android on React Native 0.60(+) (see [issue #29](https://github.com/brodybits/create-react-native-module/issues/29)).
 
 Then go into the example app subdirectory:
 

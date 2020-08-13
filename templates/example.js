@@ -1,5 +1,7 @@
 module.exports = [{
-  name: () => 'scripts/examples_postinstall.js',
+  // only needed in case of `exampleFileLinkage: true`:
+  name: ({ exampleFileLinkage }) =>
+    exampleFileLinkage ? 'scripts/examples_postinstall.js' : undefined,
   content: ({ exampleName }) =>
     `#!/usr/bin/env node
 
@@ -114,6 +116,39 @@ module.exports = [{
   })();
 `
 }, {
+  // metro.config.js workarounds needed in case of `exampleFileLinkage: false`:
+  name: ({ exampleName, exampleFileLinkage }) =>
+    exampleFileLinkage ? undefined : `${exampleName}/metro.config.js`,
+  content: ({ moduleName, exampleName }) => `// metro.config.js
+//
+// with multiple workarounds for this issue with symlinks:
+// https://github.com/facebook/metro/issues/1
+//
+// with thanks to @johnryan (<https://github.com/johnryan>)
+// for the pointers to multiple workaround solutions here:
+// https://github.com/facebook/metro/issues/1#issuecomment-541642857
+//
+// see also this discussion:
+// https://github.com/brodybits/create-react-native-module/issues/232
+
+const path = require('path')
+
+module.exports = {
+  // workaround for an issue with symlinks encountered starting with
+  // metro@0.55 / React Native 0.61
+  // (not needed with React Native 0.60 / metro@0.54)
+  resolver: {
+    extraNodeModules: new Proxy(
+      {},
+      { get: (_, name) => path.resolve('.', 'node_modules', name) }
+    )
+  },
+
+  // quick workaround for another issue with symlinks
+  watchFolders: ['.', '..']
+}
+`,
+}, {
   name: ({ exampleName, writeExamplePodfile }) =>
     writeExamplePodfile ? `${exampleName}/ios/Podfile` : undefined,
   content: ({ moduleName, exampleName }) => `platform :ios, '10.0'
@@ -150,7 +185,7 @@ module.exports = [{
 `,
 }, {
   name: ({ exampleName }) => `${exampleName}/App.js`,
-  content: ({ moduleName, name, view }) =>
+  content: ({ moduleName, objectClassName, view }) =>
     `/**
  * Sample React Native App
  *
@@ -163,7 +198,7 @@ module.exports = [{
 
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
-import ${name} from '${moduleName}';` +
+import ${objectClassName} from '${moduleName}';` +
     (!view
       ? `
 
@@ -173,7 +208,7 @@ export default class App extends Component<{}> {
     message: '--'
   };
   componentDidMount() {
-    ${name}.sampleMethod('Testing', 123, (message) => {
+    ${objectClassName}.sampleMethod('Testing', 123, (message) => {
       this.setState({
         status: 'native callback received',
         message
@@ -183,7 +218,7 @@ export default class App extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>☆${name} example☆</Text>
+        <Text style={styles.welcome}>☆${objectClassName} example☆</Text>
         <Text style={styles.instructions}>STATUS: {this.state.status}</Text>
         <Text style={styles.welcome}>☆NATIVE CALLBACK MESSAGE☆</Text>
         <Text style={styles.instructions}>{this.state.message}</Text>
@@ -197,10 +232,10 @@ export default class App extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>☆${name} example☆</Text>
+        <Text style={styles.welcome}>☆${objectClassName} example☆</Text>
         <Text style={styles.instructions}>STATUS: loaded</Text>
         <Text style={styles.welcome}>☆☆☆</Text>
-        <${name} />
+        <${objectClassName} />
       </View>
     );
   }

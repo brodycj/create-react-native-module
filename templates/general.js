@@ -1,6 +1,6 @@
 module.exports = [{
   name: () => 'README.md',
-  content: ({ moduleName, name }) =>
+  content: ({ moduleName, objectClassName }) =>
     `# ${moduleName}
 
 ## Getting started
@@ -13,15 +13,26 @@ module.exports = [{
 
 ## Usage
 \`\`\`javascript
-import ${name} from '${moduleName}';
+import ${objectClassName} from '${moduleName}';
 
 // TODO: What to do with the module?
-${name};
+${objectClassName};
 \`\`\`
 `,
 }, {
   name: () => 'package.json',
   content: ({ moduleName, packageIdentifier, platforms, githubAccount, authorName, authorEmail, license }) => {
+    const files =
+      `[
+    "README.md",` +
+    (platforms.indexOf('android') >= 0 ? `
+    "android",` : ``) + `
+    "index.js"` +
+    (platforms.indexOf('ios') >= 0 ? `,
+    "ios",
+    "${moduleName}.podspec"` : ``) + `
+  ]`;
+
     const peerDependencies =
       `{
     "react": "^16.8.1",
@@ -40,6 +51,7 @@ ${name};
   "version": "1.0.0",
   "description": "TODO",
   "main": "index.js",
+  "files": ${files},
   "scripts": {
     "test": "echo \\"Error: no test specified\\" && exit 1"
   },
@@ -63,26 +75,26 @@ ${name};
   "devDependencies": ${devDependencies}
 }
 `;
-  },
+  }
 }, {
   // for module without view:
   name: ({ view }) => !view && 'index.js',
-  content: ({ name }) =>
+  content: ({ objectClassName }) =>
     `import { NativeModules } from 'react-native';
 
-const { ${name} } = NativeModules;
+const { ${objectClassName} } = NativeModules;
 
-export default ${name};
+export default ${objectClassName};
 `,
 }, {
   // for module with view:
   name: ({ view }) => view && 'index.js',
-  content: ({ name }) =>
+  content: ({ objectClassName }) =>
     `import { requireNativeComponent } from 'react-native';
 
-const ${name} = requireNativeComponent('${name}', null);
+const ${objectClassName} = requireNativeComponent('${objectClassName}', null);
 
-export default ${name};
+export default ${objectClassName};
 `,
 }, {
   name: () => '.gitignore',
@@ -142,23 +154,5 @@ buck-out/
     }
 
     return content;
-  },
-}, {
-  name: () => '.gitattributes',
-  content: ({ platforms }) => {
-    if (platforms.indexOf('ios') >= 0) {
-      return '*.pbxproj -text\n';
-    }
-
-    return '';
-  }
-}, {
-  name: () => '.npmignore',
-  content: ({ generateExample, exampleName }) => {
-    if (generateExample) {
-      return `${exampleName}\n`;
-    }
-
-    return '';
   }
 }];

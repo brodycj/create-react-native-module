@@ -14,7 +14,8 @@ module.exports = config => {
     reporters: [
       'html',
       'clear-text',
-      'progress'
+      'progress',
+      'dashboard'
     ],
     testRunner: 'jest',
     transpilers: [],
