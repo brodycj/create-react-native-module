@@ -31,6 +31,9 @@ global.console = {
   warn: (...args) => {
     mockpushit({ warn: [].concat(args) });
   },
+  error: (...args) => {
+    mockpushit({ error: [].concat(args) });
+  },
 };
 
 test(`create alice-bobbi module with logging, with platforms: ''`, async () => {

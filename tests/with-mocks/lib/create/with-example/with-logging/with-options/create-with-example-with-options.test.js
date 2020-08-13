@@ -44,6 +44,9 @@ global.console = {
   warn: (...args) => {
     mockpushit({ warn: [].concat(args) });
   },
+  error: (...args) => {
+    mockpushit({ error: [].concat(args) });
+  },
 };
 
 test('create alice-bobbi module using mocked lib with logging, with example, for Android & iOS with config options including `exampleFileLinkage: true`', async () => {
