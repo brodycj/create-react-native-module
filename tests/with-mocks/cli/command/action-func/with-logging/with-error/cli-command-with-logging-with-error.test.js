@@ -14,9 +14,7 @@ jest.mock('fs-extra', () => ({
     return Promise.reject(new Error(`ENOPERM not permitted`));
   },
 }));
-
-// TBD hackish mock:
-global.console = {
+jest.mock('console', () => ({
   info: (...args) => {
     mockpushit({ info: [].concat(args) });
   },
@@ -56,7 +54,7 @@ global.console = {
       )
     });
   },
-};
+}));
 
 test('create alice-bobbi module with logging, with fs error (with defaults for Android & iOS)', async () => {
   const args = ['alice-bobbi'];

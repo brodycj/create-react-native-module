@@ -32,9 +32,7 @@ jest.mock('execa', () => ({
     mockpushit({ commandSync: command, options });
   }
 }));
-
-// TBD hackish mock:
-global.console = {
+jest.mock('console', () => ({
   info: (...args) => {
     mockpushit({ info: [].concat(args) });
   },
@@ -47,7 +45,7 @@ global.console = {
   error: (...args) => {
     mockpushit({ error: [].concat(args) });
   },
-};
+}));
 
 test('create alice-bobbi module using mocked lib with logging, with example, for Android & iOS with config options including `exampleFileLinkage: true`', async () => {
   const options = {
