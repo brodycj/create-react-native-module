@@ -88,10 +88,10 @@ Usage: create-react-native-module [options] <name>
 Options:
 
   -V, --version                             output the version number
-  --package-name <packageName>              The module package name to be used in package.json. Default: react-native-(name in param-case)
+  --package-name <packageName>              The package name to be used in package.json. Default: react-native-(name in param-case)
   --view                                    Generate the package as a very simple native view component
   --object-class-name                       The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase)
-  --android-package-id <androidPackageId>   [Android] The Java package identifier used by the Android module (Default: `com.reactlibrary`)
+  --android-package-id <androidPackageId>   The Java package identifier used by the Android module (Default: `com.reactlibrary`)
   --platforms <platforms>                   Platforms the library module will be created for - comma separated (Default: `ios,android`)
   --tvos-enabled                            Generate the module with tvOS build enabled (requires react-native-tvos fork, with minimum version of 0.60, and iOS platform to be enabled)
   --github-account <githubAccount>          The github account where the library module is hosted (Default: `github_account`)
@@ -124,11 +124,11 @@ createLibraryModule({
 ```javascript
 {
   name: String, /* The name of the library (mandatory) */
-  packageName: String, /* The module package name to be used in package.json. Default: react-native-(name in param-case) */
+  packageName: String, /* The package name to be used in package.json. Default: react-native-(name in param-case) */
   view: Boolean, /* Generate the package as a very simple native view component (Default: false) */
   objectClassName: String, /* The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase) */
   platforms: Array | String, /* Platforms the library will be created for. (Default: ['android', 'ios']) */
-  androidPackageId: String, /* [Android] The Java package identifier used by the Android module (Default: com.reactlibrary) */
+  androidPackageId: String, /* The Java package identifier used by the Android module (Default: com.reactlibrary) */
   tvosEnabled: Boolean, /* Generate the module with tvOS build enabled (requires react-native-tvos fork, with minimum version of 0.60, and iOS platform to be enabled) */
   githubAccount: String, /* The github account where the library is hosted (Default: `github_account`) */
   authorName: String, /* The author's name (Default: `Your Name`) */
