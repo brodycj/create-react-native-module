@@ -91,7 +91,7 @@ Options:
   --package-name <packageName>              The module package name to be used in package.json. Default: react-native-(name in param-case)
   --view                                    Generate the package as a very simple native view component
   --object-class-name                       The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase)
-  --package-identifier <packageIdentifier>  [Android] The Java package identifier used by the Android module (Default: `com.reactlibrary`)
+  --android-package-id <androidPackageId>   [Android] The Java package identifier used by the Android module (Default: `com.reactlibrary`)
   --platforms <platforms>                   Platforms the library module will be created for - comma separated (Default: `ios,android`)
   --tvos-enabled                            Generate the module with tvOS build enabled (requires react-native-tvos fork, with minimum version of 0.60, and iOS platform to be enabled)
   --github-account <githubAccount>          The github account where the library module is hosted (Default: `github_account`)
@@ -128,7 +128,7 @@ createLibraryModule({
   view: Boolean, /* Generate the package as a very simple native view component (Default: false) */
   objectClassName: String, /* The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase) */
   platforms: Array | String, /* Platforms the library will be created for. (Default: ['android', 'ios']) */
-  packageIdentifier: String, /* [Android] The Java package identifier used by the Android module (Default: com.reactlibrary) */
+  androidPackageId: String, /* [Android] The Java package identifier used by the Android module (Default: com.reactlibrary) */
   tvosEnabled: Boolean, /* Generate the module with tvOS build enabled (requires react-native-tvos fork, with minimum version of 0.60, and iOS platform to be enabled) */
   githubAccount: String, /* The github account where the library is hosted (Default: `github_account`) */
   authorName: String, /* The author's name (Default: `Your Name`) */
@@ -150,7 +150,7 @@ createLibraryModule({
 __Create the module with no view:__
 
 ```
-create-react-native-module --prefix CB --package-identifier io.mylibrary --generate-example AliceHelper
+create-react-native-module --prefix CB --android-package-id io.mylibrary --generate-example AliceHelper
 ```
 
 The module would be generated in the `react-native-alice-helper` subdirectory, and the example test app would be in `react-native-alice-helper/example`.
@@ -221,7 +221,7 @@ The example app shows the following indications:
 __Create the module with an extremely simple view:__
 
 ```
-create-react-native-module --prefix CB --package-identifier io.mylibrary --view --generate-example CarolWidget
+create-react-native-module --prefix CB --android-package-id io.mylibrary --view --generate-example CarolWidget
 ```
 
 The module would be generated in the `react-native-carol-widget` subdirectory, and the example test app would be in `react-native-carol-widget/example`.
