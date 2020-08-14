@@ -28,8 +28,8 @@ Array [
   Object {
     "option": Object {
       "args": Array [
-        "--module-name [moduleName]",
-        "The module package name to be used in package.json. Default: react-native-(name in param-case)",
+        "--package-name [packageName]",
+        "The package name to be used in package.json. Default: react-native-(name in param-case)",
         [Function],
         undefined,
       ],
@@ -58,28 +58,8 @@ Array [
   Object {
     "option": Object {
       "args": Array [
-        "--prefix [prefix]",
-        "DEPRECATED: The prefix of the name of the object class to be exported by both JavaScript and native code, ignored if --object-class-name is specified",
-        [Function],
-        "",
-      ],
-    },
-  },
-  Object {
-    "option": Object {
-      "args": Array [
-        "--module-prefix [modulePrefix]",
-        "The prefix of the generated module package name, ignored if --module-name is specified",
-        [Function],
-        "react-native",
-      ],
-    },
-  },
-  Object {
-    "option": Object {
-      "args": Array [
-        "--package-identifier [packageIdentifier]",
-        "[Android] The Java package identifier used by the Android module",
+        "--android-package-id [androidPackageId]",
+        "The Java package identifier used by the Android module",
         [Function],
         "com.reactlibrary",
       ],

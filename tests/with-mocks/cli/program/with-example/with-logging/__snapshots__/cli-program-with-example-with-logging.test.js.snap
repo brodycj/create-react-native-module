@@ -30,8 +30,8 @@ Array [
   Object {
     "option": Object {
       "args": Array [
-        "--module-name [moduleName]",
-        "The module package name to be used in package.json. Default: react-native-(name in param-case)",
+        "--package-name [packageName]",
+        "The package name to be used in package.json. Default: react-native-(name in param-case)",
         [Function],
         undefined,
       ],
@@ -60,28 +60,8 @@ Array [
   Object {
     "option": Object {
       "args": Array [
-        "--prefix [prefix]",
-        "DEPRECATED: The prefix of the name of the object class to be exported by both JavaScript and native code, ignored if --object-class-name is specified",
-        [Function],
-        "",
-      ],
-    },
-  },
-  Object {
-    "option": Object {
-      "args": Array [
-        "--module-prefix [modulePrefix]",
-        "The prefix of the generated module package name, ignored if --module-name is specified",
-        [Function],
-        "react-native",
-      ],
-    },
-  },
-  Object {
-    "option": Object {
-      "args": Array [
-        "--package-identifier [packageIdentifier]",
-        "[Android] The Java package identifier used by the Android module",
+        "--android-package-id [androidPackageId]",
+        "The Java package identifier used by the Android module",
         [Function],
         "com.reactlibrary",
       ],
@@ -218,7 +198,7 @@ Array [
   },
   Object {
     "warn": Array [
-      "While \`{DEFAULT_PACKAGE_IDENTIFIER}\` is the default package
+      "While \`{DEFAULT_ANDROID_PACKAGE_ID}\` is the default package
       identifier, it is recommended to customize the package identifier.",
     ],
   },
@@ -227,13 +207,11 @@ Array [
       "CREATE new React Native module with the following options:
 
                      name: test-package
-    root moduleName
+    root packageName
       (full package name): react-native-test-package
                   is view: false
- object class name prefix: 
         object class name: TestPackage
-     library modulePrefix: react-native
-Android packageIdentifier: com.reactlibrary
+Android androidPackageId: com.reactlibrary
                 platforms: android,ios
         Apple tvosEnabled: false
                authorName: Your Name
