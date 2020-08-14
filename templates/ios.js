@@ -1,24 +1,24 @@
 module.exports = platform => [{
-  name: ({ moduleName }) => `${moduleName}.podspec`,
-  content: ({ moduleName, tvosEnabled, githubAccount, authorName, authorEmail, license, useAppleNetworking }) => `require "json"
+  name: ({ packageName }) => `${packageName}.podspec`,
+  content: ({ packageName, tvosEnabled, githubAccount, authorName, authorEmail, license, useAppleNetworking }) => `require "json"
 
 package = JSON.parse(File.read(File.join(__dir__, "package.json")))
 
 Pod::Spec.new do |s|
-  s.name         = "${moduleName}"
+  s.name         = "${packageName}"
   s.version      = package["version"]
   s.summary      = package["description"]
   s.description  = <<-DESC
-                  ${moduleName}
+                  ${packageName}
                    DESC
-  s.homepage     = "https://github.com/${githubAccount}/${moduleName}"
+  s.homepage     = "https://github.com/${githubAccount}/${packageName}"
   # brief license entry:
   s.license      = "${license}"
   # optional - use expanded license entry instead:
   # s.license    = { :type => "${license}", :file => "LICENSE" }
   s.authors      = { "${authorName}" => "${authorEmail}" }
   s.platforms    = { :ios => "9.0"${tvosEnabled ? `, :tvos => "10.0"` : ``} }
-  s.source       = { :git => "https://github.com/${githubAccount}/${moduleName}.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/${githubAccount}/${packageName}.git", :tag => "#{s.version}" }
 
   s.source_files = "ios/**/*.{h,c,m,swift}"
   s.requires_arc = true

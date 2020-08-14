@@ -119,7 +119,7 @@ module.exports = [{
   // metro.config.js workarounds needed in case of `exampleFileLinkage: false`:
   name: ({ exampleName, exampleFileLinkage }) =>
     exampleFileLinkage ? undefined : `${exampleName}/metro.config.js`,
-  content: ({ moduleName, exampleName }) => `// metro.config.js
+  content: ({ packageName, exampleName }) => `// metro.config.js
 //
 // with multiple workarounds for this issue with symlinks:
 // https://github.com/facebook/metro/issues/1
@@ -151,7 +151,7 @@ module.exports = {
 }, {
   name: ({ exampleName, writeExamplePodfile }) =>
     writeExamplePodfile ? `${exampleName}/ios/Podfile` : undefined,
-  content: ({ moduleName, exampleName }) => `platform :ios, '10.0'
+  content: ({ packageName, exampleName }) => `platform :ios, '10.0'
 
 	target '${exampleName}' do
 		rn_path = '../node_modules/react-native'
@@ -180,12 +180,12 @@ module.exports = {
 			'DevSupport'
 		]
 
-		pod '${moduleName}', :path => '../../${moduleName}.podspec'
+		pod '${packageName}', :path => '../../${packageName}.podspec'
 	end
 `,
 }, {
   name: ({ exampleName }) => `${exampleName}/App.js`,
-  content: ({ moduleName, objectClassName, view }) =>
+  content: ({ packageName, objectClassName, view }) =>
     `/**
  * Sample React Native App
  *
@@ -198,7 +198,7 @@ module.exports = {
 
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
-import ${objectClassName} from '${moduleName}';` +
+import ${objectClassName} from '${packageName}';` +
     (!view
       ? `
 
