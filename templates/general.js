@@ -154,4 +154,48 @@ buck-out/
 
     return content;
   }
+}, {
+  // github actions deploy to github packages
+  name: () => '.github/workflows/publish.yml',
+  content: () =>
+    `
+name: publish
+
+on:
+  push:
+    branches:
+      - '**'
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: "10"
+          registry-url: https://npm.pkg.github.com
+
+      - name: Setup yarn
+        run: npm install -g yarn
+
+      - name: install
+        run: yarn install --frozen-lockfile
+
+      - name: build
+        run: yarn build
+
+      - name: publish
+        if: startsWith(github.ref, 'refs/tags/')
+        run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: \\$\\{\\{ secrets.GITHUB_TOKEN \\}\\}
+`,
 }];
