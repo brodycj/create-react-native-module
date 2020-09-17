@@ -21,13 +21,15 @@ ${objectClassName};
 `,
 }, {
   name: () => 'package.json',
-  content: ({ moduleName, platforms, githubAccount, authorName, authorEmail, license }) => {
+  content: ({ moduleName, platforms, githubAccount, authorName, authorEmail, license, useTypescript }) => {
     const files =
       `[
     "README.md",` +
     (platforms.indexOf('android') >= 0 ? `
     "android",` : ``) + `
-    "index.js"` +
+    "src"` +
+    (useTypescript ? `
+    "lib"` : ``) +
     (platforms.indexOf('ios') >= 0 ? `,
     "ios",
     "${moduleName}.podspec"` : ``) + `
@@ -42,17 +44,25 @@ ${objectClassName};
     const devDependencies =
       `{
     "react": "^16.9.0",
-    "react-native": "^0.61.5"
+    "react-native": "^0.61.5",
+    ${useTypescript ? `"typescript": "^4.0.0",
+    "@types/react": "^16.9.49",
+    "@types/react-native": "^0.61.23"` : ``}
   }`;
+
+    const artifacts =
+      `"main": ${useTypescript ? "lib/index.js" : "src/index.js"}` + (useTypescript ? `
+  "types": "lib/index.d.ts"` : ``);
 
     return `{
   "name": "${moduleName}",
   "title": "${moduleName.split('-').map(word => word[0].toUpperCase() + word.substr(1)).join(' ')}",
   "version": "1.0.0",
   "description": "TODO",
-  "main": "index.js",
+  ${artifacts},
   "files": ${files},
   "scripts": {
+    ${useTypescript ? `"build": "tsc"` : ``}
     "test": "echo \\"Error: no test specified\\" && exit 1"
   },
   "repository": {
@@ -76,8 +86,8 @@ ${objectClassName};
 `;
   }
 }, {
-  // for module without view:
-  name: ({ view }) => !view && 'index.js',
+  // for module without view, use js:
+  name: ({ view, useTypescript }) => (!view && !useTypescript) && 'src/index.js',
   content: ({ objectClassName }) =>
     `import { NativeModules } from 'react-native';
 
@@ -86,14 +96,44 @@ const { ${objectClassName} } = NativeModules;
 export default ${objectClassName};
 `,
 }, {
-  // for module with view:
-  name: ({ view }) => view && 'index.js',
+  // for module without view, use ts:
+  name: ({ view, useTypescript }) => (!view && useTypescript) && 'src/index.ts',
+  content: ({ objectClassName }) =>
+    `import { NativeModules } from 'react-native';
+
+type ${objectClassName}Types = {
+  sampleMethod: (stringArgument: string, numberArgument: number, (message: string) => void)
+};
+
+const { ${objectClassName} } = NativeModules;
+
+export default ${objectClassName} as ${objectClassName}Types;
+`,
+}, {
+  // for module with view, use js:
+  name: ({ view, useTypescript }) => (view && !useTypescript) && 'src/index.js',
   content: ({ objectClassName }) =>
     `import { requireNativeComponent } from 'react-native';
 
 const ${objectClassName} = requireNativeComponent('${objectClassName}', null);
 
 export default ${objectClassName};
+`,
+}, {
+  // for module with view, use ts:
+  name: ({ view, useTypescript }) => (view && useTypescript) && 'src/index.ts',
+  content: ({ objectClassName }) =>
+    `import React from 'react'
+import { requireNativeComponent } from 'react-native';
+
+type ${objectClassName}Props = {
+  // something
+  // if you want to inherit react-native's ViewProps, import it from 'react-native' manually.
+}
+
+const ${objectClassName}:  = requireNativeComponent('${objectClassName}', null);
+
+export default ${objectClassName} as React.ComponentClass<${objectClassName}Props>;
 `,
 }, {
   name: () => '.gitignore',
@@ -107,6 +147,7 @@ export default ${objectClassName};
 node_modules/
 npm-debug.log
 yarn-error.log
+lib/
 `;
 
     if (platforms.indexOf('ios') >= 0) {
