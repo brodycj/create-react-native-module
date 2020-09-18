@@ -44,14 +44,20 @@ ${objectClassName};
     const devDependencies =
       `{
     "react": "^16.9.0",
-    "react-native": "^0.61.5",
-    ${useTypescript ? `"typescript": "^4.0.0",
+    "react-native": "^0.61.5"` +
+    (useTypescript ? `,
+    "typescript": "^4.0.0",
     "@types/react": "^16.9.49",
-    "@types/react-native": "^0.61.23"` : ``}
+    "@types/react-native": "^0.61.23"` : ``) + `
+  }`;
+
+    const scripts = `{` + (useTypescript ? `
+    "build": "tsc",` : ``) + `
+    "test": "echo \\"Error: no test specified\\" && exit 1"
   }`;
 
     const artifacts =
-      `"main": ${useTypescript ? "lib/index.js" : "src/index.js"}` + (useTypescript ? `
+      `"main": ${useTypescript ? `"lib/index.js"` : `"src/index.js"`}` + (useTypescript ? `
   "types": "lib/index.d.ts"` : ``);
 
     return `{
@@ -61,10 +67,7 @@ ${objectClassName};
   "description": "TODO",
   ${artifacts},
   "files": ${files},
-  "scripts": {
-    ${useTypescript ? `"build": "tsc"` : ``}
-    "test": "echo \\"Error: no test specified\\" && exit 1"
-  },
+  "scripts": ${scripts},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/${githubAccount}/${moduleName}.git",
