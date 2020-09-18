@@ -145,7 +145,16 @@ module.exports = {
   },
 
   // quick workaround for another issue with symlinks
-  watchFolders: ['.', '..']
+  watchFolders: ['.', '..'],
+
+  transformer: {
+    getTransformOptions: async () => ({
+      transform: {
+        experimentalImportSupport: false,
+        inlineRequires: false,
+      },
+    }),
+  },
 }
 `,
 }, {
