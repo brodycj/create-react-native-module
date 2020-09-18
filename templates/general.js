@@ -198,4 +198,25 @@ buck-out/
 
     return content;
   }
+}, {
+  name: ({ useTypescript }) => useTypescript ? 'tsconfig.json' : undefined,
+  content: () =>
+  `{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["ES2020"],
+    "module": "ES2015",
+    "jsx": "react-native",
+
+    "baseUrl": ".",
+    "rootDir": "./src",
+    "outDir": "./lib",
+    
+    "strict": true,
+    "resolveJsonModule": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}
+`
 }];
