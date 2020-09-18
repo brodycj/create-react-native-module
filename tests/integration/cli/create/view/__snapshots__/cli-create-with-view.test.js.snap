@@ -13,6 +13,7 @@ Array [
 node_modules/
 npm-debug.log
 yarn-error.log
+lib/
 
 # Xcode
 #
@@ -303,15 +304,6 @@ public class IntegrationViewTestPackagePackage implements ReactPackage {
         return Arrays.<ViewManager>asList(new IntegrationViewTestPackageManager());
     }
 }
-",
-  },
-  Object {
-    "name": "react-native-integration-view-test-package/index.js",
-    "theContent": "import { requireNativeComponent } from 'react-native';
-
-const IntegrationViewTestPackage = requireNativeComponent('IntegrationViewTestPackage', null);
-
-export default IntegrationViewTestPackage;
 ",
   },
   Object {
@@ -649,11 +641,11 @@ RCT_EXPORT_MODULE()
   \\"title\\": \\"React Native Integration View Test Package\\",
   \\"version\\": \\"1.0.0\\",
   \\"description\\": \\"TODO\\",
-  \\"main\\": \\"index.js\\",
+  \\"main\\": \\"src/index.js\\",
   \\"files\\": [
     \\"README.md\\",
     \\"android\\",
-    \\"index.js\\",
+    \\"src\\",
     \\"ios\\",
     \\"react-native-integration-view-test-package.podspec\\"
   ],
@@ -716,6 +708,15 @@ Pod::Spec.new do |s|
   # s.dependency \\"...\\"
 end
 
+",
+  },
+  Object {
+    "name": "react-native-integration-view-test-package/src/index.js",
+    "theContent": "import { requireNativeComponent } from 'react-native';
+
+const IntegrationViewTestPackage = requireNativeComponent('IntegrationViewTestPackage', null);
+
+export default IntegrationViewTestPackage;
 ",
   },
 ]

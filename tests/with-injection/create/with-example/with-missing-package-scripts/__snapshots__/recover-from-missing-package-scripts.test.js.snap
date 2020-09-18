@@ -12,7 +12,7 @@ Array [
 ",
   "* ensureDir dir: react-native-alice-bobbi/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/
+  "* ensureDir dir: react-native-alice-bobbi/src/
 ",
   "* ensureDir dir: react-native-alice-bobbi/
 ",
@@ -67,11 +67,11 @@ content:
   \\"title\\": \\"React Native Alice Bobbi\\",
   \\"version\\": \\"1.0.0\\",
   \\"description\\": \\"TODO\\",
-  \\"main\\": \\"index.js\\",
+  \\"main\\": \\"src/index.js\\",
   \\"files\\": [
     \\"README.md\\",
     \\"android\\",
-    \\"index.js\\",
+    \\"src\\",
     \\"ios\\",
     \\"react-native-alice-bobbi.podspec\\"
   ],
@@ -105,7 +105,7 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/index.js
+  "* outputFile name: react-native-alice-bobbi/src/index.js
 content:
 --------
 import { NativeModules } from 'react-native';
@@ -128,6 +128,7 @@ content:
 node_modules/
 npm-debug.log
 yarn-error.log
+lib/
 
 # Xcode
 #
