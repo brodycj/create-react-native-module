@@ -27,6 +27,7 @@ Android packageIdentifier: com.alicebits
               exampleName: demo
 exampleReactNativeVersion: react-native@npm:react-native-tvos
       writeExamplePodfile: false
+            useTypescript: false
 ",
     ],
   },
@@ -77,7 +78,7 @@ exampleReactNativeVersion: react-native@npm:react-native-tvos
     "ensureDir": "react-native-alice-bobbi/",
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/",
+    "ensureDir": "react-native-alice-bobbi/src/",
   },
   Object {
     "ensureDir": "react-native-alice-bobbi/",
@@ -140,11 +141,11 @@ ABCAliceBobbi;
   \\"title\\": \\"React Native Alice Bobbi\\",
   \\"version\\": \\"1.0.0\\",
   \\"description\\": \\"TODO\\",
-  \\"main\\": \\"index.js\\",
+  \\"main\\": \\"src/index.js\\",
   \\"files\\": [
     \\"README.md\\",
     \\"android\\",
-    \\"index.js\\",
+    \\"src\\",
     \\"ios\\",
     \\"react-native-alice-bobbi.podspec\\"
   ],
@@ -178,7 +179,7 @@ ABCAliceBobbi;
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/index.js",
+    "outputFileName": "react-native-alice-bobbi/src/index.js",
     "theContent": "import { NativeModules } from 'react-native';
 
 const { ABCAliceBobbi } = NativeModules;
@@ -197,6 +198,7 @@ export default ABCAliceBobbi;
 node_modules/
 npm-debug.log
 yarn-error.log
+lib/
 
 # Xcode
 #

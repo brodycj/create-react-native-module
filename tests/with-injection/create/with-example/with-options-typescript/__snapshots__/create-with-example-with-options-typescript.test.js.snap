@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`create alice-bobbi module with defaults 1`] = `
+exports[`create alice-bobbi module with example, with config options including \`exampleFileLinkage: true\` and \`useTypescript: true\` 1`] = `
 Array [
   "* execa.commandSync command: react-native --version options: {\\"stdio\\":\\"inherit\\"}
 ",
@@ -13,6 +13,8 @@ Array [
   "* ensureDir dir: react-native-alice-bobbi/
 ",
   "* ensureDir dir: react-native-alice-bobbi/src/
+",
+  "* ensureDir dir: react-native-alice-bobbi/
 ",
   "* ensureDir dir: react-native-alice-bobbi/
 ",
@@ -32,9 +34,9 @@ Array [
 ",
   "* ensureDir dir: react-native-alice-bobbi/ios/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/ios/AliceBobbi.xcworkspace/
+  "* ensureDir dir: react-native-alice-bobbi/ios/SuperAwesomeModule.xcworkspace/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/ios/AliceBobbi.xcodeproj/
+  "* ensureDir dir: react-native-alice-bobbi/ios/SuperAwesomeModule.xcodeproj/
 ",
   "* outputFile name: react-native-alice-bobbi/README.md
 content:
@@ -51,10 +53,10 @@ content:
 
 ## Usage
 \`\`\`javascript
-import AliceBobbi from 'react-native-alice-bobbi';
+import SuperAwesomeModule from 'react-native-alice-bobbi';
 
 // TODO: What to do with the module?
-AliceBobbi;
+SuperAwesomeModule;
 \`\`\`
 
 <<<<<<<< ======== >>>>>>>>
@@ -67,30 +69,33 @@ content:
   \\"title\\": \\"React Native Alice Bobbi\\",
   \\"version\\": \\"1.0.0\\",
   \\"description\\": \\"TODO\\",
-  \\"main\\": \\"src/index.js\\",
+  \\"main\\": \\"lib/index.js\\"
+  \\"types\\": \\"lib/index.d.ts\\",
   \\"files\\": [
     \\"README.md\\",
     \\"android\\",
-    \\"src\\",
+    \\"src\\"
+    \\"lib\\",
     \\"ios\\",
     \\"react-native-alice-bobbi.podspec\\"
   ],
   \\"scripts\\": {
+    \\"build\\": \\"tsc\\",
     \\"test\\": \\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\"
   },
   \\"repository\\": {
     \\"type\\": \\"git\\",
-    \\"url\\": \\"git+https://github.com/github_account/react-native-alice-bobbi.git\\",
-    \\"baseUrl\\": \\"https://github.com/github_account/react-native-alice-bobbi\\"
+    \\"url\\": \\"git+https://github.com/alicebits/react-native-alice-bobbi.git\\",
+    \\"baseUrl\\": \\"https://github.com/alicebits/react-native-alice-bobbi\\"
   },
   \\"keywords\\": [
     \\"react-native\\"
   ],
   \\"author\\": {
-    \\"name\\": \\"Your Name\\",
-    \\"email\\": \\"yourname@email.com\\"
+    \\"name\\": \\"Alice\\",
+    \\"email\\": \\"contact@alice.me\\"
   },
-  \\"license\\": \\"MIT\\",
+  \\"license\\": \\"ISC\\",
   \\"licenseFilename\\": \\"LICENSE\\",
   \\"readmeFilename\\": \\"README.md\\",
   \\"peerDependencies\\": {
@@ -99,20 +104,27 @@ content:
   },
   \\"devDependencies\\": {
     \\"react\\": \\"^16.9.0\\",
-    \\"react-native\\": \\"^0.61.5\\"
+    \\"react-native\\": \\"^0.61.5\\",
+    \\"typescript\\": \\"^4.0.0\\",
+    \\"@types/react\\": \\"^16.9.49\\",
+    \\"@types/react-native\\": \\"^0.61.23\\"
   }
 }
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/src/index.js
+  "* outputFile name: react-native-alice-bobbi/src/index.ts
 content:
 --------
 import { NativeModules } from 'react-native';
 
-const { AliceBobbi } = NativeModules;
+type SuperAwesomeModuleTypes = {
+  sampleMethod: (stringArgument: string, numberArgument: number, (message: string) => void)
+};
 
-export default AliceBobbi;
+const { SuperAwesomeModule } = NativeModules;
+
+export default SuperAwesomeModule as SuperAwesomeModuleTypes;
 
 <<<<<<<< ======== >>>>>>>>
 ",
@@ -162,6 +174,29 @@ local.properties
 buck-out/
 \\\\.buckd/
 *.keystore
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/tsconfig.json
+content:
+--------
+{
+  \\"compilerOptions\\": {
+    \\"target\\": \\"ES2017\\",
+    \\"lib\\": [\\"ES2020\\"],
+    \\"module\\": \\"ES2015\\",
+    \\"jsx\\": \\"react-native\\",
+
+    \\"baseUrl\\": \\".\\",
+    \\"rootDir\\": \\"./src\\",
+    \\"outDir\\": \\"./lib\\",
+    
+    \\"strict\\": true,
+    \\"resolveJsonModule\\": true
+  },
+  \\"include\\": [\\"src/**/*.ts\\"],
+  \\"exclude\\": [\\"node_modules\\"]
+}
 
 <<<<<<<< ======== >>>>>>>>
 ",
@@ -330,7 +365,7 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiModule.java
+  "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/SuperAwesomeModuleModule.java
 content:
 --------
 package com.reactlibrary;
@@ -340,18 +375,18 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
 
-public class AliceBobbiModule extends ReactContextBaseJavaModule {
+public class SuperAwesomeModuleModule extends ReactContextBaseJavaModule {
 
     private final ReactApplicationContext reactContext;
 
-    public AliceBobbiModule(ReactApplicationContext reactContext) {
+    public SuperAwesomeModuleModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
     }
 
     @Override
     public String getName() {
-        return \\"AliceBobbi\\";
+        return \\"SuperAwesomeModule\\";
     }
 
     @ReactMethod
@@ -363,7 +398,7 @@ public class AliceBobbiModule extends ReactContextBaseJavaModule {
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiPackage.java
+  "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/SuperAwesomeModulePackage.java
 content:
 --------
 package com.reactlibrary;
@@ -378,10 +413,10 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 import com.facebook.react.bridge.JavaScriptModule;
 
-public class AliceBobbiPackage implements ReactPackage {
+public class SuperAwesomeModulePackage implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-        return Arrays.<NativeModule>asList(new AliceBobbiModule(reactContext));
+        return Arrays.<NativeModule>asList(new SuperAwesomeModuleModule(reactContext));
     }
 
     @Override
@@ -426,70 +461,77 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                   react-native-alice-bobbi
                    DESC
-  s.homepage     = \\"https://github.com/github_account/react-native-alice-bobbi\\"
+  s.homepage     = \\"https://github.com/alicebits/react-native-alice-bobbi\\"
   # brief license entry:
-  s.license      = \\"MIT\\"
+  s.license      = \\"ISC\\"
   # optional - use expanded license entry instead:
-  # s.license    = { :type => \\"MIT\\", :file => \\"LICENSE\\" }
-  s.authors      = { \\"Your Name\\" => \\"yourname@email.com\\" }
-  s.platforms    = { :ios => \\"9.0\\" }
-  s.source       = { :git => \\"https://github.com/github_account/react-native-alice-bobbi.git\\", :tag => \\"#{s.version}\\" }
+  # s.license    = { :type => \\"ISC\\", :file => \\"LICENSE\\" }
+  s.authors      = { \\"Alice\\" => \\"contact@alice.me\\" }
+  s.platforms    = { :ios => \\"9.0\\", :tvos => \\"10.0\\" }
+  s.source       = { :git => \\"https://github.com/alicebits/react-native-alice-bobbi.git\\", :tag => \\"#{s.version}\\" }
 
   s.source_files = \\"ios/**/*.{h,c,m,swift}\\"
   s.requires_arc = true
 
   s.dependency \\"React\\"
-  # ...
+  s.dependency 'AFNetworking', '~> 3.0'
   # s.dependency \\"...\\"
 end
 
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/ios/AliceBobbi.h
+  "* outputFile name: react-native-alice-bobbi/ios/SuperAwesomeModule.h
 content:
 --------
 #import <React/RCTBridgeModule.h>
 
-@interface AliceBobbi : NSObject <RCTBridgeModule>
+@interface SuperAwesomeModule : NSObject <RCTBridgeModule>
 
 @end
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/ios/AliceBobbi.m
+  "* outputFile name: react-native-alice-bobbi/ios/SuperAwesomeModule.m
 content:
 --------
-#import \\"AliceBobbi.h\\"
+#import \\"SuperAwesomeModule.h\\"
 
-@implementation AliceBobbi
+#import <AFNetworking/AFNetworking.h>
+
+@implementation SuperAwesomeModule
 
 RCT_EXPORT_MODULE()
 
 RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnull NSNumber *)numberArgument callback:(RCTResponseSenderBlock)callback)
 {
-    // TODO: Implement some actually useful functionality
-    callback(@[[NSString stringWithFormat: @\\"numberArgument: %@ stringArgument: %@\\", numberArgument, stringArgument]]);
+	AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+	manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@\\"text/plain\\"];
+	[manager GET:@\\"https://httpstat.us/200\\" parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
+			callback(@[[NSString stringWithFormat: @\\"numberArgument: %@ stringArgument: %@ resp: %@\\", numberArgument, stringArgument, responseObject]]);
+	} failure:^(NSURLSessionTask *operation, NSError *error) {
+			callback(@[[NSString stringWithFormat: @\\"numberArgument: %@ stringArgument: %@ err: %@\\", numberArgument, stringArgument, error]]);
+	}];
 }
 
 @end
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/ios/AliceBobbi.xcworkspace/contents.xcworkspacedata
+  "* outputFile name: react-native-alice-bobbi/ios/SuperAwesomeModule.xcworkspace/contents.xcworkspacedata
 content:
 --------
 <?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
 <Workspace
    version = \\"1.0\\">
    <FileRef
-      location = \\"group:AliceBobbi.xcodeproj\\">
+      location = \\"group:SuperAwesomeModule.xcodeproj\\">
    </FileRef>
 </Workspace>
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/ios/AliceBobbi.xcodeproj/project.pbxproj
+  "* outputFile name: react-native-alice-bobbi/ios/SuperAwesomeModule.xcodeproj/project.pbxproj
 content:
 --------
 // !$*UTF8*$!
@@ -513,7 +555,7 @@ content:
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		134814201AA4EA6300B7C361 /* libAliceBobbi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAliceBobbi.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		134814201AA4EA6300B7C361 /* libSuperAwesomeModule.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSuperAwesomeModule.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -530,7 +572,7 @@ content:
 		134814211AA4EA7D00B7C361 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				134814201AA4EA6300B7C361 /* libAliceBobbi.a */,
+				134814201AA4EA6300B7C361 /* libSuperAwesomeModule.a */,
 			);
 			name = Products;
 			sourceTree = \\"<group>\\";
@@ -545,9 +587,9 @@ content:
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		58B511DA1A9E6C8500147676 /* AliceBobbi */ = {
+		58B511DA1A9E6C8500147676 /* SuperAwesomeModule */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget \\"AliceBobbi\\" */;
+			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget \\"SuperAwesomeModule\\" */;
 			buildPhases = (
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
@@ -557,9 +599,9 @@ content:
 			);
 			dependencies = (
 			);
-			name = AliceBobbi;
+			name = SuperAwesomeModule;
 			productName = RCTDataManager;
-			productReference = 134814201AA4EA6300B7C361 /* libAliceBobbi.a */;
+			productReference = 134814201AA4EA6300B7C361 /* libSuperAwesomeModule.a */;
 			productType = \\"com.apple.product-type.library.static\\";
 		};
 /* End PBXNativeTarget section */
@@ -576,7 +618,7 @@ content:
 					};
 				};
 			};
-			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject \\"AliceBobbi\\" */;
+			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject \\"SuperAwesomeModule\\" */;
 			compatibilityVersion = \\"Xcode 3.2\\";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -589,7 +631,7 @@ content:
 			projectDirPath = \\"\\";
 			projectRoot = \\"\\";
 			targets = (
-				58B511DA1A9E6C8500147676 /* AliceBobbi */,
+				58B511DA1A9E6C8500147676 /* SuperAwesomeModule */,
 			);
 		};
 /* End PBXProject section */
@@ -727,7 +769,7 @@ content:
 				);
 				LIBRARY_SEARCH_PATHS = \\"$(inherited)\\";
 				OTHER_LDFLAGS = \\"-ObjC\\";
-				PRODUCT_NAME = AliceBobbi;
+				PRODUCT_NAME = SuperAwesomeModule;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -743,7 +785,7 @@ content:
 				);
 				LIBRARY_SEARCH_PATHS = \\"$(inherited)\\";
 				OTHER_LDFLAGS = \\"-ObjC\\";
-				PRODUCT_NAME = AliceBobbi;
+				PRODUCT_NAME = SuperAwesomeModule;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -751,7 +793,7 @@ content:
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject \\"AliceBobbi\\" */ = {
+		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject \\"SuperAwesomeModule\\" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				58B511ED1A9E6C8500147676 /* Debug */,
@@ -760,7 +802,7 @@ content:
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget \\"AliceBobbi\\" */ = {
+		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget \\"SuperAwesomeModule\\" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				58B511F01A9E6C8500147676 /* Debug */,
@@ -776,47 +818,169 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* execa.commandSync command: react-native init example --version react-native@latest options: {\\"cwd\\":\\"./react-native-alice-bobbi\\",\\"stdio\\":\\"inherit\\"}
+  "* execa.commandSync command: react-native init test-demo --version react-native@0.60 options: {\\"cwd\\":\\"./react-native-alice-bobbi\\",\\"stdio\\":\\"inherit\\"}
 ",
-  "* ensureDir dir: react-native-alice-bobbi/example/
+  "* ensureDir dir: react-native-alice-bobbi/scripts/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/example/
+  "* ensureDir dir: react-native-alice-bobbi/test-demo/ios/
 ",
-  "* outputFile name: react-native-alice-bobbi/example/metro.config.js
+  "* ensureDir dir: react-native-alice-bobbi/test-demo/
+",
+  "* outputFile name: react-native-alice-bobbi/scripts/examples_postinstall.js
 content:
 --------
-// metro.config.js
-//
-// with multiple workarounds for this issue with symlinks:
-// https://github.com/facebook/metro/issues/1
-//
-// with thanks to @johnryan (<https://github.com/johnryan>)
-// for the pointers to multiple workaround solutions here:
-// https://github.com/facebook/metro/issues/1#issuecomment-541642857
-//
-// see also this discussion:
-// https://github.com/brodybits/create-react-native-module/issues/232
+#!/usr/bin/env node
 
-const path = require('path')
+  /*
+   * Using libraries within examples and linking them within packages.json like:
+   * \\"react-native-library-name\\": \\"file:../\\"
+   * will cause problems with the metro bundler if the example will run via
+   * \`react-native run-[ios|android]\`. This will result in an error as the metro
+   * bundler will find multiple versions for the same module while resolving it.
+   * The reason for that is that if the library is installed it also copies in the
+   * example folder itself as well as the node_modules folder of the library
+   * although their are defined in .npmignore and should be ignored in theory.
+   *
+   * This postinstall script removes the node_modules folder as well as all
+   * entries from the libraries .npmignore file within the examples node_modules
+   * folder after the library was installed. This should resolve the metro
+   * bundler issue mentioned above.
+   *
+   * It is expected this scripts lives in the libraries root folder within a
+   * scripts folder. As first parameter the relative path to the libraries
+   * folder within the example's node_modules folder may be provided.
+   * This script will determine the path from this project's package.json file
+   * if no such relative path is provided.
+   * An example's package.json entry could look like:
+   * \\"postinstall\\": \\"node ../scripts/examples_postinstall.js node_modules/react-native-library-name/\\"
+   */
 
-module.exports = {
-  // workaround for an issue with symlinks encountered starting with
-  // metro@0.55 / React Native 0.61
-  // (not needed with React Native 0.60 / metro@0.54)
-  resolver: {
-    extraNodeModules: new Proxy(
-      {},
-      { get: (_, name) => path.resolve('.', 'node_modules', name) }
-    )
-  },
+  'use strict';
 
-  // quick workaround for another issue with symlinks
-  watchFolders: ['.', '..']
-}
+  const fs = require('fs');
+  const path = require('path');
+
+  /// Delete all files and directories for the given path
+  const removeFileDirectoryRecursively = fileDirPath => {
+    // Remove file
+    if (!fs.lstatSync(fileDirPath).isDirectory()) {
+      fs.unlinkSync(fileDirPath);
+      return;
+    }
+
+    // Go down the directory an remove each file / directory recursively
+    fs.readdirSync(fileDirPath).forEach(entry => {
+      const entryPath = path.join(fileDirPath, entry);
+      removeFileDirectoryRecursively(entryPath);
+    });
+    fs.rmdirSync(fileDirPath);
+  };
+
+  /// Remove test-demo/node_modules/react-native-library-name/node_modules directory
+  const removeLibraryNodeModulesPath = (libraryNodeModulesPath) => {
+    const nodeModulesPath = path.resolve(libraryNodeModulesPath, 'node_modules')
+
+    if (!fs.existsSync(nodeModulesPath)) {
+      console.log(\`No node_modules path found at \${nodeModulesPath}. Skipping delete.\`)
+      return;
+    }
+
+    console.log(\`Deleting: \${nodeModulesPath}\`)
+    try {
+      removeFileDirectoryRecursively(nodeModulesPath);
+      console.log(\`Successfully deleted: \${nodeModulesPath}\`)
+    } catch (err) {
+      console.log(\`Error deleting \${nodeModulesPath}: \${err.message}\`);
+    }
+  };
+
+  /// Remove all entries from the .npmignore within  test-demo/node_modules/react-native-library-name/
+  const removeLibraryNpmIgnorePaths = (npmIgnorePath, libraryNodeModulesPath) => {
+    if (!fs.existsSync(npmIgnorePath)) {
+      console.log(\`No .npmignore path found at \${npmIgnorePath}. Skipping deleting content.\`);
+      return;
+    }
+
+    fs.readFileSync(npmIgnorePath, 'utf8').split(/\\\\r?\\\\n/).forEach(entry => {
+      if (entry.length === 0) {
+        return
+      }
+
+      const npmIgnoreLibraryNodeModulesEntryPath = path.resolve(libraryNodeModulesPath, entry);
+      if (!fs.existsSync(npmIgnoreLibraryNodeModulesEntryPath)) {
+        return;
+      }
+
+      console.log(\`Deleting: \${npmIgnoreLibraryNodeModulesEntryPath}\`)
+      try {
+        removeFileDirectoryRecursively(npmIgnoreLibraryNodeModulesEntryPath);
+        console.log(\`Successfully deleted: \${npmIgnoreLibraryNodeModulesEntryPath}\`)
+      } catch (err) {
+        console.log(\`Error deleting \${npmIgnoreLibraryNodeModulesEntryPath}: \${err.message}\`);
+      }
+    });
+  };
+
+  // Main start sweeping process
+  (() => {
+    // Read out dir of example project
+    const exampleDir = process.cwd();
+
+    console.log(\`Starting postinstall cleanup for \${exampleDir}\`);
+
+    // Resolve the React Native library's path within the example's node_modules directory
+    const libraryNodeModulesPath = process.argv.length > 2
+      ? path.resolve(exampleDir, process.argv[2])
+      : path.resolve(exampleDir, 'node_modules', require('../package.json').name);
+
+    console.log(\`Removing unwanted artifacts for \${libraryNodeModulesPath}\`);
+
+    removeLibraryNodeModulesPath(libraryNodeModulesPath);
+
+    const npmIgnorePath = path.resolve(__dirname, '../.npmignore');
+    removeLibraryNpmIgnorePaths(npmIgnorePath, libraryNodeModulesPath);
+  })();
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/example/App.js
+  "* outputFile name: react-native-alice-bobbi/test-demo/ios/Podfile
+content:
+--------
+platform :ios, '10.0'
+
+	target 'test-demo' do
+		rn_path = '../node_modules/react-native'
+
+		pod 'yoga', path: \\"#{rn_path}/ReactCommon/yoga/yoga.podspec\\"
+		pod 'DoubleConversion', :podspec => \\"#{rn_path}/third-party-podspecs/DoubleConversion.podspec\\"
+		pod 'Folly', :podspec => \\"#{rn_path}/third-party-podspecs/Folly.podspec\\"
+		pod 'glog', :podspec => \\"#{rn_path}/third-party-podspecs/GLog.podspec\\"
+		pod 'React', path: rn_path, subspecs: [
+			'Core',
+			'CxxBridge',
+			'RCTAnimation',
+			'RCTActionSheet',
+			'RCTImage',
+			'RCTLinkingIOS',
+			'RCTNetwork',
+			'RCTSettings',
+			'RCTText',
+			'RCTVibration',
+			'RCTWebSocket',
+			'RCTPushNotification',
+			'RCTCameraRoll',
+			'RCTSettings',
+			'RCTBlob',
+			'RCTGeolocation',
+			'DevSupport'
+		]
+
+		pod 'react-native-alice-bobbi', :path => '../../react-native-alice-bobbi.podspec'
+	end
+
+<<<<<<<< ======== >>>>>>>>
+",
+  "* outputFile name: react-native-alice-bobbi/test-demo/App.ts
 content:
 --------
 /**
@@ -831,7 +995,7 @@ content:
 
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
-import AliceBobbi from 'react-native-alice-bobbi';
+import SuperAwesomeModule from 'react-native-alice-bobbi';
 
 export default class App extends Component<{}> {
   state = {
@@ -839,7 +1003,7 @@ export default class App extends Component<{}> {
     message: '--'
   };
   componentDidMount() {
-    AliceBobbi.sampleMethod('Testing', 123, (message) => {
+    SuperAwesomeModule.sampleMethod('Testing', 123, (message) => {
       this.setState({
         status: 'native callback received',
         message
@@ -849,7 +1013,7 @@ export default class App extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>☆AliceBobbi example☆</Text>
+        <Text style={styles.welcome}>☆SuperAwesomeModule example☆</Text>
         <Text style={styles.instructions}>STATUS: {this.state.status}</Text>
         <Text style={styles.welcome}>☆NATIVE CALLBACK MESSAGE☆</Text>
         <Text style={styles.instructions}>{this.state.message}</Text>
@@ -879,11 +1043,36 @@ const styles = StyleSheet.create({
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* execa.commandSync command: yarn add link:../ options: {\\"cwd\\":\\"./react-native-alice-bobbi/example\\",\\"stdio\\":\\"inherit\\"}
+  Object {
+    "call": "fs.readFileSync",
+    "jsonFilePath": "./react-native-alice-bobbi/test-demo/package.json",
+  },
+  Object {
+    "call": "fs.writeFileSync",
+    "filePath": "./react-native-alice-bobbi/test-demo/package.json",
+    "json": "{
+  \\"name\\": \\"example\\",
+  \\"scripts\\": {
+    \\"test\\": \\"echo 'not implemented' && exit 1\\",
+    \\"postinstall\\": \\"node ../scripts/examples_postinstall.js\\"
+  }
+}
 ",
-  "* execa.commandSync command: pod --version options: {\\"cwd\\":\\"./react-native-alice-bobbi/example/ios\\",\\"stdio\\":\\"inherit\\"}
+    "options": Object {
+      "fs": Object {
+        "ensureDir": [Function],
+        "outputFile": [Function],
+        "readFileSync": [Function],
+        "writeFileSync": [Function],
+      },
+      "spaces": 2,
+    },
+  },
+  "* execa.commandSync command: yarn add file:../ options: {\\"cwd\\":\\"./react-native-alice-bobbi/test-demo\\",\\"stdio\\":\\"inherit\\"}
 ",
-  "* execa.commandSync command: pod install options: {\\"cwd\\":\\"./react-native-alice-bobbi/example/ios\\",\\"stdio\\":\\"inherit\\"}
+  "* execa.commandSync command: pod --version options: {\\"cwd\\":\\"./react-native-alice-bobbi/test-demo/ios\\",\\"stdio\\":\\"inherit\\"}
+",
+  "* execa.commandSync command: pod install options: {\\"cwd\\":\\"./react-native-alice-bobbi/test-demo/ios\\",\\"stdio\\":\\"inherit\\"}
 ",
 ]
 `;

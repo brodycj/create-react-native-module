@@ -68,7 +68,7 @@ Object {
     },
     Object {
       "command": "--generate-example",
-      "description": "Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires both react-native-cli and yarn to be installed globally",
+      "description": "Generate an example project and add the library module to it with symlink by default, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires both react-native-cli and yarn to be installed globally",
     },
     Object {
       "command": "--example-file-linkage",
@@ -87,6 +87,10 @@ Object {
     Object {
       "command": "--write-example-podfile",
       "description": "[iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile",
+    },
+    Object {
+      "command": "--use-typescript",
+      "description": "Generate TypeScript files for src and examples (if --generate-example is enabled)",
     },
   ],
   "usage": "[options] <name>",

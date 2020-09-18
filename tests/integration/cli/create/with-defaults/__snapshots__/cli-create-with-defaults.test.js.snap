@@ -13,6 +13,7 @@ Array [
 node_modules/
 npm-debug.log
 yarn-error.log
+lib/
 
 # Xcode
 #
@@ -304,15 +305,6 @@ public class IntegrationTestPackagePackage implements ReactPackage {
         return Collections.emptyList();
     }
 }
-",
-  },
-  Object {
-    "name": "react-native-integration-test-package/index.js",
-    "theContent": "import { NativeModules } from 'react-native';
-
-const { IntegrationTestPackage } = NativeModules;
-
-export default IntegrationTestPackage;
 ",
   },
   Object {
@@ -644,11 +636,11 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
   \\"title\\": \\"React Native Integration Test Package\\",
   \\"version\\": \\"1.0.0\\",
   \\"description\\": \\"TODO\\",
-  \\"main\\": \\"index.js\\",
+  \\"main\\": \\"src/index.js\\",
   \\"files\\": [
     \\"README.md\\",
     \\"android\\",
-    \\"index.js\\",
+    \\"src\\",
     \\"ios\\",
     \\"react-native-integration-test-package.podspec\\"
   ],
@@ -711,6 +703,15 @@ Pod::Spec.new do |s|
   # s.dependency \\"...\\"
 end
 
+",
+  },
+  Object {
+    "name": "react-native-integration-test-package/src/index.js",
+    "theContent": "import { NativeModules } from 'react-native';
+
+const { IntegrationTestPackage } = NativeModules;
+
+export default IntegrationTestPackage;
 ",
   },
 ]

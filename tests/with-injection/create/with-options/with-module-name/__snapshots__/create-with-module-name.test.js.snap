@@ -8,7 +8,7 @@ Array [
 ",
   "* ensureDir dir: custom-native-module/
 ",
-  "* ensureDir dir: custom-native-module/
+  "* ensureDir dir: custom-native-module/src/
 ",
   "* ensureDir dir: custom-native-module/
 ",
@@ -63,11 +63,11 @@ content:
   \\"title\\": \\"Custom Native Module\\",
   \\"version\\": \\"1.0.0\\",
   \\"description\\": \\"TODO\\",
-  \\"main\\": \\"index.js\\",
+  \\"main\\": \\"src/index.js\\",
   \\"files\\": [
     \\"README.md\\",
     \\"android\\",
-    \\"index.js\\",
+    \\"src\\",
     \\"ios\\",
     \\"custom-native-module.podspec\\"
   ],
@@ -101,7 +101,7 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-module/index.js
+  "* outputFile name: custom-native-module/src/index.js
 content:
 --------
 import { NativeModules } from 'react-native';
@@ -124,6 +124,7 @@ content:
 node_modules/
 npm-debug.log
 yarn-error.log
+lib/
 
 # Xcode
 #
