@@ -103,7 +103,7 @@ export default ${objectClassName};
     `import { NativeModules } from 'react-native';
 
 type ${objectClassName}Types = {
-  sampleMethod: (stringArgument: string, numberArgument: number, (message: string) => void)
+  sampleMethod: (stringArgument: string, numberArgument: number, callback: (message: string) => void) => void
 };
 
 const { ${objectClassName} } = NativeModules;
@@ -204,6 +204,7 @@ buck-out/
     "target": "ES2017",
     "lib": ["ES2020"],
     "module": "ES2015",
+    "moduleResolution": "node",
     "jsx": "react-native",
 
     "baseUrl": ".",
@@ -211,6 +212,7 @@ buck-out/
     "outDir": "./lib",
     
     "strict": true,
+    "declaration": true,
     "resolveJsonModule": true
   },
   "include": ["src/**/*.ts"],
