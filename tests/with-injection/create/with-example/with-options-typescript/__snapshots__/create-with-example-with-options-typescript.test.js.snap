@@ -69,12 +69,12 @@ content:
   \\"title\\": \\"React Native Alice Bobbi\\",
   \\"version\\": \\"1.0.0\\",
   \\"description\\": \\"TODO\\",
-  \\"main\\": \\"lib/index.js\\"
+  \\"main\\": \\"lib/index.js\\",
   \\"types\\": \\"lib/index.d.ts\\",
   \\"files\\": [
     \\"README.md\\",
     \\"android\\",
-    \\"src\\"
+    \\"src\\",
     \\"lib\\",
     \\"ios\\",
     \\"react-native-alice-bobbi.podspec\\"
