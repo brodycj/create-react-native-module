@@ -151,7 +151,8 @@ module.exports = {
     getTransformOptions: async () => ({
       transform: {
         experimentalImportSupport: false,
-        inlineRequires: false,
+        // this defeats the RCTDeviceEventEmitter is not a registered callable module
+        inlineRequires: true,
       },
     }),
   },
