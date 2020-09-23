@@ -51,7 +51,8 @@ ${objectClassName};
 
     const scripts = `{` + (useTypescript ? `
     "build": "tsc",` : ``) + `
-    "test": "echo \\"Error: no test specified\\" && exit 1"
+    "test": "echo \\"Error: no test specified\\" && exit 1",
+    "dev-sync": "cp -r *podspec ${useTypescript ? "lib" : "src"} android ios example/node_modules/${moduleName}/"
   }`;
 
     const artifacts =
