@@ -184,7 +184,7 @@ module.exports = {
 	end
 `,
 }, {
-  name: ({ exampleName, useTypescript }) => `${exampleName}/App.${useTypescript ? 'ts' : 'js'}`,
+  name: ({ exampleName, useTypescript }) => `${exampleName}/App.${useTypescript ? 'tsx' : 'jsx'}`,
   content: ({ moduleName, objectClassName, view }) =>
     `/**
  * Sample React Native App
