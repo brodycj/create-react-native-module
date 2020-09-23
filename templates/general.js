@@ -22,18 +22,15 @@ ${objectClassName};
 }, {
   name: () => 'package.json',
   content: ({ moduleName, platforms, githubAccount, authorName, authorEmail, license, useTypescript }) => {
-    const files =
-      `[
-    "README.md",` +
-    (platforms.indexOf('android') >= 0 ? `
-    "android",` : ``) + `
-    "src"` +
-    (useTypescript ? `
-    "lib"` : ``) +
-    (platforms.indexOf('ios') >= 0 ? `,
-    "ios",
-    "${moduleName}.podspec"` : ``) + `
-  ]`;
+    const fileList = [
+      "README.md",
+      platforms.indexOf('android') >= 0 ? "android" : null,
+      "src",
+      useTypescript ? "lib" : null,
+      platforms.indexOf('ios') >= 0 ? "ios" : null,
+      `${moduleName}.podspec`,
+    ];
+    const files = `[${fileList.filter(item => item !== null).join(",\n")}]`;
 
     const peerDependencies =
       `{
