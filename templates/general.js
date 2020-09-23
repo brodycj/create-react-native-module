@@ -57,7 +57,7 @@ ${objectClassName};
   }`;
 
     const artifacts =
-      `"main": ${useTypescript ? `"lib/index.js"` : `"src/index.js"`}` + (useTypescript ? `
+      `"main": ${useTypescript ? `"lib/index.js"` : `"src/index.js"`}` + (useTypescript ? `,
   "types": "lib/index.d.ts"` : ``);
 
     return `{
