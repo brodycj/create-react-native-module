@@ -144,8 +144,9 @@ module.exports = {
     )
   },
 
-  // quick workaround for another issue with symlinks
-  watchFolders: ['.', '..'],
+  // quick workaround solution for issue with symlinked modules ref:
+  // https://github.com/brodybits/create-react-native-module/issues/232
+  watchFolders: [path.resolve('.'), path.resolve('..')],
 
   transformer: {
     getTransformOptions: async () => ({
