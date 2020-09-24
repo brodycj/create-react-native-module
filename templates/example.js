@@ -1,6 +1,6 @@
 module.exports = [
   {
-    name: () => `react-native.config.js`,
+    name: ({ patchUnifiedExample }) => patchUnifiedExample ? `react-native.config.js` : undefined,
     content: ({ exampleName, moduleName }) => `module.exports = {
   dependencies: {
     '${moduleName}': {
@@ -19,7 +19,7 @@ module.exports = [
 `,
   },
   {
-    name: () => `index.js`,
+    name: ({ patchUnifiedExample }) => patchUnifiedExample ? `index.js` : undefined,
     content: ({ exampleName }) => `/**
  * This file is an entry point for example app
  */
@@ -32,6 +32,7 @@ AppRegistry.registerComponent(appName, () => App);
 `,
   },
   {
+    // Overwrite simple example screen
     name: ({ exampleName, useTypescript }) => `${exampleName}/App.${useTypescript ? 'tsx' : 'jsx'}`,
     content: ({ moduleName, objectClassName, view }) =>
     `/**
