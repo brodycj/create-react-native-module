@@ -41,12 +41,12 @@ ${objectClassName};
 
     const devDependencies =
       `{
-    "react": "^16.9.0",
-    "react-native": "^0.61.5"` +
+    "react": "16.13.1",
+    "react-native": "^0.63.0"` +
     (useTypescript ? `,
     "typescript": "^4.0.0",
     "@types/react": "^16.9.49",
-    "@types/react-native": "^0.61.23"` : ``) + `
+    "@types/react-native": "^0.63.0"` : ``) + `
   }`;
 
     const scripts = `{` + (useTypescript ? `
