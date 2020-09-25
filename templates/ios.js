@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   s.source_files = "ios/**/*.{h,c,m,swift}"
   s.requires_arc = true
 
-  s.dependency "React"
+  s.dependency "React-Core"
   ${useAppleNetworking ? `s.dependency 'AFNetworking', '~> 3.0'` : `# ...`}
   # s.dependency "..."
 end
