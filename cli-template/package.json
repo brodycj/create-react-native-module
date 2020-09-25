@@ -1,0 +1,17 @@
+{
+  "name": "create-react-native-module-unified-template",
+  "description": "Clean and minimalist React Native template for a quick start with TypeScript.",
+  "version": "0.0.1",
+  "private": true,
+  "files": [
+    "template",
+    "template.config.js"
+  ],
+  "keywords": [
+    "react-native",
+    "typescript",
+    "jest",
+    "template",
+    "boilerplate"
+  ]
+}
