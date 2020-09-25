@@ -1,3 +1,8 @@
+
+function mapToKeyValueString (items) {
+  return items.map(item => `    "${item[0]}": "${item[1]}"`).join(',\n');
+}
+
 module.exports = [
   {
     name: () => 'README.md',
@@ -23,33 +28,13 @@ ${objectClassName};
   }, {
     name: () => 'package.json',
     content: ({ exampleName, moduleName, platforms, githubAccount, authorName, authorEmail, license, useTypescript, patchUnifiedExample }) => {
-      const fileList = [
-      `"README.md"`,
-      platforms.indexOf('android') >= 0 ? `"android"` : null,
-      `"src"`,
-      useTypescript ? `"lib"` : null,
-      ...(platforms.indexOf('ios') >= 0 ? [`"ios"`, `"${moduleName}.podspec"`] : []),
-      ];
-      const files = `[
-    ${fileList.filter(item => item !== null).join(",\n    ")}
-  ]`;
-
-      const peerDependencies =
-      `{
-    "react": "^16.8.1",
-    "react-native": ">=0.60.0-rc.0 <1.0.x"
-  }`;
-
-      const devDependencies =
-      `{
-    "react": "16.13.1",
-    "react-native": "^0.63.0",
-    "metro-react-native-babel-preset": "^0.63.0"` +
-    (useTypescript ? `,
-    "typescript": "^4.0.0",
-    "@types/react": "^16.9.49",
-    "@types/react-native": "^0.63.0"` : ``) + `
-  }`;
+      const files = [
+        `"README.md"`,
+        platforms.indexOf('android') >= 0 ? `"android"` : null,
+        `"src"`,
+        useTypescript ? `"lib"` : null,
+        ...(platforms.indexOf('ios') >= 0 ? [`"ios"`, `"${moduleName}.podspec"`] : []),
+      ].filter(item => item !== null);
 
       const scripts = [
         ...(patchUnifiedExample ? [
@@ -63,6 +48,22 @@ ${objectClassName};
         ["test", `echo \\"Error: no test specified\\" && exit 1`]
       ];
 
+      const peerDependencies = [
+        ["react", "^16.8.1"],
+        ["react-native", ">=0.60.0-rc.0 <1.0.x"],
+      ];
+
+      const devDependencies = [
+        ["react", "16.13.1"],
+        ["react-native", "^0.63.0"],
+        ["metro-react-native-babel-preset", "^0.63.0"],
+        ...(useTypescript ? [
+          ["typescript", "^4.0.0"],
+          ["@types/react", "^16.9.49"],
+          ["@types/react-native", "^0.63.0"],
+        ] : [])
+      ];
+
       const artifacts =
       `"main": ${useTypescript ? `"lib/index.js"` : `"src/index.js"`}` + (useTypescript ? `,
   "types": "lib/index.d.ts"` : ``);
@@ -73,10 +74,12 @@ ${objectClassName};
   "version": "1.0.0",
   "description": "TODO",
   ${artifacts},
-  "files": ${files},
+  "files": [
+    ${files.join(",\n    ")}
+  ],
   "scripts": {
-    ${scripts.map(script => `    "${script[0]}": "${script[1]}"`).join(',\n')}
-  }
+${mapToKeyValueString(scripts)}
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/${githubAccount}/${moduleName}.git",
@@ -92,8 +95,12 @@ ${objectClassName};
   "license": "${license}",
   "licenseFilename": "LICENSE",
   "readmeFilename": "README.md",
-  "peerDependencies": ${peerDependencies},
-  "devDependencies": ${devDependencies}
+  "peerDependencies": {
+${mapToKeyValueString(peerDependencies)}
+  },
+  "devDependencies": {
+${mapToKeyValueString(devDependencies)}
+  }
 }
 `;
     }
