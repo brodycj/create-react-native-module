@@ -1,6 +1,7 @@
-module.exports = [{
-  name: () => 'README.md',
-  content: ({ moduleName, objectClassName }) =>
+module.exports = [
+  {
+    name: () => 'README.md',
+    content: ({ moduleName, objectClassName }) =>
     `# ${moduleName}
 
 ## Getting started
@@ -19,54 +20,63 @@ import ${objectClassName} from '${moduleName}';
 ${objectClassName};
 \`\`\`
 `,
-}, {
-  name: () => 'package.json',
-  content: ({ moduleName, platforms, githubAccount, authorName, authorEmail, license, useTypescript }) => {
-    const fileList = [
+  }, {
+    name: () => 'package.json',
+    content: ({ exampleName, moduleName, platforms, githubAccount, authorName, authorEmail, license, useTypescript, patchUnifiedExample }) => {
+      const fileList = [
       `"README.md"`,
       platforms.indexOf('android') >= 0 ? `"android"` : null,
       `"src"`,
       useTypescript ? `"lib"` : null,
       ...(platforms.indexOf('ios') >= 0 ? [`"ios"`, `"${moduleName}.podspec"`] : []),
-    ];
-    const files = `[
+      ];
+      const files = `[
     ${fileList.filter(item => item !== null).join(",\n    ")}
   ]`;
 
-    const peerDependencies =
+      const peerDependencies =
       `{
     "react": "^16.8.1",
     "react-native": ">=0.60.0-rc.0 <1.0.x"
   }`;
 
-    const devDependencies =
+      const devDependencies =
       `{
     "react": "16.13.1",
-    "react-native": "^0.63.0"` +
+    "react-native": "^0.63.0",
+    "metro-react-native-babel-preset": "^0.63.0"` +
     (useTypescript ? `,
     "typescript": "^4.0.0",
     "@types/react": "^16.9.49",
     "@types/react-native": "^0.63.0"` : ``) + `
   }`;
 
-    const scripts = `{` + (useTypescript ? `
-    "build": "tsc",` : ``) + `
-    "test": "echo \\"Error: no test specified\\" && exit 1",
-    "dev-sync": "cp -r *podspec ${useTypescript ? "lib" : "src"} android ios example/node_modules/${moduleName}/"
-  }`;
+      const scripts = [
+        ...(patchUnifiedExample ? [
+          ["start", "react-native start"],
+          ["android", "react-native run-android"],
+          ["ios", `xed ./${exampleName}/ios/${exampleName}.xcworkspace`],
+        ] : []),
+        ...(useTypescript ? [
+          ["build", "tsc"],
+        ] : []),
+        ["test", `echo \\"Error: no test specified\\" && exit 1`]
+      ];
 
-    const artifacts =
+      const artifacts =
       `"main": ${useTypescript ? `"lib/index.js"` : `"src/index.js"`}` + (useTypescript ? `,
   "types": "lib/index.d.ts"` : ``);
 
-    return `{
+      return `{
   "name": "${moduleName}",
   "title": "${moduleName.split('-').map(word => word[0].toUpperCase() + word.substr(1)).join(' ')}",
   "version": "1.0.0",
   "description": "TODO",
   ${artifacts},
   "files": ${files},
-  "scripts": ${scripts},
+  "scripts": {
+    ${scripts.map(script => `    "${script[0]}": "${script[1]}"`).join(',\n')}
+  }
   "repository": {
     "type": "git",
     "url": "git+https://github.com/${githubAccount}/${moduleName}.git",
@@ -86,21 +96,21 @@ ${objectClassName};
   "devDependencies": ${devDependencies}
 }
 `;
-  }
-}, {
+    }
+  }, {
   // for module without view, use js:
-  name: ({ view, useTypescript }) => (!view && !useTypescript) && 'src/index.js',
-  content: ({ objectClassName }) =>
+    name: ({ view, useTypescript }) => (!view && !useTypescript) && 'src/index.js',
+    content: ({ objectClassName }) =>
     `import { NativeModules } from 'react-native';
 
 const { ${objectClassName} } = NativeModules;
 
 export default ${objectClassName};
 `,
-}, {
+  }, {
   // for module without view, use ts:
-  name: ({ view, useTypescript }) => (!view && useTypescript) && 'src/index.ts',
-  content: ({ objectClassName }) =>
+    name: ({ view, useTypescript }) => (!view && useTypescript) && 'src/index.ts',
+    content: ({ objectClassName }) =>
     `import { NativeModules } from 'react-native';
 
 type ${objectClassName}Types = {
@@ -111,20 +121,20 @@ const { ${objectClassName} } = NativeModules;
 
 export default ${objectClassName} as ${objectClassName}Types;
 `,
-}, {
+  }, {
   // for module with view, use js:
-  name: ({ view, useTypescript }) => (view && !useTypescript) && 'src/index.js',
-  content: ({ objectClassName }) =>
+    name: ({ view, useTypescript }) => (view && !useTypescript) && 'src/index.js',
+    content: ({ objectClassName }) =>
     `import { requireNativeComponent } from 'react-native';
 
 const ${objectClassName} = requireNativeComponent('${objectClassName}', null);
 
 export default ${objectClassName};
 `,
-}, {
+  }, {
   // for module with view, use ts:
-  name: ({ view, useTypescript }) => (view && useTypescript) && 'src/index.ts',
-  content: ({ objectClassName }) =>
+    name: ({ view, useTypescript }) => (view && useTypescript) && 'src/index.ts',
+    content: ({ objectClassName }) =>
     `import React from 'react'
 import { requireNativeComponent } from 'react-native';
 
@@ -137,10 +147,10 @@ const ${objectClassName}:  = requireNativeComponent('${objectClassName}', null);
 
 export default ${objectClassName} as React.ComponentClass<${objectClassName}Props>;
 `,
-}, {
-  name: () => '.gitignore',
-  content: ({ platforms }) => {
-    let content = `# OSX
+  }, {
+    name: () => '.gitignore',
+    content: ({ platforms }) => {
+      let content = `# OSX
 #
 .DS_Store
 
@@ -152,8 +162,8 @@ yarn-error.log
 lib/
 `;
 
-    if (platforms.indexOf('ios') >= 0) {
-      content +=
+      if (platforms.indexOf('ios') >= 0) {
+        content +=
         `
 # Xcode
 #
@@ -175,10 +185,10 @@ DerivedData
 *.xcuserstate
 project.xcworkspace
 `;
-    }
+      }
 
-    if (platforms.indexOf('android') >= 0) {
-      content +=
+      if (platforms.indexOf('android') >= 0) {
+        content +=
         `
 # Android/IntelliJ
 #
@@ -193,13 +203,13 @@ buck-out/
 \\.buckd/
 *.keystore
 `;
-    }
+      }
 
-    return content;
-  }
-}, {
-  name: ({ useTypescript }) => useTypescript ? 'tsconfig.json' : undefined,
-  content: () =>
+      return content;
+    }
+  }, {
+    name: ({ useTypescript }) => useTypescript ? 'tsconfig.json' : undefined,
+    content: () =>
   `{
   "compilerOptions": {
     "target": "ES2017",
@@ -220,10 +230,16 @@ buck-out/
   "exclude": ["node_modules"]
 }
 `
-}, {
+  }, {
+    name: () => `babel.config.js`,
+    content: () => `module.exports = {
+  presets: ['module:metro-react-native-babel-preset'],
+};
+`
+  }, {
   // github actions deploy to github packages
-  name: () => '.github/workflows/publish.yml',
-  content: () =>
+    name: () => '.github/workflows/publish.yml',
+    content: () =>
     `
 name: publish
 
@@ -264,4 +280,5 @@ jobs:
         env:
           NODE_AUTH_TOKEN: \\$\\{\\{ secrets.GITHUB_TOKEN \\}\\}
 `,
-}];
+  }
+];
