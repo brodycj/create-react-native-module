@@ -29,9 +29,10 @@ Pod::Spec.new do |s|
 end
 
 `,
-}, {
-  // header for module without view:
-  name: ({ objectClassName, view }) => !view && `${platform}/${objectClassName}.h`,
+},
+// begin: obj-c implementation
+{
+  name: ({ useSwift, objectClassName, view }) => (!view && !useSwift) && `${platform}/${objectClassName}.h`,
   content: ({ objectClassName }) => `#import <React/RCTBridgeModule.h>
 
 @interface ${objectClassName} : NSObject <RCTBridgeModule>
@@ -39,8 +40,7 @@ end
 @end
 `,
 }, {
-  // implementation of module without view:
-  name: ({ objectClassName, view }) => !view && `${platform}/${objectClassName}.m`,
+  name: ({ useSwift, objectClassName, view }) => (!view && !useSwift) && `${platform}/${objectClassName}.m`,
   content: ({ objectClassName, useAppleNetworking }) => `#import "${objectClassName}.h"
 ${useAppleNetworking ? `
 #import <AFNetworking/AFNetworking.h>
@@ -69,9 +69,12 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 
 @end
 `,
-}, {
-  // header for module with view:
-  name: ({ objectClassName, view }) => view && `${platform}/${objectClassName}.h`,
+},
+// end: obj-c implementation
+
+// begin: obj-c implementation with view
+{
+  name: ({ useSwift, objectClassName, view }) => (view && !useSwift) && `${platform}/${objectClassName}.h`,
   content: ({ objectClassName }) => `#import <React/RCTViewManager.h>
 
 @interface ${objectClassName} : RCTViewManager
@@ -79,8 +82,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 @end
 `,
 }, {
-  // implementation of module with view:
-  name: ({ objectClassName, view }) => view && `${platform}/${objectClassName}.m`,
+  name: ({ useSwift, objectClassName, view }) => (view && !useSwift) && `${platform}/${objectClassName}.m`,
   content: ({ objectClassName }) => `#import "${objectClassName}.h"
 
 @implementation ${objectClassName}
@@ -101,7 +103,51 @@ RCT_EXPORT_MODULE()
 
 @end
 `,
+},
+// end: obj-c implementation with view
+
+// begin: swift implementation
+// TODO: view flag is currently unsupported
+{
+  name: ({ useSwift, objectClassName }) => useSwift && `${platform}/${objectClassName}.swift`,
+  content: ({ objectClassName }) => `@objc(${objectClassName})
+class ${objectClassName}: NSObject {
+
+  @objc
+  static func requiresMainQueueSetup() -> Bool {
+    return true
+  }
+  
+  @objc(sampleMethod:numberParameter:callback:)
+  func sampleMethod(stringArgument: String, numberArgument: NSNumber, callback: RCTResponseSenderBlock) {
+    // TODO: Implement some actually useful functionality
+    callback(["numberArgument: \\(numberArgument) stringArgument: \\(stringArgument)"])
+  }
+  
+}`,
 }, {
+  name: ({ useSwift, objectClassName }) => useSwift && `${platform}/${objectClassName}.m`,
+  content: ({ objectClassName }) => `#import <React/RCTBridgeModule.h>
+#import <React/RCTEventEmitter.h>
+
+@interface RCT_EXTERN_MODULE(${objectClassName}, NSObject)
+
+RCT_EXTERN_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnull NSNumber *)numberArgument callback:(RCTResponseSenderBlock)callback)
+
+@end
+`,
+}, {
+  name: ({ useSwift, objectClassName }) => useSwift && `${platform}/${objectClassName}-Bridging-Header.h`,
+  content: () => `//
+//  Use this file to import your target's public headers that you would like to expose to Swift.
+//
+
+#import <React/RCTBridgeModule.h>
+#import <React/RCTEventEmitter.h>
+`,
+},
+// end: swift implementation
+{
   name: ({ objectClassName }) => `${platform}/${objectClassName}.xcworkspace/contents.xcworkspacedata`,
   content: ({ objectClassName }) => `<?xml version="1.0" encoding="UTF-8"?>
 <Workspace
@@ -113,7 +159,7 @@ RCT_EXPORT_MODULE()
 `,
 }, {
   name: ({ objectClassName }) => `${platform}/${objectClassName}.xcodeproj/project.pbxproj`,
-  content: ({ objectClassName }) => `// !$*UTF8*$!
+  content: ({ objectClassName, useSwift }) => `// !$*UTF8*$!
 {
 	archiveVersion = 1;
 	classes = {
@@ -134,7 +180,11 @@ RCT_EXPORT_MODULE()
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		134814201AA4EA6300B7C361 /* lib${objectClassName}.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = lib${objectClassName}.a; sourceTree = BUILT_PRODUCTS_DIR; };
+    134814201AA4EA6300B7C361 /* lib${objectClassName}.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = lib${objectClassName}.a; sourceTree = BUILT_PRODUCTS_DIR; };
+    AC5CA6F0251E49D90082F112 /* ${objectClassName}.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ${objectClassName}.m; sourceTree = "<group>"; };
+    ${useSwift ? `AC5CA6EC251E49290082F112 /* ${objectClassName}-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "${objectClassName}-Bridging-Header.h"; sourceTree = "<group>"; };
+    AC5CA6ED251E492A0082F112 /* ${objectClassName}.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ${objectClassName}.swift; sourceTree = "<group>"; };`
+    : `AC96A15B251E6EDF00540DFE /* ${objectClassName}.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ${objectClassName}.h; sourceTree = "<group>"; };`}
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +209,11 @@ RCT_EXPORT_MODULE()
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-				134814211AA4EA7D00B7C361 /* Products */,
+        134814211AA4EA7D00B7C361 /* Products */,
+        AC5CA6F0251E49D90082F112 /* ${objectClassName}.m */,
+        ${useSwift ? `AC5CA6EC251E49290082F112 /* ${objectClassName}-Bridging-Header.h */,
+        AC5CA6ED251E492A0082F112 /* ${objectClassName}.swift */,`
+        : `AC96A15B251E6EDF00540DFE /* ${objectClassName}.h */,`}
 			);
 			sourceTree = "<group>";
 		};
@@ -193,7 +247,8 @@ RCT_EXPORT_MODULE()
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
 					58B511DA1A9E6C8500147676 = {
-						CreatedOnToolsVersion = 6.1.1;
+            CreatedOnToolsVersion = 6.1.1;
+            ${useSwift ? "LastSwiftMigration = 1170;" : ""}
 					};
 				};
 			};
@@ -349,7 +404,12 @@ RCT_EXPORT_MODULE()
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = ${objectClassName};
-				SKIP_INSTALL = YES;
+        SKIP_INSTALL = YES;
+        ${useSwift ? `CLANG_ENABLE_MODULES = YES;
+        LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+        SWIFT_OBJC_BRIDGING_HEADER = "${objectClassName}-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;` : ""}
 			};
 			name = Debug;
 		};
@@ -365,7 +425,11 @@ RCT_EXPORT_MODULE()
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = ${objectClassName};
-				SKIP_INSTALL = YES;
+        SKIP_INSTALL = YES;
+        ${useSwift ? `CLANG_ENABLE_MODULES = YES;
+        LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+        SWIFT_OBJC_BRIDGING_HEADER = "${objectClassName}-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;` : ""}
 			};
 			name = Release;
 		};
