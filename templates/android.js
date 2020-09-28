@@ -1,6 +1,7 @@
-module.exports = platform => [{
-  name: () => `${platform}/build.gradle`,
-  content: ({ packageIdentifier }) => `// ${platform}/build.gradle
+module.exports = platform => [
+  {
+    name: () => `${platform}/build.gradle`,
+    content: ({ packageIdentifier, useKotlin }) => `// ${platform}/build.gradle
 
 // based on:
 //
@@ -21,10 +22,10 @@ def safeExtGet(prop, fallback) {
     rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
 }
 
-apply plugin: 'com.android.library'
-apply plugin: 'maven'
-
 buildscript {
+    ${useKotlin ? `// Buildscript is evaluated before everything else so we can't use getExtOrDefault
+    def kotlin_version = rootProject.ext.has('kotlinVersion') ? rootProject.ext.get('kotlinVersion') : project.property('DEFAULT_KOTLIN_VERSION')
+` : ''}
     // The Android Gradle plugin is only required when opening the android folder stand-alone.
     // This avoids unnecessary downloads and potential conflicts when the library is included as a
     // module dependency in an application project.
@@ -36,11 +37,13 @@ buildscript {
         }
         dependencies {
             classpath 'com.android.tools.build:gradle:3.4.1'
+            ${useKotlin ? 'classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"' : ''}
         }
     }
 }
 
 apply plugin: 'com.android.library'
+${useKotlin ? `apply plugin: 'kotlin-android'` : ''}
 apply plugin: 'maven'
 
 android {
@@ -72,9 +75,13 @@ repositories {
     jcenter()
 }
 
+${useKotlin ? `def kotlin_version = safeExtGet('kotlinVersion', project.property('DEFAULT_KOTLIN_VERSION'))` : ''}
+
 dependencies {
     //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'  // From node_modules
+    
+    ${useKotlin ? `implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:\${kotlin_version}"` : ''}
 }
 
 def configureReactNativePom(def pom) {
@@ -150,20 +157,22 @@ afterEvaluate { project ->
     }
 }
 `,
-}, {
-  name: () => `${platform}/src/main/AndroidManifest.xml`,
-  content: ({ packageIdentifier }) => `<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  }, {
+    name: () => `${platform}/src/main/AndroidManifest.xml`,
+    content: ({ packageIdentifier }) => `<manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="${packageIdentifier}">
 
 </manifest>
 `,
-}, {
-  // for module without view:
-  name: ({ objectClassName, packageIdentifier, view }) =>
-    !view &&
-      `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${objectClassName}Module.java`,
-  content: ({ objectClassName, packageIdentifier, view }) =>
-    !view &&
+  },
+
+  // java implementation without view:
+  {
+    name: ({ objectClassName, packageIdentifier, view, useKotlin }) =>
+      (!view && !useKotlin) &&
+        `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${objectClassName}Module.java`,
+    content: ({ objectClassName, packageIdentifier, view }) =>
+      !view &&
       `package ${packageIdentifier};
 
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -192,13 +201,45 @@ public class ${objectClassName}Module extends ReactContextBaseJavaModule {
     }
 }
 `,
-}, {
-  // manager for view:
-  name: ({ objectClassName, packageIdentifier, view }) =>
-    view &&
-      `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${objectClassName}Manager.java`,
-  content: ({ objectClassName, packageIdentifier, view }) =>
-    view &&
+  }, {
+    name: ({ objectClassName, packageIdentifier, view, useKotlin }) =>
+      (!view && !useKotlin) &&
+        `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${objectClassName}Package.java`,
+    content: ({ objectClassName, packageIdentifier, view }) =>
+      !view &&
+        `package ${packageIdentifier};
+  
+  import java.util.Arrays;
+  import java.util.Collections;
+  import java.util.List;
+  
+  import com.facebook.react.ReactPackage;
+  import com.facebook.react.bridge.NativeModule;
+  import com.facebook.react.bridge.ReactApplicationContext;
+  import com.facebook.react.uimanager.ViewManager;
+  import com.facebook.react.bridge.JavaScriptModule;
+  
+  public class ${objectClassName}Package implements ReactPackage {
+      @Override
+      public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
+          return Arrays.<NativeModule>asList(new ${objectClassName}Module(reactContext));
+      }
+  
+      @Override
+      public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
+          return Collections.emptyList();
+      }
+  }
+  `,
+  },
+
+  // Java implementation with view
+  {
+    name: ({ objectClassName, packageIdentifier, view, useKotlin }) =>
+      (view && !useKotlin) &&
+        `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${objectClassName}Manager.java`,
+    content: ({ objectClassName, packageIdentifier, view }) =>
+      view &&
       `package ${packageIdentifier};
 
 import android.view.View;
@@ -226,44 +267,12 @@ public class ${objectClassName}Manager extends SimpleViewManager<View> {
     }
 }
 `,
-}, {
-  // package for module without view:
-  name: ({ objectClassName, packageIdentifier, view }) =>
-    !view &&
-      `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${objectClassName}Package.java`,
-  content: ({ objectClassName, packageIdentifier, view }) =>
-    !view &&
-      `package ${packageIdentifier};
-
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
-import com.facebook.react.ReactPackage;
-import com.facebook.react.bridge.NativeModule;
-import com.facebook.react.bridge.ReactApplicationContext;
-import com.facebook.react.uimanager.ViewManager;
-import com.facebook.react.bridge.JavaScriptModule;
-
-public class ${objectClassName}Package implements ReactPackage {
-    @Override
-    public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-        return Arrays.<NativeModule>asList(new ${objectClassName}Module(reactContext));
-    }
-
-    @Override
-    public List<ViewManager> createViewManagers(ReactApplicationContext reactContext) {
-        return Collections.emptyList();
-    }
-}
-`,
-}, {
-  // package for manager for view:
-  name: ({ objectClassName, packageIdentifier, view }) =>
-    view &&
-      `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${objectClassName}Package.java`,
-  content: ({ objectClassName, packageIdentifier, view }) =>
-    view &&
+  }, {
+    name: ({ objectClassName, packageIdentifier, view, useKotlin }) =>
+      (view && !useKotlin) &&
+        `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${objectClassName}Package.java`,
+    content: ({ objectClassName, packageIdentifier, view }) =>
+      view &&
       `package ${packageIdentifier};
 
 import java.util.Arrays;
@@ -288,9 +297,61 @@ public class ${objectClassName}Package implements ReactPackage {
     }
 }
 `,
-}, {
-  name: () => `${platform}/README.md`,
-  content: () => `README
+  },
+
+  // Kotlin implementation
+  // TODO: with view is not found currently
+  {
+    name: ({ objectClassName, packageIdentifier, view, useKotlin }) =>
+      (useKotlin) &&
+        `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${objectClassName}Module.kt`,
+    content: ({ objectClassName, packageIdentifier }) =>
+`package ${packageIdentifier}
+
+import com.facebook.react.bridge.Callback
+import com.facebook.react.bridge.ReactApplicationContext
+import com.facebook.react.bridge.ReactContextBaseJavaModule
+import com.facebook.react.bridge.ReactMethod
+
+class ${objectClassName}Module(
+    private val reactContext: ReactApplicationContext
+) : ReactContextBaseJavaModule(reactContext) {
+
+    override fun getName() = "${objectClassName}"
+
+    @ReactMethod
+    fun sampleMethod(stringArgument: String, numberArgument: Int, callback: Callback) {
+        // TODO: Implement some actually useful functionality
+        callback.invoke("Received numberArgument: $numberArgument stringArgument: $stringArgument")
+    }
+}
+`
+  }, {
+    name: ({ objectClassName, packageIdentifier, view, useKotlin }) =>
+      (useKotlin) &&
+        `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${objectClassName}Package.kt`,
+    content: ({ objectClassName, packageIdentifier }) =>
+`package ${packageIdentifier}
+
+import com.facebook.react.ReactPackage
+import com.facebook.react.bridge.NativeModule
+import com.facebook.react.bridge.ReactApplicationContext
+import com.facebook.react.uimanager.ViewManager
+import java.util.Arrays
+
+class ${objectClassName}Package : ReactPackage {
+    override fun createNativeModules(reactContext: ReactApplicationContext) =
+            listOf(${objectClassName}Module(reactContext))
+
+    override fun createViewManagers(reactContext: ReactApplicationContext) =
+            emptyList<ViewManager<*, *>>()
+}
+`
+  },
+
+  {
+    name: () => `${platform}/README.md`,
+    content: () => `README
 ======
 
 If you want to publish the lib as a maven dependency, follow these steps before publishing a new version to npm:
@@ -305,4 +366,8 @@ sdk.dir=/Users/{username}/Library/Android/sdk
 4. Run \`./gradlew installArchives\`
 5. Verify that latest set of generated files is in the maven folder with the correct version number
 `
-}];
+  }, {
+    name: () => `${platform}/gradle.properties`,
+    content: () => `DEFAULT_KOTLIN_VERSION=1.3.50`
+  }
+];
