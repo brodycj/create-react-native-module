@@ -285,7 +285,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         run: yarn publish
         env:
-          NODE_AUTH_TOKEN: \\$\\{\\{ secrets.GITHUB_TOKEN \\}\\}
+          NODE_AUTH_TOKEN: \${{ secrets.GITHUB_TOKEN }}
 `,
   }
 ];
