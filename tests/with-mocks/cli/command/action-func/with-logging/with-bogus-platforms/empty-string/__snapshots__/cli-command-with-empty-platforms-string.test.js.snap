@@ -20,6 +20,7 @@ Array [
         object class name: AliceBobbi
      library modulePrefix: react-native
 Android packageIdentifier: com.reactlibrary
+Android root build support false
                 platforms: 
         Apple tvosEnabled: false
                authorName: Your Name
