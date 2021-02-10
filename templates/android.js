@@ -1,6 +1,6 @@
 module.exports = platform => [{
   name: () => `${platform}/build.gradle`,
-  content: ({ packageIdentifier }) => `// ${platform}/build.gradle
+  content: ({ androidRootBuildSupport, packageIdentifier }) => `// ${platform}/build.gradle
 
 // based on:
 //
@@ -23,7 +23,8 @@ def safeExtGet(prop, fallback) {
 
 apply plugin: 'com.android.library'
 apply plugin: 'maven'
-
+${androidRootBuildSupport
+  ? `
 buildscript {
     // The Android Gradle plugin is only required when opening the android folder stand-alone.
     // This avoids unnecessary downloads and potential conflicts when the library is included as a
@@ -39,7 +40,9 @@ buildscript {
         }
     }
 }
-
+`
+  : ``
+}
 apply plugin: 'com.android.library'
 apply plugin: 'maven'
 
