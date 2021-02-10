@@ -1,6 +1,6 @@
 module.exports = platform => [{
   name: () => `${platform}/build.gradle`,
-  content: ({ packageIdentifier }) => `// ${platform}/build.gradle
+  content: () => `// ${platform}/build.gradle
 
 // based on:
 //
@@ -23,22 +23,6 @@ def safeExtGet(prop, fallback) {
 
 apply plugin: 'com.android.library'
 apply plugin: 'maven'
-
-buildscript {
-    // The Android Gradle plugin is only required when opening the android folder stand-alone.
-    // This avoids unnecessary downloads and potential conflicts when the library is included as a
-    // module dependency in an application project.
-    // ref: https://docs.gradle.org/current/userguide/tutorial_using_tasks.html#sec:build_script_external_dependencies
-    if (project == rootProject) {
-        repositories {
-            google()
-            jcenter()
-        }
-        dependencies {
-            classpath 'com.android.tools.build:gradle:3.4.1'
-        }
-    }
-}
 
 android {
     compileSdkVersion safeExtGet('compileSdkVersion', DEFAULT_COMPILE_SDK_VERSION)
