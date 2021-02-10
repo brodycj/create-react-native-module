@@ -10,6 +10,7 @@ test('create alice-bobbi module with example, with config options including `exa
   const options = {
     name: 'alice-bobbi',
     objectClassName: 'SuperAwesomeModule',
+    androidBuildGradleExtra: true,
     tvosEnabled: true,
     githubAccount: 'alicebits',
     authorName: 'Alice',

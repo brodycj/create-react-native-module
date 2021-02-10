@@ -11,6 +11,7 @@ test('create alice-bobbi module with config options for Android only', () => {
     platforms: ['android'],
     name: 'alice-bobbi',
     packageIdentifier: 'com.alicebits',
+    androidBuildGradleExtra: true,
     githubAccount: 'alicebits',
     authorName: 'Alice',
     authorEmail: 'contact@alice.me',

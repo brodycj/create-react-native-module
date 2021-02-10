@@ -10,6 +10,7 @@ test('create alice-bobbi view module with config options for Android only', () =
   const options = {
     platforms: ['android'],
     name: 'alice-bobbi',
+    androidBuildGradleExtra: true,
     githubAccount: 'alicebits',
     authorName: 'Alice',
     authorEmail: 'contact@alice.me',

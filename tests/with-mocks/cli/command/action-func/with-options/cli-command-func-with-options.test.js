@@ -22,6 +22,7 @@ test('create alice-bobbi module with explicit config options for Android & iOS',
 
   const options = {
     platforms: 'android,ios',
+    androidBuildGradleExtra: true,
     tvosEnabled: true,
     githubAccount: 'alicebits',
     authorName: 'Alice',
