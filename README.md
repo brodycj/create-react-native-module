@@ -94,6 +94,7 @@ Options:
   --prefix <prefix>                         DEPRECATED: The prefix of the name of the object class to be exported by both JavaScript and native code, ignored if --object-class-name is specified (Default: ``)
   --module-prefix <modulePrefix>            The prefix of the generated module package name, ignored if --module-name is specified (Default: `react-native`)
   --package-identifier <packageIdentifier>  [Android] The Java package identifier used by the Android module (Default: `com.reactlibrary`)
+  --android-root-build-support              [Android] Include root build support in build.gradle
   --platforms <platforms>                   Platforms the library module will be created for - comma separated (Default: `ios,android`)
   --tvos-enabled                            Generate the module with tvOS build enabled (requires react-native-tvos fork, with minimum version of 0.60, and iOS platform to be enabled)
   --github-account <githubAccount>          The github account where the library module is hosted (Default: `github_account`)
@@ -133,6 +134,7 @@ createLibraryModule({
   modulePrefix: String, /* The prefix of the generated module package name, ignored if moduleName is specified (Default: `react-native`) */
   platforms: Array | String, /* Platforms the library will be created for. (Default: ['android', 'ios']) */
   packageIdentifier: String, /* [Android] The Java package identifier used by the Android module (Default: com.reactlibrary) */
+  androidRootBuildSupport: Boolean, /* [Android] Include root build support in build.gradle */
   tvosEnabled: Boolean, /* Generate the module with tvOS build enabled (requires react-native-tvos fork, with minimum version of 0.60, and iOS platform to be enabled) */
   githubAccount: String, /* The github account where the library is hosted (Default: `github_account`) */
   authorName: String, /* The author's name (Default: `Your Name`) */
