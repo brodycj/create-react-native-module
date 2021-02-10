@@ -5,7 +5,7 @@
   "bin": "bin/cli.js",
   "main": "lib/lib.js",
   "engines": {
-    "node": ">= 10.20"
+    "node": ">= 12"
   },
   "scripts": {
     "jest": "cross-env CI=1 jest",
