@@ -1,14 +1,14 @@
 {
   "name": "create-react-native-module",
-  "version": "0.19.1-dev",
+  "version": "0.20.0-dev",
   "description": "Tool to create a React Native library module or view module with a single command",
   "bin": "bin/cli.js",
   "main": "lib/lib.js",
   "engines": {
-    "node": ">= 10.20"
+    "node": ">= 12"
   },
   "scripts": {
-    "jest": "jest",
+    "jest": "cross-env CI=1 jest",
     "lint": "eslint .",
     "stryker": "stryker run",
     "test": "npm run lint && npm run jest"
@@ -43,28 +43,30 @@
   },
   "homepage": "https://github.com/brodybits/create-react-native-module#readme",
   "dependencies": {
-    "commander": "^5.1.0",
-    "execa": "^4.0.3",
-    "fs-extra": "^9.0.1",
-    "jsonfile": "^6.0.1",
+    "commander": "^6.2.1",
+    "console": "^0.7.2",
+    "execa": "^5.0.0",
+    "fs-extra": "^9.1.0",
+    "jsonfile": "^6.1.0",
     "log-symbols": "^4.0.0",
     "node-emoji": "^1.10.0",
-    "param-case": "^3.0.3",
-    "pascal-case": "^3.1.1",
+    "param-case": "^3.0.4",
+    "pascal-case": "^3.1.2",
     "please-upgrade-node": "^3.2.0",
-    "update-notifier": "^4.1.0"
+    "update-notifier": "^5.1.0"
   },
   "devDependencies": {
     "@stryker-mutator/core": "^3.3.1",
     "@stryker-mutator/javascript-mutator": "^3.3.1",
     "@stryker-mutator/jest-runner": "^3.3.1",
-    "eslint": "^7.4.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.19.0",
     "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "jest": "^26.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-standard": "^5.0.0",
+    "jest": "^26.6.3",
     "recursive-readdir": "^2.2.2"
   }
 }

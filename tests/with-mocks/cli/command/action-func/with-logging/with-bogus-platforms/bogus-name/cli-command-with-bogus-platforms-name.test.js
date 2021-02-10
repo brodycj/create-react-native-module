@@ -16,9 +16,7 @@ jest.mock('fs-extra', () => ({
     return Promise.resolve();
   },
 }));
-
-// TBD hackish mock:
-global.console = {
+jest.mock('console', () => ({
   info: (...args) => {
     mockpushit({ info: [].concat(args) });
   },
@@ -31,7 +29,10 @@ global.console = {
   warn: (...args) => {
     mockpushit({ warn: [].concat(args) });
   },
-};
+  error: (...args) => {
+    mockpushit({ error: [].concat(args) });
+  },
+}));
 
 test(`create alice-bobbi module with logging, with platforms: 'bogus'`, async () => {
   const args = ['alice-bobbi'];
