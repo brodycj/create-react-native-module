@@ -1,6 +1,6 @@
 module.exports = platform => [{
   name: () => `${platform}/build.gradle`,
-  content: ({ packageIdentifier }) => `// ${platform}/build.gradle
+  content: ({ packageIdentifier, androidBuildGradleExtra }) => `// ${platform}/build.gradle
 
 // based on:
 //
@@ -76,7 +76,7 @@ dependencies {
     //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'  // From node_modules
 }
-
+` + (androidBuildGradleExtra ? `
 def configureReactNativePom(def pom) {
     def packageJson = new groovy.json.JsonSlurper().parseText(file('../package.json').text)
 
@@ -149,7 +149,7 @@ afterEvaluate { project ->
         }
     }
 }
-`,
+` : ``),
 }, {
   name: () => `${platform}/src/main/AndroidManifest.xml`,
   content: ({ packageIdentifier }) => `<manifest xmlns:android="http://schemas.android.com/apk/res/android"
