@@ -90,6 +90,16 @@ Array [
   Object {
     "option": Object {
       "args": Array [
+        "--android-build-gradle-extra",
+        "[Android] Include extra build steps in build.gradle",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
         "--platforms <platforms>",
         "Platforms the library module will be created for - comma separated",
         [Function],
@@ -234,6 +244,7 @@ Array [
         object class name: TestPackage
      library modulePrefix: react-native
 Android packageIdentifier: com.reactlibrary
+Android build.gradle extra false
                 platforms: android,ios
         Apple tvosEnabled: false
                authorName: Your Name

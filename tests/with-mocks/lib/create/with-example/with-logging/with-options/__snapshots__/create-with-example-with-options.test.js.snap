@@ -14,6 +14,7 @@ Array [
         object class name: ABCAliceBobbi
      library modulePrefix: react-native
 Android packageIdentifier: com.alicebits
+Android build.gradle extra false
                 platforms: android,ios
         Apple tvosEnabled: true
                authorName: Alice

@@ -34,6 +34,10 @@ Object {
       "description": "[Android] The Java package identifier used by the Android module",
     },
     Object {
+      "command": "--android-build-gradle-extra",
+      "description": "[Android] Include extra build steps in build.gradle",
+    },
+    Object {
       "command": "--platforms <platforms>",
       "default": "ios,android",
       "description": "Platforms the library module will be created for - comma separated",
