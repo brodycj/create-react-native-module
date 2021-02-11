@@ -88,7 +88,7 @@ Usage: create-react-native-module [options] <name>
 Options:
 
   -V, --version                             output the version number
-  --package-name <packageName>              The package name to be used in package.json. Default: react-native-(name in param-case)
+  --package-name <packageName>              The full package name to be used in package.json. Default: react-native-(name in param-case)
   --view                                    Generate the package as a very simple native view component
   --object-class-name                       The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase)
   --android-package-id <androidPackageId>   The Java package identifier used by the Android module (Default: `com.reactlibrary`)
@@ -124,7 +124,7 @@ createLibraryModule({
 ```javascript
 {
   name: String, /* The name of the library (mandatory) */
-  packageName: String, /* The package name to be used in package.json. Default: react-native-(name in param-case) */
+  packageName: String, /* The full package name to be used in package.json. Default: react-native-(name in param-case) */
   view: Boolean, /* Generate the package as a very simple native view component (Default: false) */
   objectClassName: String, /* The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase) */
   platforms: Array | String, /* Platforms the library will be created for. (Default: ['android', 'ios']) */
