@@ -1,6 +1,6 @@
 module.exports = platform => [{
   name: () => `${platform}/build.gradle`,
-  content: ({ androidPackageId }) => `// ${platform}/build.gradle
+  content: ({ nativePackageId }) => `// ${platform}/build.gradle
 
 // based on:
 //
@@ -79,7 +79,7 @@ def configureReactNativePom(def pom) {
         name packageJson.title
         artifactId packageJson.name
         version = packageJson.version
-        group = "${androidPackageId}"
+        group = "${nativePackageId}"
         description packageJson.description
         url packageJson.repository.baseUrl
 
@@ -147,19 +147,19 @@ afterEvaluate { project ->
 `,
 }, {
   name: () => `${platform}/src/main/AndroidManifest.xml`,
-  content: ({ androidPackageId }) => `<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="${androidPackageId}">
+  content: ({ nativePackageId }) => `<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="${nativePackageId}">
 
 </manifest>
 `,
 }, {
   // for module without view:
-  name: ({ objectClassName, androidPackageId, view }) =>
+  name: ({ objectClassName, nativePackageId, view }) =>
     !view &&
-      `${platform}/src/main/java/${androidPackageId.split('.').join('/')}/${objectClassName}Module.java`,
-  content: ({ objectClassName, androidPackageId, view }) =>
+      `${platform}/src/main/java/${nativePackageId.split('.').join('/')}/${objectClassName}Module.java`,
+  content: ({ objectClassName, nativePackageId, view }) =>
     !view &&
-      `package ${androidPackageId};
+      `package ${nativePackageId};
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -189,12 +189,12 @@ public class ${objectClassName}Module extends ReactContextBaseJavaModule {
 `,
 }, {
   // manager for view:
-  name: ({ objectClassName, androidPackageId, view }) =>
+  name: ({ objectClassName, nativePackageId, view }) =>
     view &&
-      `${platform}/src/main/java/${androidPackageId.split('.').join('/')}/${objectClassName}Manager.java`,
-  content: ({ objectClassName, androidPackageId, view }) =>
+      `${platform}/src/main/java/${nativePackageId.split('.').join('/')}/${objectClassName}Manager.java`,
+  content: ({ objectClassName, nativePackageId, view }) =>
     view &&
-      `package ${androidPackageId};
+      `package ${nativePackageId};
 
 import android.view.View;
 
@@ -223,12 +223,12 @@ public class ${objectClassName}Manager extends SimpleViewManager<View> {
 `,
 }, {
   // package for module without view:
-  name: ({ objectClassName, androidPackageId, view }) =>
+  name: ({ objectClassName, nativePackageId, view }) =>
     !view &&
-      `${platform}/src/main/java/${androidPackageId.split('.').join('/')}/${objectClassName}Package.java`,
-  content: ({ objectClassName, androidPackageId, view }) =>
+      `${platform}/src/main/java/${nativePackageId.split('.').join('/')}/${objectClassName}Package.java`,
+  content: ({ objectClassName, nativePackageId, view }) =>
     !view &&
-      `package ${androidPackageId};
+      `package ${nativePackageId};
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -253,12 +253,12 @@ public class ${objectClassName}Package implements ReactPackage {
 `,
 }, {
   // package for manager for view:
-  name: ({ objectClassName, androidPackageId, view }) =>
+  name: ({ objectClassName, nativePackageId, view }) =>
     view &&
-      `${platform}/src/main/java/${androidPackageId.split('.').join('/')}/${objectClassName}Package.java`,
-  content: ({ objectClassName, androidPackageId, view }) =>
+      `${platform}/src/main/java/${nativePackageId.split('.').join('/')}/${objectClassName}Package.java`,
+  content: ({ objectClassName, nativePackageId, view }) =>
     view &&
-      `package ${androidPackageId};
+      `package ${nativePackageId};
 
 import java.util.Arrays;
 import java.util.Collections;
