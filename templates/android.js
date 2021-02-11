@@ -5,13 +5,15 @@ module.exports = platform => [{
 // based on:
 //
 // * https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle
-//   original location:
+//   previous location:
 //   - https://github.com/facebook/react-native/blob/0.58-stable/local-cli/templates/HelloWorld/android/build.gradle
 //
 // * https://github.com/facebook/react-native/blob/0.60-stable/template/android/app/build.gradle
-//   original location:
+//   previous location:
 //   - https://github.com/facebook/react-native/blob/0.58-stable/local-cli/templates/HelloWorld/android/app/build.gradle
 
+// These defaults should reflect the SDK versions used by
+// the minimum React Native version supported.
 def DEFAULT_COMPILE_SDK_VERSION = 28
 def DEFAULT_BUILD_TOOLS_VERSION = '28.0.3'
 def DEFAULT_MIN_SDK_VERSION = 16
@@ -34,6 +36,8 @@ buildscript {
             google()
         }
         dependencies {
+            // This should reflect the Gradle plugin version used by
+            // the minimum React Native version supported.
             classpath 'com.android.tools.build:gradle:3.4.1'
         }
     }
