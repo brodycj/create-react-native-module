@@ -53,32 +53,6 @@ content:
 
 \`$ react-native link react-native-alice-bobbi\`
 
-### Manual installation
-
-
-#### iOS
-
-1. In XCode, in the project navigator, right click \`Libraries\` ➜ \`Add Files to [your project's name]\`
-2. Go to \`node_modules\` ➜ \`react-native-alice-bobbi\` and add \`AliceBobbi.xcodeproj\`
-3. In XCode, in the project navigator, select your project. Add \`libAliceBobbi.a\` to your project's \`Build Phases\` ➜ \`Link Binary With Libraries\`
-4. Run your project (\`Cmd+R\`)<
-
-#### Android
-
-1. Open up \`android/app/src/main/java/[...]/MainApplication.java\`
-  - Add \`import com.reactlibrary.AliceBobbiPackage;\` to the imports at the top of the file
-  - Add \`new AliceBobbiPackage()\` to the list returned by the \`getPackages()\` method
-2. Append the following lines to \`android/settings.gradle\`:
-  	\`\`\`
-  	include ':react-native-alice-bobbi'
-  	project(':react-native-alice-bobbi').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-alice-bobbi/android')
-  	\`\`\`
-3. Insert the following lines inside the dependencies block in \`android/app/build.gradle\`:
-  	\`\`\`
-      compile project(':react-native-alice-bobbi')
-  	\`\`\`
-
-
 ## Usage
 \`\`\`javascript
 import AliceBobbi from 'react-native-alice-bobbi';
@@ -118,11 +92,11 @@ content:
   \\"readmeFilename\\": \\"README.md\\",
   \\"peerDependencies\\": {
     \\"react\\": \\"^16.8.1\\",
-    \\"react-native\\": \\">=0.59.0-rc.0 <1.0.x\\"
+    \\"react-native\\": \\">=0.60.0-rc.0 <1.0.x\\"
   },
   \\"devDependencies\\": {
-    \\"react\\": \\"^16.8.3\\",
-    \\"react-native\\": \\"^0.59.10\\"
+    \\"react\\": \\"^16.9.0\\",
+    \\"react-native\\": \\"^0.61.5\\"
   }
 }
 
@@ -206,61 +180,79 @@ content:
 --------
 // android/build.gradle
 
-buildscript {
-    ext.safeExtGet = {prop, fallback ->
-        rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
-    }
-    repositories {
-        google()
-        jcenter()
-    }
+// based on:
+//
+// * https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle
+//   original location:
+//   - https://github.com/facebook/react-native/blob/0.58-stable/local-cli/templates/HelloWorld/android/build.gradle
+//
+// * https://github.com/facebook/react-native/blob/0.60-stable/template/android/app/build.gradle
+//   original location:
+//   - https://github.com/facebook/react-native/blob/0.58-stable/local-cli/templates/HelloWorld/android/app/build.gradle
 
-    dependencies {
-        // Matches recent template from React Native (0.60)
-        // https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L16
-        classpath(\\"com.android.tools.build:gradle:\${safeExtGet('gradlePluginVersion', '3.4.1')}\\")
+def DEFAULT_COMPILE_SDK_VERSION = 28
+def DEFAULT_BUILD_TOOLS_VERSION = '28.0.3'
+def DEFAULT_MIN_SDK_VERSION = 16
+def DEFAULT_TARGET_SDK_VERSION = 28
+
+def safeExtGet(prop, fallback) {
+    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+
+buildscript {
+    // The Android Gradle plugin is only required when opening the android folder stand-alone.
+    // This avoids unnecessary downloads and potential conflicts when the library is included as a
+    // module dependency in an application project.
+    // ref: https://docs.gradle.org/current/userguide/tutorial_using_tasks.html#sec:build_script_external_dependencies
+    if (project == rootProject) {
+        repositories {
+            google()
+            jcenter()
+        }
+        dependencies {
+            classpath 'com.android.tools.build:gradle:3.4.1'
+        }
     }
 }
 
 apply plugin: 'com.android.library'
 apply plugin: 'maven'
 
-// Matches values in recent template from React Native 0.59 / 0.60
-// https://github.com/facebook/react-native/blob/0.59-stable/template/android/build.gradle#L5-L9
-// https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L5-L9
-def DEFAULT_COMPILE_SDK_VERSION = 28
-def DEFAULT_BUILD_TOOLS_VERSION = \\"28.0.3\\"
-def DEFAULT_MIN_SDK_VERSION = 16
-def DEFAULT_TARGET_SDK_VERSION = 28
-
 android {
-  compileSdkVersion safeExtGet('compileSdkVersion', DEFAULT_COMPILE_SDK_VERSION)
-  buildToolsVersion safeExtGet('buildToolsVersion', DEFAULT_BUILD_TOOLS_VERSION)
-
-  defaultConfig {
-    minSdkVersion safeExtGet('minSdkVersion', DEFAULT_MIN_SDK_VERSION)
-    targetSdkVersion safeExtGet('targetSdkVersion', DEFAULT_TARGET_SDK_VERSION)
-    versionCode 1
-    versionName \\"1.0\\"
-  }
-  lintOptions {
-    abortOnError false
-  }
+    compileSdkVersion safeExtGet('compileSdkVersion', DEFAULT_COMPILE_SDK_VERSION)
+    buildToolsVersion safeExtGet('buildToolsVersion', DEFAULT_BUILD_TOOLS_VERSION)
+    defaultConfig {
+        minSdkVersion safeExtGet('minSdkVersion', DEFAULT_MIN_SDK_VERSION)
+        targetSdkVersion safeExtGet('targetSdkVersion', DEFAULT_TARGET_SDK_VERSION)
+        versionCode 1
+        versionName \\"1.0\\"
+    }
+    lintOptions {
+        abortOnError false
+    }
 }
 
 repositories {
+    // ref: https://www.baeldung.com/maven-local-repository
+    mavenLocal()
     maven {
         // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
-        // Matches recent template from React Native 0.59 / 0.60
-        // https://github.com/facebook/react-native/blob/0.59-stable/template/android/build.gradle#L30
-        // https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L28
-        url \\"$projectDir/../node_modules/react-native/android\\"
+        url \\"$rootDir/../node_modules/react-native/android\\"
     }
-    mavenCentral()
+    maven {
+        // Android JSC is installed from npm
+        url \\"$rootDir/../node_modules/jsc-android/dist\\"
+    }
+    google()
+    jcenter()
 }
 
 dependencies {
-    implementation \\"com.facebook.react:react-native:\${safeExtGet('reactnativeVersion', '+')}\\"
+    //noinspection GradleDynamicVersion
+    implementation 'com.facebook.react:react-native:+'  // From node_modules
 }
 
 def configureReactNativePom(def pom) {
@@ -292,7 +284,8 @@ def configureReactNativePom(def pom) {
 }
 
 afterEvaluate { project ->
-
+    // some Gradle build hooks ref:
+    // https://www.oreilly.com/library/view/gradle-beyond-the/9781449373801/ch03.html
     task androidJavadoc(type: Javadoc) {
         source = android.sourceSets.main.java.srcDirs
         classpath += files(android.bootClasspath)
@@ -313,8 +306,10 @@ afterEvaluate { project ->
 
     android.libraryVariants.all { variant ->
         def name = variant.name.capitalize()
-        task \\"jar\${name}\\"(type: Jar, dependsOn: variant.javaCompile) {
-            from variant.javaCompile.destinationDir
+        def javaCompileTask = variant.javaCompileProvider.get()
+
+        task \\"jar\${name}\\"(type: Jar, dependsOn: javaCompileTask) {
+            from javaCompileTask.destinationDir
         }
     }
 
@@ -328,7 +323,6 @@ afterEvaluate { project ->
         repositories.mavenDeployer {
             // Deploy to react-native-event-bridge/maven, ready to publish to npm
             repository url: \\"file://\${projectDir}/../android/maven\\"
-
             configureReactNativePom pom
         }
     }
@@ -449,17 +443,19 @@ Pod::Spec.new do |s|
                   react-native-alice-bobbi
                    DESC
   s.homepage     = \\"https://github.com/github_account/react-native-alice-bobbi\\"
+  # brief license entry:
   s.license      = \\"MIT\\"
-  # s.license    = { :type => \\"MIT\\", :file => \\"FILE_LICENSE\\" }
+  # optional - use expanded license entry instead:
+  # s.license    = { :type => \\"MIT\\", :file => \\"LICENSE\\" }
   s.authors      = { \\"Your Name\\" => \\"yourname@email.com\\" }
-  s.platforms    = { :ios => \\"9.0\\", :tvos => \\"10.0\\" }
+  s.platforms    = { :ios => \\"9.0\\" }
   s.source       = { :git => \\"https://github.com/github_account/react-native-alice-bobbi.git\\", :tag => \\"#{s.version}\\" }
 
   s.source_files = \\"ios/**/*.{h,m,swift}\\"
   s.requires_arc = true
 
   s.dependency \\"React\\"
-	
+  # ...
   # s.dependency \\"...\\"
 end
 
@@ -490,7 +486,7 @@ RCT_EXPORT_MODULE()
 RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnull NSNumber *)numberArgument callback:(RCTResponseSenderBlock)callback)
 {
     // TODO: Implement some actually useful functionality
-	callback(@[[NSString stringWithFormat: @\\"numberArgument: %@ stringArgument: %@\\", numberArgument, stringArgument]]);
+    callback(@[[NSString stringWithFormat: @\\"numberArgument: %@ stringArgument: %@\\", numberArgument, stringArgument]]);
 }
 
 @end
@@ -787,126 +783,43 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* execa.commandSync command: react-native init example --version react-native@0.59 options: {\\"cwd\\":\\"./react-native-alice-bobbi\\",\\"stdio\\":\\"inherit\\"}
-",
-  "* ensureDir dir: react-native-alice-bobbi/scripts/
+  "* execa.commandSync command: react-native init example --version react-native@latest options: {\\"cwd\\":\\"./react-native-alice-bobbi\\",\\"stdio\\":\\"inherit\\"}
 ",
   "* ensureDir dir: react-native-alice-bobbi/example/
 ",
-  "* outputFile name: react-native-alice-bobbi/scripts/examples_postinstall.js
+  "* ensureDir dir: react-native-alice-bobbi/example/
+",
+  "* outputFile name: react-native-alice-bobbi/example/metro.config.js
 content:
 --------
-#!/usr/bin/env node
+// metro.config.js
+//
+// with multiple workarounds for this issue with symlinks:
+// https://github.com/facebook/metro/issues/1
+//
+// with thanks to @johnryan (<https://github.com/johnryan>)
+// for the pointers to multiple workaround solutions here:
+// https://github.com/facebook/metro/issues/1#issuecomment-541642857
+//
+// see also this discussion:
+// https://github.com/brodybits/create-react-native-module/issues/232
 
-  /*
-   * Using libraries within examples and linking them within packages.json like:
-   * \\"react-native-library-name\\": \\"file:../\\"
-   * will cause problems with the metro bundler if the example will run via
-   * \`react-native run-[ios|android]\`. This will result in an error as the metro
-   * bundler will find multiple versions for the same module while resolving it.
-   * The reason for that is that if the library is installed it also copies in the
-   * example folder itself as well as the node_modules folder of the library
-   * although their are defined in .npmignore and should be ignored in theory.
-   *
-   * This postinstall script removes the node_modules folder as well as all
-   * entries from the libraries .npmignore file within the examples node_modules
-   * folder after the library was installed. This should resolve the metro
-   * bundler issue mentioned above.
-   *
-   * It is expected this scripts lives in the libraries root folder within a
-   * scripts folder. As first parameter the relative path to the libraries
-   * folder within the example's node_modules folder may be provided.
-   * This script will determine the path from this project's package.json file
-   * if no such relative path is provided.
-   * An example's package.json entry could look like:
-   * \\"postinstall\\": \\"node ../scripts/examples_postinstall.js node_modules/react-native-library-name/\\"
-   */
+const path = require('path')
 
-  'use strict';
+module.exports = {
+  // workaround for an issue with symlinks encountered starting with
+  // metro@0.55 / React Native 0.61
+  // (not needed with React Native 0.60 / metro@0.54)
+  resolver: {
+    extraNodeModules: new Proxy(
+      {},
+      { get: (_, name) => path.resolve('.', 'node_modules', name) }
+    )
+  },
 
-  const fs = require('fs');
-  const path = require('path');
-
-  /// Delete all files and directories for the given path
-  const removeFileDirectoryRecursively = fileDirPath => {
-    // Remove file
-    if (!fs.lstatSync(fileDirPath).isDirectory()) {
-      fs.unlinkSync(fileDirPath);
-      return;
-    }
-
-    // Go down the directory an remove each file / directory recursively
-    fs.readdirSync(fileDirPath).forEach(entry => {
-      const entryPath = path.join(fileDirPath, entry);
-      removeFileDirectoryRecursively(entryPath);
-    });
-    fs.rmdirSync(fileDirPath);
-  };
-
-  /// Remove example/node_modules/react-native-library-name/node_modules directory
-  const removeLibraryNodeModulesPath = (libraryNodeModulesPath) => {
-    const nodeModulesPath = path.resolve(libraryNodeModulesPath, 'node_modules')
-
-    if (!fs.existsSync(nodeModulesPath)) {
-      console.log(\`No node_modules path found at \${nodeModulesPath}. Skipping delete.\`)
-      return;
-    }
-
-    console.log(\`Deleting: \${nodeModulesPath}\`)
-    try {
-      removeFileDirectoryRecursively(nodeModulesPath);
-      console.log(\`Successfully deleted: \${nodeModulesPath}\`)
-    } catch (err) {
-      console.log(\`Error deleting \${nodeModulesPath}: \${err.message}\`);
-    }
-  };
-
-  /// Remove all entries from the .npmignore within  example/node_modules/react-native-library-name/
-  const removeLibraryNpmIgnorePaths = (npmIgnorePath, libraryNodeModulesPath) => {
-    if (!fs.existsSync(npmIgnorePath)) {
-      console.log(\`No .npmignore path found at \${npmIgnorePath}. Skipping deleting content.\`);
-      return;
-    }
-
-    fs.readFileSync(npmIgnorePath, 'utf8').split(/\\\\r?\\\\n/).forEach(entry => {
-      if (entry.length === 0) {
-        return
-      }
-
-      const npmIgnoreLibraryNodeModulesEntryPath = path.resolve(libraryNodeModulesPath, entry);
-      if (!fs.existsSync(npmIgnoreLibraryNodeModulesEntryPath)) {
-        return;
-      }
-
-      console.log(\`Deleting: \${npmIgnoreLibraryNodeModulesEntryPath}\`)
-      try {
-        removeFileDirectoryRecursively(npmIgnoreLibraryNodeModulesEntryPath);
-        console.log(\`Successfully deleted: \${npmIgnoreLibraryNodeModulesEntryPath}\`)
-      } catch (err) {
-        console.log(\`Error deleting \${npmIgnoreLibraryNodeModulesEntryPath}: \${err.message}\`);
-      }
-    });
-  };
-
-  // Main start sweeping process
-  (() => {
-    // Read out dir of example project
-    const exampleDir = process.cwd();
-
-    console.log(\`Starting postinstall cleanup for \${exampleDir}\`);
-
-    // Resolve the React Native library's path within the example's node_modules directory
-    const libraryNodeModulesPath = process.argv.length > 2
-      ? path.resolve(exampleDir, process.argv[2])
-      : path.resolve(exampleDir, 'node_modules', require('../package.json').name);
-
-    console.log(\`Removing unwanted artifacts for \${libraryNodeModulesPath}\`);
-
-    removeLibraryNodeModulesPath(libraryNodeModulesPath);
-
-    const npmIgnorePath = path.resolve(__dirname, '../.npmignore');
-    removeLibraryNpmIgnorePaths(npmIgnorePath, libraryNodeModulesPath);
-  })();
+  // quick workaround for another issue with symlinks
+  watchFolders: ['.', '..']
+}
 
 <<<<<<<< ======== >>>>>>>>
 ",
@@ -973,34 +886,11 @@ const styles = StyleSheet.create({
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  Object {
-    "call": "fs.readFileSync",
-    "jsonFilePath": "./react-native-alice-bobbi/example/package.json",
-  },
-  Object {
-    "call": "fs.writeFileSync",
-    "filePath": "./react-native-alice-bobbi/example/package.json",
-    "json": "{
-  \\"name\\": \\"example\\",
-  \\"scripts\\": {
-    \\"test\\": \\"echo 'not implemented' && exit 1\\",
-    \\"postinstall\\": \\"node ../scripts/examples_postinstall.js\\"
-  }
-}
+  "* execa.commandSync command: yarn add link:../ options: {\\"cwd\\":\\"./react-native-alice-bobbi/example\\",\\"stdio\\":\\"inherit\\"}
 ",
-    "options": Object {
-      "fs": Object {
-        "ensureDir": [Function],
-        "outputFile": [Function],
-        "readFileSync": [Function],
-        "writeFileSync": [Function],
-      },
-      "spaces": 2,
-    },
-  },
-  "* execa.commandSync command: yarn add file:../ options: {\\"cwd\\":\\"./react-native-alice-bobbi/example\\",\\"stdio\\":\\"inherit\\"}
+  "* execa.commandSync command: pod --version options: {\\"cwd\\":\\"./react-native-alice-bobbi/example/ios\\",\\"stdio\\":\\"inherit\\"}
 ",
-  "* execa.commandSync command: react-native link options: {\\"cwd\\":\\"./react-native-alice-bobbi/example\\",\\"stdio\\":\\"inherit\\"}
+  "* execa.commandSync command: pod install options: {\\"cwd\\":\\"./react-native-alice-bobbi/example/ios\\",\\"stdio\\":\\"inherit\\"}
 ",
 ]
 `;

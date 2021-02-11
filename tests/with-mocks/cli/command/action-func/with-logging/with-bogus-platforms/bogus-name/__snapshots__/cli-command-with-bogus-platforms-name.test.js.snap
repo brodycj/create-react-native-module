@@ -1,0 +1,159 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`create alice-bobbi module with logging, with platforms: 'bogus' 1`] = `
+Array [
+  Object {
+    "warn": Array [
+      "While \`{DEFAULT_PACKAGE_IDENTIFIER}\` is the default package
+      identifier, it is recommended to customize the package identifier.",
+    ],
+  },
+  Object {
+    "info": Array [
+      "CREATE new React Native module with the following options:
+
+  root moduleName: react-native-alice-bobbi
+  name: alice-bobbi
+  prefix: 
+  modulePrefix: react-native
+  packageIdentifier: com.reactlibrary
+  platforms: bogus
+  tvosEnabled: false
+  githubAccount: github_account
+  authorName: Your Name
+  authorEmail: yourname@email.com
+  license: MIT
+  view: false
+  useAppleNetworking: false
+",
+    ],
+  },
+  Object {
+    "info": Array [
+      "CREATE: Generating the React Native library module",
+    ],
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/",
+  },
+  Object {
+    "ensureDir": "react-native-alice-bobbi/",
+  },
+  Object {
+    "outputFileName": "react-native-alice-bobbi/README.md",
+    "theContent": "# react-native-alice-bobbi
+
+## Getting started
+
+\`$ npm install react-native-alice-bobbi --save\`
+
+### Mostly automatic installation
+
+\`$ react-native link react-native-alice-bobbi\`
+
+## Usage
+\`\`\`javascript
+import AliceBobbi from 'react-native-alice-bobbi';
+
+// TODO: What to do with the module?
+AliceBobbi;
+\`\`\`
+",
+  },
+  Object {
+    "outputFileName": "react-native-alice-bobbi/package.json",
+    "theContent": "{
+  \\"name\\": \\"react-native-alice-bobbi\\",
+  \\"title\\": \\"React Native Alice Bobbi\\",
+  \\"version\\": \\"1.0.0\\",
+  \\"description\\": \\"TODO\\",
+  \\"main\\": \\"index.js\\",
+  \\"scripts\\": {
+    \\"test\\": \\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\"
+  },
+  \\"repository\\": {
+    \\"type\\": \\"git\\",
+    \\"url\\": \\"git+https://github.com/github_account/react-native-alice-bobbi.git\\",
+    \\"baseUrl\\": \\"https://github.com/github_account/react-native-alice-bobbi\\"
+  },
+  \\"keywords\\": [
+    \\"react-native\\"
+  ],
+  \\"author\\": {
+    \\"name\\": \\"Your Name\\",
+    \\"email\\": \\"yourname@email.com\\"
+  },
+  \\"license\\": \\"MIT\\",
+  \\"licenseFilename\\": \\"LICENSE\\",
+  \\"readmeFilename\\": \\"README.md\\",
+  \\"peerDependencies\\": {
+    \\"react\\": \\"^16.8.1\\",
+    \\"react-native\\": \\">=0.60.0-rc.0 <1.0.x\\"
+  },
+  \\"devDependencies\\": {
+    \\"react\\": \\"^16.9.0\\",
+    \\"react-native\\": \\"^0.61.5\\"
+  }
+}
+",
+  },
+  Object {
+    "outputFileName": "react-native-alice-bobbi/index.js",
+    "theContent": "import { NativeModules } from 'react-native';
+
+const { AliceBobbi } = NativeModules;
+
+export default AliceBobbi;
+",
+  },
+  Object {
+    "outputFileName": "react-native-alice-bobbi/.gitignore",
+    "theContent": "# OSX
+#
+.DS_Store
+
+# node.js
+#
+node_modules/
+npm-debug.log
+yarn-error.log
+",
+  },
+  Object {
+    "outputFileName": "react-native-alice-bobbi/.gitattributes",
+    "theContent": "",
+  },
+  Object {
+    "outputFileName": "react-native-alice-bobbi/.npmignore",
+    "theContent": "",
+  },
+  Object {
+    "log": Array [
+      "
+📚  Created library module react-native-alice-bobbi in \`./react-native-alice-bobbi\`.
+🕘  It took XXX.
+
+====================================================
+YOU'RE ALL SET!
+
+💡 next time consider using \`--generate-example\` to add a generated example!
+",
+    ],
+  },
+]
+`;

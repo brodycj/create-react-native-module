@@ -3,6 +3,14 @@
 exports[`mocked cli-program.js runs correctly defaults 1`] = `
 Array [
   Object {
+    "please-upgrade-node": Object {
+      "engines": Object {
+        "node": ">= 8",
+      },
+      "name": "create-react-native-module",
+    },
+  },
+  Object {
     "notify": Object {},
   },
   Object {
@@ -23,7 +31,7 @@ Array [
     "option": Object {
       "args": Array [
         "--prefix [prefix]",
-        "The prefix for the library module",
+        "The prefix of the library module object to be exported by both JavaScript and native code",
         [Function],
         "",
       ],
@@ -43,7 +51,7 @@ Array [
     "option": Object {
       "args": Array [
         "--module-prefix [modulePrefix]",
-        "The module prefix for the library module, ignored if --module-name is specified",
+        "The prefix of the library module object, ignored if --module-name is specified",
         [Function],
         "react-native",
       ],
@@ -53,7 +61,7 @@ Array [
     "option": Object {
       "args": Array [
         "--package-identifier [packageIdentifier]",
-        "(Android only!) The package name for the Android module",
+        "[Android] The Java package identifier used by the Android module",
         [Function],
         "com.reactlibrary",
       ],
@@ -66,6 +74,16 @@ Array [
         "Platforms the library module will be created for - comma separated",
         [Function],
         "ios,android",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--tvos-enabled",
+        "Generate the module with tvOS build enabled (requires react-native-tvos fork, with minimum version of 0.60, and iOS platform to be enabled)",
+        [Function],
+        undefined,
       ],
     },
   },
@@ -122,8 +140,8 @@ Array [
   Object {
     "option": Object {
       "args": Array [
-        "--use-cocoapods",
-        "Generate a library with a sample podspec and third party pod usage example",
+        "--use-apple-networking",
+        "[iOS] Use \`AFNetworking\` dependency as a sample in the podspec & use it from the iOS code",
         [Function],
         undefined,
       ],
@@ -133,7 +151,17 @@ Array [
     "option": Object {
       "args": Array [
         "--generate-example",
-        "Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally",
+        "Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires both react-native-cli and yarn to be installed globally",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--example-file-linkage",
+        "DEPRECATED: do \`yarn add file:../\` instead of \`yarn add link:../\` in a generated example project, and add a postinstall workaround script, with no overwrite of example metro.config.js",
         [Function],
         undefined,
       ],
@@ -155,7 +183,17 @@ Array [
         "--example-react-native-version [exampleReactNativeVersion]",
         "React Native version for the generated example project",
         [Function],
-        "react-native@0.59",
+        "react-native@latest",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--write-example-podfile",
+        "[iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile",
+        [Function],
+        undefined,
       ],
     },
   },
@@ -216,25 +254,6 @@ Array [
 
 \`$ react-native link react-native-test-package\`
 
-### Manual installation
-
-
-#### Android
-
-1. Open up \`android/app/src/main/java/[...]/MainApplication.java\`
-  - Add \`import com.reactlibrary.TestPackagePackage;\` to the imports at the top of the file
-  - Add \`new TestPackagePackage()\` to the list returned by the \`getPackages()\` method
-2. Append the following lines to \`android/settings.gradle\`:
-  	\`\`\`
-  	include ':react-native-test-package'
-  	project(':react-native-test-package').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-test-package/android')
-  	\`\`\`
-3. Insert the following lines inside the dependencies block in \`android/app/build.gradle\`:
-  	\`\`\`
-      compile project(':react-native-test-package')
-  	\`\`\`
-
-
 ## Usage
 \`\`\`javascript
 import TestPackage from 'react-native-test-package';
@@ -272,11 +291,11 @@ TestPackage;
   \\"readmeFilename\\": \\"README.md\\",
   \\"peerDependencies\\": {
     \\"react\\": \\"^16.8.1\\",
-    \\"react-native\\": \\">=0.59.0-rc.0 <1.0.x\\"
+    \\"react-native\\": \\">=0.60.0-rc.0 <1.0.x\\"
   },
   \\"devDependencies\\": {
-    \\"react\\": \\"^16.8.3\\",
-    \\"react-native\\": \\"^0.59.10\\"
+    \\"react\\": \\"^16.9.0\\",
+    \\"react-native\\": \\"^0.61.5\\"
   }
 }
 ",
@@ -328,61 +347,79 @@ buck-out/
     "outputFileName": "react-native-test-package/android/build.gradle",
     "theContent": "// android/build.gradle
 
-buildscript {
-    ext.safeExtGet = {prop, fallback ->
-        rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
-    }
-    repositories {
-        google()
-        jcenter()
-    }
+// based on:
+//
+// * https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle
+//   original location:
+//   - https://github.com/facebook/react-native/blob/0.58-stable/local-cli/templates/HelloWorld/android/build.gradle
+//
+// * https://github.com/facebook/react-native/blob/0.60-stable/template/android/app/build.gradle
+//   original location:
+//   - https://github.com/facebook/react-native/blob/0.58-stable/local-cli/templates/HelloWorld/android/app/build.gradle
 
-    dependencies {
-        // Matches recent template from React Native (0.60)
-        // https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L16
-        classpath(\\"com.android.tools.build:gradle:\${safeExtGet('gradlePluginVersion', '3.4.1')}\\")
+def DEFAULT_COMPILE_SDK_VERSION = 28
+def DEFAULT_BUILD_TOOLS_VERSION = '28.0.3'
+def DEFAULT_MIN_SDK_VERSION = 16
+def DEFAULT_TARGET_SDK_VERSION = 28
+
+def safeExtGet(prop, fallback) {
+    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+
+buildscript {
+    // The Android Gradle plugin is only required when opening the android folder stand-alone.
+    // This avoids unnecessary downloads and potential conflicts when the library is included as a
+    // module dependency in an application project.
+    // ref: https://docs.gradle.org/current/userguide/tutorial_using_tasks.html#sec:build_script_external_dependencies
+    if (project == rootProject) {
+        repositories {
+            google()
+            jcenter()
+        }
+        dependencies {
+            classpath 'com.android.tools.build:gradle:3.4.1'
+        }
     }
 }
 
 apply plugin: 'com.android.library'
 apply plugin: 'maven'
 
-// Matches values in recent template from React Native 0.59 / 0.60
-// https://github.com/facebook/react-native/blob/0.59-stable/template/android/build.gradle#L5-L9
-// https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L5-L9
-def DEFAULT_COMPILE_SDK_VERSION = 28
-def DEFAULT_BUILD_TOOLS_VERSION = \\"28.0.3\\"
-def DEFAULT_MIN_SDK_VERSION = 16
-def DEFAULT_TARGET_SDK_VERSION = 28
-
 android {
-  compileSdkVersion safeExtGet('compileSdkVersion', DEFAULT_COMPILE_SDK_VERSION)
-  buildToolsVersion safeExtGet('buildToolsVersion', DEFAULT_BUILD_TOOLS_VERSION)
-
-  defaultConfig {
-    minSdkVersion safeExtGet('minSdkVersion', DEFAULT_MIN_SDK_VERSION)
-    targetSdkVersion safeExtGet('targetSdkVersion', DEFAULT_TARGET_SDK_VERSION)
-    versionCode 1
-    versionName \\"1.0\\"
-  }
-  lintOptions {
-    abortOnError false
-  }
+    compileSdkVersion safeExtGet('compileSdkVersion', DEFAULT_COMPILE_SDK_VERSION)
+    buildToolsVersion safeExtGet('buildToolsVersion', DEFAULT_BUILD_TOOLS_VERSION)
+    defaultConfig {
+        minSdkVersion safeExtGet('minSdkVersion', DEFAULT_MIN_SDK_VERSION)
+        targetSdkVersion safeExtGet('targetSdkVersion', DEFAULT_TARGET_SDK_VERSION)
+        versionCode 1
+        versionName \\"1.0\\"
+    }
+    lintOptions {
+        abortOnError false
+    }
 }
 
 repositories {
+    // ref: https://www.baeldung.com/maven-local-repository
+    mavenLocal()
     maven {
         // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
-        // Matches recent template from React Native 0.59 / 0.60
-        // https://github.com/facebook/react-native/blob/0.59-stable/template/android/build.gradle#L30
-        // https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle#L28
-        url \\"$projectDir/../node_modules/react-native/android\\"
+        url \\"$rootDir/../node_modules/react-native/android\\"
     }
-    mavenCentral()
+    maven {
+        // Android JSC is installed from npm
+        url \\"$rootDir/../node_modules/jsc-android/dist\\"
+    }
+    google()
+    jcenter()
 }
 
 dependencies {
-    implementation \\"com.facebook.react:react-native:\${safeExtGet('reactnativeVersion', '+')}\\"
+    //noinspection GradleDynamicVersion
+    implementation 'com.facebook.react:react-native:+'  // From node_modules
 }
 
 def configureReactNativePom(def pom) {
@@ -414,7 +451,8 @@ def configureReactNativePom(def pom) {
 }
 
 afterEvaluate { project ->
-
+    // some Gradle build hooks ref:
+    // https://www.oreilly.com/library/view/gradle-beyond-the/9781449373801/ch03.html
     task androidJavadoc(type: Javadoc) {
         source = android.sourceSets.main.java.srcDirs
         classpath += files(android.bootClasspath)
@@ -435,8 +473,10 @@ afterEvaluate { project ->
 
     android.libraryVariants.all { variant ->
         def name = variant.name.capitalize()
-        task \\"jar\${name}\\"(type: Jar, dependsOn: variant.javaCompile) {
-            from variant.javaCompile.destinationDir
+        def javaCompileTask = variant.javaCompileProvider.get()
+
+        task \\"jar\${name}\\"(type: Jar, dependsOn: javaCompileTask) {
+            from javaCompileTask.destinationDir
         }
     }
 
@@ -450,7 +490,6 @@ afterEvaluate { project ->
         repositories.mavenDeployer {
             // Deploy to react-native-event-bridge/maven, ready to publish to npm
             repository url: \\"file://\${projectDir}/../android/maven\\"
-
             configureReactNativePom pom
         }
     }

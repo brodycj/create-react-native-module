@@ -1,6 +1,12 @@
 // special compact mocks for this test:
 const mysnap = [];
 const mockpushit = x => mysnap.push(x);
+jest.mock('please-upgrade-node', () => ({ name, engines }) => {
+  // only snapshot a limited number of fields
+  expect(name).toBeDefined();
+  expect(engines).toBeDefined();
+  mockpushit({ 'please-upgrade-node': { name, engines } });
+});
 jest.mock('update-notifier', () => ({ pkg }) => {
   // only check a limited number of fields in pkg
   expect(pkg.name).toBeDefined();
@@ -50,7 +56,7 @@ const mockCommander = {
     mockpushit({ parse: { argv } });
     mockCommanderState.actionFunction.apply(
       { opts: () => ({ platforms: 'android' }) },
-      ['test-package']);
+      [{ bogus: {} }, ['test-package']]);
   },
   help: () => {
     throw new Error('help call not expected in this test');

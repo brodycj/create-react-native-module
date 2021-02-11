@@ -2,7 +2,7 @@ const lib = require('../../../../../lib/lib.js');
 
 const ioInject = require('../../../helpers/io-inject.js');
 
-test('create alice-bobbi module with defaults, recover from missing scripts in example package.json', async () => {
+test('create alice-bobbi module with example, with `exampleFileLinkage: true` then recover from missing scripts in example package.json', async () => {
   const mysnap = [];
 
   const ioInject2 = ioInject(mysnap);
@@ -23,6 +23,7 @@ test('create alice-bobbi module with defaults, recover from missing scripts in e
   const options = {
     name: 'alice-bobbi',
     generateExample: true,
+    exampleFileLinkage: true,
   };
 
   await lib(options, inject);

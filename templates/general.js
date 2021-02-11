@@ -1,51 +1,7 @@
 module.exports = [{
   name: () => 'README.md',
-  content: ({ moduleName, packageIdentifier, name, namespace, platforms }) => {
-    let manualInstallation = '';
-
-    if (platforms.indexOf('ios') >= 0) {
-      manualInstallation += `
-#### iOS
-
-1. In XCode, in the project navigator, right click \`Libraries\` ➜ \`Add Files to [your project's name]\`
-2. Go to \`node_modules\` ➜ \`${moduleName}\` and add \`${name}.xcodeproj\`
-3. In XCode, in the project navigator, select your project. Add \`lib${name}.a\` to your project's \`Build Phases\` ➜ \`Link Binary With Libraries\`
-4. Run your project (\`Cmd+R\`)<
-`;
-    }
-
-    if (platforms.indexOf('android') >= 0) {
-      manualInstallation += `
-#### Android
-
-1. Open up \`android/app/src/main/java/[...]/MainApplication.java\`
-  - Add \`import ${packageIdentifier}.${name}Package;\` to the imports at the top of the file
-  - Add \`new ${name}Package()\` to the list returned by the \`getPackages()\` method
-2. Append the following lines to \`android/settings.gradle\`:
-  	\`\`\`
-  	include ':${moduleName}'
-  	project(':${moduleName}').projectDir = new File(rootProject.projectDir, 	'../node_modules/${moduleName}/android')
-  	\`\`\`
-3. Insert the following lines inside the dependencies block in \`android/app/build.gradle\`:
-  	\`\`\`
-      compile project(':${moduleName}')
-  	\`\`\`
-`;
-    }
-
-    if (platforms.indexOf('windows') >= 0) {
-      manualInstallation += `
-#### Windows
-[Read it! :D](https://github.com/ReactWindows/react-native)
-
-1. In Visual Studio add the \`${name}.sln\` in \`node_modules/${moduleName}/windows/${name}.sln\` folder to their solution, reference from their app.
-2. Open up your \`MainPage.cs\` app
-  - Add \`using ${namespace}.${name};\` to the usings at the top of the file
-  - Add \`new ${name}Package()\` to the \`List<IReactPackage>\` returned by the \`Packages\` method
-`;
-    }
-
-    return `# ${moduleName}
+  content: ({ moduleName, name }) =>
+    `# ${moduleName}
 
 ## Getting started
 
@@ -55,10 +11,6 @@ module.exports = [{
 
 \`$ react-native link ${moduleName}\`
 
-### Manual installation
-
-${manualInstallation}
-
 ## Usage
 \`\`\`javascript
 import ${name} from '${moduleName}';
@@ -66,31 +18,20 @@ import ${name} from '${moduleName}';
 // TODO: What to do with the module?
 ${name};
 \`\`\`
-`;
-  },
+`,
 }, {
   name: () => 'package.json',
   content: ({ moduleName, platforms, githubAccount, authorName, authorEmail, license }) => {
-    const withWindows = platforms.indexOf('windows') >= 0;
-
     const peerDependencies =
       `{
     "react": "^16.8.1",
-    "react-native": ">=0.59.0-rc.0 <1.0.x"` +
-      (withWindows
-        ? `,
-    "react-native-windows": ">=0.59.0-rc.0 <1.0.x"`
-        : ``) + `
+    "react-native": ">=0.60.0-rc.0 <1.0.x"
   }`;
 
     const devDependencies =
       `{
-    "react": "^16.8.3",
-    "react-native": "^0.59.10"` +
-        (withWindows
-          ? `,
-    "react-native-windows": "^0.59.0-rc.1"`
-          : ``) + `
+    "react": "^16.9.0",
+    "react-native": "^0.61.5"
   }`;
 
     return `{

@@ -27,16 +27,15 @@ This tool based on [`react-native-create-library`](https://www.npmjs.com/package
 
 ### General status
 
-- **React Native versions supported:**
-  - recommended: `0.60`, `0.61-rc` (see known quirks and issues below)
-  - outdated: `0.59`
-- Known quirks & issues on React Native 0.60(+):
-  - [issue #99](https://github.com/brodybits/create-react-native-module/issues/99) - additional `pod install` step needed for RN 0.60 on iOS
-  - [issue #29](https://github.com/brodybits/create-react-native-module/issues/29) - View does not work with RN 0.60 on Android (quick patch needed)
-  - React Native 0.60(+) currently not supported by Expo or react-native-windows
-- Out-of-tree platform support
-  - tvOS platform support - unstable (not tested) (see [issue #95](https://github.com/brodybits/create-react-native-module/issues/95))
-  - Windows - unstable (not tested, see [issue #23](https://github.com/brodybits/create-react-native-module/issues/23)); now deprecated and may be removed in the near future (see [issue #43](https://github.com/brodybits/create-react-native-module/issues/43))
+- Minimum React Native version: 0.60 (outdated), 0.61 (recommended)
+- generated example app with symlink by default, has known issue with adding dependencies to the library root - see [issue #308](https://github.com/brodybits/create-react-native-module/issues/308)
+- Platform fork support
+  - tvOS platform fork
+    - requires use of `--tvos-enabled` option as documented below
+    - requires the [`react-native-tvos`](https://www.npmjs.com/package/react-native-tvos) fork, with minimum version of 0.60 ref:  [react-native-community/react-native-tvos#11](https://github.com/react-native-community/react-native-tvos/issues/11)), [issue #95](https://github.com/brodybits/create-react-native-module/issues/95)
+    - unstable with very limited testing, with limited if any active support from the primary maintainer [@brodybits](https://github.com/brodybits) (see [issue #127](https://github.com/brodybits/create-react-native-module/issues/127))
+- Out-of-tree platforms
+  - Windows - no longer supported for reasons discussed in issues [#23](https://github.com/brodybits/create-react-native-module/issues/23) and [#43](https://github.com/brodybits/create-react-native-module/issues/43) (existing Windows C# template is kept in `unsupported-platforms` for now (at least) and further discussion would be welcome in a new issue on GitHub)
   - for future consideration: macOS (see [issue #94](https://github.com/brodybits/create-react-native-module/issues/94))
 - Node.js pre-10 support is deprecated and will be removed in the near future (see [issue #38](https://github.com/brodybits/create-react-native-module/issues/38))
 
@@ -49,8 +48,10 @@ Why not use `react-native new-library`? Unfortunately that command doesn't creat
 
 ### Alternatives
 
-- [`react-native-create-library`](https://www.npmjs.com/package/react-native-create-library)
-- [`react-native-create-bridge`](https://github.com/peggyrayzis/react-native-create-bridge)
+- [`brodybits/react-native-module-init`](https://github.com/brodybits/react-native-module-init) - new interactive CLI that uses the templates from this utiity
+- [`react-native-community/bob`](https://github.com/react-native-community/bob) - opinionated, interactive library CLI that is designed to support both native libraries and libraries with web support
+
+__Outdated alternatives:__ see [acknowledgements](#acknowledgements) below
 
 ## Installation
 
@@ -91,20 +92,23 @@ Usage: create-react-native-module [options] <name>
 Options:
 
   -V, --version                             output the version number
-  --prefix <prefix>                         The prefix for the library module (Default: ``)
+  --prefix <prefix>                         The prefix of the library module object to be exported by both JavaScript and native code (Default: ``)
   --module-name <moduleName>                The module library package name to be used in package.json. Default: react-native-(name in param-case)
-  --module-prefix <modulePrefix>            The module prefix for the library module, ignored if --module-name is specified (Default: `react-native`)
-  --package-identifier <packageIdentifier>  (Android only!) The package name for the Android module (Default: `com.reactlibrary`)
+  --module-prefix <modulePrefix>            The prefix of the library module object, ignored if --module-name is specified (Default: `react-native`)
+  --package-identifier <packageIdentifier>  [Android] The Java package identifier used by the Android module (Default: `com.reactlibrary`)
   --platforms <platforms>                   Platforms the library module will be created for - comma separated (Default: `ios,android`)
+  --tvos-enabled                            Generate the module with tvOS build enabled (requires react-native-tvos fork, with minimum version of 0.60, and iOS platform to be enabled)
   --github-account <githubAccount>          The github account where the library module is hosted (Default: `github_account`)
   --author-name <authorName>                The author's name (Default: `Your Name`)
   --author-email <authorEmail>              The author's email (Default: `yourname@email.com`)
   --license <license>                       The license type (Default: `MIT`)
   --view                                    Generate the module as a very simple native view component
-  --use-cocoapods                           Generate a library with a sample podspec and third party pod usage example
-  --generate-example                        Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally
+  --use-apple-networking                    [iOS] Use `AFNetworking` dependency as a sample in the podspec & use it from the iOS code
+  --generate-example                        Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires both react-native-cli and yarn to be installed globally
+  --example-file-linkage                    DEPRECATED: do `yarn add file:../` instead of `yarn add link:../` in a generated example project, and add a postinstall workaround script, with no overwrite of example metro.config.js
   --example-name <exampleName>              Name for the example project (default: `example`)
-  --example-react-native-version <version>  React Native version for the generated example project (default: `react-native@0.59`)
+  --example-react-native-version <version>  React Native version for the generated example project (default: `react-native@latest`)
+  --write-example-podfile                   [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile
   -h, --help                                output usage information
 ```
 
@@ -124,27 +128,26 @@ createLibraryModule({
 
 ```javascript
 {
-  name: String, /* The name of the library (Default: Library) */
-  prefix: String, /* The prefix for the library (Default: ``) */
+  name: String, /* The name of the library (mandatory) */
+  prefix: String, /* The prefix of the library module object to be exported by both JavaScript and native code (Default: ``) */
   moduleName: String, /* The module library package name to be used in package.json. Default: react-native-(name in param-case) */
-  modulePrefix: String, /* The module prefix for the library, ignored if moduleName is specified (Default: react-native) */
+  modulePrefix: String, /* The prefix of the library module object, ignored if moduleName is specified (Default: `react-native`) */
   platforms: Array | String, /* Platforms the library will be created for. (Default: ['android', 'ios']) */
-  packageIdentifier: String, /* (Android only!) The package name for the Android module (Default: com.reactlibrary) */
+  packageIdentifier: String, /* [Android] The Java package identifier used by the Android module (Default: com.reactlibrary) */
+  tvosEnabled: Boolean, /* Generate the module with tvOS build enabled (requires react-native-tvos fork, with minimum version of 0.60, and iOS platform to be enabled) */
   githubAccount: String, /* The github account where the library is hosted (Default: `github_account`) */
   authorName: String, /* The author's name (Default: `Your Name`) */
   authorEmail: String, /* The author's email (Default: `yourname@email.com`) */
   license: String, /* The license type of this library (Default: `MIT`) */
-  useCocoapods: Boolean, /* Generate a library with a sample podspec and third party pod usage example (Default: false) */
+  useAppleNetworking: Boolean, /* [iOS] Use `AFNetworking` dependency as a sample in the podspec & use it from the iOS code (Default: false) */
   view: Boolean, /* Generate the module as a very simple native view component (Default: false) */
-  generateExample: Boolean, /* Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally (Default: false) */
+  generateExample: Boolean, /* Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires both react-native-cli and yarn to be installed globally (Default: false) */
+  exampleFileLinkage: Boolean, /* DEPRECATED: do `yarn add file:../` instead of `yarn add link:../` in a generated example project, and add a postinstall workaround script, with no overwrite of example metro.config.js (Default: false) */
   exampleName: String, /* Name for the example project (Default: `example`) */
-  exampleReactNativeVersion: String, /* React Native version for the generated example project (Default: `react-native@0.59`) */
+  exampleReactNativeVersion: String, /* React Native version for the generated example project (Default: `react-native@latest`) */
+  writeExamplePodfile: Boolean, /* [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile (Default: false) */
 }
 ```
-
-## Behavior not tested or supported
-
-- Windows platform support
 
 ## Examples
 
@@ -166,12 +169,16 @@ cd react-native-alice-helper/example
 
 #### Running the example app
 
-__Within the example test app subdirectory:__
+**Recommended:** Follow the instructions shown in the end of the console log output, which are more likely to be up-to-date.
+
+__Extra notes:__
+
+_Within the example test app subdirectory:_
 
 It is *recommended* to start the Metro Bundler manually (within `react-native-alice-helper/example`), which would run in the foreground:
 
 ```
-npm start
+yarn start
 ```
 
 Otherwise, React Native will open its own window to run the Metro Bundler.
@@ -190,7 +197,7 @@ ANDROID_HOME=~/Library/Android/sdk react-native run-android
 
 For iOS:
 
-Extra installation step needed on React Native 0.60(+) (see [issue #28](https://github.com/brodybits/create-react-native-module/issues/28)):
+Extra installation step needed _in case of clean checkout only_:
 
 ```
 cd ios && pod install && cd ..
@@ -208,7 +215,7 @@ or do the following command to open the iOS project in Xcode:
 open ios/example.xcodeproj
 ```
 
-__Expected result:__
+#### Expected result
 
 The example app shows the following indications:
 
@@ -233,17 +240,26 @@ Then go into the example app subdirectory:
 cd react-native-carol-widget/example
 ```
 
-__Within the example test app subdirectory:__
+#### Running the view example app
+
+**Recommended:** Follow the instructions shown in the end of the console log output, which are more likely to be up-to-date.
+
+__Some extra notes:__
+
+_Within the example test app subdirectory:_
 
 It is *recommended* to start the Metro Bundler manually as described above (within `react-native-carol-widget/example`):
 
 ```
-npm start
+yarn start
 ```
 
 To run on Android: do `react-native run-android` as described for the other example above.
 
-To run on iOS: do `pod install` in `ios` subdirectory for React Native 0.60(+) (see above), then do `react-native run-ios` or `open ios/example.xcodeproj` as described for the other example above.
+To run on iOS (as described above):
+
+- _in case of clean checkout **only**_: do `pod install` in `ios` subdirectory
+- do `react-native run-ios` or `open ios/example.xcodeproj`
 
 __Expected result:__
 

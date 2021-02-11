@@ -2,14 +2,14 @@
 
 exports[`cli-command object 1`] = `
 Object {
+  "action": [Function],
   "description": "creates a React Native library module for one or more platforms",
-  "func": [Function],
   "name": "create-library",
   "options": Array [
     Object {
       "command": "--prefix [prefix]",
       "default": "",
-      "description": "The prefix for the library module",
+      "description": "The prefix of the library module object to be exported by both JavaScript and native code",
     },
     Object {
       "command": "--module-name [moduleName]",
@@ -18,17 +18,21 @@ Object {
     Object {
       "command": "--module-prefix [modulePrefix]",
       "default": "react-native",
-      "description": "The module prefix for the library module, ignored if --module-name is specified",
+      "description": "The prefix of the library module object, ignored if --module-name is specified",
     },
     Object {
       "command": "--package-identifier [packageIdentifier]",
       "default": "com.reactlibrary",
-      "description": "(Android only!) The package name for the Android module",
+      "description": "[Android] The Java package identifier used by the Android module",
     },
     Object {
       "command": "--platforms <platforms>",
       "default": "ios,android",
       "description": "Platforms the library module will be created for - comma separated",
+    },
+    Object {
+      "command": "--tvos-enabled",
+      "description": "Generate the module with tvOS build enabled (requires react-native-tvos fork, with minimum version of 0.60, and iOS platform to be enabled)",
     },
     Object {
       "command": "--github-account [githubAccount]",
@@ -55,12 +59,16 @@ Object {
       "description": "Generate the module as a very simple native view component",
     },
     Object {
-      "command": "--use-cocoapods",
-      "description": "Generate a library with a sample podspec and third party pod usage example",
+      "command": "--use-apple-networking",
+      "description": "[iOS] Use \`AFNetworking\` dependency as a sample in the podspec & use it from the iOS code",
     },
     Object {
       "command": "--generate-example",
-      "description": "Generate an example project and links the library module to it, requires both react-native-cli and yarn to be installed globally",
+      "description": "Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires both react-native-cli and yarn to be installed globally",
+    },
+    Object {
+      "command": "--example-file-linkage",
+      "description": "DEPRECATED: do \`yarn add file:../\` instead of \`yarn add link:../\` in a generated example project, and add a postinstall workaround script, with no overwrite of example metro.config.js",
     },
     Object {
       "command": "--example-name [exampleName]",
@@ -69,8 +77,12 @@ Object {
     },
     Object {
       "command": "--example-react-native-version [exampleReactNativeVersion]",
-      "default": "react-native@0.59",
+      "default": "react-native@latest",
       "description": "React Native version for the generated example project",
+    },
+    Object {
+      "command": "--write-example-podfile",
+      "description": "[iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile",
     },
   ],
   "usage": "[options] <name>",

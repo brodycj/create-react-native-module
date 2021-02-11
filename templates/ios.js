@@ -1,6 +1,6 @@
 module.exports = platform => [{
   name: ({ moduleName }) => `${moduleName}.podspec`,
-  content: ({ moduleName, githubAccount, authorName, authorEmail, useCocoapods }) => `require "json"
+  content: ({ moduleName, tvosEnabled, githubAccount, authorName, authorEmail, license, useAppleNetworking }) => `require "json"
 
 package = JSON.parse(File.read(File.join(__dir__, "package.json")))
 
@@ -12,17 +12,19 @@ Pod::Spec.new do |s|
                   ${moduleName}
                    DESC
   s.homepage     = "https://github.com/${githubAccount}/${moduleName}"
-  s.license      = "MIT"
-  # s.license    = { :type => "MIT", :file => "FILE_LICENSE" }
+  # brief license entry:
+  s.license      = "${license}"
+  # optional - use expanded license entry instead:
+  # s.license    = { :type => "${license}", :file => "LICENSE" }
   s.authors      = { "${authorName}" => "${authorEmail}" }
-  s.platforms    = { :ios => "9.0", :tvos => "10.0" }
+  s.platforms    = { :ios => "9.0"${tvosEnabled ? `, :tvos => "10.0"` : ``} }
   s.source       = { :git => "https://github.com/${githubAccount}/${moduleName}.git", :tag => "#{s.version}" }
 
   s.source_files = "ios/**/*.{h,m,swift}"
   s.requires_arc = true
 
   s.dependency "React"
-	${useCocoapods ? `s.dependency 'AFNetworking', '~> 3.0'` : ``}
+  ${useAppleNetworking ? `s.dependency 'AFNetworking', '~> 3.0'` : `# ...`}
   # s.dependency "..."
 end
 
@@ -39,27 +41,31 @@ end
 }, {
   // implementation of module without view:
   name: ({ name, view }) => !view && `${platform}/${name}.m`,
-  content: ({ name, useCocoapods }) => `#import "${name}.h"
+  content: ({ name, useAppleNetworking }) => `#import "${name}.h"
 
-${useCocoapods ? `#import <AFNetworking/AFNetworking.h>
+${useAppleNetworking ? `#import <AFNetworking/AFNetworking.h>
 ` : ``}
 @implementation ${name}
 
 RCT_EXPORT_MODULE()
 
 RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnull NSNumber *)numberArgument callback:(RCTResponseSenderBlock)callback)
-{
-    // TODO: Implement some actually useful functionality
-	${useCocoapods
-    ? `AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+` +
+    // sample method body with tabs for truthy useAppleNetworking *only*:
+    (useAppleNetworking
+      ? `{
+	AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
 	manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/plain"];
 	[manager GET:@"https://httpstat.us/200" parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
 			callback(@[[NSString stringWithFormat: @"numberArgument: %@ stringArgument: %@ resp: %@", numberArgument, stringArgument, responseObject]]);
 	} failure:^(NSURLSessionTask *operation, NSError *error) {
 			callback(@[[NSString stringWithFormat: @"numberArgument: %@ stringArgument: %@ err: %@", numberArgument, stringArgument, error]]);
-	}];`
-    : `callback(@[[NSString stringWithFormat: @"numberArgument: %@ stringArgument: %@", numberArgument, stringArgument]]);`}
-}
+	}];
+}`
+      : `{
+    // TODO: Implement some actually useful functionality
+    callback(@[[NSString stringWithFormat: @"numberArgument: %@ stringArgument: %@", numberArgument, stringArgument]]);
+}`) + `
 
 @end
 `,
