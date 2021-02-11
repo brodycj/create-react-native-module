@@ -4,7 +4,7 @@ exports[`create alice-bobbi module with logging, with platforms: 'bogus' 1`] = `
 Array [
   Object {
     "warn": Array [
-      "While \`{DEFAULT_ANDROID_PACKAGE_ID}\` is the default package
+      "While \`{DEFAULT_NATIVE_PACKAGE_ID}\` is the default package
       identifier, it is recommended to customize the package identifier.",
     ],
   },
@@ -16,7 +16,7 @@ Array [
         full package name: react-native-alice-bobbi
                   is view: false
         object class name: AliceBobbi
-Android androidPackageId: com.reactlibrary
+  Android nativePackageId: com.reactlibrary
                 platforms: bogus
         Apple tvosEnabled: false
                authorName: Your Name

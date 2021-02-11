@@ -60,7 +60,7 @@ Array [
   Object {
     "option": Object {
       "args": Array [
-        "--android-package-id [androidPackageId]",
+        "--native-package-id [nativePackageId]",
         "The Java package identifier used by the Android module",
         [Function],
         "com.reactlibrary",
@@ -198,7 +198,7 @@ Array [
   },
   Object {
     "warn": Array [
-      "While \`{DEFAULT_ANDROID_PACKAGE_ID}\` is the default package
+      "While \`{DEFAULT_NATIVE_PACKAGE_ID}\` is the default package
       identifier, it is recommended to customize the package identifier.",
     ],
   },
@@ -210,7 +210,7 @@ Array [
         full package name: react-native-test-package
                   is view: false
         object class name: TestPackage
-Android androidPackageId: com.reactlibrary
+  Android nativePackageId: com.reactlibrary
                 platforms: android,ios
         Apple tvosEnabled: false
                authorName: Your Name

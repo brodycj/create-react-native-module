@@ -19,7 +19,7 @@ Object {
       "description": "The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase)",
     },
     Object {
-      "command": "--android-package-id [androidPackageId]",
+      "command": "--native-package-id [nativePackageId]",
       "default": "com.reactlibrary",
       "description": "The Java package identifier used by the Android module",
     },

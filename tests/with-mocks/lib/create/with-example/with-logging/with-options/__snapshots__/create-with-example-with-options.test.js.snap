@@ -10,7 +10,7 @@ Array [
         full package name: react-native-alice-bobbi
                   is view: false
         object class name: AliceBobbi
-Android androidPackageId: com.alicebits
+  Android nativePackageId: com.alicebits
                 platforms: android,ios
         Apple tvosEnabled: true
                authorName: Alice
