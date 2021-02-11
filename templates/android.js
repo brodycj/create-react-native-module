@@ -161,10 +161,10 @@ afterEvaluate { project ->
 `,
 }, {
   // for module without view:
-  name: ({ packageIdentifier, objectClassName, view }) =>
+  name: ({ objectClassName, packageIdentifier, view }) =>
     !view &&
       `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${objectClassName}Module.java`,
-  content: ({ packageIdentifier, objectClassName, view }) =>
+  content: ({ objectClassName, packageIdentifier, view }) =>
     !view &&
       `// ${objectClassName}Module.java
 
@@ -198,10 +198,10 @@ public class ${objectClassName}Module extends ReactContextBaseJavaModule {
 `,
 }, {
   // manager for view:
-  name: ({ packageIdentifier, objectClassName, view }) =>
+  name: ({ objectClassName, packageIdentifier, view }) =>
     view &&
       `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${objectClassName}Manager.java`,
-  content: ({ packageIdentifier, objectClassName, view }) =>
+  content: ({ objectClassName, packageIdentifier, view }) =>
     view &&
       `// ${objectClassName}Manager.java
 
@@ -234,10 +234,10 @@ public class ${objectClassName}Manager extends SimpleViewManager<View> {
 `,
 }, {
   // package for module without view:
-  name: ({ packageIdentifier, objectClassName, view }) =>
+  name: ({ objectClassName, packageIdentifier, view }) =>
     !view &&
       `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${objectClassName}Package.java`,
-  content: ({ packageIdentifier, objectClassName, view }) =>
+  content: ({ objectClassName, packageIdentifier, view }) =>
     !view &&
       `// ${objectClassName}Package.java
 
@@ -267,10 +267,10 @@ public class ${objectClassName}Package implements ReactPackage {
 `,
 }, {
   // package for manager for view:
-  name: ({ packageIdentifier, objectClassName, view }) =>
+  name: ({ objectClassName, packageIdentifier, view }) =>
     view &&
       `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${objectClassName}Package.java`,
-  content: ({ packageIdentifier, objectClassName, view }) =>
+  content: ({ objectClassName, packageIdentifier, view }) =>
     view &&
       `// ${objectClassName}Package.java
 
