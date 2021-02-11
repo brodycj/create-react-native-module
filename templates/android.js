@@ -255,7 +255,7 @@ public class ${name}Package implements ReactPackage {
       `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${name}Package.java`,
   content: ({ packageIdentifier, name, view }) =>
     view &&
-      `${name}Package.java
+      `// ${name}Package.java
 
 package ${packageIdentifier};
 
