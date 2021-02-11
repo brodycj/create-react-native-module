@@ -8,7 +8,7 @@ Object {
   "options": Array [
     Object {
       "command": "--package-name [packageName]",
-      "description": "The package name to be used in package.json. Default: react-native-(name in param-case)",
+      "description": "The full package name to be used in package.json. Default: react-native-(name in param-case)",
     },
     Object {
       "command": "--view",

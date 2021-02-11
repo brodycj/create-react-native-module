@@ -31,7 +31,7 @@ Array [
     "option": Object {
       "args": Array [
         "--package-name [packageName]",
-        "The package name to be used in package.json. Default: react-native-(name in param-case)",
+        "The full package name to be used in package.json. Default: react-native-(name in param-case)",
         [Function],
         undefined,
       ],
@@ -207,8 +207,7 @@ Array [
       "CREATE new React Native module with the following options:
 
                      name: test-package
-    root packageName
-      (full package name): react-native-test-package
+        full package name: react-native-test-package
                   is view: false
         object class name: TestPackage
 Android androidPackageId: com.reactlibrary

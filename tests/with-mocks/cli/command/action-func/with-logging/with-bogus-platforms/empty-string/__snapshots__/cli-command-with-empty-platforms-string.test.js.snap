@@ -13,8 +13,7 @@ Array [
       "CREATE new React Native module with the following options:
 
                      name: alice-bobbi
-    root packageName
-      (full package name): react-native-alice-bobbi
+        full package name: react-native-alice-bobbi
                   is view: false
         object class name: AliceBobbi
 Android androidPackageId: com.reactlibrary
