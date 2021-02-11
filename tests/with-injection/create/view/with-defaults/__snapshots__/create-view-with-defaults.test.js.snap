@@ -383,7 +383,7 @@ public class AliceBobbiManager extends SimpleViewManager<View> {
   "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiPackage.java
 content:
 --------
-AliceBobbiPackage.java
+// AliceBobbiPackage.java
 
 package com.reactlibrary;
 

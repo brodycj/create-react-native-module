@@ -302,7 +302,7 @@ public class IntegrationViewTestPackageManager extends SimpleViewManager<View> {
   },
   Object {
     "name": "react-native-integration-view-test-package/android/src/main/java/com/reactlibrary/IntegrationViewTestPackagePackage.java",
-    "theContent": "IntegrationViewTestPackagePackage.java
+    "theContent": "// IntegrationViewTestPackagePackage.java
 
 package com.reactlibrary;
 
