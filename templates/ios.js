@@ -31,21 +31,21 @@ end
 `,
 }, {
   // header for module without view:
-  name: ({ name, view }) => !view && `${platform}/${name}.h`,
-  content: ({ name }) => `#import <React/RCTBridgeModule.h>
+  name: ({ objectClassName, view }) => !view && `${platform}/${objectClassName}.h`,
+  content: ({ objectClassName }) => `#import <React/RCTBridgeModule.h>
 
-@interface ${name} : NSObject <RCTBridgeModule>
+@interface ${objectClassName} : NSObject <RCTBridgeModule>
 
 @end
 `,
 }, {
   // implementation of module without view:
-  name: ({ name, view }) => !view && `${platform}/${name}.m`,
-  content: ({ name, useAppleNetworking }) => `#import "${name}.h"
+  name: ({ objectClassName, view }) => !view && `${platform}/${objectClassName}.m`,
+  content: ({ objectClassName, useAppleNetworking }) => `#import "${objectClassName}.h"
 
 ${useAppleNetworking ? `#import <AFNetworking/AFNetworking.h>
 ` : ``}
-@implementation ${name}
+@implementation ${objectClassName}
 
 RCT_EXPORT_MODULE()
 
@@ -71,19 +71,19 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 `,
 }, {
   // header for module with view:
-  name: ({ name, view }) => view && `${platform}/${name}.h`,
-  content: ({ name }) => `#import <React/RCTViewManager.h>
+  name: ({ objectClassName, view }) => view && `${platform}/${objectClassName}.h`,
+  content: ({ objectClassName }) => `#import <React/RCTViewManager.h>
 
-@interface ${name} : RCTViewManager
+@interface ${objectClassName} : RCTViewManager
 
 @end
 `,
 }, {
   // implementation of module with view:
-  name: ({ name, view }) => view && `${platform}/${name}.m`,
-  content: ({ name }) => `#import "${name}.h"
+  name: ({ objectClassName, view }) => view && `${platform}/${objectClassName}.m`,
+  content: ({ objectClassName }) => `#import "${objectClassName}.h"
 
-@implementation ${name}
+@implementation ${objectClassName}
 
 RCT_EXPORT_MODULE()
 
@@ -102,18 +102,18 @@ RCT_EXPORT_MODULE()
 @end
 `,
 }, {
-  name: ({ name }) => `${platform}/${name}.xcworkspace/contents.xcworkspacedata`,
-  content: ({ name }) => `<?xml version="1.0" encoding="UTF-8"?>
+  name: ({ objectClassName }) => `${platform}/${objectClassName}.xcworkspace/contents.xcworkspacedata`,
+  content: ({ objectClassName }) => `<?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:${name}.xcodeproj">
+      location = "group:${objectClassName}.xcodeproj">
    </FileRef>
 </Workspace>
 `,
 }, {
-  name: ({ name }) => `${platform}/${name}.xcodeproj/project.pbxproj`,
-  content: ({ name }) => `// !$*UTF8*$!
+  name: ({ objectClassName }) => `${platform}/${objectClassName}.xcodeproj/project.pbxproj`,
+  content: ({ objectClassName }) => `// !$*UTF8*$!
 {
 	archiveVersion = 1;
 	classes = {
@@ -122,7 +122,7 @@ RCT_EXPORT_MODULE()
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B3E7B58A1CC2AC0600A0062D /* ${name}.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* ${name}.m */; };
+		B3E7B58A1CC2AC0600A0062D /* ${objectClassName}.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* ${objectClassName}.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -138,9 +138,9 @@ RCT_EXPORT_MODULE()
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		134814201AA4EA6300B7C361 /* lib${name}.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = lib${name}.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3E7B5881CC2AC0600A0062D /* ${name}.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ${name}.h; sourceTree = "<group>"; };
-		B3E7B5891CC2AC0600A0062D /* ${name}.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ${name}.m; sourceTree = "<group>"; };
+		134814201AA4EA6300B7C361 /* lib${objectClassName}.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = lib${objectClassName}.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3E7B5881CC2AC0600A0062D /* ${objectClassName}.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ${objectClassName}.h; sourceTree = "<group>"; };
+		B3E7B5891CC2AC0600A0062D /* ${objectClassName}.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ${objectClassName}.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,7 +157,7 @@ RCT_EXPORT_MODULE()
 		134814211AA4EA7D00B7C361 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				134814201AA4EA6300B7C361 /* lib${name}.a */,
+				134814201AA4EA6300B7C361 /* lib${objectClassName}.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -165,8 +165,8 @@ RCT_EXPORT_MODULE()
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-				B3E7B5881CC2AC0600A0062D /* ${name}.h */,
-				B3E7B5891CC2AC0600A0062D /* ${name}.m */,
+				B3E7B5881CC2AC0600A0062D /* ${objectClassName}.h */,
+				B3E7B5891CC2AC0600A0062D /* ${objectClassName}.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -174,9 +174,9 @@ RCT_EXPORT_MODULE()
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		58B511DA1A9E6C8500147676 /* ${name} */ = {
+		58B511DA1A9E6C8500147676 /* ${objectClassName} */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "${name}" */;
+			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "${objectClassName}" */;
 			buildPhases = (
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
@@ -186,9 +186,9 @@ RCT_EXPORT_MODULE()
 			);
 			dependencies = (
 			);
-			name = ${name};
+			name = ${objectClassName};
 			productName = RCTDataManager;
-			productReference = 134814201AA4EA6300B7C361 /* lib${name}.a */;
+			productReference = 134814201AA4EA6300B7C361 /* lib${objectClassName}.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -205,7 +205,7 @@ RCT_EXPORT_MODULE()
 					};
 				};
 			};
-			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "${name}" */;
+			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "${objectClassName}" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -217,7 +217,7 @@ RCT_EXPORT_MODULE()
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				58B511DA1A9E6C8500147676 /* ${name} */,
+				58B511DA1A9E6C8500147676 /* ${objectClassName} */,
 			);
 		};
 /* End PBXProject section */
@@ -227,7 +227,7 @@ RCT_EXPORT_MODULE()
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3E7B58A1CC2AC0600A0062D /* ${name}.m in Sources */,
+				B3E7B58A1CC2AC0600A0062D /* ${objectClassName}.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,7 +338,7 @@ RCT_EXPORT_MODULE()
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = ${name};
+				PRODUCT_NAME = ${objectClassName};
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -354,7 +354,7 @@ RCT_EXPORT_MODULE()
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = ${name};
+				PRODUCT_NAME = ${objectClassName};
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -362,7 +362,7 @@ RCT_EXPORT_MODULE()
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "${name}" */ = {
+		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "${objectClassName}" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				58B511ED1A9E6C8500147676 /* Debug */,
@@ -371,7 +371,7 @@ RCT_EXPORT_MODULE()
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "${name}" */ = {
+		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "${objectClassName}" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				58B511F01A9E6C8500147676 /* Debug */,
