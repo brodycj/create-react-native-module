@@ -333,7 +333,7 @@ content:
   "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/SuperAwesomeModuleModule.java
 content:
 --------
-// AliceBobbiModule.java
+// SuperAwesomeModuleModule.java
 
 package com.reactlibrary;
 
@@ -368,7 +368,7 @@ public class SuperAwesomeModuleModule extends ReactContextBaseJavaModule {
   "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/SuperAwesomeModulePackage.java
 content:
 --------
-// AliceBobbiPackage.java
+// SuperAwesomeModulePackage.java
 
 package com.reactlibrary;
 
