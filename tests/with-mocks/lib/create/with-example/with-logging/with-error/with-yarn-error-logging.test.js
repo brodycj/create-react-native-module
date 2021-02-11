@@ -35,9 +35,7 @@ jest.mock('execa', () => ({
     }
   }
 }));
-
-// TBD hackish mock:
-global.console = {
+jest.mock('console', () => ({
   info: (...args) => {
     mockpushit({ info: [].concat(args) });
   },
@@ -50,7 +48,7 @@ global.console = {
   error: (...args) => {
     mockpushit({ error: [].concat(args) });
   },
-};
+}));
 
 test('create alice-bobbi module using mocked lib with example, with `yarn add` failure with console logging', async () => {
   const options = {

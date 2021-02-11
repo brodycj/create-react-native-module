@@ -6,7 +6,7 @@ const uuid = 'E22606E0-B47F-11E9-A3F0-07F70A25DAFB';
 test('unsupported Windows C# template with defaults', () => {
   const options = {
     // normalized for name: 'alice-bobbi':
-    name: 'AliceBobbi',
+    objectClassName: 'AliceBobbi',
     namespace: 'Alice.Bobbi',
     // injected uuid:
     uuid

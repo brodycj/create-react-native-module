@@ -5,7 +5,7 @@ Array [
   Object {
     "please-upgrade-node": Object {
       "engines": Object {
-        "node": ">= 8",
+        "node": ">= 12",
       },
       "name": "create-react-native-module",
     },
@@ -28,18 +28,8 @@ Array [
   Object {
     "option": Object {
       "args": Array [
-        "--prefix [prefix]",
-        "The prefix of the library module object to be exported by both JavaScript and native code",
-        [Function],
-        "",
-      ],
-    },
-  },
-  Object {
-    "option": Object {
-      "args": Array [
         "--module-name [moduleName]",
-        "The module library package name to be used in package.json. Default: react-native-(name in param-case)",
+        "The module package name to be used in package.json. Default: react-native-(name in param-case)",
         [Function],
         undefined,
       ],
@@ -48,8 +38,38 @@ Array [
   Object {
     "option": Object {
       "args": Array [
+        "--view",
+        "Generate the package as a very simple native view component",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--object-class-name [objectClassName]",
+        "The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase)",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--prefix [prefix]",
+        "DEPRECATED: The prefix of the name of the object class to be exported by both JavaScript and native code, ignored if --object-class-name is specified",
+        [Function],
+        "",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
         "--module-prefix [modulePrefix]",
-        "The prefix of the library module object, ignored if --module-name is specified",
+        "The prefix of the generated module package name, ignored if --module-name is specified",
         [Function],
         "react-native",
       ],
@@ -122,16 +142,6 @@ Array [
         "The license type",
         [Function],
         "MIT",
-      ],
-    },
-  },
-  Object {
-    "option": Object {
-      "args": Array [
-        "--view",
-        "Generate the module as a very simple native view component",
-        [Function],
-        undefined,
       ],
     },
   },

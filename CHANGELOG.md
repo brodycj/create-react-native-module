@@ -1,5 +1,31 @@
 # Changelog
 
+### 0.19.0
+
+* remove outdated info from README.md (#355)
+* remove extra blank line from generated iOS module (#354)
+* Update execa -> ^4.0.1 - dependency (#350)
+* add swift search paths to iOS pbxproj (#349)
+* add pbxproj build updates (#348)
+* remove sources from generated iOS pbxproj (#346)
+* fix minor indenting issue in ios pbxproj (#345)
+* export objectClassName prop in windows template (#344)
+* cleanup object class name references (#343)
+* log generated example React Native version (#340)
+* major: object class name updates (#338)
+* fix iOS podspec for C sources (#334)
+* major: remove generated .gitattributes artifact (#327)
+* use package files entry instead of .npmignore (#326)
+* update create options (#325)
+* update badges in README.md (#322)
+* update log of create parameters (#318)
+* Update jsonfile -> ^6.0.1 (#317)
+* update commander -> ^5.1.0
+* update log-symbols -> 4
+* update fs-extra -> 9
+* fix(deps): update execa -> 4 (#315)
+* major: update minimum Node.js version to 10.20 (#316)
+
 ### 0.18.0
 
 * generate example with symlink by default, with multiple workarounds in example metro.config.js (#309)

@@ -32,9 +32,7 @@ jest.mock('execa', () => ({
     mockpushit({ commandSync: command, options });
   }
 }));
-
-// TBD hackish mock:
-global.console = {
+jest.mock('console', () => ({
   info: (...args) => {
     mockpushit({ info: [].concat(args) });
   },
@@ -44,7 +42,10 @@ global.console = {
   warn: (...args) => {
     mockpushit({ warn: [].concat(args) });
   },
-};
+  error: (...args) => {
+    mockpushit({ error: [].concat(args) });
+  },
+}));
 
 test('create alice-bobbi module using mocked lib with logging, with example, for Android & iOS with config options including `exampleFileLinkage: true`', async () => {
   const options = {
@@ -59,6 +60,8 @@ test('create alice-bobbi module using mocked lib with logging, with example, for
     license: 'ISC',
     generateExample: true,
     exampleFileLinkage: true,
+    exampleName: 'demo',
+    exampleReactNativeVersion: 'react-native@npm:react-native-tvos'
   };
 
   await lib(options);

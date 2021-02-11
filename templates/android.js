@@ -5,13 +5,15 @@ module.exports = platform => [{
 // based on:
 //
 // * https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle
-//   original location:
+//   previous location:
 //   - https://github.com/facebook/react-native/blob/0.58-stable/local-cli/templates/HelloWorld/android/build.gradle
 //
 // * https://github.com/facebook/react-native/blob/0.60-stable/template/android/app/build.gradle
-//   original location:
+//   previous location:
 //   - https://github.com/facebook/react-native/blob/0.58-stable/local-cli/templates/HelloWorld/android/app/build.gradle
 
+// These defaults should reflect the SDK versions used by
+// the minimum React Native version supported.
 def DEFAULT_COMPILE_SDK_VERSION = 28
 def DEFAULT_BUILD_TOOLS_VERSION = '28.0.3'
 def DEFAULT_MIN_SDK_VERSION = 16
@@ -32,16 +34,14 @@ buildscript {
     if (project == rootProject) {
         repositories {
             google()
-            jcenter()
         }
         dependencies {
+            // This should reflect the Gradle plugin version used by
+            // the minimum React Native version supported.
             classpath 'com.android.tools.build:gradle:3.4.1'
         }
     }
 }
-
-apply plugin: 'com.android.library'
-apply plugin: 'maven'
 
 android {
     compileSdkVersion safeExtGet('compileSdkVersion', DEFAULT_COMPILE_SDK_VERSION)
@@ -69,7 +69,6 @@ repositories {
         url "$rootDir/../node_modules/jsc-android/dist"
     }
     google()
-    jcenter()
 }
 
 dependencies {
@@ -251,7 +250,6 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
-import com.facebook.react.bridge.JavaScriptModule;
 
 public class ${objectClassName}Package implements ReactPackage {
     @Override
@@ -284,7 +282,6 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
-import com.facebook.react.bridge.JavaScriptModule;
 
 public class ${objectClassName}Package implements ReactPackage {
     @Override
@@ -298,7 +295,6 @@ public class ${objectClassName}Package implements ReactPackage {
     }
 }
 `,
-}, {
 }, {
   name: () => `${platform}/README.md`,
   content: () => `README

@@ -6,24 +6,27 @@ Array [
     "info": Array [
       "CREATE new React Native module with the following options:
 
-  root moduleName: react-native-alice-bobbi
-  name: alice-bobbi
-  prefix: ABC
-  modulePrefix: react-native
-  packageIdentifier: com.alicebits
-  platforms: android,ios
-  tvosEnabled: true
-  githubAccount: alicebits
-  authorName: Alice
-  authorEmail: contact@alice.me
-  license: ISC
-  view: false
-  useAppleNetworking: false
+                     name: alice-bobbi
+    root moduleName
+      (full package name): react-native-alice-bobbi
+                  is view: false
+ object class name prefix: ABC
+        object class name: ABCAliceBobbi
+     library modulePrefix: react-native
+Android packageIdentifier: com.alicebits
+                platforms: android,ios
+        Apple tvosEnabled: true
+               authorName: Alice
+              authorEmail: contact@alice.me
+     author githubAccount: alicebits
+                  license: ISC
+       useAppleNetworking: false
 
-  generateExample: true
-  exampleFileLinkage: true
-  exampleName: example
-  writeExamplePodfile: false
+          generateExample: true
+       exampleFileLinkage: true
+              exampleName: demo
+exampleReactNativeVersion: react-native@npm:react-native-tvos
+      writeExamplePodfile: false
 ",
     ],
   },
@@ -66,12 +69,6 @@ Array [
   },
   Object {
     "ensureDir": "react-native-alice-bobbi",
-  },
-  Object {
-    "ensureDir": "react-native-alice-bobbi/",
-  },
-  Object {
-    "ensureDir": "react-native-alice-bobbi/",
   },
   Object {
     "ensureDir": "react-native-alice-bobbi/",
@@ -144,6 +141,13 @@ ABCAliceBobbi;
   \\"version\\": \\"1.0.0\\",
   \\"description\\": \\"TODO\\",
   \\"main\\": \\"index.js\\",
+  \\"files\\": [
+    \\"README.md\\",
+    \\"android\\",
+    \\"index.js\\",
+    \\"ios\\",
+    \\"react-native-alice-bobbi.podspec\\"
+  ],
   \\"scripts\\": {
     \\"test\\": \\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\"
   },
@@ -229,29 +233,21 @@ buck-out/
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/.gitattributes",
-    "theContent": "*.pbxproj -text
-",
-  },
-  Object {
-    "outputFileName": "react-native-alice-bobbi/.npmignore",
-    "theContent": "example
-",
-  },
-  Object {
     "outputFileName": "react-native-alice-bobbi/android/build.gradle",
     "theContent": "// android/build.gradle
 
 // based on:
 //
 // * https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle
-//   original location:
+//   previous location:
 //   - https://github.com/facebook/react-native/blob/0.58-stable/local-cli/templates/HelloWorld/android/build.gradle
 //
 // * https://github.com/facebook/react-native/blob/0.60-stable/template/android/app/build.gradle
-//   original location:
+//   previous location:
 //   - https://github.com/facebook/react-native/blob/0.58-stable/local-cli/templates/HelloWorld/android/app/build.gradle
 
+// These defaults should reflect the SDK versions used by
+// the minimum React Native version supported.
 def DEFAULT_COMPILE_SDK_VERSION = 28
 def DEFAULT_BUILD_TOOLS_VERSION = '28.0.3'
 def DEFAULT_MIN_SDK_VERSION = 16
@@ -272,16 +268,14 @@ buildscript {
     if (project == rootProject) {
         repositories {
             google()
-            jcenter()
         }
         dependencies {
+            // This should reflect the Gradle plugin version used by
+            // the minimum React Native version supported.
             classpath 'com.android.tools.build:gradle:3.4.1'
         }
     }
 }
-
-apply plugin: 'com.android.library'
-apply plugin: 'maven'
 
 android {
     compileSdkVersion safeExtGet('compileSdkVersion', DEFAULT_COMPILE_SDK_VERSION)
@@ -309,7 +303,6 @@ repositories {
         url \\"$rootDir/../node_modules/jsc-android/dist\\"
     }
     google()
-    jcenter()
 }
 
 dependencies {
@@ -448,7 +441,6 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
-import com.facebook.react.bridge.JavaScriptModule;
 
 public class ABCAliceBobbiPackage implements ReactPackage {
     @Override
@@ -503,7 +495,7 @@ Pod::Spec.new do |s|
   s.platforms    = { :ios => \\"9.0\\", :tvos => \\"10.0\\" }
   s.source       = { :git => \\"https://github.com/alicebits/react-native-alice-bobbi.git\\", :tag => \\"#{s.version}\\" }
 
-  s.source_files = \\"ios/**/*.{h,m,swift}\\"
+  s.source_files = \\"ios/**/*.{h,c,m,swift}\\"
   s.requires_arc = true
 
   s.dependency \\"React\\"
@@ -525,7 +517,6 @@ end
   Object {
     "outputFileName": "react-native-alice-bobbi/ios/ABCAliceBobbi.m",
     "theContent": "#import \\"ABCAliceBobbi.h\\"
-
 
 @implementation ABCAliceBobbi
 
@@ -561,10 +552,6 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		B3E7B58A1CC2AC0600A0062D /* ABCAliceBobbi.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* ABCAliceBobbi.m */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		58B511D91A9E6C8500147676 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -579,8 +566,6 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libABCAliceBobbi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libABCAliceBobbi.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3E7B5881CC2AC0600A0062D /* ABCAliceBobbi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCAliceBobbi.h; sourceTree = \\"<group>\\"; };
-		B3E7B5891CC2AC0600A0062D /* ABCAliceBobbi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ABCAliceBobbi.m; sourceTree = \\"<group>\\"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -605,8 +590,6 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
-				B3E7B5881CC2AC0600A0062D /* ABCAliceBobbi.h */,
-				B3E7B5891CC2AC0600A0062D /* ABCAliceBobbi.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
 			);
 			sourceTree = \\"<group>\\";
@@ -647,10 +630,11 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 			};
 			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject \\"ABCAliceBobbi\\" */;
 			compatibilityVersion = \\"Xcode 3.2\\";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 58B511D21A9E6C8500147676;
 			productRefGroup = 58B511D21A9E6C8500147676;
@@ -667,7 +651,6 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3E7B58A1CC2AC0600A0062D /* ABCAliceBobbi.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -678,6 +661,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = \\"gnu++0x\\";
 				CLANG_CXX_LIBRARY = \\"libc++\\";
 				CLANG_ENABLE_MODULES = YES;
@@ -686,12 +670,14 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -717,7 +703,13 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = \\"/usr/lib/swift $(inherited)\\";
+				LIBRARY_SEARCH_PATHS = (
+					\\"\\\\\\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\\\\\\"\\",
+					\\"\\\\\\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\\\\\\"\\",
+					\\"\\\\\\"$(inherited)\\\\\\"\\",
+				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -728,6 +720,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = \\"gnu++0x\\";
 				CLANG_CXX_LIBRARY = \\"libc++\\";
 				CLANG_ENABLE_MODULES = YES;
@@ -736,12 +729,14 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -760,7 +755,13 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = \\"/usr/lib/swift $(inherited)\\";
+				LIBRARY_SEARCH_PATHS = (
+					\\"\\\\\\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\\\\\\"\\",
+					\\"\\\\\\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\\\\\\"\\",
+					\\"\\\\\\"$(inherited)\\\\\\"\\",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -771,7 +772,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				HEADER_SEARCH_PATHS = (
-				\\"$(inherited)\\",
+					\\"$(inherited)\\",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					\\"$(SRCROOT)/../../../React/**\\",
 					\\"$(SRCROOT)/../../react-native/React/**\\",
@@ -828,11 +829,11 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
   },
   Object {
     "info": Array [
-      "CREATE example app with the following command: react-native init example --version react-native@latest",
+      "CREATE example app with the following command: react-native init demo --version react-native@npm:react-native-tvos",
     ],
   },
   Object {
-    "commandSync": "react-native init example --version react-native@latest",
+    "commandSync": "react-native init demo --version react-native@npm:react-native-tvos",
     "options": Object {
       "cwd": "./react-native-alice-bobbi",
       "stdio": "inherit",
@@ -842,7 +843,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
     "ensureDir": "react-native-alice-bobbi/scripts/",
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/example/",
+    "ensureDir": "react-native-alice-bobbi/demo/",
   },
   Object {
     "outputFileName": "react-native-alice-bobbi/scripts/examples_postinstall.js",
@@ -893,7 +894,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
     fs.rmdirSync(fileDirPath);
   };
 
-  /// Remove example/node_modules/react-native-library-name/node_modules directory
+  /// Remove demo/node_modules/react-native-library-name/node_modules directory
   const removeLibraryNodeModulesPath = (libraryNodeModulesPath) => {
     const nodeModulesPath = path.resolve(libraryNodeModulesPath, 'node_modules')
 
@@ -911,7 +912,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
     }
   };
 
-  /// Remove all entries from the .npmignore within  example/node_modules/react-native-library-name/
+  /// Remove all entries from the .npmignore within  demo/node_modules/react-native-library-name/
   const removeLibraryNpmIgnorePaths = (npmIgnorePath, libraryNodeModulesPath) => {
     if (!fs.existsSync(npmIgnorePath)) {
       console.log(\`No .npmignore path found at \${npmIgnorePath}. Skipping deleting content.\`);
@@ -960,7 +961,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/example/App.js",
+    "outputFileName": "react-native-alice-bobbi/demo/App.js",
     "theContent": "/**
  * Sample React Native App
  *
@@ -1026,7 +1027,7 @@ const styles = StyleSheet.create({
     ],
   },
   Object {
-    "readFileSyncFromPath": "./react-native-alice-bobbi/example/package.json",
+    "readFileSyncFromPath": "./react-native-alice-bobbi/demo/package.json",
   },
   Object {
     "json": "{
@@ -1046,7 +1047,7 @@ const styles = StyleSheet.create({
       },
       "spaces": 2,
     },
-    "writeFileSyncToPath": "./react-native-alice-bobbi/example/package.json",
+    "writeFileSyncToPath": "./react-native-alice-bobbi/demo/package.json",
   },
   Object {
     "info": Array [
@@ -1056,31 +1057,31 @@ const styles = StyleSheet.create({
   Object {
     "commandSync": "yarn add file:../",
     "options": Object {
-      "cwd": "./react-native-alice-bobbi/example",
+      "cwd": "./react-native-alice-bobbi/demo",
       "stdio": "inherit",
     },
   },
   Object {
     "log": Array [
-      "check for valid pod version in ./react-native-alice-bobbi/example/ios",
+      "check for valid pod version in ./react-native-alice-bobbi/demo/ios",
     ],
   },
   Object {
     "commandSync": "pod --version",
     "options": Object {
-      "cwd": "./react-native-alice-bobbi/example/ios",
+      "cwd": "./react-native-alice-bobbi/demo/ios",
       "stdio": "inherit",
     },
   },
   Object {
     "log": Array [
-      "running pod install in ./react-native-alice-bobbi/example/ios",
+      "running pod install in ./react-native-alice-bobbi/demo/ios",
     ],
   },
   Object {
     "commandSync": "pod install",
     "options": Object {
-      "cwd": "./react-native-alice-bobbi/example/ios",
+      "cwd": "./react-native-alice-bobbi/demo/ios",
       "stdio": "inherit",
     },
   },

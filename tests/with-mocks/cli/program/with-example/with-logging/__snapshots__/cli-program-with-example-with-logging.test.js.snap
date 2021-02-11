@@ -1,78 +1,363 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`create alice-bobbi module with explicit config options for Android & iOS 1`] = `
+exports[`mocked cli-program.js runs correctly with example, with logging 1`] = `
 Array [
   Object {
-    "ensureDir": "react-native-alice-bobbi",
+    "please-upgrade-node": Object {
+      "engines": Object {
+        "node": ">= 12",
+      },
+      "name": "create-react-native-module",
+    },
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/",
+    "notify": Object {},
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/",
+    "version": "x",
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/",
+    "usage": "[options] <name>",
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/",
+    "description": "creates a React Native library module for one or more platforms",
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/android/",
+    "action": Object {
+      "actionFunction": [Function],
+    },
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/android/src/main/",
+    "option": Object {
+      "args": Array [
+        "--module-name [moduleName]",
+        "The module package name to be used in package.json. Default: react-native-(name in param-case)",
+        [Function],
+        undefined,
+      ],
+    },
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/android/src/main/java/com/reactlibrary/",
+    "option": Object {
+      "args": Array [
+        "--view",
+        "Generate the package as a very simple native view component",
+        [Function],
+        undefined,
+      ],
+    },
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/android/src/main/java/com/reactlibrary/",
+    "option": Object {
+      "args": Array [
+        "--object-class-name [objectClassName]",
+        "The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase)",
+        [Function],
+        undefined,
+      ],
+    },
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/android/",
+    "option": Object {
+      "args": Array [
+        "--prefix [prefix]",
+        "DEPRECATED: The prefix of the name of the object class to be exported by both JavaScript and native code, ignored if --object-class-name is specified",
+        [Function],
+        "",
+      ],
+    },
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/",
+    "option": Object {
+      "args": Array [
+        "--module-prefix [modulePrefix]",
+        "The prefix of the generated module package name, ignored if --module-name is specified",
+        [Function],
+        "react-native",
+      ],
+    },
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/ios/",
+    "option": Object {
+      "args": Array [
+        "--package-identifier [packageIdentifier]",
+        "[Android] The Java package identifier used by the Android module",
+        [Function],
+        "com.reactlibrary",
+      ],
+    },
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/ios/",
+    "option": Object {
+      "args": Array [
+        "--platforms <platforms>",
+        "Platforms the library module will be created for - comma separated",
+        [Function],
+        "ios,android",
+      ],
+    },
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/ios/AliceBobbi.xcworkspace/",
+    "option": Object {
+      "args": Array [
+        "--tvos-enabled",
+        "Generate the module with tvOS build enabled (requires react-native-tvos fork, with minimum version of 0.60, and iOS platform to be enabled)",
+        [Function],
+        undefined,
+      ],
+    },
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/ios/AliceBobbi.xcodeproj/",
+    "option": Object {
+      "args": Array [
+        "--github-account [githubAccount]",
+        "The github account where the library module is hosted",
+        [Function],
+        "github_account",
+      ],
+    },
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/README.md",
-    "theContent": "# react-native-alice-bobbi
+    "option": Object {
+      "args": Array [
+        "--author-name [authorName]",
+        "The author's name",
+        [Function],
+        "Your Name",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--author-email [authorEmail]",
+        "The author's email",
+        [Function],
+        "yourname@email.com",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--license [license]",
+        "The license type",
+        [Function],
+        "MIT",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--use-apple-networking",
+        "[iOS] Use \`AFNetworking\` dependency as a sample in the podspec & use it from the iOS code",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--generate-example",
+        "Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires both react-native-cli and yarn to be installed globally",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--example-file-linkage",
+        "DEPRECATED: do \`yarn add file:../\` instead of \`yarn add link:../\` in a generated example project, and add a postinstall workaround script, with no overwrite of example metro.config.js",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--example-name [exampleName]",
+        "Name for the example project",
+        [Function],
+        "example",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--example-react-native-version [exampleReactNativeVersion]",
+        "React Native version for the generated example project",
+        [Function],
+        "react-native@latest",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--write-example-podfile",
+        "[iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "parse": Object {
+      "argv": Array [
+        "node",
+        "create-cli.js",
+        "test-package",
+      ],
+    },
+  },
+  Object {
+    "warn": Array [
+      "While \`{DEFAULT_PACKAGE_IDENTIFIER}\` is the default package
+      identifier, it is recommended to customize the package identifier.",
+    ],
+  },
+  Object {
+    "info": Array [
+      "CREATE new React Native module with the following options:
+
+                     name: test-package
+    root moduleName
+      (full package name): react-native-test-package
+                  is view: false
+ object class name prefix: 
+        object class name: TestPackage
+     library modulePrefix: react-native
+Android packageIdentifier: com.reactlibrary
+                platforms: android,ios
+        Apple tvosEnabled: false
+               authorName: Your Name
+              authorEmail: yourname@email.com
+     author githubAccount: github_account
+                  license: MIT
+       useAppleNetworking: false
+
+          generateExample: true
+       exampleFileLinkage: false
+              exampleName: example
+exampleReactNativeVersion: react-native@latest
+      writeExamplePodfile: false
+",
+    ],
+  },
+  Object {
+    "info": Array [
+      "CREATE: Check for valid react-native-cli tool version, as needed to generate the example project",
+    ],
+  },
+  Object {
+    "commandSync": "react-native --version",
+    "options": Object {
+      "stdio": "inherit",
+    },
+  },
+  Object {
+    "info": Array [
+      "react-native --version ok",
+    ],
+  },
+  Object {
+    "info": Array [
+      "CREATE: Check for valid Yarn CLI tool version, as needed to generate the example project",
+    ],
+  },
+  Object {
+    "commandSync": "yarn --version",
+    "options": Object {
+      "stdio": "inherit",
+    },
+  },
+  Object {
+    "info": Array [
+      "yarn --version ok",
+    ],
+  },
+  Object {
+    "info": Array [
+      "CREATE: Generating the React Native library module",
+    ],
+  },
+  Object {
+    "ensureDir": "react-native-test-package",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/android/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/android/src/main/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/android/src/main/java/com/reactlibrary/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/android/src/main/java/com/reactlibrary/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/android/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/ios/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/ios/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/ios/TestPackage.xcworkspace/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/ios/TestPackage.xcodeproj/",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/README.md",
+    "theContent": "# react-native-test-package
 
 ## Getting started
 
-\`$ npm install react-native-alice-bobbi --save\`
+\`$ npm install react-native-test-package --save\`
 
 ### Mostly automatic installation
 
-\`$ react-native link react-native-alice-bobbi\`
+\`$ react-native link react-native-test-package\`
 
 ## Usage
 \`\`\`javascript
-import AliceBobbi from 'react-native-alice-bobbi';
+import TestPackage from 'react-native-test-package';
 
 // TODO: What to do with the module?
-AliceBobbi;
+TestPackage;
 \`\`\`
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/package.json",
+    "outputFileName": "react-native-test-package/package.json",
     "theContent": "{
-  \\"name\\": \\"react-native-alice-bobbi\\",
-  \\"title\\": \\"React Native Alice Bobbi\\",
+  \\"name\\": \\"react-native-test-package\\",
+  \\"title\\": \\"React Native Test Package\\",
   \\"version\\": \\"1.0.0\\",
   \\"description\\": \\"TODO\\",
   \\"main\\": \\"index.js\\",
@@ -81,24 +366,24 @@ AliceBobbi;
     \\"android\\",
     \\"index.js\\",
     \\"ios\\",
-    \\"react-native-alice-bobbi.podspec\\"
+    \\"react-native-test-package.podspec\\"
   ],
   \\"scripts\\": {
     \\"test\\": \\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\"
   },
   \\"repository\\": {
     \\"type\\": \\"git\\",
-    \\"url\\": \\"git+https://github.com/alicebits/react-native-alice-bobbi.git\\",
-    \\"baseUrl\\": \\"https://github.com/alicebits/react-native-alice-bobbi\\"
+    \\"url\\": \\"git+https://github.com/github_account/react-native-test-package.git\\",
+    \\"baseUrl\\": \\"https://github.com/github_account/react-native-test-package\\"
   },
   \\"keywords\\": [
     \\"react-native\\"
   ],
   \\"author\\": {
-    \\"name\\": \\"Alice\\",
-    \\"email\\": \\"contact@alice.me\\"
+    \\"name\\": \\"Your Name\\",
+    \\"email\\": \\"yourname@email.com\\"
   },
-  \\"license\\": \\"ISC\\",
+  \\"license\\": \\"MIT\\",
   \\"licenseFilename\\": \\"LICENSE\\",
   \\"readmeFilename\\": \\"README.md\\",
   \\"peerDependencies\\": {
@@ -113,16 +398,16 @@ AliceBobbi;
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/index.js",
+    "outputFileName": "react-native-test-package/index.js",
     "theContent": "import { NativeModules } from 'react-native';
 
-const { AliceBobbi } = NativeModules;
+const { TestPackage } = NativeModules;
 
-export default AliceBobbi;
+export default TestPackage;
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/.gitignore",
+    "outputFileName": "react-native-test-package/.gitignore",
     "theContent": "# OSX
 #
 .DS_Store
@@ -168,7 +453,7 @@ buck-out/
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/android/build.gradle",
+    "outputFileName": "react-native-test-package/android/build.gradle",
     "theContent": "// android/build.gradle
 
 // based on:
@@ -320,38 +605,34 @@ afterEvaluate { project ->
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/android/src/main/AndroidManifest.xml",
-    "theContent": "<!-- AndroidManifest.xml -->
-
-<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
+    "outputFileName": "react-native-test-package/android/src/main/AndroidManifest.xml",
+    "theContent": "<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
           package=\\"com.reactlibrary\\">
 
 </manifest>
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiModule.java",
-    "theContent": "// AliceBobbiModule.java
-
-package com.reactlibrary;
+    "outputFileName": "react-native-test-package/android/src/main/java/com/reactlibrary/TestPackageModule.java",
+    "theContent": "package com.reactlibrary;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
 
-public class AliceBobbiModule extends ReactContextBaseJavaModule {
+public class TestPackageModule extends ReactContextBaseJavaModule {
 
     private final ReactApplicationContext reactContext;
 
-    public AliceBobbiModule(ReactApplicationContext reactContext) {
+    public TestPackageModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
     }
 
     @Override
     public String getName() {
-        return \\"AliceBobbi\\";
+        return \\"TestPackage\\";
     }
 
     @ReactMethod
@@ -363,10 +644,8 @@ public class AliceBobbiModule extends ReactContextBaseJavaModule {
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiPackage.java",
-    "theContent": "// AliceBobbiPackage.java
-
-package com.reactlibrary;
+    "outputFileName": "react-native-test-package/android/src/main/java/com/reactlibrary/TestPackagePackage.java",
+    "theContent": "package com.reactlibrary;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -377,10 +656,10 @@ import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 
-public class AliceBobbiPackage implements ReactPackage {
+public class TestPackagePackage implements ReactPackage {
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-        return Arrays.<NativeModule>asList(new AliceBobbiModule(reactContext));
+        return Arrays.<NativeModule>asList(new TestPackageModule(reactContext));
     }
 
     @Override
@@ -391,7 +670,7 @@ public class AliceBobbiPackage implements ReactPackage {
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/android/README.md",
+    "outputFileName": "react-native-test-package/android/README.md",
     "theContent": "README
 ======
 
@@ -409,26 +688,26 @@ sdk.dir=/Users/{username}/Library/Android/sdk
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/react-native-alice-bobbi.podspec",
+    "outputFileName": "react-native-test-package/react-native-test-package.podspec",
     "theContent": "require \\"json\\"
 
 package = JSON.parse(File.read(File.join(__dir__, \\"package.json\\")))
 
 Pod::Spec.new do |s|
-  s.name         = \\"react-native-alice-bobbi\\"
+  s.name         = \\"react-native-test-package\\"
   s.version      = package[\\"version\\"]
   s.summary      = package[\\"description\\"]
   s.description  = <<-DESC
-                  react-native-alice-bobbi
+                  react-native-test-package
                    DESC
-  s.homepage     = \\"https://github.com/alicebits/react-native-alice-bobbi\\"
+  s.homepage     = \\"https://github.com/github_account/react-native-test-package\\"
   # brief license entry:
-  s.license      = \\"ISC\\"
+  s.license      = \\"MIT\\"
   # optional - use expanded license entry instead:
-  # s.license    = { :type => \\"ISC\\", :file => \\"LICENSE\\" }
-  s.authors      = { \\"Alice\\" => \\"contact@alice.me\\" }
-  s.platforms    = { :ios => \\"9.0\\", :tvos => \\"10.0\\" }
-  s.source       = { :git => \\"https://github.com/alicebits/react-native-alice-bobbi.git\\", :tag => \\"#{s.version}\\" }
+  # s.license    = { :type => \\"MIT\\", :file => \\"LICENSE\\" }
+  s.authors      = { \\"Your Name\\" => \\"yourname@email.com\\" }
+  s.platforms    = { :ios => \\"9.0\\" }
+  s.source       = { :git => \\"https://github.com/github_account/react-native-test-package.git\\", :tag => \\"#{s.version}\\" }
 
   s.source_files = \\"ios/**/*.{h,c,m,swift}\\"
   s.requires_arc = true
@@ -441,19 +720,19 @@ end
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/ios/AliceBobbi.h",
+    "outputFileName": "react-native-test-package/ios/TestPackage.h",
     "theContent": "#import <React/RCTBridgeModule.h>
 
-@interface AliceBobbi : NSObject <RCTBridgeModule>
+@interface TestPackage : NSObject <RCTBridgeModule>
 
 @end
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/ios/AliceBobbi.m",
-    "theContent": "#import \\"AliceBobbi.h\\"
+    "outputFileName": "react-native-test-package/ios/TestPackage.m",
+    "theContent": "#import \\"TestPackage.h\\"
 
-@implementation AliceBobbi
+@implementation TestPackage
 
 RCT_EXPORT_MODULE()
 
@@ -467,18 +746,18 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/ios/AliceBobbi.xcworkspace/contents.xcworkspacedata",
+    "outputFileName": "react-native-test-package/ios/TestPackage.xcworkspace/contents.xcworkspacedata",
     "theContent": "<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
 <Workspace
    version = \\"1.0\\">
    <FileRef
-      location = \\"group:AliceBobbi.xcodeproj\\">
+      location = \\"group:TestPackage.xcodeproj\\">
    </FileRef>
 </Workspace>
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/ios/AliceBobbi.xcodeproj/project.pbxproj",
+    "outputFileName": "react-native-test-package/ios/TestPackage.xcodeproj/project.pbxproj",
     "theContent": "// !$*UTF8*$!
 {
 	archiveVersion = 1;
@@ -500,7 +779,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		134814201AA4EA6300B7C361 /* libAliceBobbi.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libAliceBobbi.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		134814201AA4EA6300B7C361 /* libTestPackage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTestPackage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -517,7 +796,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 		134814211AA4EA7D00B7C361 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				134814201AA4EA6300B7C361 /* libAliceBobbi.a */,
+				134814201AA4EA6300B7C361 /* libTestPackage.a */,
 			);
 			name = Products;
 			sourceTree = \\"<group>\\";
@@ -532,9 +811,9 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		58B511DA1A9E6C8500147676 /* AliceBobbi */ = {
+		58B511DA1A9E6C8500147676 /* TestPackage */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget \\"AliceBobbi\\" */;
+			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget \\"TestPackage\\" */;
 			buildPhases = (
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
@@ -544,9 +823,9 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 			);
 			dependencies = (
 			);
-			name = AliceBobbi;
+			name = TestPackage;
 			productName = RCTDataManager;
-			productReference = 134814201AA4EA6300B7C361 /* libAliceBobbi.a */;
+			productReference = 134814201AA4EA6300B7C361 /* libTestPackage.a */;
 			productType = \\"com.apple.product-type.library.static\\";
 		};
 /* End PBXNativeTarget section */
@@ -563,7 +842,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 					};
 				};
 			};
-			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject \\"AliceBobbi\\" */;
+			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject \\"TestPackage\\" */;
 			compatibilityVersion = \\"Xcode 3.2\\";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -576,7 +855,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 			projectDirPath = \\"\\";
 			projectRoot = \\"\\";
 			targets = (
-				58B511DA1A9E6C8500147676 /* AliceBobbi */,
+				58B511DA1A9E6C8500147676 /* TestPackage */,
 			);
 		};
 /* End PBXProject section */
@@ -714,7 +993,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 				);
 				LIBRARY_SEARCH_PATHS = \\"$(inherited)\\";
 				OTHER_LDFLAGS = \\"-ObjC\\";
-				PRODUCT_NAME = AliceBobbi;
+				PRODUCT_NAME = TestPackage;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -730,7 +1009,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 				);
 				LIBRARY_SEARCH_PATHS = \\"$(inherited)\\";
 				OTHER_LDFLAGS = \\"-ObjC\\";
-				PRODUCT_NAME = AliceBobbi;
+				PRODUCT_NAME = TestPackage;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -738,7 +1017,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject \\"AliceBobbi\\" */ = {
+		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject \\"TestPackage\\" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				58B511ED1A9E6C8500147676 /* Debug */,
@@ -747,7 +1026,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget \\"AliceBobbi\\" */ = {
+		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget \\"TestPackage\\" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				58B511F01A9E6C8500147676 /* Debug */,
@@ -761,6 +1040,181 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 	rootObject = 58B511D31A9E6C8500147676 /* Project object */;
 }
 ",
+  },
+  Object {
+    "info": Array [
+      "CREATE example app with the following command: react-native init example --version react-native@latest",
+    ],
+  },
+  Object {
+    "commandSync": "react-native init example --version react-native@latest",
+    "options": Object {
+      "cwd": "./react-native-test-package",
+      "stdio": "inherit",
+    },
+  },
+  Object {
+    "ensureDir": "react-native-test-package/example/",
+  },
+  Object {
+    "ensureDir": "react-native-test-package/example/",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/example/metro.config.js",
+    "theContent": "// metro.config.js
+//
+// with multiple workarounds for this issue with symlinks:
+// https://github.com/facebook/metro/issues/1
+//
+// with thanks to @johnryan (<https://github.com/johnryan>)
+// for the pointers to multiple workaround solutions here:
+// https://github.com/facebook/metro/issues/1#issuecomment-541642857
+//
+// see also this discussion:
+// https://github.com/brodybits/create-react-native-module/issues/232
+
+const path = require('path')
+
+module.exports = {
+  // workaround for an issue with symlinks encountered starting with
+  // metro@0.55 / React Native 0.61
+  // (not needed with React Native 0.60 / metro@0.54)
+  resolver: {
+    extraNodeModules: new Proxy(
+      {},
+      { get: (_, name) => path.resolve('.', 'node_modules', name) }
+    )
+  },
+
+  // quick workaround for another issue with symlinks
+  watchFolders: [path.resolve('.'), path.resolve('..')]
+}
+",
+  },
+  Object {
+    "outputFileName": "react-native-test-package/example/App.js",
+    "theContent": "/**
+ * Sample React Native App
+ *
+ * adapted from App.js generated by the following command:
+ *
+ * react-native init example
+ *
+ * https://github.com/facebook/react-native
+ */
+
+import React, { Component } from 'react';
+import { Platform, StyleSheet, Text, View } from 'react-native';
+import TestPackage from 'react-native-test-package';
+
+export default class App extends Component<{}> {
+  state = {
+    status: 'starting',
+    message: '--'
+  };
+  componentDidMount() {
+    TestPackage.sampleMethod('Testing', 123, (message) => {
+      this.setState({
+        status: 'native callback received',
+        message
+      });
+    });
+  }
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.welcome}>☆TestPackage example☆</Text>
+        <Text style={styles.instructions}>STATUS: {this.state.status}</Text>
+        <Text style={styles.welcome}>☆NATIVE CALLBACK MESSAGE☆</Text>
+        <Text style={styles.instructions}>{this.state.message}</Text>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+});
+",
+  },
+  Object {
+    "info": Array [
+      "Linking the new module library to the example app",
+    ],
+  },
+  Object {
+    "commandSync": "yarn add link:../",
+    "options": Object {
+      "cwd": "./react-native-test-package/example",
+      "stdio": "inherit",
+    },
+  },
+  Object {
+    "log": Array [
+      "check for valid pod version in ./react-native-test-package/example/ios",
+    ],
+  },
+  Object {
+    "commandSync": "pod --version",
+    "options": Object {
+      "cwd": "./react-native-test-package/example/ios",
+      "stdio": "inherit",
+    },
+  },
+  Object {
+    "log": Array [
+      "running pod install in ./react-native-test-package/example/ios",
+    ],
+  },
+  Object {
+    "commandSync": "pod install",
+    "options": Object {
+      "cwd": "./react-native-test-package/example/ios",
+      "stdio": "inherit",
+    },
+  },
+  Object {
+    "log": Array [
+      "
+📚  Created library module react-native-test-package in \`./react-native-test-package\`.
+🕘  It took XXX.
+
+====================================================
+YOU'RE ALL SET!
+
+💡 check out the example app in react-native-test-package/undefined
+💡 recommended: run Metro Bundler in a new shell
+ℹ (cd react-native-test-package/undefined && yarn start)
+💡 enter the following commands to run the example app:
+ℹ cd react-native-test-package/undefined
+ℹ react-native run-android
+ℹ react-native run-ios
+⚠ IMPORTANT NOTICES
+⚠ After clean checkout, these first steps are needed:
+ℹ run Yarn in react-native-test-package/undefined/ios
+ℹ (cd react-native-test-package/undefined && yarn)
+ℹ do \`pod install\` for iOS in react-native-test-package/undefined/ios
+ℹ cd react-native-test-package/undefined
+ℹ (cd ios && pod install)
+⚠ KNOWN ISSUE with adding dependencies to the library root
+ℹ see https://github.com/brodybits/create-react-native-module/issues/308
+",
+    ],
   },
 ]
 `;

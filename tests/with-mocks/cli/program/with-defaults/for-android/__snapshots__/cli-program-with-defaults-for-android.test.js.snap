@@ -5,7 +5,7 @@ Array [
   Object {
     "please-upgrade-node": Object {
       "engines": Object {
-        "node": ">= 8",
+        "node": ">= 12",
       },
       "name": "create-react-native-module",
     },
@@ -30,18 +30,8 @@ Array [
   Object {
     "option": Object {
       "args": Array [
-        "--prefix [prefix]",
-        "The prefix of the library module object to be exported by both JavaScript and native code",
-        [Function],
-        "",
-      ],
-    },
-  },
-  Object {
-    "option": Object {
-      "args": Array [
         "--module-name [moduleName]",
-        "The module library package name to be used in package.json. Default: react-native-(name in param-case)",
+        "The module package name to be used in package.json. Default: react-native-(name in param-case)",
         [Function],
         undefined,
       ],
@@ -50,8 +40,38 @@ Array [
   Object {
     "option": Object {
       "args": Array [
+        "--view",
+        "Generate the package as a very simple native view component",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--object-class-name [objectClassName]",
+        "The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase)",
+        [Function],
+        undefined,
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
+        "--prefix [prefix]",
+        "DEPRECATED: The prefix of the name of the object class to be exported by both JavaScript and native code, ignored if --object-class-name is specified",
+        [Function],
+        "",
+      ],
+    },
+  },
+  Object {
+    "option": Object {
+      "args": Array [
         "--module-prefix [modulePrefix]",
-        "The prefix of the library module object, ignored if --module-name is specified",
+        "The prefix of the generated module package name, ignored if --module-name is specified",
         [Function],
         "react-native",
       ],
@@ -124,16 +144,6 @@ Array [
         "The license type",
         [Function],
         "MIT",
-      ],
-    },
-  },
-  Object {
-    "option": Object {
-      "args": Array [
-        "--view",
-        "Generate the module as a very simple native view component",
-        [Function],
-        undefined,
       ],
     },
   },
@@ -222,12 +232,6 @@ Array [
     "ensureDir": "react-native-test-package/",
   },
   Object {
-    "ensureDir": "react-native-test-package/",
-  },
-  Object {
-    "ensureDir": "react-native-test-package/",
-  },
-  Object {
     "ensureDir": "react-native-test-package/android/",
   },
   Object {
@@ -271,6 +275,11 @@ TestPackage;
   \\"version\\": \\"1.0.0\\",
   \\"description\\": \\"TODO\\",
   \\"main\\": \\"index.js\\",
+  \\"files\\": [
+    \\"README.md\\",
+    \\"android\\",
+    \\"index.js\\"
+  ],
   \\"scripts\\": {
     \\"test\\": \\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\"
   },
@@ -336,27 +345,21 @@ buck-out/
 ",
   },
   Object {
-    "outputFileName": "react-native-test-package/.gitattributes",
-    "theContent": "",
-  },
-  Object {
-    "outputFileName": "react-native-test-package/.npmignore",
-    "theContent": "",
-  },
-  Object {
     "outputFileName": "react-native-test-package/android/build.gradle",
     "theContent": "// android/build.gradle
 
 // based on:
 //
 // * https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle
-//   original location:
+//   previous location:
 //   - https://github.com/facebook/react-native/blob/0.58-stable/local-cli/templates/HelloWorld/android/build.gradle
 //
 // * https://github.com/facebook/react-native/blob/0.60-stable/template/android/app/build.gradle
-//   original location:
+//   previous location:
 //   - https://github.com/facebook/react-native/blob/0.58-stable/local-cli/templates/HelloWorld/android/app/build.gradle
 
+// These defaults should reflect the SDK versions used by
+// the minimum React Native version supported.
 def DEFAULT_COMPILE_SDK_VERSION = 28
 def DEFAULT_BUILD_TOOLS_VERSION = '28.0.3'
 def DEFAULT_MIN_SDK_VERSION = 16
@@ -377,16 +380,14 @@ buildscript {
     if (project == rootProject) {
         repositories {
             google()
-            jcenter()
         }
         dependencies {
+            // This should reflect the Gradle plugin version used by
+            // the minimum React Native version supported.
             classpath 'com.android.tools.build:gradle:3.4.1'
         }
     }
 }
-
-apply plugin: 'com.android.library'
-apply plugin: 'maven'
 
 android {
     compileSdkVersion safeExtGet('compileSdkVersion', DEFAULT_COMPILE_SDK_VERSION)
@@ -414,7 +415,6 @@ repositories {
         url \\"$rootDir/../node_modules/jsc-android/dist\\"
     }
     google()
-    jcenter()
 }
 
 dependencies {
@@ -553,7 +553,6 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
-import com.facebook.react.bridge.JavaScriptModule;
 
 public class TestPackagePackage implements ReactPackage {
     @Override
