@@ -302,6 +302,8 @@ afterEvaluate { project ->
   "* outputFile name: react-native-alice-bobbi/android/src/main/AndroidManifest.xml
 content:
 --------
+<!-- AndroidManifest.xml -->
+
 <manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
           package=\\"com.reactlibrary\\">
 
@@ -312,6 +314,8 @@ content:
   "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiModule.java
 content:
 --------
+// AliceBobbiModule.java
+
 package com.reactlibrary;
 
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -345,6 +349,8 @@ public class AliceBobbiModule extends ReactContextBaseJavaModule {
   "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiPackage.java
 content:
 --------
+// AliceBobbiPackage.java
+
 package com.reactlibrary;
 
 import java.util.Arrays;
