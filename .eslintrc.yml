@@ -2,8 +2,6 @@ extends:
   - standard
 
 rules:
-  # XXX ignore for now:
-  no-undef: off
   # disable quotes for now, at least
   # FUTURE TBD decide whether to enforce single quotes
   # (as specified by "Standard JS") or
