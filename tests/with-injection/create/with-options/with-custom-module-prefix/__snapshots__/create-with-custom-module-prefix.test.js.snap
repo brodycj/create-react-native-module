@@ -104,6 +104,8 @@ content:
   "* outputFile name: custom-native-alice-bobbi/index.js
 content:
 --------
+// main index.js
+
 import { NativeModules } from 'react-native';
 
 const { AliceBobbi } = NativeModules;
