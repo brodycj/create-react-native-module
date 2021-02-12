@@ -314,7 +314,9 @@ export default IntegrationViewTestPackage;
   },
   Object {
     "name": "react-native-integration-view-test-package/ios/IntegrationViewTestPackage.h",
-    "theContent": "#import <React/RCTViewManager.h>
+    "theContent": "// IntegrationViewTestPackage.h
+
+#import <React/RCTViewManager.h>
 
 @interface IntegrationViewTestPackage : RCTViewManager
 
@@ -323,7 +325,9 @@ export default IntegrationViewTestPackage;
   },
   Object {
     "name": "react-native-integration-view-test-package/ios/IntegrationViewTestPackage.m",
-    "theContent": "#import \\"IntegrationViewTestPackage.h\\"
+    "theContent": "// IntegrationViewTestPackage.m
+
+#import \\"IntegrationViewTestPackage.h\\"
 
 @implementation IntegrationViewTestPackage
 
@@ -686,7 +690,9 @@ RCT_EXPORT_MODULE()
   },
   Object {
     "name": "react-native-integration-view-test-package/react-native-integration-view-test-package.podspec",
-    "theContent": "require \\"json\\"
+    "theContent": "# react-native-integration-view-test-package.podspec
+
+require \\"json\\"
 
 package = JSON.parse(File.read(File.join(__dir__, \\"package.json\\")))
 

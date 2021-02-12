@@ -689,7 +689,9 @@ sdk.dir=/Users/{username}/Library/Android/sdk
   },
   Object {
     "outputFileName": "react-native-test-package/react-native-test-package.podspec",
-    "theContent": "require \\"json\\"
+    "theContent": "# react-native-test-package.podspec
+
+require \\"json\\"
 
 package = JSON.parse(File.read(File.join(__dir__, \\"package.json\\")))
 
@@ -721,7 +723,9 @@ end
   },
   Object {
     "outputFileName": "react-native-test-package/ios/TestPackage.h",
-    "theContent": "#import <React/RCTBridgeModule.h>
+    "theContent": "// TestPackage.h
+
+#import <React/RCTBridgeModule.h>
 
 @interface TestPackage : NSObject <RCTBridgeModule>
 
@@ -730,7 +734,10 @@ end
   },
   Object {
     "outputFileName": "react-native-test-package/ios/TestPackage.m",
-    "theContent": "#import \\"TestPackage.h\\"
+    "theContent": "// TestPackage.m
+
+#import \\"TestPackage.h\\"
+
 
 @implementation TestPackage
 

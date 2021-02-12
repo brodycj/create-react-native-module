@@ -408,6 +408,8 @@ sdk.dir=/Users/{username}/Library/Android/sdk
   "* outputFile name: custom-native-module/custom-native-module.podspec
 content:
 --------
+# custom-native-module.podspec
+
 require \\"json\\"
 
 package = JSON.parse(File.read(File.join(__dir__, \\"package.json\\")))
@@ -442,6 +444,8 @@ end
   "* outputFile name: custom-native-module/ios/AliceBobbi.h
 content:
 --------
+// AliceBobbi.h
+
 #import <React/RCTBridgeModule.h>
 
 @interface AliceBobbi : NSObject <RCTBridgeModule>
@@ -453,7 +457,10 @@ content:
   "* outputFile name: custom-native-module/ios/AliceBobbi.m
 content:
 --------
+// AliceBobbi.m
+
 #import \\"AliceBobbi.h\\"
+
 
 @implementation AliceBobbi
 

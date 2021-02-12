@@ -315,7 +315,9 @@ export default IntegrationTestPackage;
   },
   Object {
     "name": "react-native-integration-test-package/ios/IntegrationTestPackage.h",
-    "theContent": "#import <React/RCTBridgeModule.h>
+    "theContent": "// IntegrationTestPackage.h
+
+#import <React/RCTBridgeModule.h>
 
 @interface IntegrationTestPackage : NSObject <RCTBridgeModule>
 
@@ -324,7 +326,10 @@ export default IntegrationTestPackage;
   },
   Object {
     "name": "react-native-integration-test-package/ios/IntegrationTestPackage.m",
-    "theContent": "#import \\"IntegrationTestPackage.h\\"
+    "theContent": "// IntegrationTestPackage.m
+
+#import \\"IntegrationTestPackage.h\\"
+
 
 @implementation IntegrationTestPackage
 
@@ -681,7 +686,9 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
   },
   Object {
     "name": "react-native-integration-test-package/react-native-integration-test-package.podspec",
-    "theContent": "require \\"json\\"
+    "theContent": "# react-native-integration-test-package.podspec
+
+require \\"json\\"
 
 package = JSON.parse(File.read(File.join(__dir__, \\"package.json\\")))
 
