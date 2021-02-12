@@ -3,7 +3,7 @@ const outdent = require('outdent');
 module.exports = [{
   name: () => 'README.md',
   content: ({ moduleName, objectClassName }) =>
-    outdent`
+    outdent({ trimTrailingNewline: false })`
 # ${moduleName}
 
 ## Getting started
