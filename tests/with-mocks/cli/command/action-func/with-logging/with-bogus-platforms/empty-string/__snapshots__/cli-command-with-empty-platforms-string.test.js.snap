@@ -135,7 +135,7 @@ yarn-error.log
 ",
   },
   Object {
-    "log": Array [
+    "info": Array [
       "
 📚  Created library module react-native-alice-bobbi in \`./react-native-alice-bobbi\`.
 🕘  It took XXX.
