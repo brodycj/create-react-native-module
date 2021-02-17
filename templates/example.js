@@ -1,3 +1,5 @@
+const outdent = require('outdent');
+
 module.exports = [{
   // only needed in case of `exampleFileLinkage: true`:
   name: ({ exampleFileLinkage }) =>
@@ -145,13 +147,15 @@ module.exports = {
   },
 
   // quick workaround for another issue with symlinks
-  watchFolders: ['.', '..']
+  watchFolders: [path.resolve('.'), path.resolve('..')]
 }
 `,
 }, {
   name: ({ exampleName, writeExamplePodfile }) =>
     writeExamplePodfile ? `${exampleName}/ios/Podfile` : undefined,
-  content: ({ moduleName, exampleName }) => `platform :ios, '10.0'
+  content: ({ moduleName, exampleName }) =>
+    outdent({ trimTrailingNewline: false })`
+	platform :ios, '10.0'
 
 	target '${exampleName}' do
 		rn_path = '../node_modules/react-native'

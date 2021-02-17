@@ -5,7 +5,7 @@ Array [
   Object {
     "please-upgrade-node": Object {
       "engines": Object {
-        "node": ">= 10.20",
+        "node": ">= 12",
       },
       "name": "create-react-native-module",
     },
@@ -489,7 +489,6 @@ repositories {
         url \\"$rootDir/../node_modules/jsc-android/dist\\"
     }
     google()
-    jcenter()
 }
 
 dependencies {
@@ -549,7 +548,6 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
-import com.facebook.react.bridge.JavaScriptModule;
 
 public class TestPackagePackage implements ReactPackage {
     @Override
@@ -982,7 +980,7 @@ module.exports = {
   },
 
   // quick workaround for another issue with symlinks
-  watchFolders: ['.', '..']
+  watchFolders: [path.resolve('.'), path.resolve('..')]
 }
 ",
   },

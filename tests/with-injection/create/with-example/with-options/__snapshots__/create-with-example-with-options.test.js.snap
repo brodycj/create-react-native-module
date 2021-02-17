@@ -202,7 +202,6 @@ repositories {
         url \\"$rootDir/../node_modules/jsc-android/dist\\"
     }
     google()
-    jcenter()
 }
 
 dependencies {
@@ -268,7 +267,6 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
-import com.facebook.react.bridge.JavaScriptModule;
 
 public class SuperAwesomeModulePackage implements ReactPackage {
     @Override
@@ -805,35 +803,35 @@ content:
 --------
 platform :ios, '10.0'
 
-	target 'test-demo' do
-		rn_path = '../node_modules/react-native'
+target 'test-demo' do
+	rn_path = '../node_modules/react-native'
 
-		pod 'yoga', path: \\"#{rn_path}/ReactCommon/yoga/yoga.podspec\\"
-		pod 'DoubleConversion', :podspec => \\"#{rn_path}/third-party-podspecs/DoubleConversion.podspec\\"
-		pod 'Folly', :podspec => \\"#{rn_path}/third-party-podspecs/Folly.podspec\\"
-		pod 'glog', :podspec => \\"#{rn_path}/third-party-podspecs/GLog.podspec\\"
-		pod 'React', path: rn_path, subspecs: [
-			'Core',
-			'CxxBridge',
-			'RCTAnimation',
-			'RCTActionSheet',
-			'RCTImage',
-			'RCTLinkingIOS',
-			'RCTNetwork',
-			'RCTSettings',
-			'RCTText',
-			'RCTVibration',
-			'RCTWebSocket',
-			'RCTPushNotification',
-			'RCTCameraRoll',
-			'RCTSettings',
-			'RCTBlob',
-			'RCTGeolocation',
-			'DevSupport'
-		]
+	pod 'yoga', path: \\"#{rn_path}/ReactCommon/yoga/yoga.podspec\\"
+	pod 'DoubleConversion', :podspec => \\"#{rn_path}/third-party-podspecs/DoubleConversion.podspec\\"
+	pod 'Folly', :podspec => \\"#{rn_path}/third-party-podspecs/Folly.podspec\\"
+	pod 'glog', :podspec => \\"#{rn_path}/third-party-podspecs/GLog.podspec\\"
+	pod 'React', path: rn_path, subspecs: [
+		'Core',
+		'CxxBridge',
+		'RCTAnimation',
+		'RCTActionSheet',
+		'RCTImage',
+		'RCTLinkingIOS',
+		'RCTNetwork',
+		'RCTSettings',
+		'RCTText',
+		'RCTVibration',
+		'RCTWebSocket',
+		'RCTPushNotification',
+		'RCTCameraRoll',
+		'RCTSettings',
+		'RCTBlob',
+		'RCTGeolocation',
+		'DevSupport'
+	]
 
-		pod 'react-native-alice-bobbi', :path => '../../react-native-alice-bobbi.podspec'
-	end
+	pod 'react-native-alice-bobbi', :path => '../../react-native-alice-bobbi.podspec'
+end
 
 <<<<<<<< ======== >>>>>>>>
 ",
