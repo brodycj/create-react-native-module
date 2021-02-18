@@ -43,6 +43,7 @@
   },
   "homepage": "https://github.com/brodybits/create-react-native-module#readme",
   "dependencies": {
+    "@react-native-community/cli": "^4.14.0",
     "commander": "^6.2.1",
     "console": "^0.7.2",
     "execa": "^5.0.0",
