@@ -1071,7 +1071,7 @@ const styles = StyleSheet.create({
     },
   },
   Object {
-    "log": Array [
+    "info": Array [
       "check for valid pod version in ./react-native-alice-bobbi/demo/ios",
     ],
   },
@@ -1083,7 +1083,7 @@ const styles = StyleSheet.create({
     },
   },
   Object {
-    "log": Array [
+    "info": Array [
       "running pod install in ./react-native-alice-bobbi/demo/ios",
     ],
   },

@@ -1180,7 +1180,7 @@ const styles = StyleSheet.create({
     },
   },
   Object {
-    "log": Array [
+    "info": Array [
       "check for valid pod version in ./react-native-test-package/example/ios",
     ],
   },
@@ -1192,7 +1192,7 @@ const styles = StyleSheet.create({
     },
   },
   Object {
-    "log": Array [
+    "info": Array [
       "running pod install in ./react-native-test-package/example/ios",
     ],
   },
@@ -1204,7 +1204,7 @@ const styles = StyleSheet.create({
     },
   },
   Object {
-    "log": Array [
+    "info": Array [
       "
 📚  Created library module react-native-test-package in \`./react-native-test-package\`.
 🕘  It took XXX.
