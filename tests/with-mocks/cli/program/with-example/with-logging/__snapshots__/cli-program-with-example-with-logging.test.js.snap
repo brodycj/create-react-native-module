@@ -1069,13 +1069,13 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
     },
   },
   Object {
-    "ensureDir": "react-native-test-package/example/",
+    "ensureDir": ".../react-native-test-package/example/",
   },
   Object {
-    "ensureDir": "react-native-test-package/example/",
+    "ensureDir": ".../react-native-test-package/example/",
   },
   Object {
-    "outputFileName": "react-native-test-package/example/metro.config.js",
+    "outputFileName": ".../react-native-test-package/example/metro.config.js",
     "theContent": "// metro.config.js
 //
 // with multiple workarounds for this issue with symlinks:
@@ -1107,7 +1107,7 @@ module.exports = {
 ",
   },
   Object {
-    "outputFileName": "react-native-test-package/example/App.js",
+    "outputFileName": ".../react-native-test-package/example/App.js",
     "theContent": "/**
  * Sample React Native App
  *
@@ -1175,31 +1175,31 @@ const styles = StyleSheet.create({
   Object {
     "commandSync": "yarn add link:../",
     "options": Object {
-      "cwd": "./react-native-test-package/example",
+      "cwd": ".../react-native-test-package/example",
       "stdio": "inherit",
     },
   },
   Object {
     "info": Array [
-      "check for valid pod version in ./react-native-test-package/example/ios",
+      "check for valid pod version in .../react-native-test-package/example/ios",
     ],
   },
   Object {
     "commandSync": "pod --version",
     "options": Object {
-      "cwd": "./react-native-test-package/example/ios",
+      "cwd": ".../react-native-test-package/example/ios",
       "stdio": "inherit",
     },
   },
   Object {
     "info": Array [
-      "running pod install in ./react-native-test-package/example/ios",
+      "running pod install in .../react-native-test-package/example/ios",
     ],
   },
   Object {
     "commandSync": "pod install",
     "options": Object {
-      "cwd": "./react-native-test-package/example/ios",
+      "cwd": ".../react-native-test-package/example/ios",
       "stdio": "inherit",
     },
   },

@@ -855,13 +855,13 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
     },
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/example/",
+    "ensureDir": ".../react-native-alice-bobbi/example/",
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/example/",
+    "ensureDir": ".../react-native-alice-bobbi/example/",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/example/metro.config.js",
+    "outputFileName": ".../react-native-alice-bobbi/example/metro.config.js",
     "theContent": "// metro.config.js
 //
 // with multiple workarounds for this issue with symlinks:
@@ -893,7 +893,7 @@ module.exports = {
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/example/App.js",
+    "outputFileName": ".../react-native-alice-bobbi/example/App.js",
     "theContent": "/**
  * Sample React Native App
  *
@@ -961,7 +961,7 @@ const styles = StyleSheet.create({
   Object {
     "commandSync": "yarn add link:../",
     "options": Object {
-      "cwd": "./react-native-alice-bobbi/example",
+      "cwd": ".../react-native-alice-bobbi/example",
       "stdio": "inherit",
     },
   },
