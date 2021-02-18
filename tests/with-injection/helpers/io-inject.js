@@ -1,8 +1,10 @@
+const process = require('process');
+
 module.exports = (mysnap) => ({
   fs: {
     outputFile: (name, content) => {
       mysnap.push(
-        `* outputFile name: ${name.replace(/\\/g, '/')}
+        `* outputFile name: ${name.replace(/\\/g, '/').replace(process.cwd(), '...')}
 content:
 --------
 ${content}
@@ -13,13 +15,13 @@ ${content}
     },
 
     ensureDir: (dir) => {
-      mysnap.push(`* ensureDir dir: ${dir.replace(/\\/g, '/')}\n`);
+      mysnap.push(`* ensureDir dir: ${dir.replace(/\\/g, '/').replace(process.cwd(), '...')}\n`);
       return Promise.resolve();
     },
     readFileSync: (jsonFilePath) => {
       mysnap.push({
         call: 'fs.readFileSync',
-        jsonFilePath: jsonFilePath.replace(/\\/g, '/'),
+        jsonFilePath: jsonFilePath.replace(/\\/g, '/').replace(process.cwd(), '...'),
       });
       return `{
   "name": "example",
@@ -31,14 +33,15 @@ ${content}
     writeFileSync: (path, json, options) => {
       mysnap.push({
         call: 'fs.writeFileSync',
-        filePath: path.replace(/\\/g, '/'),
+        filePath: path.replace(/\\/g, '/').replace(process.cwd(), '...'),
         json,
         options,
       });
     },
   },
   execa: {
-    commandSync: (command, options) => {
+    commandSync: (command, opts) => {
+      const options = { ...opts, ...(opts.cwd ? { cwd: opts.cwd.replace(process.cwd(), '...') } : {}) };
       mysnap.push(
         `* execa.commandSync command: ${command} options: ${JSON.stringify(options)}\n`);
     },
