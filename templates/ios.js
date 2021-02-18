@@ -1,6 +1,9 @@
 module.exports = platform => [{
   name: ({ moduleName }) => `${moduleName}.podspec`,
-  content: ({ moduleName, tvosEnabled, githubAccount, authorName, authorEmail, license, useAppleNetworking }) => `require "json"
+  content: ({ moduleName, tvosEnabled, githubAccount, authorName, authorEmail, license, useAppleNetworking }) =>
+    `# ${moduleName}.podspec
+
+require "json"
 
 package = JSON.parse(File.read(File.join(__dir__, "package.json")))
 
@@ -32,7 +35,9 @@ end
 }, {
   // header for module without view:
   name: ({ objectClassName, view }) => !view && `${platform}/${objectClassName}.h`,
-  content: ({ objectClassName }) => `#import <React/RCTBridgeModule.h>
+  content: ({ objectClassName }) => `// ${objectClassName}.h
+
+#import <React/RCTBridgeModule.h>
 
 @interface ${objectClassName} : NSObject <RCTBridgeModule>
 
@@ -41,7 +46,10 @@ end
 }, {
   // implementation of module without view:
   name: ({ objectClassName, view }) => !view && `${platform}/${objectClassName}.m`,
-  content: ({ objectClassName, useAppleNetworking }) => `#import "${objectClassName}.h"
+  content: ({ objectClassName, useAppleNetworking }) => `// ${objectClassName}.m
+
+#import "${objectClassName}.h"
+
 ${useAppleNetworking ? `
 #import <AFNetworking/AFNetworking.h>
 ` : ``}
@@ -72,7 +80,9 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 }, {
   // header for module with view:
   name: ({ objectClassName, view }) => view && `${platform}/${objectClassName}.h`,
-  content: ({ objectClassName }) => `#import <React/RCTViewManager.h>
+  content: ({ objectClassName }) => `// ${objectClassName}.h
+
+#import <React/RCTViewManager.h>
 
 @interface ${objectClassName} : RCTViewManager
 
@@ -81,7 +91,9 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 }, {
   // implementation of module with view:
   name: ({ objectClassName, view }) => view && `${platform}/${objectClassName}.m`,
-  content: ({ objectClassName }) => `#import "${objectClassName}.h"
+  content: ({ objectClassName }) => `// ${objectClassName}.m
+
+#import "${objectClassName}.h"
 
 @implementation ${objectClassName}
 

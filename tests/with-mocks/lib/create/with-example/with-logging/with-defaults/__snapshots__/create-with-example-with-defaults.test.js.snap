@@ -483,7 +483,9 @@ sdk.dir=/Users/{username}/Library/Android/sdk
   },
   Object {
     "outputFileName": "react-native-alice-bobbi/react-native-alice-bobbi.podspec",
-    "theContent": "require \\"json\\"
+    "theContent": "# react-native-alice-bobbi.podspec
+
+require \\"json\\"
 
 package = JSON.parse(File.read(File.join(__dir__, \\"package.json\\")))
 
@@ -515,7 +517,9 @@ end
   },
   Object {
     "outputFileName": "react-native-alice-bobbi/ios/AliceBobbi.h",
-    "theContent": "#import <React/RCTBridgeModule.h>
+    "theContent": "// AliceBobbi.h
+
+#import <React/RCTBridgeModule.h>
 
 @interface AliceBobbi : NSObject <RCTBridgeModule>
 
@@ -524,7 +528,10 @@ end
   },
   Object {
     "outputFileName": "react-native-alice-bobbi/ios/AliceBobbi.m",
-    "theContent": "#import \\"AliceBobbi.h\\"
+    "theContent": "// AliceBobbi.m
+
+#import \\"AliceBobbi.h\\"
+
 
 @implementation AliceBobbi
 
