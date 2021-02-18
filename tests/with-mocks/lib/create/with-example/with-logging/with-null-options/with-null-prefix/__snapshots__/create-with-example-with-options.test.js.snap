@@ -394,7 +394,9 @@ afterEvaluate { project ->
   },
   Object {
     "outputFileName": "react-native-alice-bobbi/android/src/main/AndroidManifest.xml",
-    "theContent": "<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
+    "theContent": "<!-- AndroidManifest.xml -->
+
+<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
           package=\\"com.reactlibrary\\">
 
 </manifest>
@@ -402,7 +404,9 @@ afterEvaluate { project ->
   },
   Object {
     "outputFileName": "react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiModule.java",
-    "theContent": "package com.reactlibrary;
+    "theContent": "// AliceBobbiModule.java
+
+package com.reactlibrary;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -433,7 +437,9 @@ public class AliceBobbiModule extends ReactContextBaseJavaModule {
   },
   Object {
     "outputFileName": "react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiPackage.java",
-    "theContent": "package com.reactlibrary;
+    "theContent": "// AliceBobbiPackage.java
+
+package com.reactlibrary;
 
 import java.util.Arrays;
 import java.util.Collections;

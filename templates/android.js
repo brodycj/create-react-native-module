@@ -151,7 +151,9 @@ afterEvaluate { project ->
 `,
 }, {
   name: () => `${platform}/src/main/AndroidManifest.xml`,
-  content: ({ packageIdentifier }) => `<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  content: ({ packageIdentifier }) => `<!-- AndroidManifest.xml -->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="${packageIdentifier}">
 
 </manifest>
@@ -163,7 +165,9 @@ afterEvaluate { project ->
       `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${objectClassName}Module.java`,
   content: ({ objectClassName, packageIdentifier, view }) =>
     !view &&
-      `package ${packageIdentifier};
+      `// ${objectClassName}Module.java
+
+package ${packageIdentifier};
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -198,7 +202,9 @@ public class ${objectClassName}Module extends ReactContextBaseJavaModule {
       `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${objectClassName}Manager.java`,
   content: ({ objectClassName, packageIdentifier, view }) =>
     view &&
-      `package ${packageIdentifier};
+      `// ${objectClassName}Manager.java
+
+package ${packageIdentifier};
 
 import android.view.View;
 
@@ -232,7 +238,9 @@ public class ${objectClassName}Manager extends SimpleViewManager<View> {
       `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${objectClassName}Package.java`,
   content: ({ objectClassName, packageIdentifier, view }) =>
     !view &&
-      `package ${packageIdentifier};
+      `// ${objectClassName}Package.java
+
+package ${packageIdentifier};
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -262,7 +270,9 @@ public class ${objectClassName}Package implements ReactPackage {
       `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${objectClassName}Package.java`,
   content: ({ objectClassName, packageIdentifier, view }) =>
     view &&
-      `package ${packageIdentifier};
+      `// ${objectClassName}Package.java
+
+package ${packageIdentifier};
 
 import java.util.Arrays;
 import java.util.Collections;

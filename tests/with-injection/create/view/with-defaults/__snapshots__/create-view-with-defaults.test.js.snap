@@ -319,6 +319,8 @@ afterEvaluate { project ->
   "* outputFile name: react-native-alice-bobbi/android/src/main/AndroidManifest.xml
 content:
 --------
+<!-- AndroidManifest.xml -->
+
 <manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
           package=\\"com.reactlibrary\\">
 
@@ -329,6 +331,8 @@ content:
   "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiManager.java
 content:
 --------
+// AliceBobbiManager.java
+
 package com.reactlibrary;
 
 import android.view.View;
@@ -361,6 +365,8 @@ public class AliceBobbiManager extends SimpleViewManager<View> {
   "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiPackage.java
 content:
 --------
+// AliceBobbiPackage.java
+
 package com.reactlibrary;
 
 import java.util.Arrays;

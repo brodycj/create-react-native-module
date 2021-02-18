@@ -241,7 +241,9 @@ afterEvaluate { project ->
   },
   Object {
     "name": "react-native-integration-test-package/android/src/main/AndroidManifest.xml",
-    "theContent": "<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
+    "theContent": "<!-- AndroidManifest.xml -->
+
+<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
           package=\\"com.reactlibrary\\">
 
 </manifest>
@@ -249,7 +251,9 @@ afterEvaluate { project ->
   },
   Object {
     "name": "react-native-integration-test-package/android/src/main/java/com/reactlibrary/IntegrationTestPackageModule.java",
-    "theContent": "package com.reactlibrary;
+    "theContent": "// IntegrationTestPackageModule.java
+
+package com.reactlibrary;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -280,7 +284,9 @@ public class IntegrationTestPackageModule extends ReactContextBaseJavaModule {
   },
   Object {
     "name": "react-native-integration-test-package/android/src/main/java/com/reactlibrary/IntegrationTestPackagePackage.java",
-    "theContent": "package com.reactlibrary;
+    "theContent": "// IntegrationTestPackagePackage.java
+
+package com.reactlibrary;
 
 import java.util.Arrays;
 import java.util.Collections;
