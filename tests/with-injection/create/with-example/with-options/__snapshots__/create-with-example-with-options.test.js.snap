@@ -108,6 +108,8 @@ content:
   "* outputFile name: react-native-alice-bobbi/index.js
 content:
 --------
+// main index.js
+
 import { NativeModules } from 'react-native';
 
 const { SuperAwesomeModule } = NativeModules;

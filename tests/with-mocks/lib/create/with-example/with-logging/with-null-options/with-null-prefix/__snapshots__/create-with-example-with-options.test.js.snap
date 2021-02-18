@@ -185,7 +185,9 @@ AliceBobbi;
   },
   Object {
     "outputFileName": "react-native-alice-bobbi/index.js",
-    "theContent": "import { NativeModules } from 'react-native';
+    "theContent": "// main index.js
+
+import { NativeModules } from 'react-native';
 
 const { AliceBobbi } = NativeModules;
 

@@ -305,7 +305,9 @@ public class IntegrationViewTestPackagePackage implements ReactPackage {
   },
   Object {
     "name": "react-native-integration-view-test-package/index.js",
-    "theContent": "import { requireNativeComponent } from 'react-native';
+    "theContent": "// main index.js
+
+import { requireNativeComponent } from 'react-native';
 
 const IntegrationViewTestPackage = requireNativeComponent('IntegrationViewTestPackage', null);
 

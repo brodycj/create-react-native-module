@@ -399,7 +399,9 @@ TestPackage;
   },
   Object {
     "outputFileName": "react-native-test-package/index.js",
-    "theContent": "import { NativeModules } from 'react-native';
+    "theContent": "// main index.js
+
+import { NativeModules } from 'react-native';
 
 const { TestPackage } = NativeModules;
 

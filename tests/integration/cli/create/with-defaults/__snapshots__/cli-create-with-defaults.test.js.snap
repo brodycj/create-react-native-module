@@ -306,7 +306,9 @@ public class IntegrationTestPackagePackage implements ReactPackage {
   },
   Object {
     "name": "react-native-integration-test-package/index.js",
-    "theContent": "import { NativeModules } from 'react-native';
+    "theContent": "// main index.js
+
+import { NativeModules } from 'react-native';
 
 const { IntegrationTestPackage } = NativeModules;
 
