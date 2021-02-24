@@ -183,9 +183,11 @@ Otherwise, React Native will open its own window to run the Metro Bundler.
 
 To run on Android, do the following command (within `react-native-alice-helper/example`):
 
+```console
+yarn android
 ```
-react-native run-android
-```
+
+or for React Native `0.60`: `npx react-native run-android`
 
 This assumes that the `ANDROID_HOME` environmental variable is set properly. Here is a sample command that does not make such an assumption on a mac:
 
@@ -203,9 +205,11 @@ cd ios && pod install && cd ..
 
 Then to run on iOS:
 
+```console
+yarn ios
 ```
-react-native run-ios
-```
+
+or for React Native `0.60`: `npx react-native run-ios`
 
 or do the following command to open the iOS project in Xcode:
 
@@ -250,12 +254,12 @@ It is *recommended* to start the Metro Bundler manually as described above (with
 yarn start
 ```
 
-To run on Android: do `react-native run-android` as described for the other example above.
+To run on Android: do `yarn android` or `npx react-native run-android` as described for the other example above.
 
 To run on iOS (as described above):
 
 - _in case of clean checkout **only**_: do `pod install` in `ios` subdirectory
-- do `react-native run-ios` or `open ios/example.xcodeproj`
+- do `yarn ios`, `npx react-native run-ios`, or `open ios/example.xcodeproj`
 
 __Expected result:__
 
