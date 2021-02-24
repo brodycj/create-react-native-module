@@ -49,6 +49,7 @@ Why not use `react-native new-library`? Unfortunately that command doesn't creat
 
 ### Alternatives
 
+- [`otobank/create-react-native-module`](https://github.com/otobank/create-react-native-module) - fork with TypeScript, Swift, and Kotlin support, with some other updates and some less useful features removed; see also issue [`#425`](https://github.com/brodybits/create-react-native-module/issues/425)
 - [`brodybits/react-native-module-init`](https://github.com/brodybits/react-native-module-init) - new interactive CLI that uses the templates from this utiity
 - [`react-native-community/bob`](https://github.com/react-native-community/bob) - opinionated, interactive library CLI that is designed to support both native libraries and libraries with web support
 
