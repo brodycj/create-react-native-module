@@ -27,12 +27,15 @@ This tool based on [`react-native-create-library`](https://www.npmjs.com/package
 
 ### General status
 
-- Minimum React Native version: 0.60 (outdated), 0.61 (recommended)
-- generated example app with symlink by default, has known issue with adding dependencies to the library root - see [issue #308](https://github.com/brodybits/create-react-native-module/issues/308)
+- Minimum React Native version: `0.60` (outdated), `0.61` (recommended, outdated) - see issue [`#423`](https://github.com/brodybits/create-react-native-module/issues/423)
+- Recommended React Native version: `0.63`; known issue with React Native `0.64(rc)` on iOS - see issue [`#422`](https://github.com/brodybits/create-react-native-module/issues/422)
+- generated example app with symlink by default, has known issue with adding dependencies to the library root - see issue [`#308`](https://github.com/brodybits/create-react-native-module/issues/308)
 - Platform fork support
   - tvOS platform fork
     - requires use of `--tvos-enabled` option as documented below
-    - requires the [`react-native-tvos`](https://www.npmjs.com/package/react-native-tvos) fork, with minimum version of 0.60 ref:  [react-native-community/react-native-tvos#11](https://github.com/react-native-community/react-native-tvos/issues/11)), [issue #95](https://github.com/brodybits/create-react-native-module/issues/95)
+    - requires the [`react-native-tvos`](https://www.npmjs.com/package/react-native-tvos) fork, with minimum version of `0.60` ref:
+      - [`react-native-tvos/react-native-tvos#11`](https://github.com/react-native-tvos/react-native-tvos/issues/11)
+      - issue [`#95`](https://github.com/brodybits/create-react-native-module/issues/95)
 - Out-of-tree platforms
   - Windows - no longer supported for reasons discussed in issues [#23](https://github.com/brodybits/create-react-native-module/issues/23) and [#43](https://github.com/brodybits/create-react-native-module/issues/43) (existing Windows C# template is kept in `unsupported-platforms` for now (at least) and further discussion would be welcome in a new issue on GitHub)
   - for future consideration: macOS (see [issue #94](https://github.com/brodybits/create-react-native-module/issues/94))
@@ -46,6 +49,7 @@ Why not use `react-native new-library`? Unfortunately that command doesn't creat
 
 ### Alternatives
 
+- [`otobank/create-react-native-module`](https://github.com/otobank/create-react-native-module) - fork with TypeScript, Swift, and Kotlin support, with some other updates and some less useful features removed; see also issue [`#425`](https://github.com/brodybits/create-react-native-module/issues/425)
 - [`brodybits/react-native-module-init`](https://github.com/brodybits/react-native-module-init) - new interactive CLI that uses the templates from this utiity
 - [`react-native-community/bob`](https://github.com/react-native-community/bob) - opinionated, interactive library CLI that is designed to support both native libraries and libraries with web support
 
@@ -100,7 +104,7 @@ Options:
   --author-name <authorName>                The author's name (Default: `Your Name`)
   --author-email <authorEmail>              The author's email (Default: `yourname@email.com`)
   --license <license>                       The license type (Default: `MIT`)
-  --use-apple-networking                    [iOS] Use `AFNetworking` dependency as a sample in the podspec & use it from the iOS code
+  --use-apple-networking                    [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: Use `AFNetworking` dependency as a sample in the podspec & use it from the iOS code - see issue #426
   --generate-example                        Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires both react-native-cli and yarn to be installed globally
   --example-file-linkage                    DEPRECATED: do `yarn add file:../` instead of `yarn add link:../` in a generated example project, and add a postinstall workaround script, with no overwrite of example metro.config.js
   --example-name <exampleName>              Name for the example project (default: `example`)
@@ -138,7 +142,7 @@ createLibraryModule({
   authorName: String, /* The author's name (Default: `Your Name`) */
   authorEmail: String, /* The author's email (Default: `yourname@email.com`) */
   license: String, /* The license type of this library (Default: `MIT`) */
-  useAppleNetworking: Boolean, /* [iOS] Use `AFNetworking` dependency as a sample in the podspec & use it from the iOS code (Default: false) */
+  useAppleNetworking: Boolean, /* [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: Use `AFNetworking` dependency as a sample in the podspec & use it from the iOS code - see issue #426 (Default: false) */
   generateExample: Boolean, /* Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires both react-native-cli and yarn to be installed globally (Default: false) */
   exampleFileLinkage: Boolean, /* DEPRECATED: do `yarn add file:../` instead of `yarn add link:../` in a generated example project, and add a postinstall workaround script, with no overwrite of example metro.config.js (Default: false) */
   exampleName: String, /* Name for the example project (Default: `example`) */
