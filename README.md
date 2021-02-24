@@ -104,7 +104,7 @@ Options:
   --author-name <authorName>                The author's name (Default: `Your Name`)
   --author-email <authorEmail>              The author's email (Default: `yourname@email.com`)
   --license <license>                       The license type (Default: `MIT`)
-  --use-apple-networking                    [iOS] Use `AFNetworking` dependency as a sample in the podspec & use it from the iOS code
+  --use-apple-networking                    [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: Use `AFNetworking` dependency as a sample in the podspec & use it from the iOS code - see issue #426
   --generate-example                        Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires both react-native-cli and yarn to be installed globally
   --example-file-linkage                    DEPRECATED: do `yarn add file:../` instead of `yarn add link:../` in a generated example project, and add a postinstall workaround script, with no overwrite of example metro.config.js
   --example-name <exampleName>              Name for the example project (default: `example`)
@@ -142,7 +142,7 @@ createLibraryModule({
   authorName: String, /* The author's name (Default: `Your Name`) */
   authorEmail: String, /* The author's email (Default: `yourname@email.com`) */
   license: String, /* The license type of this library (Default: `MIT`) */
-  useAppleNetworking: Boolean, /* [iOS] Use `AFNetworking` dependency as a sample in the podspec & use it from the iOS code (Default: false) */
+  useAppleNetworking: Boolean, /* [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: Use `AFNetworking` dependency as a sample in the podspec & use it from the iOS code - see issue #426 (Default: false) */
   generateExample: Boolean, /* Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires both react-native-cli and yarn to be installed globally (Default: false) */
   exampleFileLinkage: Boolean, /* DEPRECATED: do `yarn add file:../` instead of `yarn add link:../` in a generated example project, and add a postinstall workaround script, with no overwrite of example metro.config.js (Default: false) */
   exampleName: String, /* Name for the example project (Default: `example`) */
