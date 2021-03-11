@@ -1,18 +1,20 @@
 const lib = require('../../../../../../../../lib/lib.js');
 
+const mockcwd = require('process').cwd();
+
 // special compact mocks for this test:
 const mysnap = [];
 const mockpushit = x => mysnap.push(x);
 jest.mock('fs-extra', () => ({
   outputFile: (outputFileName, theContent) => {
     mockpushit({
-      outputFileName: outputFileName.replace(/\\/g, '/'),
+      outputFileName: outputFileName.replace(mockcwd, '...').replace(/\\/g, '/'),
       theContent
     });
     return Promise.resolve();
   },
   ensureDir: (dir) => {
-    mockpushit({ ensureDir: dir.replace(/\\/g, '/') });
+    mockpushit({ ensureDir: dir.replace(mockcwd, '...').replace(/\\/g, '/') });
     return Promise.resolve();
   },
   readFileSync: (path) => {
@@ -28,13 +30,16 @@ jest.mock('fs-extra', () => ({
   },
 }));
 jest.mock('execa', () => ({
-  commandSync: (command, options) => {
+  commandSync: (command, opts) => {
+    const options = { ...opts, ...(opts.cwd ? { cwd: opts.cwd.replace(mockcwd, '...').replace(/\\/g, '/') } : {}) };
     mockpushit({ commandSync: command, options });
   }
 }));
 jest.mock('console', () => ({
   info: (...args) => {
-    mockpushit({ info: [].concat(args) });
+    mockpushit({
+      info: args.map(line => line.replace(mockcwd, '...').replace(/\\/g, '/'))
+    });
   },
   log: (...args) => {
     mockpushit({ log: [].concat(args) });
