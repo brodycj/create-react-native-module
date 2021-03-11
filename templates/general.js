@@ -79,7 +79,9 @@ ${objectClassName};
   // for module without view:
   name: ({ view }) => !view && 'index.js',
   content: ({ objectClassName }) =>
-    `import { NativeModules } from 'react-native';
+    `// main index.js
+
+import { NativeModules } from 'react-native';
 
 const { ${objectClassName} } = NativeModules;
 
@@ -89,7 +91,9 @@ export default ${objectClassName};
   // for module with view:
   name: ({ view }) => view && 'index.js',
   content: ({ objectClassName }) =>
-    `import { requireNativeComponent } from 'react-native';
+    `// main index.js
+
+import { requireNativeComponent } from 'react-native';
 
 const ${objectClassName} = requireNativeComponent('${objectClassName}', null);
 

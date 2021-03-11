@@ -1,3 +1,5 @@
+const outdent = require('outdent');
+
 module.exports = [{
   // only needed in case of `exampleFileLinkage: true`:
   name: ({ exampleFileLinkage }) =>
@@ -151,7 +153,9 @@ module.exports = {
 }, {
   name: ({ exampleName, writeExamplePodfile }) =>
     writeExamplePodfile ? `${exampleName}/ios/Podfile` : undefined,
-  content: ({ packageName, exampleName }) => `platform :ios, '10.0'
+  content: ({ packageName, exampleName }) =>
+    outdent({ trimTrailingNewline: false })`
+	platform :ios, '10.0'
 
 	target '${exampleName}' do
 		rn_path = '../node_modules/react-native'

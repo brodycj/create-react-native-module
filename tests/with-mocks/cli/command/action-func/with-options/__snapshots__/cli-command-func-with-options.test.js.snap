@@ -114,7 +114,9 @@ AliceBobbi;
   },
   Object {
     "outputFileName": "react-native-alice-bobbi/index.js",
-    "theContent": "import { NativeModules } from 'react-native';
+    "theContent": "// main index.js
+
+import { NativeModules } from 'react-native';
 
 const { AliceBobbi } = NativeModules;
 
@@ -321,7 +323,9 @@ afterEvaluate { project ->
   },
   Object {
     "outputFileName": "react-native-alice-bobbi/android/src/main/AndroidManifest.xml",
-    "theContent": "<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
+    "theContent": "<!-- AndroidManifest.xml -->
+
+<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
           package=\\"com.reactlibrary\\">
 
 </manifest>
@@ -329,7 +333,9 @@ afterEvaluate { project ->
   },
   Object {
     "outputFileName": "react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiModule.java",
-    "theContent": "package com.reactlibrary;
+    "theContent": "// AliceBobbiModule.java
+
+package com.reactlibrary;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -360,7 +366,9 @@ public class AliceBobbiModule extends ReactContextBaseJavaModule {
   },
   Object {
     "outputFileName": "react-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiPackage.java",
-    "theContent": "package com.reactlibrary;
+    "theContent": "// AliceBobbiPackage.java
+
+package com.reactlibrary;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -404,7 +412,9 @@ sdk.dir=/Users/{username}/Library/Android/sdk
   },
   Object {
     "outputFileName": "react-native-alice-bobbi/react-native-alice-bobbi.podspec",
-    "theContent": "require \\"json\\"
+    "theContent": "# react-native-alice-bobbi.podspec
+
+require \\"json\\"
 
 package = JSON.parse(File.read(File.join(__dir__, \\"package.json\\")))
 
@@ -424,7 +434,7 @@ Pod::Spec.new do |s|
   s.platforms    = { :ios => \\"9.0\\", :tvos => \\"10.0\\" }
   s.source       = { :git => \\"https://github.com/alicebits/react-native-alice-bobbi.git\\", :tag => \\"#{s.version}\\" }
 
-  s.source_files = \\"ios/**/*.{h,c,m,swift}\\"
+  s.source_files = \\"ios/**/*.{h,c,cc,cpp,m,mm,swift}\\"
   s.requires_arc = true
 
   s.dependency \\"React\\"
@@ -436,7 +446,9 @@ end
   },
   Object {
     "outputFileName": "react-native-alice-bobbi/ios/AliceBobbi.h",
-    "theContent": "#import <React/RCTBridgeModule.h>
+    "theContent": "// AliceBobbi.h
+
+#import <React/RCTBridgeModule.h>
 
 @interface AliceBobbi : NSObject <RCTBridgeModule>
 
@@ -445,7 +457,10 @@ end
   },
   Object {
     "outputFileName": "react-native-alice-bobbi/ios/AliceBobbi.m",
-    "theContent": "#import \\"AliceBobbi.h\\"
+    "theContent": "// AliceBobbi.m
+
+#import \\"AliceBobbi.h\\"
+
 
 @implementation AliceBobbi
 

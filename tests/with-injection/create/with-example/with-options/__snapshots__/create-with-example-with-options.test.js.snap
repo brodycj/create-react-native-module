@@ -2,8 +2,6 @@
 
 exports[`create alice-bobbi module with example, with config options including \`exampleFileLinkage: true\` 1`] = `
 Array [
-  "* execa.commandSync command: react-native --version options: {\\"stdio\\":\\"inherit\\"}
-",
   "* execa.commandSync command: yarn --version options: {\\"stdio\\":\\"inherit\\"}
 ",
   "* ensureDir dir: react-native-alice-bobbi
@@ -108,6 +106,8 @@ content:
   "* outputFile name: react-native-alice-bobbi/index.js
 content:
 --------
+// main index.js
+
 import { NativeModules } from 'react-native';
 
 const { SuperAwesomeModule } = NativeModules;
@@ -321,6 +321,8 @@ afterEvaluate { project ->
   "* outputFile name: react-native-alice-bobbi/android/src/main/AndroidManifest.xml
 content:
 --------
+<!-- AndroidManifest.xml -->
+
 <manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
           package=\\"com.reactlibrary\\">
 
@@ -331,6 +333,8 @@ content:
   "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/SuperAwesomeModuleModule.java
 content:
 --------
+// SuperAwesomeModuleModule.java
+
 package com.reactlibrary;
 
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -364,6 +368,8 @@ public class SuperAwesomeModuleModule extends ReactContextBaseJavaModule {
   "* outputFile name: react-native-alice-bobbi/android/src/main/java/com/reactlibrary/SuperAwesomeModulePackage.java
 content:
 --------
+// SuperAwesomeModulePackage.java
+
 package com.reactlibrary;
 
 import java.util.Arrays;
@@ -412,6 +418,8 @@ sdk.dir=/Users/{username}/Library/Android/sdk
   "* outputFile name: react-native-alice-bobbi/react-native-alice-bobbi.podspec
 content:
 --------
+# react-native-alice-bobbi.podspec
+
 require \\"json\\"
 
 package = JSON.parse(File.read(File.join(__dir__, \\"package.json\\")))
@@ -432,7 +440,7 @@ Pod::Spec.new do |s|
   s.platforms    = { :ios => \\"9.0\\", :tvos => \\"10.0\\" }
   s.source       = { :git => \\"https://github.com/alicebits/react-native-alice-bobbi.git\\", :tag => \\"#{s.version}\\" }
 
-  s.source_files = \\"ios/**/*.{h,c,m,swift}\\"
+  s.source_files = \\"ios/**/*.{h,c,cc,cpp,m,mm,swift}\\"
   s.requires_arc = true
 
   s.dependency \\"React\\"
@@ -446,6 +454,8 @@ end
   "* outputFile name: react-native-alice-bobbi/ios/SuperAwesomeModule.h
 content:
 --------
+// SuperAwesomeModule.h
+
 #import <React/RCTBridgeModule.h>
 
 @interface SuperAwesomeModule : NSObject <RCTBridgeModule>
@@ -457,7 +467,10 @@ content:
   "* outputFile name: react-native-alice-bobbi/ios/SuperAwesomeModule.m
 content:
 --------
+// SuperAwesomeModule.m
+
 #import \\"SuperAwesomeModule.h\\"
+
 
 #import <AFNetworking/AFNetworking.h>
 
@@ -780,15 +793,23 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* execa.commandSync command: react-native init test-demo --version react-native@0.60 options: {\\"cwd\\":\\"./react-native-alice-bobbi\\",\\"stdio\\":\\"inherit\\"}
+  Object {
+    "call": "reactNativeInit",
+    "nameArray": Array [
+      "test-demo",
+    ],
+    "options": Object {
+      "directory": "react-native-alice-bobbi/test-demo",
+      "template": "react-native@0.60",
+    },
+  },
+  "* ensureDir dir: .../react-native-alice-bobbi/scripts/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/scripts/
+  "* ensureDir dir: .../react-native-alice-bobbi/test-demo/ios/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/test-demo/ios/
+  "* ensureDir dir: .../react-native-alice-bobbi/test-demo/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/test-demo/
-",
-  "* outputFile name: react-native-alice-bobbi/scripts/examples_postinstall.js
+  "* outputFile name: .../react-native-alice-bobbi/scripts/examples_postinstall.js
 content:
 --------
 #!/usr/bin/env node
@@ -905,44 +926,44 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/test-demo/ios/Podfile
+  "* outputFile name: .../react-native-alice-bobbi/test-demo/ios/Podfile
 content:
 --------
 platform :ios, '10.0'
 
-	target 'test-demo' do
-		rn_path = '../node_modules/react-native'
+target 'test-demo' do
+	rn_path = '../node_modules/react-native'
 
-		pod 'yoga', path: \\"#{rn_path}/ReactCommon/yoga/yoga.podspec\\"
-		pod 'DoubleConversion', :podspec => \\"#{rn_path}/third-party-podspecs/DoubleConversion.podspec\\"
-		pod 'Folly', :podspec => \\"#{rn_path}/third-party-podspecs/Folly.podspec\\"
-		pod 'glog', :podspec => \\"#{rn_path}/third-party-podspecs/GLog.podspec\\"
-		pod 'React', path: rn_path, subspecs: [
-			'Core',
-			'CxxBridge',
-			'RCTAnimation',
-			'RCTActionSheet',
-			'RCTImage',
-			'RCTLinkingIOS',
-			'RCTNetwork',
-			'RCTSettings',
-			'RCTText',
-			'RCTVibration',
-			'RCTWebSocket',
-			'RCTPushNotification',
-			'RCTCameraRoll',
-			'RCTSettings',
-			'RCTBlob',
-			'RCTGeolocation',
-			'DevSupport'
-		]
+	pod 'yoga', path: \\"#{rn_path}/ReactCommon/yoga/yoga.podspec\\"
+	pod 'DoubleConversion', :podspec => \\"#{rn_path}/third-party-podspecs/DoubleConversion.podspec\\"
+	pod 'Folly', :podspec => \\"#{rn_path}/third-party-podspecs/Folly.podspec\\"
+	pod 'glog', :podspec => \\"#{rn_path}/third-party-podspecs/GLog.podspec\\"
+	pod 'React', path: rn_path, subspecs: [
+		'Core',
+		'CxxBridge',
+		'RCTAnimation',
+		'RCTActionSheet',
+		'RCTImage',
+		'RCTLinkingIOS',
+		'RCTNetwork',
+		'RCTSettings',
+		'RCTText',
+		'RCTVibration',
+		'RCTWebSocket',
+		'RCTPushNotification',
+		'RCTCameraRoll',
+		'RCTSettings',
+		'RCTBlob',
+		'RCTGeolocation',
+		'DevSupport'
+	]
 
-		pod 'react-native-alice-bobbi', :path => '../../react-native-alice-bobbi.podspec'
-	end
+	pod 'react-native-alice-bobbi', :path => '../../react-native-alice-bobbi.podspec'
+end
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/test-demo/App.js
+  "* outputFile name: .../react-native-alice-bobbi/test-demo/App.js
 content:
 --------
 /**
@@ -1007,11 +1028,11 @@ const styles = StyleSheet.create({
 ",
   Object {
     "call": "fs.readFileSync",
-    "jsonFilePath": "./react-native-alice-bobbi/test-demo/package.json",
+    "jsonFilePath": ".../react-native-alice-bobbi/test-demo/package.json",
   },
   Object {
     "call": "fs.writeFileSync",
-    "filePath": "./react-native-alice-bobbi/test-demo/package.json",
+    "filePath": ".../react-native-alice-bobbi/test-demo/package.json",
     "json": "{
   \\"name\\": \\"example\\",
   \\"scripts\\": {
@@ -1030,11 +1051,11 @@ const styles = StyleSheet.create({
       "spaces": 2,
     },
   },
-  "* execa.commandSync command: yarn add file:../ options: {\\"cwd\\":\\"./react-native-alice-bobbi/test-demo\\",\\"stdio\\":\\"inherit\\"}
+  "* execa.commandSync command: yarn add file:../ options: {\\"cwd\\":\\".../react-native-alice-bobbi/test-demo\\",\\"stdio\\":\\"inherit\\"}
 ",
-  "* execa.commandSync command: pod --version options: {\\"cwd\\":\\"./react-native-alice-bobbi/test-demo/ios\\",\\"stdio\\":\\"inherit\\"}
+  "* execa.commandSync command: pod --version options: {\\"cwd\\":\\".../react-native-alice-bobbi/test-demo/ios\\",\\"stdio\\":\\"inherit\\"}
 ",
-  "* execa.commandSync command: pod install options: {\\"cwd\\":\\"./react-native-alice-bobbi/test-demo/ios\\",\\"stdio\\":\\"inherit\\"}
+  "* execa.commandSync command: pod install options: {\\"cwd\\":\\".../react-native-alice-bobbi/test-demo/ios\\",\\"stdio\\":\\"inherit\\"}
 ",
 ]
 `;

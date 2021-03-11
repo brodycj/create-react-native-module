@@ -151,7 +151,9 @@ afterEvaluate { project ->
 `,
 }, {
   name: () => `${platform}/src/main/AndroidManifest.xml`,
-  content: ({ nativePackageId }) => `<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  content: ({ nativePackageId }) => `<!-- AndroidManifest.xml -->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="${nativePackageId}">
 
 </manifest>
@@ -163,7 +165,9 @@ afterEvaluate { project ->
       `${platform}/src/main/java/${nativePackageId.split('.').join('/')}/${objectClassName}Module.java`,
   content: ({ objectClassName, nativePackageId, view }) =>
     !view &&
-      `package ${nativePackageId};
+      `// ${objectClassName}Module.java
+
+package ${nativePackageId};
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -198,7 +202,9 @@ public class ${objectClassName}Module extends ReactContextBaseJavaModule {
       `${platform}/src/main/java/${nativePackageId.split('.').join('/')}/${objectClassName}Manager.java`,
   content: ({ objectClassName, nativePackageId, view }) =>
     view &&
-      `package ${nativePackageId};
+      `// ${objectClassName}Manager.java
+
+package ${nativePackageId};
 
 import android.view.View;
 
@@ -232,7 +238,9 @@ public class ${objectClassName}Manager extends SimpleViewManager<View> {
       `${platform}/src/main/java/${nativePackageId.split('.').join('/')}/${objectClassName}Package.java`,
   content: ({ objectClassName, nativePackageId, view }) =>
     !view &&
-      `package ${nativePackageId};
+      `// ${objectClassName}Package.java
+
+package ${nativePackageId};
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -262,7 +270,9 @@ public class ${objectClassName}Package implements ReactPackage {
       `${platform}/src/main/java/${nativePackageId.split('.').join('/')}/${objectClassName}Package.java`,
   content: ({ objectClassName, nativePackageId, view }) =>
     view &&
-      `package ${nativePackageId};
+      `// ${objectClassName}Package.java
+
+package ${nativePackageId};
 
 import java.util.Arrays;
 import java.util.Collections;

@@ -111,7 +111,9 @@ AliceBobbi;
   },
   Object {
     "outputFileName": "react-native-alice-bobbi/index.js",
-    "theContent": "import { NativeModules } from 'react-native';
+    "theContent": "// main index.js
+
+import { NativeModules } from 'react-native';
 
 const { AliceBobbi } = NativeModules;
 
@@ -132,7 +134,7 @@ yarn-error.log
 ",
   },
   Object {
-    "log": Array [
+    "info": Array [
       "
 📚  Created library module react-native-alice-bobbi in \`./react-native-alice-bobbi\`.
 🕘  It took XXX.

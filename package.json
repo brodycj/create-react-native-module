@@ -50,9 +50,11 @@
     "jsonfile": "^6.1.0",
     "log-symbols": "^4.0.0",
     "node-emoji": "^1.10.0",
+    "outdent": "^0.8.0",
     "param-case": "^3.0.4",
     "pascal-case": "^3.1.2",
     "please-upgrade-node": "^3.2.0",
+    "react-native-init-func": "^0.0.3",
     "update-notifier": "^5.1.0"
   },
   "devDependencies": {
@@ -60,7 +62,7 @@
     "@stryker-mutator/javascript-mutator": "^3.3.1",
     "@stryker-mutator/jest-runner": "^3.3.1",
     "cross-env": "^7.0.3",
-    "eslint": "^7.19.0",
+    "eslint": "^7.21.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",

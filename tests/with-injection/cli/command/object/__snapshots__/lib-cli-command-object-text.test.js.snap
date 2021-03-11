@@ -58,7 +58,7 @@ Object {
     },
     Object {
       "command": "--generate-example",
-      "description": "Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires both react-native-cli and yarn to be installed globally",
+      "description": "Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires Yarn to be installed globally",
     },
     Object {
       "command": "--example-file-linkage",
@@ -72,7 +72,7 @@ Object {
     Object {
       "command": "--example-react-native-version [exampleReactNativeVersion]",
       "default": "react-native@latest",
-      "description": "React Native version for the generated example project",
+      "description": "React Native template version for the generated example project, for example: react-native-tvos or react-native-tvos@0.62.2-1 (requires --tvos-enabled option); react-native@0.62",
     },
     Object {
       "command": "--write-example-podfile",

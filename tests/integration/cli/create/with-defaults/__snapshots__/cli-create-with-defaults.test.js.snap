@@ -241,7 +241,9 @@ afterEvaluate { project ->
   },
   Object {
     "name": "react-native-integration-test-package/android/src/main/AndroidManifest.xml",
-    "theContent": "<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
+    "theContent": "<!-- AndroidManifest.xml -->
+
+<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
           package=\\"com.reactlibrary\\">
 
 </manifest>
@@ -249,7 +251,9 @@ afterEvaluate { project ->
   },
   Object {
     "name": "react-native-integration-test-package/android/src/main/java/com/reactlibrary/IntegrationTestPackageModule.java",
-    "theContent": "package com.reactlibrary;
+    "theContent": "// IntegrationTestPackageModule.java
+
+package com.reactlibrary;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -280,7 +284,9 @@ public class IntegrationTestPackageModule extends ReactContextBaseJavaModule {
   },
   Object {
     "name": "react-native-integration-test-package/android/src/main/java/com/reactlibrary/IntegrationTestPackagePackage.java",
-    "theContent": "package com.reactlibrary;
+    "theContent": "// IntegrationTestPackagePackage.java
+
+package com.reactlibrary;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -306,7 +312,9 @@ public class IntegrationTestPackagePackage implements ReactPackage {
   },
   Object {
     "name": "react-native-integration-test-package/index.js",
-    "theContent": "import { NativeModules } from 'react-native';
+    "theContent": "// main index.js
+
+import { NativeModules } from 'react-native';
 
 const { IntegrationTestPackage } = NativeModules;
 
@@ -315,7 +323,9 @@ export default IntegrationTestPackage;
   },
   Object {
     "name": "react-native-integration-test-package/ios/IntegrationTestPackage.h",
-    "theContent": "#import <React/RCTBridgeModule.h>
+    "theContent": "// IntegrationTestPackage.h
+
+#import <React/RCTBridgeModule.h>
 
 @interface IntegrationTestPackage : NSObject <RCTBridgeModule>
 
@@ -324,7 +334,10 @@ export default IntegrationTestPackage;
   },
   Object {
     "name": "react-native-integration-test-package/ios/IntegrationTestPackage.m",
-    "theContent": "#import \\"IntegrationTestPackage.h\\"
+    "theContent": "// IntegrationTestPackage.m
+
+#import \\"IntegrationTestPackage.h\\"
+
 
 @implementation IntegrationTestPackage
 
@@ -681,7 +694,9 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
   },
   Object {
     "name": "react-native-integration-test-package/react-native-integration-test-package.podspec",
-    "theContent": "require \\"json\\"
+    "theContent": "# react-native-integration-test-package.podspec
+
+require \\"json\\"
 
 package = JSON.parse(File.read(File.join(__dir__, \\"package.json\\")))
 
@@ -701,7 +716,7 @@ Pod::Spec.new do |s|
   s.platforms    = { :ios => \\"9.0\\" }
   s.source       = { :git => \\"https://github.com/github_account/react-native-integration-test-package.git\\", :tag => \\"#{s.version}\\" }
 
-  s.source_files = \\"ios/**/*.{h,c,m,swift}\\"
+  s.source_files = \\"ios/**/*.{h,c,cc,cpp,m,mm,swift}\\"
   s.requires_arc = true
 
   s.dependency \\"React\\"

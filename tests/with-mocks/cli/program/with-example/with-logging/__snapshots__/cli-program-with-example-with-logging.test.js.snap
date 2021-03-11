@@ -141,7 +141,7 @@ Array [
     "option": Object {
       "args": Array [
         "--generate-example",
-        "Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires both react-native-cli and yarn to be installed globally",
+        "Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires Yarn to be installed globally",
         [Function],
         undefined,
       ],
@@ -171,7 +171,7 @@ Array [
     "option": Object {
       "args": Array [
         "--example-react-native-version [exampleReactNativeVersion]",
-        "React Native version for the generated example project",
+        "React Native template version for the generated example project, for example: react-native-tvos or react-native-tvos@0.62.2-1 (requires --tvos-enabled option); react-native@0.62",
         [Function],
         "react-native@latest",
       ],
@@ -225,22 +225,6 @@ Array [
 exampleReactNativeVersion: react-native@latest
       writeExamplePodfile: false
 ",
-    ],
-  },
-  Object {
-    "info": Array [
-      "CREATE: Check for valid react-native-cli tool version, as needed to generate the example project",
-    ],
-  },
-  Object {
-    "commandSync": "react-native --version",
-    "options": Object {
-      "stdio": "inherit",
-    },
-  },
-  Object {
-    "info": Array [
-      "react-native --version ok",
     ],
   },
   Object {
@@ -376,7 +360,9 @@ TestPackage;
   },
   Object {
     "outputFileName": "react-native-test-package/index.js",
-    "theContent": "import { NativeModules } from 'react-native';
+    "theContent": "// main index.js
+
+import { NativeModules } from 'react-native';
 
 const { TestPackage } = NativeModules;
 
@@ -583,7 +569,9 @@ afterEvaluate { project ->
   },
   Object {
     "outputFileName": "react-native-test-package/android/src/main/AndroidManifest.xml",
-    "theContent": "<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
+    "theContent": "<!-- AndroidManifest.xml -->
+
+<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
           package=\\"com.reactlibrary\\">
 
 </manifest>
@@ -591,7 +579,9 @@ afterEvaluate { project ->
   },
   Object {
     "outputFileName": "react-native-test-package/android/src/main/java/com/reactlibrary/TestPackageModule.java",
-    "theContent": "package com.reactlibrary;
+    "theContent": "// TestPackageModule.java
+
+package com.reactlibrary;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -622,7 +612,9 @@ public class TestPackageModule extends ReactContextBaseJavaModule {
   },
   Object {
     "outputFileName": "react-native-test-package/android/src/main/java/com/reactlibrary/TestPackagePackage.java",
-    "theContent": "package com.reactlibrary;
+    "theContent": "// TestPackagePackage.java
+
+package com.reactlibrary;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -666,7 +658,9 @@ sdk.dir=/Users/{username}/Library/Android/sdk
   },
   Object {
     "outputFileName": "react-native-test-package/react-native-test-package.podspec",
-    "theContent": "require \\"json\\"
+    "theContent": "# react-native-test-package.podspec
+
+require \\"json\\"
 
 package = JSON.parse(File.read(File.join(__dir__, \\"package.json\\")))
 
@@ -686,7 +680,7 @@ Pod::Spec.new do |s|
   s.platforms    = { :ios => \\"9.0\\" }
   s.source       = { :git => \\"https://github.com/github_account/react-native-test-package.git\\", :tag => \\"#{s.version}\\" }
 
-  s.source_files = \\"ios/**/*.{h,c,m,swift}\\"
+  s.source_files = \\"ios/**/*.{h,c,cc,cpp,m,mm,swift}\\"
   s.requires_arc = true
 
   s.dependency \\"React\\"
@@ -698,7 +692,9 @@ end
   },
   Object {
     "outputFileName": "react-native-test-package/ios/TestPackage.h",
-    "theContent": "#import <React/RCTBridgeModule.h>
+    "theContent": "// TestPackage.h
+
+#import <React/RCTBridgeModule.h>
 
 @interface TestPackage : NSObject <RCTBridgeModule>
 
@@ -707,7 +703,10 @@ end
   },
   Object {
     "outputFileName": "react-native-test-package/ios/TestPackage.m",
-    "theContent": "#import \\"TestPackage.h\\"
+    "theContent": "// TestPackage.m
+
+#import \\"TestPackage.h\\"
+
 
 @implementation TestPackage
 
@@ -1020,24 +1019,27 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
   },
   Object {
     "info": Array [
-      "CREATE example app with the following command: react-native init example --version react-native@latest",
+      "CREATE example app with the following template: react-native@latest",
     ],
   },
   Object {
-    "commandSync": "react-native init example --version react-native@latest",
+    "call": "reactNativeInit",
+    "nameArray": Array [
+      "example",
+    ],
     "options": Object {
-      "cwd": "./react-native-test-package",
-      "stdio": "inherit",
+      "directory": "react-native-test-package/example",
+      "template": "react-native@latest",
     },
   },
   Object {
-    "ensureDir": "react-native-test-package/example/",
+    "ensureDir": ".../react-native-test-package/example/",
   },
   Object {
-    "ensureDir": "react-native-test-package/example/",
+    "ensureDir": ".../react-native-test-package/example/",
   },
   Object {
-    "outputFileName": "react-native-test-package/example/metro.config.js",
+    "outputFileName": ".../react-native-test-package/example/metro.config.js",
     "theContent": "// metro.config.js
 //
 // with multiple workarounds for this issue with symlinks:
@@ -1069,7 +1071,7 @@ module.exports = {
 ",
   },
   Object {
-    "outputFileName": "react-native-test-package/example/App.js",
+    "outputFileName": ".../react-native-test-package/example/App.js",
     "theContent": "/**
  * Sample React Native App
  *
@@ -1137,36 +1139,36 @@ const styles = StyleSheet.create({
   Object {
     "commandSync": "yarn add link:../",
     "options": Object {
-      "cwd": "./react-native-test-package/example",
+      "cwd": ".../react-native-test-package/example",
       "stdio": "inherit",
     },
   },
   Object {
-    "log": Array [
-      "check for valid pod version in ./react-native-test-package/example/ios",
+    "info": Array [
+      "check for valid pod version in .../react-native-test-package/example/ios",
     ],
   },
   Object {
     "commandSync": "pod --version",
     "options": Object {
-      "cwd": "./react-native-test-package/example/ios",
+      "cwd": ".../react-native-test-package/example/ios",
       "stdio": "inherit",
     },
   },
   Object {
-    "log": Array [
-      "running pod install in ./react-native-test-package/example/ios",
+    "info": Array [
+      "running pod install in .../react-native-test-package/example/ios",
     ],
   },
   Object {
     "commandSync": "pod install",
     "options": Object {
-      "cwd": "./react-native-test-package/example/ios",
+      "cwd": ".../react-native-test-package/example/ios",
       "stdio": "inherit",
     },
   },
   Object {
-    "log": Array [
+    "info": Array [
       "
 📚  Created library module react-native-test-package in \`./react-native-test-package\`.
 🕘  It took XXX.

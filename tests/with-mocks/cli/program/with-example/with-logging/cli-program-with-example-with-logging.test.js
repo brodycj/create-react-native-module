@@ -1,3 +1,5 @@
+const mockcwd = require('process').cwd();
+
 // special compact mocks for this test:
 const mysnap = [];
 const mockpushit = x => mysnap.push(x);
@@ -16,13 +18,13 @@ jest.mock('update-notifier', () => ({ pkg }) => {
 jest.mock('fs-extra', () => ({
   outputFile: (outputFileName, theContent) => {
     mockpushit({
-      outputFileName: outputFileName.replace(/\\/g, '/'),
+      outputFileName: outputFileName.replace(mockcwd, '...').replace(/\\/g, '/'),
       theContent
     });
     return Promise.resolve();
   },
   ensureDir: (dir) => {
-    mockpushit({ ensureDir: dir.replace(/\\/g, '/') });
+    mockpushit({ ensureDir: dir.replace(mockcwd, '...').replace(/\\/g, '/') });
     return Promise.resolve();
   },
 }));
@@ -67,20 +69,24 @@ const mockCommander = {
 };
 jest.mock('commander', () => mockCommander);
 jest.mock('execa', () => ({
-  commandSync: (command, options) => {
+  commandSync: (command, opts) => {
+    const options = { ...opts, ...(opts.cwd ? { cwd: opts.cwd.replace(mockcwd, '...').replace(/\\/g, '/') } : {}) };
     mockpushit({ commandSync: command, options });
   }
 }));
+jest.mock('react-native-init-func', () => (projectNameArray, opts) => {
+  const options = { ...opts, ...(opts.directory ? { directory: opts.directory.replace(/\\/g, '/') } : {}) };
+  mockpushit({ call: 'reactNativeInit', nameArray: projectNameArray, options });
+});
 jest.mock('console', () => ({
   info: (...args) => {
-    mockpushit({ info: [].concat(args) });
-  },
-  log: (...args) => {
     mockpushit({
-      // TBD EXTRA WORKAROUND HACK for non-deterministic elapsed time in log
-      log: args.map(line => line.replace(/It took.*s/g, 'It took XXX'))
+      // TBD EXTRA WORKAROUND HACK for non-deterministic elapsed time in log etc.
+      info: args.map(line => line.replace(mockcwd, '...').replace(/\\/g, '/').replace(/It took.*s/g, 'It took XXX'))
     });
   },
+  // console.log is no longer expected
+  // log: (...args) => ...
   warn: (...args) => {
     mockpushit({ warn: [].concat(args) });
   },
