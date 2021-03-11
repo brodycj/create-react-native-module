@@ -35,6 +35,10 @@ jest.mock('execa', () => ({
     mockpushit({ commandSync: command, options });
   }
 }));
+jest.mock('react-native-init-func', () => (projectNameArray, opts) => {
+  const options = { ...opts, ...(opts.directory ? { directory: opts.directory.replace(/\\/g, '/') } : {}) };
+  mockpushit({ call: 'reactNativeInit', nameArray: projectNameArray, options });
+});
 jest.mock('console', () => ({
   info: (...args) => {
     mockpushit({
