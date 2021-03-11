@@ -57,13 +57,12 @@ __Outdated alternatives:__ see [acknowledgements](#acknowledgements) below
 
 ## Installation
 
-Packages required to be installed globally if the recommended example app is generated:
+Package required to be installed globally if the recommended example app is generated:
 
-- [`react-native-cli`](https://www.npmjs.com/package/react-native-cli)
 - [`yarn`](https://www.npmjs.com/package/yarn)
 
 ```
-$ npm install -g react-native-cli yarn
+$ npm install -g yarn
 ```
 
 To install this package:
@@ -188,13 +187,15 @@ Otherwise, React Native will open its own window to run the Metro Bundler.
 To run on Android, do the following command (within `react-native-alice-helper/example`):
 
 ```
-react-native run-android
+npx react-native run-android
 ```
+
+(or `yarn android` on React Native starting with 0.61)
 
 This assumes that the `ANDROID_HOME` environmental variable is set properly. Here is a sample command that does not make such an assumption on a mac:
 
 ```
-ANDROID_HOME=~/Library/Android/sdk react-native run-android
+ANDROID_HOME=~/Library/Android/sdk npx react-native run-android
 ```
 
 For iOS:
@@ -208,8 +209,10 @@ cd ios && pod install && cd ..
 Then to run on iOS:
 
 ```
-react-native run-ios
+npx react-native run-ios
 ```
+
+(or `yarn ios` on React Native starting with 0.61)
 
 or do the following command to open the iOS project in Xcode:
 
@@ -254,12 +257,12 @@ It is *recommended* to start the Metro Bundler manually as described above (with
 yarn start
 ```
 
-To run on Android: do `react-native run-android` as described for the other example above.
+To run on Android: do `npx react-native run-android` as described for the other example above.
 
 To run on iOS (as described above):
 
 - _in case of clean checkout **only**_: do `pod install` in `ios` subdirectory
-- do `react-native run-ios` or `open ios/example.xcodeproj`
+- do `npx react-native run-ios` or `open ios/example.xcodeproj`
 
 __Expected result:__
 
