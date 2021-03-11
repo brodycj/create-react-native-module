@@ -109,7 +109,7 @@ Options:
   --generate-example                        Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires Yarn to be installed globally
   --example-file-linkage                    DEPRECATED: do `yarn add file:../` instead of `yarn add link:../` in a generated example project, and add a postinstall workaround script, with no overwrite of example metro.config.js
   --example-name <exampleName>              Name for the example project (default: `example`)
-  --example-react-native-version <version>  React Native template version for the generated example project, for example: react-native-tvos or react-native-tvos@0.62.2-1 (requires --tvos-enabled option); react-native@0.62 (default: `react-native@latest`)
+  --example-react-native-template <...>     React Native template version for the generated example project, for example: react-native-tvos or react-native-tvos@0.62.2-1 (requires --tvos-enabled option); react-native@0.62 (default: `react-native@latest`)
   --write-example-podfile                   [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile
   -h, --help                                output usage information
 ```
@@ -147,7 +147,7 @@ createLibraryModule({
   generateExample: Boolean, /* Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires Yarn to be installed globally (Default: false) */
   exampleFileLinkage: Boolean, /* DEPRECATED: do `yarn add file:../` instead of `yarn add link:../` in a generated example project, and add a postinstall workaround script, with no overwrite of example metro.config.js (Default: false) */
   exampleName: String, /* Name for the example project (Default: `example`) */
-  exampleReactNativeVersion: String, /* React Native template version for the generated example project, for example: react-native-tvos or react-native-tvos@0.62.2-1 (requires --tvos-enabled option); react-native@0.62 (Default: `react-native@latest`) */
+  exampleReactNativeTemplate: String, /* React Native template version for the generated example project, for example: react-native-tvos or react-native-tvos@0.62.2-1 (requires --tvos-enabled option); react-native@0.62 (Default: `react-native@latest`) */
   writeExamplePodfile: Boolean, /* [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile (Default: false) */
 }
 ```
