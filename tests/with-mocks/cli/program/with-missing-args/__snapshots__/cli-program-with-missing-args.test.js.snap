@@ -59,7 +59,7 @@ Array [
     "option": Object {
       "args": Array [
         "--native-package-id [nativePackageId]",
-        "The Java package identifier used by the Android module",
+        "[Android] The native Java package identifier used for Android",
         [Function],
         "com.reactlibrary",
       ],

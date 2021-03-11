@@ -21,7 +21,7 @@ Object {
     Object {
       "command": "--native-package-id [nativePackageId]",
       "default": "com.reactlibrary",
-      "description": "The Java package identifier used by the Android module",
+      "description": "[Android] The native Java package identifier used for Android",
     },
     Object {
       "command": "--platforms <platforms>",

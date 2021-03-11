@@ -10,7 +10,7 @@ Options:
   --package-name [packageName]                                The full package name to be used in package.json. Default: react-native-(name in param-case)
   --view                                                      Generate the package as a very simple native view component
   --object-class-name [objectClassName]                       The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase)
-  --native-package-id [nativePackageId]                       The Java package identifier used by the Android module (default: \\"com.reactlibrary\\")
+  --native-package-id [nativePackageId]                       [Android] The native Java package identifier used for Android (default: \\"com.reactlibrary\\")
   --platforms <platforms>                                     Platforms the library module will be created for - comma separated (default: \\"ios,android\\")
   --tvos-enabled                                              Generate the module with tvOS build enabled (requires react-native-tvos fork, with minimum version of 0.60, and iOS platform to be enabled)
   --github-account [githubAccount]                            The github account where the library module is hosted (default: \\"github_account\\")
