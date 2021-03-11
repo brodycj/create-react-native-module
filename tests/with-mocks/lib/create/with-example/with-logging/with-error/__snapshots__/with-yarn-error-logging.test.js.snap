@@ -38,22 +38,6 @@ exampleReactNativeVersion: react-native@latest
   },
   Object {
     "info": Array [
-      "CREATE: Check for valid react-native-cli tool version, as needed to generate the example project",
-    ],
-  },
-  Object {
-    "commandSync": "react-native --version",
-    "options": Object {
-      "stdio": "inherit",
-    },
-  },
-  Object {
-    "info": Array [
-      "react-native --version ok",
-    ],
-  },
-  Object {
-    "info": Array [
       "CREATE: Check for valid Yarn CLI tool version, as needed to generate the example project",
     ],
   },
@@ -844,24 +828,27 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
   },
   Object {
     "info": Array [
-      "CREATE example app with the following command: react-native init example --version react-native@latest",
+      "CREATE example app with the following template: react-native@latest",
     ],
   },
   Object {
-    "commandSync": "react-native init example --version react-native@latest",
+    "call": "reactNativeInit",
+    "nameArray": Array [
+      "example",
+    ],
     "options": Object {
-      "cwd": "./react-native-alice-bobbi",
-      "stdio": "inherit",
+      "directory": "react-native-alice-bobbi/example",
+      "template": "react-native@latest",
     },
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/example/",
+    "ensureDir": ".../react-native-alice-bobbi/example/",
   },
   Object {
-    "ensureDir": "react-native-alice-bobbi/example/",
+    "ensureDir": ".../react-native-alice-bobbi/example/",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/example/metro.config.js",
+    "outputFileName": ".../react-native-alice-bobbi/example/metro.config.js",
     "theContent": "// metro.config.js
 //
 // with multiple workarounds for this issue with symlinks:
@@ -893,7 +880,7 @@ module.exports = {
 ",
   },
   Object {
-    "outputFileName": "react-native-alice-bobbi/example/App.js",
+    "outputFileName": ".../react-native-alice-bobbi/example/App.js",
     "theContent": "/**
  * Sample React Native App
  *
@@ -961,7 +948,7 @@ const styles = StyleSheet.create({
   Object {
     "commandSync": "yarn add link:../",
     "options": Object {
-      "cwd": "./react-native-alice-bobbi/example",
+      "cwd": ".../react-native-alice-bobbi/example",
       "stdio": "inherit",
     },
   },
