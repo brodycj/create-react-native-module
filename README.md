@@ -93,7 +93,7 @@ Usage: create-react-native-module [options] <name>
 Options:
 
   -V, --version                             output the version number
-  --module-name <moduleName>                The module package name to be used in package.json. Default: react-native-(name in param-case)
+  --package-name <packageName>              The module package name to be used in package.json. Default: react-native-(name in param-case)
   --view                                    Generate the package as a very simple native view component
   --object-class-name                       The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase)
   --prefix <prefix>                         DEPRECATED: The prefix of the name of the object class to be exported by both JavaScript and native code, ignored if --object-class-name is specified (Default: ``)
@@ -131,7 +131,7 @@ createLibraryModule({
 ```javascript
 {
   name: String, /* The name of the library (mandatory) */
-  moduleName: String, /* The module package name to be used in package.json. Default: react-native-(name in param-case) */
+  packageName: String, /* The module package name to be used in package.json. Default: react-native-(name in param-case) */
   view: Boolean, /* Generate the package as a very simple native view component (Default: false) */
   objectClassName: String, /* The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase) */
   prefix: String, /* DEPRECATED: The prefix of the name of the object class to be exported by both JavaScript and native code, ignored if objectClassName is specified (Default: ``) */
