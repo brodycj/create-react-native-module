@@ -2,8 +2,6 @@
 
 exports[`create alice-bobbi module with example for Android only 1`] = `
 Array [
-  "* execa.commandSync command: react-native --version options: {\\"stdio\\":\\"inherit\\"}
-",
   "* execa.commandSync command: yarn --version options: {\\"stdio\\":\\"inherit\\"}
 ",
   "* ensureDir dir: react-native-alice-bobbi
@@ -385,13 +383,21 @@ sdk.dir=/Users/{username}/Library/Android/sdk
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* execa.commandSync command: react-native init example --version react-native@latest options: {\\"cwd\\":\\"./react-native-alice-bobbi\\",\\"stdio\\":\\"inherit\\"}
+  Object {
+    "call": "reactNativeInit",
+    "nameArray": Array [
+      "example",
+    ],
+    "options": Object {
+      "directory": "react-native-alice-bobbi/example",
+      "template": "react-native@latest",
+    },
+  },
+  "* ensureDir dir: .../react-native-alice-bobbi/example/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/example/
+  "* ensureDir dir: .../react-native-alice-bobbi/example/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/example/
-",
-  "* outputFile name: react-native-alice-bobbi/example/metro.config.js
+  "* outputFile name: .../react-native-alice-bobbi/example/metro.config.js
 content:
 --------
 // metro.config.js
@@ -425,7 +431,7 @@ module.exports = {
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/example/App.js
+  "* outputFile name: .../react-native-alice-bobbi/example/App.js
 content:
 --------
 /**
@@ -488,7 +494,7 @@ const styles = StyleSheet.create({
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* execa.commandSync command: yarn add link:../ options: {\\"cwd\\":\\"./react-native-alice-bobbi/example\\",\\"stdio\\":\\"inherit\\"}
+  "* execa.commandSync command: yarn add link:../ options: {\\"cwd\\":\\".../react-native-alice-bobbi/example\\",\\"stdio\\":\\"inherit\\"}
 ",
 ]
 `;
