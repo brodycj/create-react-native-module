@@ -192,8 +192,6 @@ yarn android
 
 or for React Native `0.60`: `npx react-native run-android`
 
-~~(or `yarn android` on React Native starting with 0.61)~~
-
 This assumes that the `ANDROID_HOME` environmental variable is set properly. Here is a sample command that does not make such an assumption on a mac:
 
 ```
@@ -215,8 +213,6 @@ yarn ios
 ```
 
 or for React Native `0.60`: `npx react-native run-ios`
-
-~~(or `yarn ios` on React Native starting with 0.61)~~
 
 or do the following command to open the iOS project in Xcode:
 
