@@ -2,8 +2,6 @@
 
 exports[`create alice-bobbi module with example, with \`exampleFileLinkage: true\` then recover from missing scripts in example package.json 1`] = `
 Array [
-  "* execa.commandSync command: react-native --version options: {\\"stdio\\":\\"inherit\\"}
-",
   "* execa.commandSync command: yarn --version options: {\\"stdio\\":\\"inherit\\"}
 ",
   "* ensureDir dir: react-native-alice-bobbi
@@ -788,13 +786,21 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* execa.commandSync command: react-native init example --version react-native@latest options: {\\"cwd\\":\\"./react-native-alice-bobbi\\",\\"stdio\\":\\"inherit\\"}
+  Object {
+    "call": "reactNativeInit",
+    "nameArray": Array [
+      "example",
+    ],
+    "options": Object {
+      "directory": "react-native-alice-bobbi/example",
+      "template": "react-native@latest",
+    },
+  },
+  "* ensureDir dir: .../react-native-alice-bobbi/scripts/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/scripts/
+  "* ensureDir dir: .../react-native-alice-bobbi/example/
 ",
-  "* ensureDir dir: react-native-alice-bobbi/example/
-",
-  "* outputFile name: react-native-alice-bobbi/scripts/examples_postinstall.js
+  "* outputFile name: .../react-native-alice-bobbi/scripts/examples_postinstall.js
 content:
 --------
 #!/usr/bin/env node
@@ -911,7 +917,7 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: react-native-alice-bobbi/example/App.js
+  "* outputFile name: .../react-native-alice-bobbi/example/App.js
 content:
 --------
 /**
@@ -976,11 +982,11 @@ const styles = StyleSheet.create({
 ",
   Object {
     "call": "fs.readFileSync",
-    "jsonFilePath": "./react-native-alice-bobbi/example/package.json",
+    "jsonFilePath": ".../react-native-alice-bobbi/example/package.json",
   },
   Object {
     "call": "fs.writeFileSync",
-    "filePath": "./react-native-alice-bobbi/example/package.json",
+    "filePath": ".../react-native-alice-bobbi/example/package.json",
     "json": "{
   \\"name\\": \\"example\\",
   \\"version\\": \\"0.0.1\\",
@@ -999,11 +1005,11 @@ const styles = StyleSheet.create({
       "spaces": 2,
     },
   },
-  "* execa.commandSync command: yarn add file:../ options: {\\"cwd\\":\\"./react-native-alice-bobbi/example\\",\\"stdio\\":\\"inherit\\"}
+  "* execa.commandSync command: yarn add file:../ options: {\\"cwd\\":\\".../react-native-alice-bobbi/example\\",\\"stdio\\":\\"inherit\\"}
 ",
-  "* execa.commandSync command: pod --version options: {\\"cwd\\":\\"./react-native-alice-bobbi/example/ios\\",\\"stdio\\":\\"inherit\\"}
+  "* execa.commandSync command: pod --version options: {\\"cwd\\":\\".../react-native-alice-bobbi/example/ios\\",\\"stdio\\":\\"inherit\\"}
 ",
-  "* execa.commandSync command: pod install options: {\\"cwd\\":\\"./react-native-alice-bobbi/example/ios\\",\\"stdio\\":\\"inherit\\"}
+  "* execa.commandSync command: pod install options: {\\"cwd\\":\\".../react-native-alice-bobbi/example/ios\\",\\"stdio\\":\\"inherit\\"}
 ",
 ]
 `;

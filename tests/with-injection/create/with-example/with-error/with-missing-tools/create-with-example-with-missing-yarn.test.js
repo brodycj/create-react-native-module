@@ -30,5 +30,5 @@ test('create module with example, with `yarn --version` not working', async () =
   }
   expect(error).toBeDefined();
   expect(error.message).toMatch(
-    `yarn --version failed; both react-native-cli and yarn CLI tools are needed to generate example project`);
+    `yarn --version failed ... yarn CLI is needed to generate example project`);
 });

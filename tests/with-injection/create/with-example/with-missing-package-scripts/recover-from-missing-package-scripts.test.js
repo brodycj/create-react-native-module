@@ -2,6 +2,8 @@ const lib = require('../../../../../lib/lib.js');
 
 const ioInject = require('../../../helpers/io-inject.js');
 
+const mycwd = require('process').cwd();
+
 test('create alice-bobbi module with example, with `exampleFileLinkage: true` then recover from missing scripts in example package.json', async () => {
   const mysnap = [];
 
@@ -13,7 +15,7 @@ test('create alice-bobbi module with example, with `exampleFileLinkage: true` th
       readFileSync: (jsonFilePath) => {
         mysnap.push({
           call: 'fs.readFileSync',
-          jsonFilePath: jsonFilePath.replace(/\\/g, '/'),
+          jsonFilePath: jsonFilePath.replace(mycwd, '...').replace(/\\/g, '/'),
         });
         return `{ "name": "example", "version": "0.0.1" }`;
       }

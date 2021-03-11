@@ -57,13 +57,12 @@ __Outdated alternatives:__ see [acknowledgements](#acknowledgements) below
 
 ## Installation
 
-Packages required to be installed globally if the recommended example app is generated:
+Package required to be installed globally if the recommended example app is generated:
 
-- [`react-native-cli`](https://www.npmjs.com/package/react-native-cli)
 - [`yarn`](https://www.npmjs.com/package/yarn)
 
 ```
-$ npm install -g react-native-cli yarn
+$ npm install -g yarn
 ```
 
 To install this package:
@@ -105,10 +104,10 @@ Options:
   --author-email <authorEmail>              The author's email (Default: `yourname@email.com`)
   --license <license>                       The license type (Default: `MIT`)
   --use-apple-networking                    [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: Use `AFNetworking` dependency as a sample in the podspec & use it from the iOS code - see issue #426
-  --generate-example                        Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires both react-native-cli and yarn to be installed globally
+  --generate-example                        Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires Yarn to be installed globally
   --example-file-linkage                    DEPRECATED: do `yarn add file:../` instead of `yarn add link:../` in a generated example project, and add a postinstall workaround script, with no overwrite of example metro.config.js
   --example-name <exampleName>              Name for the example project (default: `example`)
-  --example-react-native-version <version>  React Native version for the generated example project (default: `react-native@latest`)
+  --example-react-native-version <version>  React Native template version for the generated example project, for example: react-native-tvos or react-native-tvos@0.62.2-1 (requires --tvos-enabled option); react-native@0.62 (default: `react-native@latest`)
   --write-example-podfile                   [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile
   -h, --help                                output usage information
 ```
@@ -143,10 +142,10 @@ createLibraryModule({
   authorEmail: String, /* The author's email (Default: `yourname@email.com`) */
   license: String, /* The license type of this library (Default: `MIT`) */
   useAppleNetworking: Boolean, /* [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: Use `AFNetworking` dependency as a sample in the podspec & use it from the iOS code - see issue #426 (Default: false) */
-  generateExample: Boolean, /* Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires both react-native-cli and yarn to be installed globally (Default: false) */
+  generateExample: Boolean, /* Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires Yarn to be installed globally (Default: false) */
   exampleFileLinkage: Boolean, /* DEPRECATED: do `yarn add file:../` instead of `yarn add link:../` in a generated example project, and add a postinstall workaround script, with no overwrite of example metro.config.js (Default: false) */
   exampleName: String, /* Name for the example project (Default: `example`) */
-  exampleReactNativeVersion: String, /* React Native version for the generated example project (Default: `react-native@latest`) */
+  exampleReactNativeVersion: String, /* React Native template version for the generated example project, for example: react-native-tvos or react-native-tvos@0.62.2-1 (requires --tvos-enabled option); react-native@0.62 (Default: `react-native@latest`) */
   writeExamplePodfile: Boolean, /* [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile (Default: false) */
 }
 ```
@@ -188,13 +187,15 @@ Otherwise, React Native will open its own window to run the Metro Bundler.
 To run on Android, do the following command (within `react-native-alice-helper/example`):
 
 ```
-react-native run-android
+npx react-native run-android
 ```
+
+(or `yarn android` on React Native starting with 0.61)
 
 This assumes that the `ANDROID_HOME` environmental variable is set properly. Here is a sample command that does not make such an assumption on a mac:
 
 ```
-ANDROID_HOME=~/Library/Android/sdk react-native run-android
+ANDROID_HOME=~/Library/Android/sdk npx react-native run-android
 ```
 
 For iOS:
@@ -208,8 +209,10 @@ cd ios && pod install && cd ..
 Then to run on iOS:
 
 ```
-react-native run-ios
+npx react-native run-ios
 ```
+
+(or `yarn ios` on React Native starting with 0.61)
 
 or do the following command to open the iOS project in Xcode:
 
@@ -254,12 +257,12 @@ It is *recommended* to start the Metro Bundler manually as described above (with
 yarn start
 ```
 
-To run on Android: do `react-native run-android` as described for the other example above.
+To run on Android: do `npx react-native run-android` as described for the other example above.
 
 To run on iOS (as described above):
 
 - _in case of clean checkout **only**_: do `pod install` in `ios` subdirectory
-- do `react-native run-ios` or `open ios/example.xcodeproj`
+- do `npx react-native run-ios` or `open ios/example.xcodeproj`
 
 __Expected result:__
 
