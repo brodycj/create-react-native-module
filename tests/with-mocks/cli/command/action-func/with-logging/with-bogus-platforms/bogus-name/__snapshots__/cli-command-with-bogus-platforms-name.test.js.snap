@@ -16,9 +16,7 @@ Array [
     root moduleName
       (full package name): react-native-alice-bobbi
                   is view: false
- object class name prefix: 
         object class name: AliceBobbi
-     library modulePrefix: react-native
 Android packageIdentifier: com.reactlibrary
                 platforms: bogus
         Apple tvosEnabled: false
