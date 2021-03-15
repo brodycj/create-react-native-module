@@ -1204,8 +1204,8 @@ YOU'RE ALL SET!
 ℹ (cd react-native-test-package/undefined && yarn start)
 💡 enter the following commands to run the example app:
 ℹ cd react-native-test-package/undefined
-ℹ react-native run-android
-ℹ react-native run-ios
+ℹ yarn android # for React Native 0.60: npx react-native run-android
+ℹ yarn ios # for React Native 0.60: npx react-native run-ios
 ⚠ IMPORTANT NOTICES
 ⚠ After clean checkout, these first steps are needed:
 ℹ run Yarn in react-native-test-package/undefined/ios
