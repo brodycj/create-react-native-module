@@ -93,12 +93,12 @@ Usage: create-react-native-module [options] <name>
 Options:
 
   -V, --version                             output the version number
-  --package-name <packageName>              The module package name to be used in package.json. Default: react-native-(name in param-case)
+  --package-name <packageName>              The full package name to be used in package.json. Default: react-native-(name in param-case)
   --view                                    Generate the package as a very simple native view component
   --object-class-name                       The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase)
   --prefix <prefix>                         DEPRECATED: The prefix of the name of the object class to be exported by both JavaScript and native code, ignored if --object-class-name is specified (Default: ``)
   --module-prefix <modulePrefix>            The prefix of the generated module package name, ignored if --module-name is specified (Default: `react-native`)
-  --native-package-id <nativePackageId>     [Android] The Java package identifier used by the Android module (Default: `com.reactlibrary`)
+  --native-package-id <nativePackageId>     [Android] The native Java package identifier used for Android (Default: `com.reactlibrary`)
   --platforms <platforms>                   Platforms the library module will be created for - comma separated (Default: `ios,android`)
   --tvos-enabled                            Generate the module with tvOS build enabled (requires react-native-tvos fork, with minimum version of 0.60, and iOS platform to be enabled)
   --github-account <githubAccount>          The github account where the library module is hosted (Default: `github_account`)
@@ -109,7 +109,7 @@ Options:
   --generate-example                        Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires Yarn to be installed globally
   --example-file-linkage                    DEPRECATED: do `yarn add file:../` instead of `yarn add link:../` in a generated example project, and add a postinstall workaround script, with no overwrite of example metro.config.js
   --example-name <exampleName>              Name for the example project (default: `example`)
-  --example-react-native-template <...>     React Native template version for the generated example project, for example: react-native-tvos or react-native-tvos@0.62.2-1 (requires --tvos-enabled option); react-native@0.62 (default: `react-native@latest`)
+  --example-react-native-template <...>     The React Native template used for the generated example project, for example: react-native-tvos or react-native-tvos@0.62.2-1 (requires --tvos-enabled option); react-native@0.62 (default: `react-native@latest`)
   --write-example-podfile                   [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile
   -h, --help                                output usage information
 ```
@@ -131,13 +131,13 @@ createLibraryModule({
 ```javascript
 {
   name: String, /* The name of the library (mandatory) */
-  packageName: String, /* The module package name to be used in package.json. Default: react-native-(name in param-case) */
+  packageName: String, /* The full package name to be used in package.json. Default: react-native-(name in param-case) */
   view: Boolean, /* Generate the package as a very simple native view component (Default: false) */
   objectClassName: String, /* The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase) */
   prefix: String, /* DEPRECATED: The prefix of the name of the object class to be exported by both JavaScript and native code, ignored if objectClassName is specified (Default: ``) */
   modulePrefix: String, /* The prefix of the generated module package name, ignored if moduleName is specified (Default: `react-native`) */
   platforms: Array | String, /* Platforms the library will be created for. (Default: ['android', 'ios']) */
-  nativePackageId: String, /* [Android] The Java package identifier used by the Android module (Default: com.reactlibrary) */
+  nativePackageId: String, /* [Android] The native Java package identifier used for Android (Default: `com.reactlibrary`) */
   tvosEnabled: Boolean, /* Generate the module with tvOS build enabled (requires react-native-tvos fork, with minimum version of 0.60, and iOS platform to be enabled) */
   githubAccount: String, /* The github account where the library is hosted (Default: `github_account`) */
   authorName: String, /* The author's name (Default: `Your Name`) */
@@ -147,7 +147,7 @@ createLibraryModule({
   generateExample: Boolean, /* Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires Yarn to be installed globally (Default: false) */
   exampleFileLinkage: Boolean, /* DEPRECATED: do `yarn add file:../` instead of `yarn add link:../` in a generated example project, and add a postinstall workaround script, with no overwrite of example metro.config.js (Default: false) */
   exampleName: String, /* Name for the example project (Default: `example`) */
-  exampleReactNativeTemplate: String, /* React Native template version for the generated example project, for example: react-native-tvos or react-native-tvos@0.62.2-1 (requires --tvos-enabled option); react-native@0.62 (Default: `react-native@latest`) */
+  exampleReactNativeTemplate: String, /* The React Native template used for the generated example project, for example: react-native-tvos or react-native-tvos@0.62.2-1 (requires --tvos-enabled option); react-native@0.62 (Default: `react-native@latest`) */
   writeExamplePodfile: Boolean, /* [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile (Default: false) */
 }
 ```
