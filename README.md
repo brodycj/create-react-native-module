@@ -61,31 +61,33 @@ Package required to be installed globally if the recommended example app is gene
 
 - [`yarn`](https://www.npmjs.com/package/yarn)
 
-```
+```console
 $ npm install -g yarn
 ```
 
 To install this package:
 
-```
+```console
 $ npm install -g create-react-native-module
 ```
 
 ## Command-line usage
 
 Navigate into an empty directory to execute the command.
-```
+
+```console
 $ create-react-native-module MyFancyLibrary
 ```
 
 This will create the folder `MyFancyLibrary` in which the library will be created in.
 
 Now install dependencies by running this command in the newly created library.
-```
+
+```console
 $ npm install
 ```
 
-```
+```console
 Usage: create-react-native-module [options] <name>
 
 Options:
@@ -156,7 +158,7 @@ createLibraryModule({
 
 __Create the module with no view:__
 
-```
+```console
 create-react-native-module --prefix CB --package-identifier io.mylibrary --generate-example AliceHelper
 ```
 
@@ -164,7 +166,7 @@ The module would be generated in the `react-native-alice-helper` subdirectory, a
 
 Then go into the example app subdirectory:
 
-```
+```console
 cd react-native-alice-helper/example
 ```
 
@@ -178,7 +180,7 @@ _Within the example test app subdirectory:_
 
 It is *recommended* to start the Metro Bundler manually (within `react-native-alice-helper/example`), which would run in the foreground:
 
-```
+```console
 yarn start
 ```
 
@@ -194,7 +196,7 @@ or for React Native `0.60`: `npx react-native run-android`
 
 This assumes that the `ANDROID_HOME` environmental variable is set properly. Here is a sample command that does not make such an assumption on a mac:
 
-```
+```console
 ANDROID_HOME=~/Library/Android/sdk npx react-native run-android
 ```
 
@@ -202,7 +204,7 @@ For iOS:
 
 Extra installation step needed _in case of clean checkout only_:
 
-```
+```console
 cd ios && pod install && cd ..
 ```
 
@@ -216,7 +218,7 @@ or for React Native `0.60`: `npx react-native run-ios`
 
 or do the following command to open the iOS project in Xcode:
 
-```
+```console
 open ios/example.xcodeproj
 ```
 
@@ -231,7 +233,7 @@ The example app shows the following indications:
 
 __Create the module with an extremely simple view:__
 
-```
+```console
 create-react-native-module --prefix CB --package-identifier io.mylibrary --view --generate-example CarolWidget
 ```
 
@@ -239,7 +241,7 @@ The module would be generated in the `react-native-carol-widget` subdirectory, a
 
 Then go into the example app subdirectory:
 
-```
+```console
 cd react-native-carol-widget/example
 ```
 
@@ -253,7 +255,7 @@ _Within the example test app subdirectory:_
 
 It is *recommended* to start the Metro Bundler manually as described above (within `react-native-carol-widget/example`):
 
-```
+```console
 yarn start
 ```
 
