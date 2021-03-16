@@ -61,7 +61,7 @@ test('create alice-bobbi module using mocked lib with logging, with example, for
     platforms: ['android', 'ios'],
     name: 'alice-bobbi',
     prefix: 'ABC',
-    packageIdentifier: 'com.alicebits',
+    nativePackageId: 'com.alicebits',
     tvosEnabled: true,
     githubAccount: 'alicebits',
     authorName: 'Alice',
