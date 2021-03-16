@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`create alice-bobbi module with moduleName: 'custom-native-module' 1`] = `
+exports[`create alice-bobbi module package with custom packageName 1`] = `
 Array [
   "* ensureDir dir: custom-native-module
 ",
