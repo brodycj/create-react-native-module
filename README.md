@@ -153,7 +153,7 @@ createLibraryModule({
 __Create the module with no view:__
 
 ```
-create-react-native-module --prefix CB --package-identifier io.mylibrary --generate-example AliceHelper
+create-react-native-module --package-identifier io.mylibrary --generate-example AliceHelper
 ```
 
 The module would be generated in the `react-native-alice-helper` subdirectory, and the example test app would be in `react-native-alice-helper/example`.
@@ -228,7 +228,7 @@ The example app shows the following indications:
 __Create the module with an extremely simple view:__
 
 ```
-create-react-native-module --prefix CB --package-identifier io.mylibrary --view --generate-example CarolWidget
+create-react-native-module --package-identifier io.mylibrary --view --generate-example CarolWidget
 ```
 
 The module would be generated in the `react-native-carol-widget` subdirectory, and the example test app would be in `react-native-carol-widget/example`.
