@@ -9,7 +9,7 @@ test(`create alice-bobbi module package with custom packageName`, async () => {
 
   const options = {
     name: 'alice-bobbi',
-    packageName: 'custom-native-module'
+    packageName: 'custom-native-module-package-name'
   };
 
   await lib(options, inject);
