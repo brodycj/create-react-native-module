@@ -17,7 +17,7 @@ test('create alice-bobbi view module with example, with custom config options', 
     view: true,
     generateExample: true,
     exampleName: 'test-demo',
-    exampleReactNativeVersion: 'react-native@0.60',
+    exampleReactNativeTemplate: 'react-native@0.60',
   };
 
   return lib(options, inject)
