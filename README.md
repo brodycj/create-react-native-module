@@ -192,7 +192,7 @@ To run on Android, do the following command (within `react-native-alice-helper/e
 yarn android
 ```
 
-or for React Native `0.60`: `npx react-native run-android`
+for React Native `0.60`: `npx react-native run-android`
 
 This assumes that the `ANDROID_HOME` environmental variable is set properly. Here is a sample command that does not make such an assumption on a mac:
 
@@ -214,7 +214,7 @@ Then to run on iOS:
 yarn ios
 ```
 
-or for React Native `0.60`: `npx react-native run-ios`
+for React Native `0.60`: `npx react-native run-ios`
 
 or do the following command to open the iOS project in Xcode:
 
