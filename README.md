@@ -61,40 +61,42 @@ Package required to be installed globally if the recommended example app is gene
 
 - [`yarn`](https://www.npmjs.com/package/yarn)
 
-```
+```console
 $ npm install -g yarn
 ```
 
 To install this package:
 
-```
+```console
 $ npm install -g create-react-native-module
 ```
 
 ## Command-line usage
 
 Navigate into an empty directory to execute the command.
-```
+
+```console
 $ create-react-native-module MyFancyLibrary
 ```
 
 This will create the folder `MyFancyLibrary` in which the library will be created in.
 
 Now install dependencies by running this command in the newly created library.
-```
+
+```console
 $ npm install
 ```
 
-```
+```console
 Usage: create-react-native-module [options] <name>
 
 Options:
 
   -V, --version                             output the version number
-  --module-name <moduleName>                The module package name to be used in package.json. Default: react-native-(name in param-case)
+  --package-name <packageName>              The full package name to be used in package.json. Default: react-native-(name in param-case)
   --view                                    Generate the package as a very simple native view component
   --object-class-name                       The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase)
-  --package-identifier <packageIdentifier>  [Android] The Java package identifier used by the Android module (Default: `com.reactlibrary`)
+  --native-package-id <nativePackageId>     [Android] The native Java package identifier used for Android (Default: `com.reactlibrary`)
   --platforms <platforms>                   Platforms the library module will be created for - comma separated (Default: `ios,android`)
   --tvos-enabled                            Generate the module with tvOS build enabled (requires react-native-tvos fork, with minimum version of 0.60, and iOS platform to be enabled)
   --github-account <githubAccount>          The github account where the library module is hosted (Default: `github_account`)
@@ -105,7 +107,7 @@ Options:
   --generate-example                        Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires Yarn to be installed globally
   --example-file-linkage                    DEPRECATED: do `yarn add file:../` instead of `yarn add link:../` in a generated example project, and add a postinstall workaround script, with no overwrite of example metro.config.js
   --example-name <exampleName>              Name for the example project (default: `example`)
-  --example-react-native-version <version>  React Native template version for the generated example project, for example: react-native-tvos or react-native-tvos@0.62.2-1 (requires --tvos-enabled option); react-native@0.62 (default: `react-native@latest`)
+  --example-react-native-template <...>     The React Native template used for the generated example project, for example: react-native-tvos or react-native-tvos@0.62.2-1 (requires --tvos-enabled option); react-native@0.62 (default: `react-native@latest`)
   --write-example-podfile                   [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile
   -h, --help                                output usage information
 ```
@@ -127,11 +129,11 @@ createLibraryModule({
 ```javascript
 {
   name: String, /* The name of the library (mandatory) */
-  moduleName: String, /* The module package name to be used in package.json. Default: react-native-(name in param-case) */
+  packageName: String, /* The full package name to be used in package.json. Default: react-native-(name in param-case) */
   view: Boolean, /* Generate the package as a very simple native view component (Default: false) */
   objectClassName: String, /* The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase) */
   platforms: Array | String, /* Platforms the library will be created for. (Default: ['android', 'ios']) */
-  packageIdentifier: String, /* [Android] The Java package identifier used by the Android module (Default: com.reactlibrary) */
+  nativePackageId: String, /* [Android] The native Java package identifier used for Android (Default: `com.reactlibrary`) */
   tvosEnabled: Boolean, /* Generate the module with tvOS build enabled (requires react-native-tvos fork, with minimum version of 0.60, and iOS platform to be enabled) */
   githubAccount: String, /* The github account where the library is hosted (Default: `github_account`) */
   authorName: String, /* The author's name (Default: `Your Name`) */
@@ -141,7 +143,7 @@ createLibraryModule({
   generateExample: Boolean, /* Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires Yarn to be installed globally (Default: false) */
   exampleFileLinkage: Boolean, /* DEPRECATED: do `yarn add file:../` instead of `yarn add link:../` in a generated example project, and add a postinstall workaround script, with no overwrite of example metro.config.js (Default: false) */
   exampleName: String, /* Name for the example project (Default: `example`) */
-  exampleReactNativeVersion: String, /* React Native template version for the generated example project, for example: react-native-tvos or react-native-tvos@0.62.2-1 (requires --tvos-enabled option); react-native@0.62 (Default: `react-native@latest`) */
+  exampleReactNativeTemplate: String, /* The React Native template used for the generated example project, for example: react-native-tvos or react-native-tvos@0.62.2-1 (requires --tvos-enabled option); react-native@0.62 (Default: `react-native@latest`) */
   writeExamplePodfile: Boolean, /* [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile (Default: false) */
 }
 ```
@@ -152,15 +154,15 @@ createLibraryModule({
 
 __Create the module with no view:__
 
-```
-create-react-native-module --prefix CB --package-identifier io.mylibrary --generate-example AliceHelper
+```console
+create-react-native-module --prefix CB --native-package-id io.mylibrary --generate-example AliceHelper
 ```
 
 The module would be generated in the `react-native-alice-helper` subdirectory, and the example test app would be in `react-native-alice-helper/example`.
 
 Then go into the example app subdirectory:
 
-```
+```console
 cd react-native-alice-helper/example
 ```
 
@@ -174,7 +176,7 @@ _Within the example test app subdirectory:_
 
 It is *recommended* to start the Metro Bundler manually (within `react-native-alice-helper/example`), which would run in the foreground:
 
-```
+```console
 yarn start
 ```
 
@@ -182,15 +184,15 @@ Otherwise, React Native will open its own window to run the Metro Bundler.
 
 To run on Android, do the following command (within `react-native-alice-helper/example`):
 
-```
-npx react-native run-android
+```console
+yarn android
 ```
 
-(or `yarn android` on React Native starting with 0.61)
+for React Native `0.60`: `npx react-native run-android`
 
 This assumes that the `ANDROID_HOME` environmental variable is set properly. Here is a sample command that does not make such an assumption on a mac:
 
-```
+```console
 ANDROID_HOME=~/Library/Android/sdk npx react-native run-android
 ```
 
@@ -198,21 +200,21 @@ For iOS:
 
 Extra installation step needed _in case of clean checkout only_:
 
-```
+```console
 cd ios && pod install && cd ..
 ```
 
 Then to run on iOS:
 
-```
-npx react-native run-ios
+```console
+yarn ios
 ```
 
-(or `yarn ios` on React Native starting with 0.61)
+for React Native `0.60`: `npx react-native run-ios`
 
 or do the following command to open the iOS project in Xcode:
 
-```
+```console
 open ios/example.xcodeproj
 ```
 
@@ -227,15 +229,15 @@ The example app shows the following indications:
 
 __Create the module with an extremely simple view:__
 
-```
-create-react-native-module --prefix CB --package-identifier io.mylibrary --view --generate-example CarolWidget
+```console
+create-react-native-module --prefix CB --native-package-id io.mylibrary --view --generate-example CarolWidget
 ```
 
 The module would be generated in the `react-native-carol-widget` subdirectory, and the example test app would be in `react-native-carol-widget/example`.
 
 Then go into the example app subdirectory:
 
-```
+```console
 cd react-native-carol-widget/example
 ```
 
@@ -249,16 +251,16 @@ _Within the example test app subdirectory:_
 
 It is *recommended* to start the Metro Bundler manually as described above (within `react-native-carol-widget/example`):
 
-```
+```console
 yarn start
 ```
 
-To run on Android: do `npx react-native run-android` as described for the other example above.
+To run on Android: do `yarn android` or `npx react-native run-android` as described for the other example above.
 
 To run on iOS (as described above):
 
 - _in case of clean checkout **only**_: do `pod install` in `ios` subdirectory
-- do `npx react-native run-ios` or `open ios/example.xcodeproj`
+- do `yarn ios`, `npx react-native run-ios`, or `open ios/example.xcodeproj`
 
 __Expected result:__
 

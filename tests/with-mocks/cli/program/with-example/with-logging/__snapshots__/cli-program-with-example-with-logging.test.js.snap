@@ -30,8 +30,8 @@ Array [
   Object {
     "option": Object {
       "args": Array [
-        "--module-name [moduleName]",
-        "The module package name to be used in package.json. Default: react-native-(name in param-case)",
+        "--package-name [packageName]",
+        "The full package name to be used in package.json. Default: react-native-(name in param-case)",
         [Function],
         undefined,
       ],
@@ -60,8 +60,8 @@ Array [
   Object {
     "option": Object {
       "args": Array [
-        "--package-identifier [packageIdentifier]",
-        "[Android] The Java package identifier used by the Android module",
+        "--native-package-id [nativePackageId]",
+        "[Android] The native Java package identifier used for Android",
         [Function],
         "com.reactlibrary",
       ],
@@ -170,8 +170,8 @@ Array [
   Object {
     "option": Object {
       "args": Array [
-        "--example-react-native-version [exampleReactNativeVersion]",
-        "React Native template version for the generated example project, for example: react-native-tvos or react-native-tvos@0.62.2-1 (requires --tvos-enabled option); react-native@0.62",
+        "--example-react-native-template [exampleReactNativeTemplate]",
+        "The React Native template used for the generated example project, for example: react-native-tvos or react-native-tvos@0.62.2-1 (requires --tvos-enabled option); react-native@0.62",
         [Function],
         "react-native@latest",
       ],
@@ -198,7 +198,7 @@ Array [
   },
   Object {
     "warn": Array [
-      "While \`{DEFAULT_PACKAGE_IDENTIFIER}\` is the default package
+      "While \`{DEFAULT_NATIVE_PACKAGE_ID}\` is the default package
       identifier, it is recommended to customize the package identifier.",
     ],
   },
@@ -206,25 +206,24 @@ Array [
     "info": Array [
       "CREATE new React Native module with the following options:
 
-                     name: test-package
-    root moduleName
-      (full package name): react-native-test-package
-                  is view: false
-        object class name: TestPackage
-Android packageIdentifier: com.reactlibrary
-                platforms: android,ios
-        Apple tvosEnabled: false
-               authorName: Your Name
-              authorEmail: yourname@email.com
-     author githubAccount: github_account
-                  license: MIT
-       useAppleNetworking: false
+                      name: test-package
+        full package name: react-native-test-package
+                   is view: false
+         object class name: TestPackage
+   Android nativePackageId: com.reactlibrary
+                 platforms: android,ios
+         Apple tvosEnabled: false
+                authorName: Your Name
+               authorEmail: yourname@email.com
+      author githubAccount: github_account
+                   license: MIT
+        useAppleNetworking: false
 
-          generateExample: true
-       exampleFileLinkage: false
-              exampleName: example
-exampleReactNativeVersion: react-native@latest
-      writeExamplePodfile: false
+           generateExample: true
+        exampleFileLinkage: false
+               exampleName: example
+exampleReactNativeTemplate: react-native@latest
+       writeExamplePodfile: false
 ",
     ],
   },
@@ -1182,8 +1181,8 @@ YOU'RE ALL SET!
 ℹ (cd react-native-test-package/undefined && yarn start)
 💡 enter the following commands to run the example app:
 ℹ cd react-native-test-package/undefined
-ℹ react-native run-android
-ℹ react-native run-ios
+ℹ yarn android # for React Native 0.60: npx react-native run-android
+ℹ yarn ios # for React Native 0.60: npx react-native run-ios
 ⚠ IMPORTANT NOTICES
 ⚠ After clean checkout, these first steps are needed:
 ℹ run Yarn in react-native-test-package/undefined/ios

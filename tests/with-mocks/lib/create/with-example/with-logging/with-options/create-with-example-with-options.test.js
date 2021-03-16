@@ -60,7 +60,7 @@ test('create alice-bobbi module using mocked lib with logging, with example, for
   const options = {
     platforms: ['android', 'ios'],
     name: 'alice-bobbi',
-    packageIdentifier: 'com.alicebits',
+    nativePackageId: 'com.alicebits',
     tvosEnabled: true,
     githubAccount: 'alicebits',
     authorName: 'Alice',
@@ -69,7 +69,7 @@ test('create alice-bobbi module using mocked lib with logging, with example, for
     generateExample: true,
     exampleFileLinkage: true,
     exampleName: 'demo',
-    exampleReactNativeVersion: 'react-native@npm:react-native-tvos'
+    exampleReactNativeTemplate: 'react-native@npm:react-native-tvos'
   };
 
   await lib(options);

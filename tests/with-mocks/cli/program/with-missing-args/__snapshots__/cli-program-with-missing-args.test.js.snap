@@ -28,8 +28,8 @@ Array [
   Object {
     "option": Object {
       "args": Array [
-        "--module-name [moduleName]",
-        "The module package name to be used in package.json. Default: react-native-(name in param-case)",
+        "--package-name [packageName]",
+        "The full package name to be used in package.json. Default: react-native-(name in param-case)",
         [Function],
         undefined,
       ],
@@ -58,8 +58,8 @@ Array [
   Object {
     "option": Object {
       "args": Array [
-        "--package-identifier [packageIdentifier]",
-        "[Android] The Java package identifier used by the Android module",
+        "--native-package-id [nativePackageId]",
+        "[Android] The native Java package identifier used for Android",
         [Function],
         "com.reactlibrary",
       ],
@@ -168,8 +168,8 @@ Array [
   Object {
     "option": Object {
       "args": Array [
-        "--example-react-native-version [exampleReactNativeVersion]",
-        "React Native template version for the generated example project, for example: react-native-tvos or react-native-tvos@0.62.2-1 (requires --tvos-enabled option); react-native@0.62",
+        "--example-react-native-template [exampleReactNativeTemplate]",
+        "The React Native template used for the generated example project, for example: react-native-tvos or react-native-tvos@0.62.2-1 (requires --tvos-enabled option); react-native@0.62",
         [Function],
         "react-native@latest",
       ],
