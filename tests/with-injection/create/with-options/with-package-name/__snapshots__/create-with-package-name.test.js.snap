@@ -1,53 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`create alice-bobbi module with moduleName: 'custom-native-module' 1`] = `
+exports[`create alice-bobbi module package with custom packageName 1`] = `
 Array [
-  "* ensureDir dir: custom-native-module
+  "* ensureDir dir: custom-native-module-package-name
 ",
-  "* ensureDir dir: custom-native-module/
+  "* ensureDir dir: custom-native-module-package-name/
 ",
-  "* ensureDir dir: custom-native-module/
+  "* ensureDir dir: custom-native-module-package-name/
 ",
-  "* ensureDir dir: custom-native-module/
+  "* ensureDir dir: custom-native-module-package-name/
 ",
-  "* ensureDir dir: custom-native-module/
+  "* ensureDir dir: custom-native-module-package-name/
 ",
-  "* ensureDir dir: custom-native-module/android/
+  "* ensureDir dir: custom-native-module-package-name/android/
 ",
-  "* ensureDir dir: custom-native-module/android/src/main/
+  "* ensureDir dir: custom-native-module-package-name/android/src/main/
 ",
-  "* ensureDir dir: custom-native-module/android/src/main/java/com/reactlibrary/
+  "* ensureDir dir: custom-native-module-package-name/android/src/main/java/com/reactlibrary/
 ",
-  "* ensureDir dir: custom-native-module/android/src/main/java/com/reactlibrary/
+  "* ensureDir dir: custom-native-module-package-name/android/src/main/java/com/reactlibrary/
 ",
-  "* ensureDir dir: custom-native-module/android/
+  "* ensureDir dir: custom-native-module-package-name/android/
 ",
-  "* ensureDir dir: custom-native-module/
+  "* ensureDir dir: custom-native-module-package-name/
 ",
-  "* ensureDir dir: custom-native-module/ios/
+  "* ensureDir dir: custom-native-module-package-name/ios/
 ",
-  "* ensureDir dir: custom-native-module/ios/
+  "* ensureDir dir: custom-native-module-package-name/ios/
 ",
-  "* ensureDir dir: custom-native-module/ios/AliceBobbi.xcworkspace/
+  "* ensureDir dir: custom-native-module-package-name/ios/AliceBobbi.xcworkspace/
 ",
-  "* ensureDir dir: custom-native-module/ios/AliceBobbi.xcodeproj/
+  "* ensureDir dir: custom-native-module-package-name/ios/AliceBobbi.xcodeproj/
 ",
-  "* outputFile name: custom-native-module/README.md
+  "* outputFile name: custom-native-module-package-name/README.md
 content:
 --------
-# custom-native-module
+# custom-native-module-package-name
 
 ## Getting started
 
-\`$ npm install custom-native-module --save\`
+\`$ npm install custom-native-module-package-name --save\`
 
 ### Mostly automatic installation
 
-\`$ react-native link custom-native-module\`
+\`$ react-native link custom-native-module-package-name\`
 
 ## Usage
 \`\`\`javascript
-import AliceBobbi from 'custom-native-module';
+import AliceBobbi from 'custom-native-module-package-name';
 
 // TODO: What to do with the module?
 AliceBobbi;
@@ -55,12 +55,12 @@ AliceBobbi;
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-module/package.json
+  "* outputFile name: custom-native-module-package-name/package.json
 content:
 --------
 {
-  \\"name\\": \\"custom-native-module\\",
-  \\"title\\": \\"Custom Native Module\\",
+  \\"name\\": \\"custom-native-module-package-name\\",
+  \\"title\\": \\"Custom Native Module Package Name\\",
   \\"version\\": \\"1.0.0\\",
   \\"description\\": \\"TODO\\",
   \\"main\\": \\"index.js\\",
@@ -69,15 +69,15 @@ content:
     \\"android\\",
     \\"index.js\\",
     \\"ios\\",
-    \\"custom-native-module.podspec\\"
+    \\"custom-native-module-package-name.podspec\\"
   ],
   \\"scripts\\": {
     \\"test\\": \\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\"
   },
   \\"repository\\": {
     \\"type\\": \\"git\\",
-    \\"url\\": \\"git+https://github.com/github_account/custom-native-module.git\\",
-    \\"baseUrl\\": \\"https://github.com/github_account/custom-native-module\\"
+    \\"url\\": \\"git+https://github.com/github_account/custom-native-module-package-name.git\\",
+    \\"baseUrl\\": \\"https://github.com/github_account/custom-native-module-package-name\\"
   },
   \\"keywords\\": [
     \\"react-native\\"
@@ -101,7 +101,7 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-module/index.js
+  "* outputFile name: custom-native-module-package-name/index.js
 content:
 --------
 // main index.js
@@ -114,7 +114,7 @@ export default AliceBobbi;
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-module/.gitignore
+  "* outputFile name: custom-native-module-package-name/.gitignore
 content:
 --------
 # OSX
@@ -162,7 +162,7 @@ buck-out/
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-module/android/build.gradle
+  "* outputFile name: custom-native-module-package-name/android/build.gradle
 content:
 --------
 // android/build.gradle
@@ -316,7 +316,7 @@ afterEvaluate { project ->
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-module/android/src/main/AndroidManifest.xml
+  "* outputFile name: custom-native-module-package-name/android/src/main/AndroidManifest.xml
 content:
 --------
 <!-- AndroidManifest.xml -->
@@ -328,7 +328,7 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-module/android/src/main/java/com/reactlibrary/AliceBobbiModule.java
+  "* outputFile name: custom-native-module-package-name/android/src/main/java/com/reactlibrary/AliceBobbiModule.java
 content:
 --------
 // AliceBobbiModule.java
@@ -363,7 +363,7 @@ public class AliceBobbiModule extends ReactContextBaseJavaModule {
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-module/android/src/main/java/com/reactlibrary/AliceBobbiPackage.java
+  "* outputFile name: custom-native-module-package-name/android/src/main/java/com/reactlibrary/AliceBobbiPackage.java
 content:
 --------
 // AliceBobbiPackage.java
@@ -393,7 +393,7 @@ public class AliceBobbiPackage implements ReactPackage {
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-module/android/README.md
+  "* outputFile name: custom-native-module-package-name/android/README.md
 content:
 --------
 README
@@ -413,30 +413,30 @@ sdk.dir=/Users/{username}/Library/Android/sdk
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-module/custom-native-module.podspec
+  "* outputFile name: custom-native-module-package-name/custom-native-module-package-name.podspec
 content:
 --------
-# custom-native-module.podspec
+# custom-native-module-package-name.podspec
 
 require \\"json\\"
 
 package = JSON.parse(File.read(File.join(__dir__, \\"package.json\\")))
 
 Pod::Spec.new do |s|
-  s.name         = \\"custom-native-module\\"
+  s.name         = \\"custom-native-module-package-name\\"
   s.version      = package[\\"version\\"]
   s.summary      = package[\\"description\\"]
   s.description  = <<-DESC
-                  custom-native-module
+                  custom-native-module-package-name
                    DESC
-  s.homepage     = \\"https://github.com/github_account/custom-native-module\\"
+  s.homepage     = \\"https://github.com/github_account/custom-native-module-package-name\\"
   # brief license entry:
   s.license      = \\"MIT\\"
   # optional - use expanded license entry instead:
   # s.license    = { :type => \\"MIT\\", :file => \\"LICENSE\\" }
   s.authors      = { \\"Your Name\\" => \\"yourname@email.com\\" }
   s.platforms    = { :ios => \\"9.0\\" }
-  s.source       = { :git => \\"https://github.com/github_account/custom-native-module.git\\", :tag => \\"#{s.version}\\" }
+  s.source       = { :git => \\"https://github.com/github_account/custom-native-module-package-name.git\\", :tag => \\"#{s.version}\\" }
 
   s.source_files = \\"ios/**/*.{h,c,cc,cpp,m,mm,swift}\\"
   s.requires_arc = true
@@ -449,7 +449,7 @@ end
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-module/ios/AliceBobbi.h
+  "* outputFile name: custom-native-module-package-name/ios/AliceBobbi.h
 content:
 --------
 // AliceBobbi.h
@@ -462,7 +462,7 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-module/ios/AliceBobbi.m
+  "* outputFile name: custom-native-module-package-name/ios/AliceBobbi.m
 content:
 --------
 // AliceBobbi.m
@@ -484,7 +484,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-module/ios/AliceBobbi.xcworkspace/contents.xcworkspacedata
+  "* outputFile name: custom-native-module-package-name/ios/AliceBobbi.xcworkspace/contents.xcworkspacedata
 content:
 --------
 <?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
@@ -497,7 +497,7 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-module/ios/AliceBobbi.xcodeproj/project.pbxproj
+  "* outputFile name: custom-native-module-package-name/ios/AliceBobbi.xcodeproj/project.pbxproj
 content:
 --------
 // !$*UTF8*$!

@@ -6,24 +6,24 @@ exports[`bin/cli.js with no arguments returns expected output 1`] = `
 creates a React Native library module for one or more platforms
 
 Options:
-  -V, --version                                               output the version number
-  --module-name [moduleName]                                  The module package name to be used in package.json. Default: react-native-(name in param-case)
-  --view                                                      Generate the package as a very simple native view component
-  --object-class-name [objectClassName]                       The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase)
-  --prefix [prefix]                                           DEPRECATED: The prefix of the name of the object class to be exported by both JavaScript and native code, ignored if --object-class-name is specified (default: \\"\\")
-  --module-prefix [modulePrefix]                              The prefix of the generated module package name, ignored if --module-name is specified (default: \\"react-native\\")
-  --package-identifier [packageIdentifier]                    [Android] The Java package identifier used by the Android module (default: \\"com.reactlibrary\\")
-  --platforms <platforms>                                     Platforms the library module will be created for - comma separated (default: \\"ios,android\\")
-  --tvos-enabled                                              Generate the module with tvOS build enabled (requires react-native-tvos fork, with minimum version of 0.60, and iOS platform to be enabled)
-  --github-account [githubAccount]                            The github account where the library module is hosted (default: \\"github_account\\")
-  --author-name [authorName]                                  The author's name (default: \\"Your Name\\")
-  --author-email [authorEmail]                                The author's email (default: \\"yourname@email.com\\")
-  --license [license]                                         The license type (default: \\"MIT\\")
-  --use-apple-networking                                      [iOS] Use \`AFNetworking\` dependency as a sample in the podspec & use it from the iOS code
-  --generate-example                                          Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires Yarn to be installed globally
-  --example-file-linkage                                      DEPRECATED: do \`yarn add file:../\` instead of \`yarn add link:../\` in a generated example project, and add a postinstall workaround script, with no overwrite of example metro.config.js
-  --example-name [exampleName]                                Name for the example project (default: \\"example\\")
-  --example-react-native-version [exampleReactNativeVersion]  React Native template version for the generated example project, for example: react-native-tvos or react-native-tvos@0.62.2-1 (requires --tvos-enabled option); react-native@0.62 (default: \\"react-native@latest\\")
-  --write-example-podfile                                     [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile
-  -h, --help                                                  display help for command"
+  -V, --version                                                 output the version number
+  --package-name [packageName]                                  The full package name to be used in package.json. Default: react-native-(name in param-case)
+  --view                                                        Generate the package as a very simple native view component
+  --object-class-name [objectClassName]                         The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase)
+  --prefix [prefix]                                             DEPRECATED: The prefix of the name of the object class to be exported by both JavaScript and native code, ignored if --object-class-name is specified (default: \\"\\")
+  --module-prefix [modulePrefix]                                The prefix of the generated module package name, ignored if --module-name is specified (default: \\"react-native\\")
+  --native-package-id [nativePackageId]                         [Android] The native Java package identifier used for Android (default: \\"com.reactlibrary\\")
+  --platforms <platforms>                                       Platforms the library module will be created for - comma separated (default: \\"ios,android\\")
+  --tvos-enabled                                                Generate the module with tvOS build enabled (requires react-native-tvos fork, with minimum version of 0.60, and iOS platform to be enabled)
+  --github-account [githubAccount]                              The github account where the library module is hosted (default: \\"github_account\\")
+  --author-name [authorName]                                    The author's name (default: \\"Your Name\\")
+  --author-email [authorEmail]                                  The author's email (default: \\"yourname@email.com\\")
+  --license [license]                                           The license type (default: \\"MIT\\")
+  --use-apple-networking                                        [iOS] Use \`AFNetworking\` dependency as a sample in the podspec & use it from the iOS code
+  --generate-example                                            Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires Yarn to be installed globally
+  --example-file-linkage                                        DEPRECATED: do \`yarn add file:../\` instead of \`yarn add link:../\` in a generated example project, and add a postinstall workaround script, with no overwrite of example metro.config.js
+  --example-name [exampleName]                                  Name for the example project (default: \\"example\\")
+  --example-react-native-template [exampleReactNativeTemplate]  The React Native template used for the generated example project, for example: react-native-tvos or react-native-tvos@0.62.2-1 (requires --tvos-enabled option); react-native@0.62 (default: \\"react-native@latest\\")
+  --write-example-podfile                                       [iOS] EXPERIMENTAL FEATURE NOT SUPPORTED: write (or overwrite) example ios/Podfile
+  -h, --help                                                    display help for command"
 `;

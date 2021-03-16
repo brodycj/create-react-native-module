@@ -18,7 +18,7 @@ test('create alice-bobbi module with example, with config options including `exa
     generateExample: true,
     exampleFileLinkage: true,
     exampleName: 'test-demo',
-    exampleReactNativeVersion: 'react-native@0.60',
+    exampleReactNativeTemplate: 'react-native@0.60',
     useAppleNetworking: true,
     writeExamplePodfile: true,
   };

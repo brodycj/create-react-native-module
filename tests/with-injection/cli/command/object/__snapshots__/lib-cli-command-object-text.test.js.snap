@@ -7,8 +7,8 @@ Object {
   "name": "create-library",
   "options": Array [
     Object {
-      "command": "--module-name [moduleName]",
-      "description": "The module package name to be used in package.json. Default: react-native-(name in param-case)",
+      "command": "--package-name [packageName]",
+      "description": "The full package name to be used in package.json. Default: react-native-(name in param-case)",
     },
     Object {
       "command": "--view",
@@ -29,9 +29,9 @@ Object {
       "description": "The prefix of the generated module package name, ignored if --module-name is specified",
     },
     Object {
-      "command": "--package-identifier [packageIdentifier]",
+      "command": "--native-package-id [nativePackageId]",
       "default": "com.reactlibrary",
-      "description": "[Android] The Java package identifier used by the Android module",
+      "description": "[Android] The native Java package identifier used for Android",
     },
     Object {
       "command": "--platforms <platforms>",
@@ -80,9 +80,9 @@ Object {
       "description": "Name for the example project",
     },
     Object {
-      "command": "--example-react-native-version [exampleReactNativeVersion]",
+      "command": "--example-react-native-template [exampleReactNativeTemplate]",
       "default": "react-native@latest",
-      "description": "React Native template version for the generated example project, for example: react-native-tvos or react-native-tvos@0.62.2-1 (requires --tvos-enabled option); react-native@0.62",
+      "description": "The React Native template used for the generated example project, for example: react-native-tvos or react-native-tvos@0.62.2-1 (requires --tvos-enabled option); react-native@0.62",
     },
     Object {
       "command": "--write-example-podfile",

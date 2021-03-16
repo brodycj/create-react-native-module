@@ -1,19 +1,19 @@
 module.exports = [{
   name: () => 'README.md',
-  content: ({ moduleName, objectClassName }) =>
-    `# ${moduleName}
+  content: ({ packageName, objectClassName }) =>
+    `# ${packageName}
 
 ## Getting started
 
-\`$ npm install ${moduleName} --save\`
+\`$ npm install ${packageName} --save\`
 
 ### Mostly automatic installation
 
-\`$ react-native link ${moduleName}\`
+\`$ react-native link ${packageName}\`
 
 ## Usage
 \`\`\`javascript
-import ${objectClassName} from '${moduleName}';
+import ${objectClassName} from '${packageName}';
 
 // TODO: What to do with the module?
 ${objectClassName};
@@ -21,7 +21,7 @@ ${objectClassName};
 `,
 }, {
   name: () => 'package.json',
-  content: ({ moduleName, platforms, githubAccount, authorName, authorEmail, license }) => {
+  content: ({ packageName, platforms, githubAccount, authorName, authorEmail, license }) => {
     const files =
       `[
     "README.md",` +
@@ -30,7 +30,7 @@ ${objectClassName};
     "index.js"` +
     (platforms.indexOf('ios') >= 0 ? `,
     "ios",
-    "${moduleName}.podspec"` : ``) + `
+    "${packageName}.podspec"` : ``) + `
   ]`;
 
     const peerDependencies =
@@ -46,8 +46,8 @@ ${objectClassName};
   }`;
 
     return `{
-  "name": "${moduleName}",
-  "title": "${moduleName.split('-').map(word => word[0].toUpperCase() + word.substr(1)).join(' ')}",
+  "name": "${packageName}",
+  "title": "${packageName.split('-').map(word => word[0].toUpperCase() + word.substr(1)).join(' ')}",
   "version": "1.0.0",
   "description": "TODO",
   "main": "index.js",
@@ -57,8 +57,8 @@ ${objectClassName};
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/${githubAccount}/${moduleName}.git",
-    "baseUrl": "https://github.com/${githubAccount}/${moduleName}"
+    "url": "git+https://github.com/${githubAccount}/${packageName}.git",
+    "baseUrl": "https://github.com/${githubAccount}/${packageName}"
   },
   "keywords": [
     "react-native"

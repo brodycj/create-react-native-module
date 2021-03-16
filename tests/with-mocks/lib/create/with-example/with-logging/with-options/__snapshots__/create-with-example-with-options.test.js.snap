@@ -6,27 +6,26 @@ Array [
     "info": Array [
       "CREATE new React Native module with the following options:
 
-                     name: alice-bobbi
-    root moduleName
-      (full package name): react-native-alice-bobbi
-                  is view: false
- object class name prefix: ABC
-        object class name: ABCAliceBobbi
-     library modulePrefix: react-native
-Android packageIdentifier: com.alicebits
-                platforms: android,ios
-        Apple tvosEnabled: true
-               authorName: Alice
-              authorEmail: contact@alice.me
-     author githubAccount: alicebits
-                  license: ISC
-       useAppleNetworking: false
+                      name: alice-bobbi
+        full package name: react-native-alice-bobbi
+                   is view: false
+  object class name prefix: ABC
+         object class name: ABCAliceBobbi
+      library modulePrefix: react-native
+   Android nativePackageId: com.alicebits
+                 platforms: android,ios
+         Apple tvosEnabled: true
+                authorName: Alice
+               authorEmail: contact@alice.me
+      author githubAccount: alicebits
+                   license: ISC
+        useAppleNetworking: false
 
-          generateExample: true
-       exampleFileLinkage: true
-              exampleName: demo
-exampleReactNativeVersion: react-native@npm:react-native-tvos
-      writeExamplePodfile: false
+           generateExample: true
+        exampleFileLinkage: true
+               exampleName: demo
+exampleReactNativeTemplate: react-native@npm:react-native-tvos
+       writeExamplePodfile: false
 ",
     ],
   },
