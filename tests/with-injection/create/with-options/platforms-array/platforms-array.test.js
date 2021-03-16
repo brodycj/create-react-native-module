@@ -11,7 +11,6 @@ test('create alice-bobbi module with config options for android,ios comma separa
     platforms: ['android', 'ios'],
     tvosEnabled: true,
     name: 'alice-bobbi',
-    prefix: 'ABC',
     githubAccount: 'alicebits',
     authorName: 'Alice',
     authorEmail: 'contact@alice.me',

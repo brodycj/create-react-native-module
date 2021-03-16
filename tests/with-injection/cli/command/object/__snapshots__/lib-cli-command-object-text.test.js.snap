@@ -19,16 +19,6 @@ Object {
       "description": "The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase)",
     },
     Object {
-      "command": "--prefix [prefix]",
-      "default": "",
-      "description": "DEPRECATED: The prefix of the name of the object class to be exported by both JavaScript and native code, ignored if --object-class-name is specified",
-    },
-    Object {
-      "command": "--module-prefix [modulePrefix]",
-      "default": "react-native",
-      "description": "The prefix of the generated module package name, ignored if --module-name is specified",
-    },
-    Object {
       "command": "--native-package-id [nativePackageId]",
       "default": "com.reactlibrary",
       "description": "[Android] The native Java package identifier used for Android",

@@ -60,26 +60,6 @@ Array [
   Object {
     "option": Object {
       "args": Array [
-        "--prefix [prefix]",
-        "DEPRECATED: The prefix of the name of the object class to be exported by both JavaScript and native code, ignored if --object-class-name is specified",
-        [Function],
-        "",
-      ],
-    },
-  },
-  Object {
-    "option": Object {
-      "args": Array [
-        "--module-prefix [modulePrefix]",
-        "The prefix of the generated module package name, ignored if --module-name is specified",
-        [Function],
-        "react-native",
-      ],
-    },
-  },
-  Object {
-    "option": Object {
-      "args": Array [
         "--native-package-id [nativePackageId]",
         "[Android] The native Java package identifier used for Android",
         [Function],

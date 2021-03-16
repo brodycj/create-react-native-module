@@ -15,9 +15,7 @@ Array [
                       name: alice-bobbi
         full package name: react-native-alice-bobbi
                    is view: false
-  object class name prefix: 
          object class name: AliceBobbi
-      library modulePrefix: react-native
    Android nativePackageId: com.reactlibrary
                  platforms: bogus
          Apple tvosEnabled: false
