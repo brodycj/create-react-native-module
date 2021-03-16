@@ -206,24 +206,24 @@ Array [
     "info": Array [
       "CREATE new React Native module with the following options:
 
-                      name: test-package
-        full package name: react-native-test-package
-                   is view: false
-         object class name: TestPackage
-   Android nativePackageId: com.reactlibrary
-                 platforms: android,ios
-         Apple tvosEnabled: false
-                authorName: Your Name
-               authorEmail: yourname@email.com
-      author githubAccount: github_account
-                   license: MIT
-        useAppleNetworking: false
+                        name: test-package
+           full package name: react-native-test-package
+                     is view: false
+           object class name: TestPackage
+     Android nativePackageId: com.reactlibrary
+                   platforms: android,ios
+           Apple tvosEnabled: false
+                  authorName: Your Name
+                 authorEmail: yourname@email.com
+        author githubAccount: github_account
+                     license: MIT
+          useAppleNetworking: false
 
-           generateExample: true
-        exampleFileLinkage: false
-               exampleName: example
-exampleReactNativeTemplate: react-native@latest
-       writeExamplePodfile: false
+             generateExample: true
+          exampleFileLinkage: false
+                 exampleName: example
+  exampleReactNativeTemplate: react-native@latest
+         writeExamplePodfile: false
 ",
     ],
   },

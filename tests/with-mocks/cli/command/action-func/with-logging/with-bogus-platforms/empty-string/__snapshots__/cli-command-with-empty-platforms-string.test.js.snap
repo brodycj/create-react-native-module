@@ -12,18 +12,18 @@ Array [
     "info": Array [
       "CREATE new React Native module with the following options:
 
-                      name: alice-bobbi
-        full package name: react-native-alice-bobbi
-                   is view: false
-         object class name: AliceBobbi
-   Android nativePackageId: com.reactlibrary
-                 platforms: 
-         Apple tvosEnabled: false
-                authorName: Your Name
-               authorEmail: yourname@email.com
-      author githubAccount: github_account
-                   license: MIT
-        useAppleNetworking: false
+                        name: alice-bobbi
+           full package name: react-native-alice-bobbi
+                     is view: false
+           object class name: AliceBobbi
+     Android nativePackageId: com.reactlibrary
+                   platforms: 
+           Apple tvosEnabled: false
+                  authorName: Your Name
+                 authorEmail: yourname@email.com
+        author githubAccount: github_account
+                     license: MIT
+          useAppleNetworking: false
 ",
     ],
   },
