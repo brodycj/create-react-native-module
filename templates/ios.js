@@ -34,7 +34,7 @@ end
 `,
 }, {
   // header for module without view:
-  name: ({ objectClassName, view }) => !view && `${platform}/${objectClassName}.h`,
+  name: ({ objectClassName, isView }) => !isView && `${platform}/${objectClassName}.h`,
   content: ({ objectClassName }) => `// ${objectClassName}.h
 
 #import <React/RCTBridgeModule.h>
@@ -45,7 +45,7 @@ end
 `,
 }, {
   // implementation of module without view:
-  name: ({ objectClassName, view }) => !view && `${platform}/${objectClassName}.m`,
+  name: ({ objectClassName, isView }) => !isView && `${platform}/${objectClassName}.m`,
   content: ({ objectClassName, useAppleNetworking }) => `// ${objectClassName}.m
 
 #import "${objectClassName}.h"
@@ -79,7 +79,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 `,
 }, {
   // header for module with view:
-  name: ({ objectClassName, view }) => view && `${platform}/${objectClassName}.h`,
+  name: ({ objectClassName, isView }) => isView && `${platform}/${objectClassName}.h`,
   content: ({ objectClassName }) => `// ${objectClassName}.h
 
 #import <React/RCTViewManager.h>
@@ -90,7 +90,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 `,
 }, {
   // implementation of module with view:
-  name: ({ objectClassName, view }) => view && `${platform}/${objectClassName}.m`,
+  name: ({ objectClassName, isView }) => isView && `${platform}/${objectClassName}.m`,
   content: ({ objectClassName }) => `// ${objectClassName}.m
 
 #import "${objectClassName}.h"

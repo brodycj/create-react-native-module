@@ -189,7 +189,7 @@ module.exports = {
 `,
 }, {
   name: ({ exampleName }) => `${exampleName}/App.js`,
-  content: ({ packageName, objectClassName, view }) =>
+  content: ({ packageName, objectClassName, isView }) =>
     `/**
  * Sample React Native App
  *
@@ -203,7 +203,7 @@ module.exports = {
 import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
 import ${objectClassName} from '${packageName}';` +
-    (!view
+    (!isView
       ? `
 
 export default class App extends Component<{}> {

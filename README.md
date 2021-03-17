@@ -94,7 +94,7 @@ Options:
 
   -V, --version                             output the version number
   --package-name <packageName>              The full package name to be used in package.json. Default: react-native-(name in param-case)
-  --view                                    Generate the package as a very simple native view component
+  --is-view                                 Generate the package as a very simple native view component
   --object-class-name                       The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase)
   --native-package-id <nativePackageId>     [Android] The native Java package identifier used for Android (Default: `com.reactlibrary`)
   --platforms <platforms>                   Platforms the library module will be created for - comma separated (Default: `ios,android`)
@@ -130,7 +130,7 @@ createLibraryModule({
 {
   name: String, /* The name of the library (mandatory) */
   packageName: String, /* The full package name to be used in package.json. Default: react-native-(name in param-case) */
-  view: Boolean, /* Generate the package as a very simple native view component (Default: false) */
+  isView: Boolean, /* Generate the package as a very simple native view component (Default: false) */
   objectClassName: String, /* The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase) */
   platforms: Array | String, /* Platforms the library will be created for. (Default: ['android', 'ios']) */
   nativePackageId: String, /* [Android] The native Java package identifier used for Android (Default: `com.reactlibrary`) */
@@ -230,7 +230,7 @@ The example app shows the following indications:
 __Create the module with an extremely simple view:__
 
 ```console
-create-react-native-module --package-identifier io.mylibrary --view --generate-example CarolWidget
+create-react-native-module --package-identifier io.mylibrary --is-view --generate-example CarolWidget
 ```
 
 The module would be generated in the `react-native-carol-widget` subdirectory, and the example test app would be in `react-native-carol-widget/example`.
