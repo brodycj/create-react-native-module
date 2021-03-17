@@ -8,7 +8,7 @@ creates a React Native library module for one or more platforms
 Options:
   -V, --version                                                 output the version number
   --package-name [packageName]                                  The full package name to be used in package.json. Default: react-native-(name in param-case)
-  --view                                                        Generate the package as a very simple native view component
+  --is-view                                                     Generate the package as a very simple native view component. Status: EXPERIMENTAL, with limited testing.
   --object-class-name [objectClassName]                         The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase)
   --native-package-id [nativePackageId]                         [Android] The native Java package identifier used for Android (default: \\"com.reactlibrary\\")
   --platforms <platforms>                                       Platforms the library module will be created for - comma separated (default: \\"ios,android\\")

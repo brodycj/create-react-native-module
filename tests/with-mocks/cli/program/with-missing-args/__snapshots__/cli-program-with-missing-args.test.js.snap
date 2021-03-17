@@ -38,8 +38,8 @@ Array [
   Object {
     "option": Object {
       "args": Array [
-        "--view",
-        "Generate the package as a very simple native view component",
+        "--is-view",
+        "Generate the package as a very simple native view component. Status: EXPERIMENTAL, with limited testing.",
         [Function],
         undefined,
       ],

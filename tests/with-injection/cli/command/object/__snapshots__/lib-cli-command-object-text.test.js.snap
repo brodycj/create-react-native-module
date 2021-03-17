@@ -11,8 +11,8 @@ Object {
       "description": "The full package name to be used in package.json. Default: react-native-(name in param-case)",
     },
     Object {
-      "command": "--view",
-      "description": "Generate the package as a very simple native view component",
+      "command": "--is-view",
+      "description": "Generate the package as a very simple native view component. Status: EXPERIMENTAL, with limited testing.",
     },
     Object {
       "command": "--object-class-name [objectClassName]",
