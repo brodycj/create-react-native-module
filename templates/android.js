@@ -160,11 +160,11 @@ afterEvaluate { project ->
 `,
 }, {
   // for module without view:
-  name: ({ objectClassName, nativePackageId, view }) =>
-    !view &&
+  name: ({ objectClassName, nativePackageId, isView }) =>
+    !isView &&
       `${platform}/src/main/java/${nativePackageId.split('.').join('/')}/${objectClassName}Module.java`,
-  content: ({ objectClassName, nativePackageId, view }) =>
-    !view &&
+  content: ({ objectClassName, nativePackageId, isView }) =>
+    !isView &&
       `// ${objectClassName}Module.java
 
 package ${nativePackageId};
@@ -197,11 +197,11 @@ public class ${objectClassName}Module extends ReactContextBaseJavaModule {
 `,
 }, {
   // manager for view:
-  name: ({ objectClassName, nativePackageId, view }) =>
-    view &&
+  name: ({ objectClassName, nativePackageId, isView }) =>
+    isView &&
       `${platform}/src/main/java/${nativePackageId.split('.').join('/')}/${objectClassName}Manager.java`,
-  content: ({ objectClassName, nativePackageId, view }) =>
-    view &&
+  content: ({ objectClassName, nativePackageId, isView }) =>
+    isView &&
       `// ${objectClassName}Manager.java
 
 package ${nativePackageId};
@@ -233,11 +233,11 @@ public class ${objectClassName}Manager extends SimpleViewManager<View> {
 `,
 }, {
   // package for module without view:
-  name: ({ objectClassName, nativePackageId, view }) =>
-    !view &&
+  name: ({ objectClassName, nativePackageId, isView }) =>
+    !isView &&
       `${platform}/src/main/java/${nativePackageId.split('.').join('/')}/${objectClassName}Package.java`,
-  content: ({ objectClassName, nativePackageId, view }) =>
-    !view &&
+  content: ({ objectClassName, nativePackageId, isView }) =>
+    !isView &&
       `// ${objectClassName}Package.java
 
 package ${nativePackageId};
@@ -265,11 +265,11 @@ public class ${objectClassName}Package implements ReactPackage {
 `,
 }, {
   // package for manager for view:
-  name: ({ objectClassName, nativePackageId, view }) =>
-    view &&
+  name: ({ objectClassName, nativePackageId, isView }) =>
+    isView &&
       `${platform}/src/main/java/${nativePackageId.split('.').join('/')}/${objectClassName}Package.java`,
-  content: ({ objectClassName, nativePackageId, view }) =>
-    view &&
+  content: ({ objectClassName, nativePackageId, isView }) =>
+    isView &&
       `// ${objectClassName}Package.java
 
 package ${nativePackageId};

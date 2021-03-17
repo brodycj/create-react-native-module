@@ -10,7 +10,7 @@ test('create alice-bobbi view module with example, with defaults', () => {
   const options = {
     name: 'alice-bobbi',
     generateExample: true,
-    view: true,
+    isView: true,
   };
 
   return lib(options, inject)

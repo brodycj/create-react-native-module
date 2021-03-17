@@ -77,7 +77,7 @@ ${objectClassName};
   }
 }, {
   // for module without view:
-  name: ({ view }) => !view && 'index.js',
+  name: ({ isView }) => !isView && 'index.js',
   content: ({ objectClassName }) =>
     `// main index.js
 
@@ -89,7 +89,7 @@ export default ${objectClassName};
 `,
 }, {
   // for module with view:
-  name: ({ view }) => view && 'index.js',
+  name: ({ isView }) => isView && 'index.js',
   content: ({ objectClassName }) =>
     `// main index.js
 
