@@ -94,7 +94,7 @@ Options:
 
   -V, --version                             output the version number
   --package-name <packageName>              The full package name to be used in package.json. Default: react-native-(name in param-case)
-  --is-view                                 Generate the package as a very simple native view component
+  --is-view                                 Generate the package as a very simple native view component. Status: EXPERIMENTAL, with limited testing.
   --object-class-name                       The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase)
   --native-package-id <nativePackageId>     [Android] The native Java package identifier used for Android (Default: `com.reactlibrary`)
   --platforms <platforms>                   Platforms the library module will be created for - comma separated (Default: `ios,android`)
@@ -130,7 +130,7 @@ createLibraryModule({
 {
   name: String, /* The name of the library (mandatory) */
   packageName: String, /* The full package name to be used in package.json. Default: react-native-(name in param-case) */
-  isView: Boolean, /* Generate the package as a very simple native view component (Default: false) */
+  isView: Boolean, /* Generate the package as a very simple native view component. Status: EXPERIMENTAL, with limited testing. (Default: false) */
   objectClassName: String, /* The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase) */
   platforms: Array | String, /* Platforms the library will be created for. (Default: ['android', 'ios']) */
   nativePackageId: String, /* [Android] The native Java package identifier used for Android (Default: `com.reactlibrary`) */
@@ -226,6 +226,8 @@ The example app shows the following indications:
 - NATIVE CALLBACK MESSAGE with the number argument and string argument values that are received by the native module
 
 ### Example view module
+
+EXPERIMENTAL feature with limited testing
 
 __Create the module with an extremely simple view:__
 
