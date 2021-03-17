@@ -35,7 +35,7 @@ ${objectClassName};
 
     const peerDependencies =
       `{
-    "react": "^16.8.1",
+    "react": ">=16.8.1",
     "react-native": ">=0.60.0-rc.0 <1.0.x"
   }`;
 
