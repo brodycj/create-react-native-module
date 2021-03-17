@@ -48,7 +48,7 @@
     "execa": "^5.0.0",
     "fs-extra": "^9.1.0",
     "jsonfile": "^6.1.0",
-    "log-symbols": "^4.0.0",
+    "log-symbols": "^4.1.0",
     "node-emoji": "^1.10.0",
     "outdent": "^0.8.0",
     "param-case": "^3.0.4",
