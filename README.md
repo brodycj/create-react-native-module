@@ -27,8 +27,8 @@ This tool based on [`react-native-create-library`](https://www.npmjs.com/package
 
 ### General status
 
-- Minimum React Native version: `0.60` (outdated), `0.61` (recommended, outdated) - see issue [`#423`](https://github.com/brodybits/create-react-native-module/issues/423)
-- Recommended React Native version: `0.63`; known issue with React Native `0.64(rc)` on iOS - see issue [`#422`](https://github.com/brodybits/create-react-native-module/issues/422)
+- Minimum React Native version: `0.60` (outdated), `0.63` (recommended) - see issue [`#423`](https://github.com/brodybits/create-react-native-module/issues/423)
+- It is recommended to disable or remove Flipper on iOS in case of debug build issues - see issue [`#422`](https://github.com/brodybits/create-react-native-module/issues/422)
 - generated example app with symlink by default, has known issue with adding dependencies to the library root - see issue [`#308`](https://github.com/brodybits/create-react-native-module/issues/308)
 - Platform fork support
   - tvOS platform fork
@@ -36,6 +36,7 @@ This tool based on [`react-native-create-library`](https://www.npmjs.com/package
     - requires the [`react-native-tvos`](https://www.npmjs.com/package/react-native-tvos) fork, with minimum version of `0.60` ref:
       - [`react-native-tvos/react-native-tvos#11`](https://github.com/react-native-tvos/react-native-tvos/issues/11)
       - issue [`#95`](https://github.com/brodybits/create-react-native-module/issues/95)
+    - It is recommended to disable or remove Flipper in case of debug build issues - see issue [`#422`](https://github.com/brodybits/create-react-native-module/issues/422)
 - Out-of-tree platforms
   - Windows - no longer supported for reasons discussed in issues [#23](https://github.com/brodybits/create-react-native-module/issues/23) and [#43](https://github.com/brodybits/create-react-native-module/issues/43) (existing Windows C# template is kept in `unsupported-platforms` for now (at least) and further discussion would be welcome in a new issue on GitHub)
   - for future consideration: macOS (see [issue #94](https://github.com/brodybits/create-react-native-module/issues/94))
