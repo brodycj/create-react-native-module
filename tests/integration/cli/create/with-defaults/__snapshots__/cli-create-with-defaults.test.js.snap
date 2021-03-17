@@ -682,7 +682,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
   \\"licenseFilename\\": \\"LICENSE\\",
   \\"readmeFilename\\": \\"README.md\\",
   \\"peerDependencies\\": {
-    \\"react\\": \\"^16.8.1\\",
+    \\"react\\": \\">=16.8.1\\",
     \\"react-native\\": \\">=0.60.0-rc.0 <1.0.x\\"
   },
   \\"devDependencies\\": {
