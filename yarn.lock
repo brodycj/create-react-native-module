@@ -980,7 +980,7 @@
     slash "^3.0.0"
     xmldoc "^1.1.2"
 
-"@react-native-community/cli-server-api@^5.0.1-alpha.1":
+"@react-native-community/cli-server-api@^5.0.1-alpha.2":
   version "5.0.1-alpha.2"
   resolved "https://registry.yarnpkg.com/@react-native-community/cli-server-api/-/cli-server-api-5.0.1-alpha.2.tgz#a82557273bad99d188682169892aaa4b283ba149"
   integrity sha512-qzjoLF51GmvUHQrcJZE+wD3bTmgnTNOnGBU6z4terKmPdt/EBBSUkdXc6ScWWRF6oWP+xpxLZ//tKic2v2f+ag==
@@ -1014,14 +1014,14 @@
   dependencies:
     ora "^3.4.0"
 
-"@react-native-community/cli@5.0.1-alpha.1":
-  version "5.0.1-alpha.1"
-  resolved "https://registry.yarnpkg.com/@react-native-community/cli/-/cli-5.0.1-alpha.1.tgz#68a1887477e66a6d5206bd951b241730e1c0cbdc"
-  integrity sha512-XmOqkg9noF/jaHujoBLifR1VCmisXZbTr9Lt3S2/QBgDg0jWDLAuraZC58yuBuzUTcG3+kfbD61rW3AWtnx8fA==
+"@react-native-community/cli@5.0.1-alpha.2":
+  version "5.0.1-alpha.2"
+  resolved "https://registry.yarnpkg.com/@react-native-community/cli/-/cli-5.0.1-alpha.2.tgz#7e78378120fd4e264e4b577cbcf5e52b5beaa53b"
+  integrity sha512-PP22TVV2VyELXhAX4PcBisasssastSEx23XDklfPoCPIXD2QgGC7y39n/b5I9tOzKi2qYswCEAcDpwXYwevGOg==
   dependencies:
     "@react-native-community/cli-debugger-ui" "^5.0.1-alpha.1"
     "@react-native-community/cli-hermes" "^5.0.1-alpha.1"
-    "@react-native-community/cli-server-api" "^5.0.1-alpha.1"
+    "@react-native-community/cli-server-api" "^5.0.1-alpha.2"
     "@react-native-community/cli-tools" "^5.0.1-alpha.1"
     "@react-native-community/cli-types" "^5.0.1-alpha.1"
     appdirsjs "^1.2.4"
@@ -5583,12 +5583,12 @@ react-is@^17.0.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.1.tgz#5b3531bd76a645a4c9fb6e693ed36419e3301339"
   integrity sha512-NAnt2iGDXohE5LI7uBnLnqvLQMtzhkiAOLXTmv+qnF9Ky7xAPcX8Up/xWIhxvLVGJvuLiNc4xQLtuqDRzb4fSA==
 
-react-native-init-func@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/react-native-init-func/-/react-native-init-func-0.0.4.tgz#f975d184b25d75901aa40b63492dfbe9358248fd"
-  integrity sha512-v4VV+rmE2bRt5OpexSD0y64+mQt6Rpw+Z6NtIXZ+zZS5EQv5GykmstgQaiM6kd54B+ByeatJ7rY0Wua10EJQHQ==
+react-native-init-func@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/react-native-init-func/-/react-native-init-func-0.0.5.tgz#7613647eb5de02e8db8b140ff5f67a9783a2e96e"
+  integrity sha512-KvpNuuSjC8Y2UkUGyEHCFzKOGt4WX1IUg2jf4l7PHmJ4w1q+Y8+HQ36x0bPh5ZjZVatNePkteIg9u1WK4stM+A==
   dependencies:
-    "@react-native-community/cli" "5.0.1-alpha.1"
+    "@react-native-community/cli" "5.0.1-alpha.2"
 
 react-refresh@^0.4.0:
   version "0.4.3"
