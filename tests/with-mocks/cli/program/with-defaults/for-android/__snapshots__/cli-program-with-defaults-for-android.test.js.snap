@@ -5,7 +5,7 @@ Array [
   Object {
     "please-upgrade-node": Object {
       "engines": Object {
-        "node": ">= 10.20",
+        "node": ">= 12",
       },
       "name": "create-react-native-module",
     },
@@ -30,8 +30,8 @@ Array [
   Object {
     "option": Object {
       "args": Array [
-        "--module-name [moduleName]",
-        "The module package name to be used in package.json. Default: react-native-(name in param-case)",
+        "--package-name [packageName]",
+        "The full package name to be used in package.json. Default: react-native-(name in param-case)",
         [Function],
         undefined,
       ],
@@ -40,8 +40,8 @@ Array [
   Object {
     "option": Object {
       "args": Array [
-        "--view",
-        "Generate the package as a very simple native view component",
+        "--is-view",
+        "Generate the package as a very simple native view component. Status: EXPERIMENTAL, with limited testing.",
         [Function],
         undefined,
       ],
@@ -60,28 +60,8 @@ Array [
   Object {
     "option": Object {
       "args": Array [
-        "--prefix [prefix]",
-        "DEPRECATED: The prefix of the name of the object class to be exported by both JavaScript and native code, ignored if --object-class-name is specified",
-        [Function],
-        "",
-      ],
-    },
-  },
-  Object {
-    "option": Object {
-      "args": Array [
-        "--module-prefix [modulePrefix]",
-        "The prefix of the generated module package name, ignored if --module-name is specified",
-        [Function],
-        "react-native",
-      ],
-    },
-  },
-  Object {
-    "option": Object {
-      "args": Array [
-        "--package-identifier [packageIdentifier]",
-        "[Android] The Java package identifier used by the Android module",
+        "--native-package-id [nativePackageId]",
+        "[Android] The native Java package identifier used for Android",
         [Function],
         "com.reactlibrary",
       ],
@@ -171,7 +151,7 @@ Array [
     "option": Object {
       "args": Array [
         "--generate-example",
-        "Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires both react-native-cli and yarn to be installed globally",
+        "Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires Yarn to be installed globally",
         [Function],
         undefined,
       ],
@@ -200,8 +180,8 @@ Array [
   Object {
     "option": Object {
       "args": Array [
-        "--example-react-native-version [exampleReactNativeVersion]",
-        "React Native version for the generated example project",
+        "--example-react-native-template [exampleReactNativeTemplate]",
+        "The React Native template used for the generated example project, for example: react-native-tvos or react-native-tvos@0.62.2-1 (requires --tvos-enabled option); react-native@0.62",
         [Function],
         "react-native@latest",
       ],
@@ -309,7 +289,7 @@ TestPackage;
   \\"licenseFilename\\": \\"LICENSE\\",
   \\"readmeFilename\\": \\"README.md\\",
   \\"peerDependencies\\": {
-    \\"react\\": \\"^16.8.1\\",
+    \\"react\\": \\">=16.8.1\\",
     \\"react-native\\": \\">=0.60.0-rc.0 <1.0.x\\"
   },
   \\"devDependencies\\": {
@@ -321,7 +301,9 @@ TestPackage;
   },
   Object {
     "outputFileName": "react-native-test-package/index.js",
-    "theContent": "import { NativeModules } from 'react-native';
+    "theContent": "// main index.js
+
+import { NativeModules } from 'react-native';
 
 const { TestPackage } = NativeModules;
 
@@ -361,13 +343,15 @@ buck-out/
 // based on:
 //
 // * https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle
-//   original location:
+//   previous location:
 //   - https://github.com/facebook/react-native/blob/0.58-stable/local-cli/templates/HelloWorld/android/build.gradle
 //
 // * https://github.com/facebook/react-native/blob/0.60-stable/template/android/app/build.gradle
-//   original location:
+//   previous location:
 //   - https://github.com/facebook/react-native/blob/0.58-stable/local-cli/templates/HelloWorld/android/app/build.gradle
 
+// These defaults should reflect the SDK versions used by
+// the minimum React Native version supported.
 def DEFAULT_COMPILE_SDK_VERSION = 28
 def DEFAULT_BUILD_TOOLS_VERSION = '28.0.3'
 def DEFAULT_MIN_SDK_VERSION = 16
@@ -388,16 +372,14 @@ buildscript {
     if (project == rootProject) {
         repositories {
             google()
-            jcenter()
         }
         dependencies {
+            // This should reflect the Gradle plugin version used by
+            // the minimum React Native version supported.
             classpath 'com.android.tools.build:gradle:3.4.1'
         }
     }
 }
-
-apply plugin: 'com.android.library'
-apply plugin: 'maven'
 
 android {
     compileSdkVersion safeExtGet('compileSdkVersion', DEFAULT_COMPILE_SDK_VERSION)
@@ -425,7 +407,6 @@ repositories {
         url \\"$rootDir/../node_modules/jsc-android/dist\\"
     }
     google()
-    jcenter()
 }
 
 dependencies {
@@ -509,7 +490,9 @@ afterEvaluate { project ->
   },
   Object {
     "outputFileName": "react-native-test-package/android/src/main/AndroidManifest.xml",
-    "theContent": "<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
+    "theContent": "<!-- AndroidManifest.xml -->
+
+<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
           package=\\"com.reactlibrary\\">
 
 </manifest>
@@ -517,7 +500,9 @@ afterEvaluate { project ->
   },
   Object {
     "outputFileName": "react-native-test-package/android/src/main/java/com/reactlibrary/TestPackageModule.java",
-    "theContent": "package com.reactlibrary;
+    "theContent": "// TestPackageModule.java
+
+package com.reactlibrary;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -548,7 +533,9 @@ public class TestPackageModule extends ReactContextBaseJavaModule {
   },
   Object {
     "outputFileName": "react-native-test-package/android/src/main/java/com/reactlibrary/TestPackagePackage.java",
-    "theContent": "package com.reactlibrary;
+    "theContent": "// TestPackagePackage.java
+
+package com.reactlibrary;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -558,7 +545,6 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
-import com.facebook.react.bridge.JavaScriptModule;
 
 public class TestPackagePackage implements ReactPackage {
     @Override

@@ -5,7 +5,7 @@ Array [
   Object {
     "please-upgrade-node": Object {
       "engines": Object {
-        "node": ">= 10.20",
+        "node": ">= 12",
       },
       "name": "create-react-native-module",
     },
@@ -28,8 +28,8 @@ Array [
   Object {
     "option": Object {
       "args": Array [
-        "--module-name [moduleName]",
-        "The module package name to be used in package.json. Default: react-native-(name in param-case)",
+        "--package-name [packageName]",
+        "The full package name to be used in package.json. Default: react-native-(name in param-case)",
         [Function],
         undefined,
       ],
@@ -38,8 +38,8 @@ Array [
   Object {
     "option": Object {
       "args": Array [
-        "--view",
-        "Generate the package as a very simple native view component",
+        "--is-view",
+        "Generate the package as a very simple native view component. Status: EXPERIMENTAL, with limited testing.",
         [Function],
         undefined,
       ],
@@ -58,28 +58,8 @@ Array [
   Object {
     "option": Object {
       "args": Array [
-        "--prefix [prefix]",
-        "DEPRECATED: The prefix of the name of the object class to be exported by both JavaScript and native code, ignored if --object-class-name is specified",
-        [Function],
-        "",
-      ],
-    },
-  },
-  Object {
-    "option": Object {
-      "args": Array [
-        "--module-prefix [modulePrefix]",
-        "The prefix of the generated module package name, ignored if --module-name is specified",
-        [Function],
-        "react-native",
-      ],
-    },
-  },
-  Object {
-    "option": Object {
-      "args": Array [
-        "--package-identifier [packageIdentifier]",
-        "[Android] The Java package identifier used by the Android module",
+        "--native-package-id [nativePackageId]",
+        "[Android] The native Java package identifier used for Android",
         [Function],
         "com.reactlibrary",
       ],
@@ -169,7 +149,7 @@ Array [
     "option": Object {
       "args": Array [
         "--generate-example",
-        "Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires both react-native-cli and yarn to be installed globally",
+        "Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires Yarn to be installed globally",
         [Function],
         undefined,
       ],
@@ -198,8 +178,8 @@ Array [
   Object {
     "option": Object {
       "args": Array [
-        "--example-react-native-version [exampleReactNativeVersion]",
-        "React Native version for the generated example project",
+        "--example-react-native-template [exampleReactNativeTemplate]",
+        "The React Native template used for the generated example project, for example: react-native-tvos or react-native-tvos@0.62.2-1 (requires --tvos-enabled option); react-native@0.62",
         [Function],
         "react-native@latest",
       ],

@@ -2,14 +2,14 @@ const lib = require('../../../../../lib/lib.js');
 
 const ioInject = require('../../../helpers/io-inject.js');
 
-test(`create alice-bobbi module with modulePrefix: 'custom-native'`, async () => {
+test(`create alice-bobbi module package with custom packageName`, async () => {
   const mysnap = [];
 
   const inject = ioInject(mysnap);
 
   const options = {
     name: 'alice-bobbi',
-    modulePrefix: 'custom-native'
+    packageName: 'custom-native-module-package-name'
   };
 
   await lib(options, inject);

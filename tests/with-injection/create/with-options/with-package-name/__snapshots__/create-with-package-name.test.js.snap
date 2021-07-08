@@ -1,53 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`create alice-bobbi module with modulePrefix: 'custom-native' 1`] = `
+exports[`create alice-bobbi module package with custom packageName 1`] = `
 Array [
-  "* ensureDir dir: custom-native-alice-bobbi
+  "* ensureDir dir: custom-native-module-package-name
 ",
-  "* ensureDir dir: custom-native-alice-bobbi/
+  "* ensureDir dir: custom-native-module-package-name/
 ",
-  "* ensureDir dir: custom-native-alice-bobbi/
+  "* ensureDir dir: custom-native-module-package-name/
 ",
-  "* ensureDir dir: custom-native-alice-bobbi/
+  "* ensureDir dir: custom-native-module-package-name/
 ",
-  "* ensureDir dir: custom-native-alice-bobbi/
+  "* ensureDir dir: custom-native-module-package-name/
 ",
-  "* ensureDir dir: custom-native-alice-bobbi/android/
+  "* ensureDir dir: custom-native-module-package-name/android/
 ",
-  "* ensureDir dir: custom-native-alice-bobbi/android/src/main/
+  "* ensureDir dir: custom-native-module-package-name/android/src/main/
 ",
-  "* ensureDir dir: custom-native-alice-bobbi/android/src/main/java/com/reactlibrary/
+  "* ensureDir dir: custom-native-module-package-name/android/src/main/java/com/reactlibrary/
 ",
-  "* ensureDir dir: custom-native-alice-bobbi/android/src/main/java/com/reactlibrary/
+  "* ensureDir dir: custom-native-module-package-name/android/src/main/java/com/reactlibrary/
 ",
-  "* ensureDir dir: custom-native-alice-bobbi/android/
+  "* ensureDir dir: custom-native-module-package-name/android/
 ",
-  "* ensureDir dir: custom-native-alice-bobbi/
+  "* ensureDir dir: custom-native-module-package-name/
 ",
-  "* ensureDir dir: custom-native-alice-bobbi/ios/
+  "* ensureDir dir: custom-native-module-package-name/ios/
 ",
-  "* ensureDir dir: custom-native-alice-bobbi/ios/
+  "* ensureDir dir: custom-native-module-package-name/ios/
 ",
-  "* ensureDir dir: custom-native-alice-bobbi/ios/AliceBobbi.xcworkspace/
+  "* ensureDir dir: custom-native-module-package-name/ios/AliceBobbi.xcworkspace/
 ",
-  "* ensureDir dir: custom-native-alice-bobbi/ios/AliceBobbi.xcodeproj/
+  "* ensureDir dir: custom-native-module-package-name/ios/AliceBobbi.xcodeproj/
 ",
-  "* outputFile name: custom-native-alice-bobbi/README.md
+  "* outputFile name: custom-native-module-package-name/README.md
 content:
 --------
-# custom-native-alice-bobbi
+# custom-native-module-package-name
 
 ## Getting started
 
-\`$ npm install custom-native-alice-bobbi --save\`
+\`$ npm install custom-native-module-package-name --save\`
 
 ### Mostly automatic installation
 
-\`$ react-native link custom-native-alice-bobbi\`
+\`$ react-native link custom-native-module-package-name\`
 
 ## Usage
 \`\`\`javascript
-import AliceBobbi from 'custom-native-alice-bobbi';
+import AliceBobbi from 'custom-native-module-package-name';
 
 // TODO: What to do with the module?
 AliceBobbi;
@@ -55,12 +55,12 @@ AliceBobbi;
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-alice-bobbi/package.json
+  "* outputFile name: custom-native-module-package-name/package.json
 content:
 --------
 {
-  \\"name\\": \\"custom-native-alice-bobbi\\",
-  \\"title\\": \\"Custom Native Alice Bobbi\\",
+  \\"name\\": \\"custom-native-module-package-name\\",
+  \\"title\\": \\"Custom Native Module Package Name\\",
   \\"version\\": \\"1.0.0\\",
   \\"description\\": \\"TODO\\",
   \\"main\\": \\"index.js\\",
@@ -69,15 +69,15 @@ content:
     \\"android\\",
     \\"index.js\\",
     \\"ios\\",
-    \\"custom-native-alice-bobbi.podspec\\"
+    \\"custom-native-module-package-name.podspec\\"
   ],
   \\"scripts\\": {
     \\"test\\": \\"echo \\\\\\"Error: no test specified\\\\\\" && exit 1\\"
   },
   \\"repository\\": {
     \\"type\\": \\"git\\",
-    \\"url\\": \\"git+https://github.com/github_account/custom-native-alice-bobbi.git\\",
-    \\"baseUrl\\": \\"https://github.com/github_account/custom-native-alice-bobbi\\"
+    \\"url\\": \\"git+https://github.com/github_account/custom-native-module-package-name.git\\",
+    \\"baseUrl\\": \\"https://github.com/github_account/custom-native-module-package-name\\"
   },
   \\"keywords\\": [
     \\"react-native\\"
@@ -90,7 +90,7 @@ content:
   \\"licenseFilename\\": \\"LICENSE\\",
   \\"readmeFilename\\": \\"README.md\\",
   \\"peerDependencies\\": {
-    \\"react\\": \\"^16.8.1\\",
+    \\"react\\": \\">=16.8.1\\",
     \\"react-native\\": \\">=0.60.0-rc.0 <1.0.x\\"
   },
   \\"devDependencies\\": {
@@ -101,9 +101,11 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-alice-bobbi/index.js
+  "* outputFile name: custom-native-module-package-name/index.js
 content:
 --------
+// main index.js
+
 import { NativeModules } from 'react-native';
 
 const { AliceBobbi } = NativeModules;
@@ -112,7 +114,7 @@ export default AliceBobbi;
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-alice-bobbi/.gitignore
+  "* outputFile name: custom-native-module-package-name/.gitignore
 content:
 --------
 # OSX
@@ -160,7 +162,7 @@ buck-out/
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-alice-bobbi/android/build.gradle
+  "* outputFile name: custom-native-module-package-name/android/build.gradle
 content:
 --------
 // android/build.gradle
@@ -168,13 +170,15 @@ content:
 // based on:
 //
 // * https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle
-//   original location:
+//   previous location:
 //   - https://github.com/facebook/react-native/blob/0.58-stable/local-cli/templates/HelloWorld/android/build.gradle
 //
 // * https://github.com/facebook/react-native/blob/0.60-stable/template/android/app/build.gradle
-//   original location:
+//   previous location:
 //   - https://github.com/facebook/react-native/blob/0.58-stable/local-cli/templates/HelloWorld/android/app/build.gradle
 
+// These defaults should reflect the SDK versions used by
+// the minimum React Native version supported.
 def DEFAULT_COMPILE_SDK_VERSION = 28
 def DEFAULT_BUILD_TOOLS_VERSION = '28.0.3'
 def DEFAULT_MIN_SDK_VERSION = 16
@@ -195,16 +199,14 @@ buildscript {
     if (project == rootProject) {
         repositories {
             google()
-            jcenter()
         }
         dependencies {
+            // This should reflect the Gradle plugin version used by
+            // the minimum React Native version supported.
             classpath 'com.android.tools.build:gradle:3.4.1'
         }
     }
 }
-
-apply plugin: 'com.android.library'
-apply plugin: 'maven'
 
 android {
     compileSdkVersion safeExtGet('compileSdkVersion', DEFAULT_COMPILE_SDK_VERSION)
@@ -232,7 +234,6 @@ repositories {
         url \\"$rootDir/../node_modules/jsc-android/dist\\"
     }
     google()
-    jcenter()
 }
 
 dependencies {
@@ -315,9 +316,11 @@ afterEvaluate { project ->
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-alice-bobbi/android/src/main/AndroidManifest.xml
+  "* outputFile name: custom-native-module-package-name/android/src/main/AndroidManifest.xml
 content:
 --------
+<!-- AndroidManifest.xml -->
+
 <manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
           package=\\"com.reactlibrary\\">
 
@@ -325,9 +328,11 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiModule.java
+  "* outputFile name: custom-native-module-package-name/android/src/main/java/com/reactlibrary/AliceBobbiModule.java
 content:
 --------
+// AliceBobbiModule.java
+
 package com.reactlibrary;
 
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -358,9 +363,11 @@ public class AliceBobbiModule extends ReactContextBaseJavaModule {
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-alice-bobbi/android/src/main/java/com/reactlibrary/AliceBobbiPackage.java
+  "* outputFile name: custom-native-module-package-name/android/src/main/java/com/reactlibrary/AliceBobbiPackage.java
 content:
 --------
+// AliceBobbiPackage.java
+
 package com.reactlibrary;
 
 import java.util.Arrays;
@@ -371,7 +378,6 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
-import com.facebook.react.bridge.JavaScriptModule;
 
 public class AliceBobbiPackage implements ReactPackage {
     @Override
@@ -387,7 +393,7 @@ public class AliceBobbiPackage implements ReactPackage {
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-alice-bobbi/android/README.md
+  "* outputFile name: custom-native-module-package-name/android/README.md
 content:
 --------
 README
@@ -407,30 +413,32 @@ sdk.dir=/Users/{username}/Library/Android/sdk
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-alice-bobbi/custom-native-alice-bobbi.podspec
+  "* outputFile name: custom-native-module-package-name/custom-native-module-package-name.podspec
 content:
 --------
+# custom-native-module-package-name.podspec
+
 require \\"json\\"
 
 package = JSON.parse(File.read(File.join(__dir__, \\"package.json\\")))
 
 Pod::Spec.new do |s|
-  s.name         = \\"custom-native-alice-bobbi\\"
+  s.name         = \\"custom-native-module-package-name\\"
   s.version      = package[\\"version\\"]
   s.summary      = package[\\"description\\"]
   s.description  = <<-DESC
-                  custom-native-alice-bobbi
+                  custom-native-module-package-name
                    DESC
-  s.homepage     = \\"https://github.com/github_account/custom-native-alice-bobbi\\"
+  s.homepage     = \\"https://github.com/github_account/custom-native-module-package-name\\"
   # brief license entry:
   s.license      = \\"MIT\\"
   # optional - use expanded license entry instead:
   # s.license    = { :type => \\"MIT\\", :file => \\"LICENSE\\" }
   s.authors      = { \\"Your Name\\" => \\"yourname@email.com\\" }
   s.platforms    = { :ios => \\"9.0\\" }
-  s.source       = { :git => \\"https://github.com/github_account/custom-native-alice-bobbi.git\\", :tag => \\"#{s.version}\\" }
+  s.source       = { :git => \\"https://github.com/github_account/custom-native-module-package-name.git\\", :tag => \\"#{s.version}\\" }
 
-  s.source_files = \\"ios/**/*.{h,c,m,swift}\\"
+  s.source_files = \\"ios/**/*.{h,c,cc,cpp,m,mm,swift}\\"
   s.requires_arc = true
 
   s.dependency \\"React\\"
@@ -441,9 +449,11 @@ end
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-alice-bobbi/ios/AliceBobbi.h
+  "* outputFile name: custom-native-module-package-name/ios/AliceBobbi.h
 content:
 --------
+// AliceBobbi.h
+
 #import <React/RCTBridgeModule.h>
 
 @interface AliceBobbi : NSObject <RCTBridgeModule>
@@ -452,9 +462,11 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-alice-bobbi/ios/AliceBobbi.m
+  "* outputFile name: custom-native-module-package-name/ios/AliceBobbi.m
 content:
 --------
+// AliceBobbi.m
+
 #import \\"AliceBobbi.h\\"
 
 
@@ -472,7 +484,7 @@ RCT_EXPORT_METHOD(sampleMethod:(NSString *)stringArgument numberParameter:(nonnu
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-alice-bobbi/ios/AliceBobbi.xcworkspace/contents.xcworkspacedata
+  "* outputFile name: custom-native-module-package-name/ios/AliceBobbi.xcworkspace/contents.xcworkspacedata
 content:
 --------
 <?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
@@ -485,7 +497,7 @@ content:
 
 <<<<<<<< ======== >>>>>>>>
 ",
-  "* outputFile name: custom-native-alice-bobbi/ios/AliceBobbi.xcodeproj/project.pbxproj
+  "* outputFile name: custom-native-module-package-name/ios/AliceBobbi.xcodeproj/project.pbxproj
 content:
 --------
 // !$*UTF8*$!

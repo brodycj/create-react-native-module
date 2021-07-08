@@ -15,7 +15,7 @@ test('CLI creates correct view module package artifacts on file system using `--
   // remove test artifacts just in case:
   await fs.remove(modulePackageName);
 
-  await execa.command(`node ${path.resolve('bin/cli.js')} --view ${name}`);
+  await execa.command(`node ${path.resolve('bin/cli.js')} --is-view ${name}`);
 
   const filesUnsorted = await readdirs(modulePackageName);
 

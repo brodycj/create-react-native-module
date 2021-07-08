@@ -1,26 +1,29 @@
 module.exports = platform => [{
-  name: ({ moduleName }) => `${moduleName}.podspec`,
-  content: ({ moduleName, tvosEnabled, githubAccount, authorName, authorEmail, license, useAppleNetworking }) => `require "json"
+  name: ({ packageName }) => `${packageName}.podspec`,
+  content: ({ packageName, tvosEnabled, githubAccount, authorName, authorEmail, license, useAppleNetworking }) =>
+    `# ${packageName}.podspec
+
+require "json"
 
 package = JSON.parse(File.read(File.join(__dir__, "package.json")))
 
 Pod::Spec.new do |s|
-  s.name         = "${moduleName}"
+  s.name         = "${packageName}"
   s.version      = package["version"]
   s.summary      = package["description"]
   s.description  = <<-DESC
-                  ${moduleName}
+                  ${packageName}
                    DESC
-  s.homepage     = "https://github.com/${githubAccount}/${moduleName}"
+  s.homepage     = "https://github.com/${githubAccount}/${packageName}"
   # brief license entry:
   s.license      = "${license}"
   # optional - use expanded license entry instead:
   # s.license    = { :type => "${license}", :file => "LICENSE" }
   s.authors      = { "${authorName}" => "${authorEmail}" }
   s.platforms    = { :ios => "9.0"${tvosEnabled ? `, :tvos => "10.0"` : ``} }
-  s.source       = { :git => "https://github.com/${githubAccount}/${moduleName}.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/${githubAccount}/${packageName}.git", :tag => "#{s.version}" }
 
-  s.source_files = "ios/**/*.{h,c,m,swift}"
+  s.source_files = "ios/**/*.{h,c,cc,cpp,m,mm,swift}"
   s.requires_arc = true
 
   s.dependency "React"
@@ -31,8 +34,10 @@ end
 `,
 }, {
   // header for Objective-C module without view:
-  name: ({ objectClassName, swift, view }) => !swift && !view && `${platform}/${objectClassName}.h`,
-  content: ({ objectClassName }) => `#import <React/RCTBridgeModule.h>
+  name: ({ objectClassName, swift, isView }) => !swift && !isView && `${platform}/${objectClassName}.h`,
+  content: ({ objectClassName }) => `// ${objectClassName}.h
+
+#import <React/RCTBridgeModule.h>
 
 @interface ${objectClassName} : NSObject <RCTBridgeModule>
 
@@ -40,10 +45,13 @@ end
 `,
 }, {
   // implementation of module without view:
-  name: ({ objectClassName, swift, view }) => !swift && !view && `${platform}/${objectClassName}.m`,
-  content: ({ objectClassName, useAppleNetworking }) => `#import "${objectClassName}.h"
+  name: ({ objectClassName, swift, isView }) => !swift && !isView && `${platform}/${objectClassName}.m`,
+  content: ({ objectClassName, useAppleNetworking }) => `// ${objectClassName}.m
 
-${useAppleNetworking ? `#import <AFNetworking/AFNetworking.h>
+#import "${objectClassName}.h"
+
+${useAppleNetworking ? `
+#import <AFNetworking/AFNetworking.h>
 ` : ``}
 @implementation ${objectClassName}
 
@@ -106,8 +114,10 @@ class ${objectClassName} : NSObject {
 `
 }, {
   // header for module with view:
-  name: ({ objectClassName, view }) => view && `${platform}/${objectClassName}.h`,
-  content: ({ objectClassName }) => `#import <React/RCTViewManager.h>
+  name: ({ objectClassName, isView }) => isView && `${platform}/${objectClassName}.h`,
+  content: ({ objectClassName }) => `// ${objectClassName}.h
+
+#import <React/RCTViewManager.h>
 
 @interface ${objectClassName} : RCTViewManager
 
@@ -115,8 +125,10 @@ class ${objectClassName} : NSObject {
 `,
 }, {
   // implementation of module with view:
-  name: ({ objectClassName, view }) => view && `${platform}/${objectClassName}.m`,
-  content: ({ objectClassName }) => `#import "${objectClassName}.h"
+  name: ({ objectClassName, isView }) => isView && `${platform}/${objectClassName}.m`,
+  content: ({ objectClassName }) => `// ${objectClassName}.m
+
+#import "${objectClassName}.h"
 
 @implementation ${objectClassName}
 

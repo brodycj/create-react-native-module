@@ -1,17 +1,19 @@
 module.exports = platform => [{
   name: () => `${platform}/build.gradle`,
-  content: ({ packageIdentifier }) => `// ${platform}/build.gradle
+  content: ({ nativePackageId }) => `// ${platform}/build.gradle
 
 // based on:
 //
 // * https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle
-//   original location:
+//   previous location:
 //   - https://github.com/facebook/react-native/blob/0.58-stable/local-cli/templates/HelloWorld/android/build.gradle
 //
 // * https://github.com/facebook/react-native/blob/0.60-stable/template/android/app/build.gradle
-//   original location:
+//   previous location:
 //   - https://github.com/facebook/react-native/blob/0.58-stable/local-cli/templates/HelloWorld/android/app/build.gradle
 
+// These defaults should reflect the SDK versions used by
+// the minimum React Native version supported.
 def DEFAULT_COMPILE_SDK_VERSION = 28
 def DEFAULT_BUILD_TOOLS_VERSION = '28.0.3'
 def DEFAULT_MIN_SDK_VERSION = 16
@@ -32,16 +34,14 @@ buildscript {
     if (project == rootProject) {
         repositories {
             google()
-            jcenter()
         }
         dependencies {
+            // This should reflect the Gradle plugin version used by
+            // the minimum React Native version supported.
             classpath 'com.android.tools.build:gradle:3.4.1'
         }
     }
 }
-
-apply plugin: 'com.android.library'
-apply plugin: 'maven'
 
 android {
     compileSdkVersion safeExtGet('compileSdkVersion', DEFAULT_COMPILE_SDK_VERSION)
@@ -69,7 +69,6 @@ repositories {
         url "$rootDir/../node_modules/jsc-android/dist"
     }
     google()
-    jcenter()
 }
 
 dependencies {
@@ -84,7 +83,7 @@ def configureReactNativePom(def pom) {
         name packageJson.title
         artifactId packageJson.name
         version = packageJson.version
-        group = "${packageIdentifier}"
+        group = "${nativePackageId}"
         description packageJson.description
         url packageJson.repository.baseUrl
 
@@ -152,19 +151,23 @@ afterEvaluate { project ->
 `,
 }, {
   name: () => `${platform}/src/main/AndroidManifest.xml`,
-  content: ({ packageIdentifier }) => `<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="${packageIdentifier}">
+  content: ({ nativePackageId }) => `<!-- AndroidManifest.xml -->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="${nativePackageId}">
 
 </manifest>
 `,
 }, {
   // for module without view:
-  name: ({ objectClassName, packageIdentifier, view }) =>
-    !view &&
-      `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${objectClassName}Module.java`,
-  content: ({ objectClassName, packageIdentifier, view }) =>
-    !view &&
-      `package ${packageIdentifier};
+  name: ({ objectClassName, nativePackageId, isView }) =>
+    !isView &&
+      `${platform}/src/main/java/${nativePackageId.split('.').join('/')}/${objectClassName}Module.java`,
+  content: ({ objectClassName, nativePackageId, isView }) =>
+    !isView &&
+      `// ${objectClassName}Module.java
+
+package ${nativePackageId};
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
@@ -194,12 +197,14 @@ public class ${objectClassName}Module extends ReactContextBaseJavaModule {
 `,
 }, {
   // manager for view:
-  name: ({ objectClassName, packageIdentifier, view }) =>
-    view &&
-      `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${objectClassName}Manager.java`,
-  content: ({ objectClassName, packageIdentifier, view }) =>
-    view &&
-      `package ${packageIdentifier};
+  name: ({ objectClassName, nativePackageId, isView }) =>
+    isView &&
+      `${platform}/src/main/java/${nativePackageId.split('.').join('/')}/${objectClassName}Manager.java`,
+  content: ({ objectClassName, nativePackageId, isView }) =>
+    isView &&
+      `// ${objectClassName}Manager.java
+
+package ${nativePackageId};
 
 import android.view.View;
 
@@ -228,12 +233,14 @@ public class ${objectClassName}Manager extends SimpleViewManager<View> {
 `,
 }, {
   // package for module without view:
-  name: ({ objectClassName, packageIdentifier, view }) =>
-    !view &&
-      `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${objectClassName}Package.java`,
-  content: ({ objectClassName, packageIdentifier, view }) =>
-    !view &&
-      `package ${packageIdentifier};
+  name: ({ objectClassName, nativePackageId, isView }) =>
+    !isView &&
+      `${platform}/src/main/java/${nativePackageId.split('.').join('/')}/${objectClassName}Package.java`,
+  content: ({ objectClassName, nativePackageId, isView }) =>
+    !isView &&
+      `// ${objectClassName}Package.java
+
+package ${nativePackageId};
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -243,7 +250,6 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
-import com.facebook.react.bridge.JavaScriptModule;
 
 public class ${objectClassName}Package implements ReactPackage {
     @Override
@@ -259,12 +265,14 @@ public class ${objectClassName}Package implements ReactPackage {
 `,
 }, {
   // package for manager for view:
-  name: ({ objectClassName, packageIdentifier, view }) =>
-    view &&
-      `${platform}/src/main/java/${packageIdentifier.split('.').join('/')}/${objectClassName}Package.java`,
-  content: ({ objectClassName, packageIdentifier, view }) =>
-    view &&
-      `package ${packageIdentifier};
+  name: ({ objectClassName, nativePackageId, isView }) =>
+    isView &&
+      `${platform}/src/main/java/${nativePackageId.split('.').join('/')}/${objectClassName}Package.java`,
+  content: ({ objectClassName, nativePackageId, isView }) =>
+    isView &&
+      `// ${objectClassName}Package.java
+
+package ${nativePackageId};
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -274,7 +282,6 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
-import com.facebook.react.bridge.JavaScriptModule;
 
 public class ${objectClassName}Package implements ReactPackage {
     @Override
@@ -288,7 +295,6 @@ public class ${objectClassName}Package implements ReactPackage {
     }
 }
 `,
-}, {
 }, {
   name: () => `${platform}/README.md`,
   content: () => `README

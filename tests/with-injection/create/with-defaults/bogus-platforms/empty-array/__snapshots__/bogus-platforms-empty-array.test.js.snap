@@ -67,7 +67,7 @@ content:
   \\"licenseFilename\\": \\"LICENSE\\",
   \\"readmeFilename\\": \\"README.md\\",
   \\"peerDependencies\\": {
-    \\"react\\": \\"^16.8.1\\",
+    \\"react\\": \\">=16.8.1\\",
     \\"react-native\\": \\">=0.60.0-rc.0 <1.0.x\\"
   },
   \\"devDependencies\\": {
@@ -81,6 +81,8 @@ content:
   "* outputFile name: react-native-alice-bobbi/index.js
 content:
 --------
+// main index.js
+
 import { NativeModules } from 'react-native';
 
 const { AliceBobbi } = NativeModules;

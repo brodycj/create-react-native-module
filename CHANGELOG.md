@@ -1,5 +1,90 @@
 # Changelog
 
+### 0.20.1
+
+* update package dependencies
+  - update execa -> ^5.1.1
+  - update fs-extra -> ^10.0.0
+  - update react-native-init-func -> ^0.0.6
+
+### 0.20.0
+
+#### Features
+
+* BREAKING: rename some options (#431 & #439)
+  - rename --module-name option to --package-name (#431)
+  - rename --package-identifier option to --native-package-id (#431)
+  - rename --example-react-native-version to --example-react-native-template (#431)
+  - rename --view to --is-view; document this feature as EXPERIMENTAL; and update doc & help text (#439)
+* BREAKING: remove prefix options (#432)
+  - remove --prefix option
+  - remove --module-prefix option
+* BREAKING: use react-native-init-func to generate example app (#421)
+* support more iOS source language extensions in generated podspec (#410)
+
+#### Fixes
+
+* loosen template React peer dependency (for React 17) (#440)
+* nudge indenting of options in logging (#436)
+* do not add react-native package prefix if not needed (#435)
+* update example build & run info in README.md & log output (#427)
+* remove an internal Promise reject parameter not needed (#417)
+* use info for some more log output (#418)
+* add comments to generated output
+  - add comment to main generated index.js (#413)
+  - add comments to generated Android output (#137)
+  - add comments to beginning of generated iOS output (#414)
+* use outdent to fix indent of optional example Podfile (#412)
+* resolve absolute paths in example metro watch folders (#405)
+* add & update comments in build.gradle (#404)
+* remove extra plugin items from build.gradle (#402)
+* BREAKING: remove JCenter support - not needed and now deprecated (#401)
+* remove extra import from generated code for Android (#368)
+* BREAKING: update minimum Node.js version to 12 (#408)
+* update package dependencies
+  - update log-symbols -> ^4.1.0 (#438)
+  - update update-notifier -> 5 (commit fb8542ee05295523b7f751487bf150efae1afc5b)
+  - update execa -> 5 (commit a3a7ab927d338435ef281baba05ef69888fc5fde)
+  - Update fs-extra -> ^9.1.0 (#398)
+  - Update pascal-case -> ^3.1.2 (#395)
+  - Update param-case -> ^3.0.4 (#394)
+  - Update jsonfile -> ^6.1.0 (#391)
+  - Update commander -> ^6.2.1 (#382)
+* add & use console package (#375)
+* minor template cleanup (#332)
+
+#### Docs
+
+* update general status for React Native 0.60/0.63/0.64 (commit 23bdce59b840687b08268a6daa2991fa04b4802c)
+* console highlighting in README.md (#434)
+* apply general documentation updates - February 2021 (#424)
+
+### 0.19.0
+
+* remove outdated info from README.md (#355)
+* remove extra blank line from generated iOS module (#354)
+* Update execa -> ^4.0.1 - dependency (#350)
+* add swift search paths to iOS pbxproj (#349)
+* add pbxproj build updates (#348)
+* remove sources from generated iOS pbxproj (#346)
+* fix minor indenting issue in ios pbxproj (#345)
+* export objectClassName prop in windows template (#344)
+* cleanup object class name references (#343)
+* log generated example React Native version (#340)
+* major: object class name updates (#338)
+* fix iOS podspec for C sources (#334)
+* major: remove generated .gitattributes artifact (#327)
+* use package files entry instead of .npmignore (#326)
+* update create options (#325)
+* update badges in README.md (#322)
+* update log of create parameters (#318)
+* Update jsonfile -> ^6.0.1 (#317)
+* update commander -> ^5.1.0
+* update log-symbols -> 4
+* update fs-extra -> 9
+* fix(deps): update execa -> 4 (#315)
+* major: update minimum Node.js version to 10.20 (#316)
+
 ### 0.18.0
 
 * generate example with symlink by default, with multiple workarounds in example metro.config.js (#309)

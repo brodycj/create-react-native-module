@@ -7,31 +7,21 @@ Object {
   "name": "create-library",
   "options": Array [
     Object {
-      "command": "--module-name [moduleName]",
-      "description": "The module package name to be used in package.json. Default: react-native-(name in param-case)",
+      "command": "--package-name [packageName]",
+      "description": "The full package name to be used in package.json. Default: react-native-(name in param-case)",
     },
     Object {
-      "command": "--view",
-      "description": "Generate the package as a very simple native view component",
+      "command": "--is-view",
+      "description": "Generate the package as a very simple native view component. Status: EXPERIMENTAL, with limited testing.",
     },
     Object {
       "command": "--object-class-name [objectClassName]",
       "description": "The name of the object class to be exported by both JavaScript and native code. Default: (name in PascalCase)",
     },
     Object {
-      "command": "--prefix [prefix]",
-      "default": "",
-      "description": "DEPRECATED: The prefix of the name of the object class to be exported by both JavaScript and native code, ignored if --object-class-name is specified",
-    },
-    Object {
-      "command": "--module-prefix [modulePrefix]",
-      "default": "react-native",
-      "description": "The prefix of the generated module package name, ignored if --module-name is specified",
-    },
-    Object {
-      "command": "--package-identifier [packageIdentifier]",
+      "command": "--native-package-id [nativePackageId]",
       "default": "com.reactlibrary",
-      "description": "[Android] The Java package identifier used by the Android module",
+      "description": "[Android] The native Java package identifier used for Android",
     },
     Object {
       "command": "--platforms <platforms>",
@@ -72,7 +62,7 @@ Object {
     },
     Object {
       "command": "--generate-example",
-      "description": "Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires both react-native-cli and yarn to be installed globally",
+      "description": "Generate an example project and add the library module to it with symlink by defult, with overwrite of example metro.config.js to add workaround for Metro symlink issue - requires Yarn to be installed globally",
     },
     Object {
       "command": "--example-file-linkage",
@@ -84,9 +74,9 @@ Object {
       "description": "Name for the example project",
     },
     Object {
-      "command": "--example-react-native-version [exampleReactNativeVersion]",
+      "command": "--example-react-native-template [exampleReactNativeTemplate]",
       "default": "react-native@latest",
-      "description": "React Native version for the generated example project",
+      "description": "The React Native template used for the generated example project, for example: react-native-tvos or react-native-tvos@0.62.2-1 (requires --tvos-enabled option); react-native@0.62",
     },
     Object {
       "command": "--write-example-podfile",

@@ -14,18 +14,15 @@ jest.mock('fs-extra', () => ({
     return Promise.reject(new Error(`ENOPERM not permitted`));
   },
 }));
-
-// TBD hackish mock:
-global.console = {
+jest.mock('console', () => ({
   info: (...args) => {
-    mockpushit({ info: [].concat(args) });
-  },
-  log: (...args) => {
     mockpushit({
       // TBD EXTRA WORKAROUND HACK for non-deterministic elapsed time in log
-      log: args.map(line => line.replace(/It took.*s/g, 'It took XXX'))
+      info: args.map(line => line.replace(/It took.*s/g, 'It took XXX'))
     });
   },
+  // console.log is no longer expected
+  // log: (...args) => ...
   warn: (...args) => {
     mockpushit({ warn: [].concat(args) });
   },
@@ -56,7 +53,7 @@ global.console = {
       )
     });
   },
-};
+}));
 
 test('create alice-bobbi module with logging, with fs error (with defaults for Android & iOS)', async () => {
   const args = ['alice-bobbi'];

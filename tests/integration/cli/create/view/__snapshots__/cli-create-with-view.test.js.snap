@@ -94,13 +94,15 @@ sdk.dir=/Users/{username}/Library/Android/sdk
 // based on:
 //
 // * https://github.com/facebook/react-native/blob/0.60-stable/template/android/build.gradle
-//   original location:
+//   previous location:
 //   - https://github.com/facebook/react-native/blob/0.58-stable/local-cli/templates/HelloWorld/android/build.gradle
 //
 // * https://github.com/facebook/react-native/blob/0.60-stable/template/android/app/build.gradle
-//   original location:
+//   previous location:
 //   - https://github.com/facebook/react-native/blob/0.58-stable/local-cli/templates/HelloWorld/android/app/build.gradle
 
+// These defaults should reflect the SDK versions used by
+// the minimum React Native version supported.
 def DEFAULT_COMPILE_SDK_VERSION = 28
 def DEFAULT_BUILD_TOOLS_VERSION = '28.0.3'
 def DEFAULT_MIN_SDK_VERSION = 16
@@ -121,16 +123,14 @@ buildscript {
     if (project == rootProject) {
         repositories {
             google()
-            jcenter()
         }
         dependencies {
+            // This should reflect the Gradle plugin version used by
+            // the minimum React Native version supported.
             classpath 'com.android.tools.build:gradle:3.4.1'
         }
     }
 }
-
-apply plugin: 'com.android.library'
-apply plugin: 'maven'
 
 android {
     compileSdkVersion safeExtGet('compileSdkVersion', DEFAULT_COMPILE_SDK_VERSION)
@@ -158,7 +158,6 @@ repositories {
         url \\"$rootDir/../node_modules/jsc-android/dist\\"
     }
     google()
-    jcenter()
 }
 
 dependencies {
@@ -242,7 +241,9 @@ afterEvaluate { project ->
   },
   Object {
     "name": "react-native-integration-view-test-package/android/src/main/AndroidManifest.xml",
-    "theContent": "<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
+    "theContent": "<!-- AndroidManifest.xml -->
+
+<manifest xmlns:android=\\"http://schemas.android.com/apk/res/android\\"
           package=\\"com.reactlibrary\\">
 
 </manifest>
@@ -250,7 +251,9 @@ afterEvaluate { project ->
   },
   Object {
     "name": "react-native-integration-view-test-package/android/src/main/java/com/reactlibrary/IntegrationViewTestPackageManager.java",
-    "theContent": "package com.reactlibrary;
+    "theContent": "// IntegrationViewTestPackageManager.java
+
+package com.reactlibrary;
 
 import android.view.View;
 
@@ -280,7 +283,9 @@ public class IntegrationViewTestPackageManager extends SimpleViewManager<View> {
   },
   Object {
     "name": "react-native-integration-view-test-package/android/src/main/java/com/reactlibrary/IntegrationViewTestPackagePackage.java",
-    "theContent": "package com.reactlibrary;
+    "theContent": "// IntegrationViewTestPackagePackage.java
+
+package com.reactlibrary;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -290,7 +295,6 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
-import com.facebook.react.bridge.JavaScriptModule;
 
 public class IntegrationViewTestPackagePackage implements ReactPackage {
     @Override
@@ -307,7 +311,9 @@ public class IntegrationViewTestPackagePackage implements ReactPackage {
   },
   Object {
     "name": "react-native-integration-view-test-package/index.js",
-    "theContent": "import { requireNativeComponent } from 'react-native';
+    "theContent": "// main index.js
+
+import { requireNativeComponent } from 'react-native';
 
 const IntegrationViewTestPackage = requireNativeComponent('IntegrationViewTestPackage', null);
 
@@ -316,7 +322,9 @@ export default IntegrationViewTestPackage;
   },
   Object {
     "name": "react-native-integration-view-test-package/ios/IntegrationViewTestPackage.h",
-    "theContent": "#import <React/RCTViewManager.h>
+    "theContent": "// IntegrationViewTestPackage.h
+
+#import <React/RCTViewManager.h>
 
 @interface IntegrationViewTestPackage : RCTViewManager
 
@@ -325,7 +333,9 @@ export default IntegrationViewTestPackage;
   },
   Object {
     "name": "react-native-integration-view-test-package/ios/IntegrationViewTestPackage.m",
-    "theContent": "#import \\"IntegrationViewTestPackage.h\\"
+    "theContent": "// IntegrationViewTestPackage.m
+
+#import \\"IntegrationViewTestPackage.h\\"
 
 @implementation IntegrationViewTestPackage
 
@@ -676,7 +686,7 @@ RCT_EXPORT_MODULE()
   \\"licenseFilename\\": \\"LICENSE\\",
   \\"readmeFilename\\": \\"README.md\\",
   \\"peerDependencies\\": {
-    \\"react\\": \\"^16.8.1\\",
+    \\"react\\": \\">=16.8.1\\",
     \\"react-native\\": \\">=0.60.0-rc.0 <1.0.x\\"
   },
   \\"devDependencies\\": {
@@ -688,7 +698,9 @@ RCT_EXPORT_MODULE()
   },
   Object {
     "name": "react-native-integration-view-test-package/react-native-integration-view-test-package.podspec",
-    "theContent": "require \\"json\\"
+    "theContent": "# react-native-integration-view-test-package.podspec
+
+require \\"json\\"
 
 package = JSON.parse(File.read(File.join(__dir__, \\"package.json\\")))
 
@@ -708,7 +720,7 @@ Pod::Spec.new do |s|
   s.platforms    = { :ios => \\"9.0\\" }
   s.source       = { :git => \\"https://github.com/github_account/react-native-integration-view-test-package.git\\", :tag => \\"#{s.version}\\" }
 
-  s.source_files = \\"ios/**/*.{h,c,m,swift}\\"
+  s.source_files = \\"ios/**/*.{h,c,cc,cpp,m,mm,swift}\\"
   s.requires_arc = true
 
   s.dependency \\"React\\"

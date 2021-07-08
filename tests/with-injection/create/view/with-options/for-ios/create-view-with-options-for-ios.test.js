@@ -15,7 +15,7 @@ test('create alice-bobbi view module with config options for iOS only', () => {
     authorName: 'Alice',
     authorEmail: 'contact@alice.me',
     license: 'ISC',
-    view: true,
+    isView: true,
   };
 
   return lib(options, inject)
