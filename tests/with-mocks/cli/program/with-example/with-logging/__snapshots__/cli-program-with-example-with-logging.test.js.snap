@@ -222,7 +222,7 @@ Array [
            object class name: TestPackage
      Android nativePackageId: com.reactlibrary
                    platforms: android,ios
-              swift (iOS): false
+             use swift [iOS]: false
            Apple tvosEnabled: false
                   authorName: Your Name
                  authorEmail: yourname@email.com
