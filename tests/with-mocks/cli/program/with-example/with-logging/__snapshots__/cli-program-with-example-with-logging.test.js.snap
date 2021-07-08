@@ -1189,20 +1189,20 @@ YOU'RE ALL SET!
 
 💡 check out the example app in react-native-test-package/undefined
 💡 recommended: run Metro Bundler in a new shell
-[34mℹ[39m (cd react-native-test-package/undefined && yarn start)
+ℹ (cd react-native-test-package/undefined && yarn start)
 💡 enter the following commands to run the example app:
-[34mℹ[39m cd react-native-test-package/undefined
-[34mℹ[39m yarn android # for React Native 0.60: npx react-native run-android
-[34mℹ[39m yarn ios # for React Native 0.60: npx react-native run-ios
-[33m⚠[39m IMPORTANT NOTICES
-[33m⚠[39m After clean checkout, these first steps are needed:
-[34mℹ[39m run Yarn in react-native-test-package/undefined/ios
-[34mℹ[39m (cd react-native-test-package/undefined && yarn)
-[34mℹ[39m do \`pod install\` for iOS in react-native-test-package/undefined/ios
-[34mℹ[39m cd react-native-test-package/undefined
-[34mℹ[39m (cd ios && pod install)
-[33m⚠[39m KNOWN ISSUE with adding dependencies to the library root
-[34mℹ[39m see https://github.com/brodybits/create-react-native-module/issues/308
+ℹ cd react-native-test-package/undefined
+ℹ yarn android # for React Native 0.60: npx react-native run-android
+ℹ yarn ios # for React Native 0.60: npx react-native run-ios
+⚠ IMPORTANT NOTICES
+⚠ After clean checkout, these first steps are needed:
+ℹ run Yarn in react-native-test-package/undefined/ios
+ℹ (cd react-native-test-package/undefined && yarn)
+ℹ do \`pod install\` for iOS in react-native-test-package/undefined/ios
+ℹ cd react-native-test-package/undefined
+ℹ (cd ios && pod install)
+⚠ KNOWN ISSUE with adding dependencies to the library root
+ℹ see https://github.com/brodybits/create-react-native-module/issues/308
 ",
     ],
   },
