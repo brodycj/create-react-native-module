@@ -1,5 +1,12 @@
 # Changelog
 
+### 0.20.1
+
+* update package dependencies
+  - update execa -> ^5.1.1
+  - update fs-extra -> ^10.0.0
+  - update react-native-init-func -> ^0.0.6
+
 ### 0.20.0
 
 #### Features
