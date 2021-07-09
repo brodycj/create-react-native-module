@@ -1,5 +1,10 @@
 # Changelog
 
+### 0.20.2
+
+* fix: add `CHANGELOG.md` to files published by npm (and explicitly include `LICENSE`)
+* fix: [nit] exclude `.eslint*.*` from npm published files (was part of `templates`)
+
 ### 0.20.1
 
 * update package dependencies
