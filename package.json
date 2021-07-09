@@ -36,6 +36,7 @@
     "bin",
     "lib",
     "templates",
+    "!.eslint*.*",
     "README.md"
   ],
   "author": "Christopher J. Brody <chris@brody.consulting>",
