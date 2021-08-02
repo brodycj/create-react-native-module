@@ -21,25 +21,26 @@ This tool based on [`react-native-create-library`](https://www.npmjs.com/package
 ### Support options
 
 - community support via [issues](https://github.com/brodybits/create-react-native-module/issues)
-- commercial support is available, see <http://xpbrew.consulting>
+- commercial support is available, please contact if interested: <sales@brodysoft.com>
 
 <!-- FUTURE TODO: QUICK USAGE SECTION HERE -->
 
 ### General status
 
-- Minimum React Native version: `0.60` (outdated), `0.63` (recommended) - see issue [`#423`](https://github.com/brodybits/create-react-native-module/issues/423)
+- Minimum React Native version: `0.60` (outdated), `0.64` or upcoming `0.65` (recommended) - see issue [`#423`](https://github.com/brodybits/create-react-native-module/issues/423)
 - It is recommended to disable or remove Flipper on iOS in case of debug build issues - see issue [`#422`](https://github.com/brodybits/create-react-native-module/issues/422)
 - generated example app with symlink by default, has known issue with adding dependencies to the library root - see issue [`#308`](https://github.com/brodybits/create-react-native-module/issues/308)
 - Platform fork support
   - tvOS platform fork
     - requires use of `--tvos-enabled` option as documented below
-    - requires the [`react-native-tvos`](https://www.npmjs.com/package/react-native-tvos) fork, with minimum version of `0.60` ref:
+    - requires the [`react-native-tvos`](https://www.npmjs.com/package/react-native-tvos) fork, with minimum version of `0.60.x` (newer version is *highly recommended*) ref:
       - [`react-native-tvos/react-native-tvos#11`](https://github.com/react-native-tvos/react-native-tvos/issues/11)
       - issue [`#95`](https://github.com/brodybits/create-react-native-module/issues/95)
     - It is recommended to disable or remove Flipper in case of debug build issues - see issue [`#422`](https://github.com/brodybits/create-react-native-module/issues/422)
-- Out-of-tree platforms
-  - Windows - no longer supported for reasons discussed in issues [#23](https://github.com/brodybits/create-react-native-module/issues/23) and [#43](https://github.com/brodybits/create-react-native-module/issues/43) (existing Windows C# template is kept in `unsupported-platforms` for now (at least) and further discussion would be welcome in a new issue on GitHub)
-  - for future consideration: macOS (see [issue #94](https://github.com/brodybits/create-react-native-module/issues/94))
+- Out-of-tree target platforms
+  - Windows target platform - no longer supported for reasons discussed in issues [`#23`](https://github.com/brodybits/create-react-native-module/issues/23) and [`#43`](https://github.com/brodybits/create-react-native-module/issues/43). Existing Windows C# template is kept in `unsupported-platforms` for now (at least) and further discussion would be welcome in a new issue on GitHub.
+    NOTE that development on Windows as well as Linux *host* platofrms is supported for Android (only).
+  - for future consideration: macOS (see issue [`#94`](https://github.com/brodybits/create-react-native-module/issues/94))
 
 ### Why might you need this?
 
