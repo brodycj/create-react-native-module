@@ -18,6 +18,7 @@ Array [
            object class name: AliceBobbi
      Android nativePackageId: com.reactlibrary
                    platforms: bogus
+             use swift [iOS]: false
            Apple tvosEnabled: false
                   authorName: Your Name
                  authorEmail: yourname@email.com

@@ -12,6 +12,7 @@ Array [
            object class name: AliceBobbi
      Android nativePackageId: com.alicebits
                    platforms: android,ios
+             use swift [iOS]: false
            Apple tvosEnabled: true
                   authorName: Alice
                  authorEmail: contact@alice.me
