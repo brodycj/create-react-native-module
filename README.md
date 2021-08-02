@@ -38,7 +38,7 @@ This tool based on [`react-native-create-library`](https://www.npmjs.com/package
       - issue [`#95`](https://github.com/brodybits/create-react-native-module/issues/95)
     - It is recommended to disable or remove Flipper in case of debug build issues - see issue [`#422`](https://github.com/brodybits/create-react-native-module/issues/422)
 - Out-of-tree target platforms
-  - Windows target platform - not supported directly, please use `react-native-windows-init` according to this procedure: https://microsoft.github.io/react-native-windows/docs/native-modules-setup#creating-a-new-native-module-library-project
+  - Windows target platform - not supported directly, please use `react-native-windows-init` according to this procedure: https://aka.ms/RNW-NativeModuleSetup
   - for future consideration: macOS (see issue [`#94`](https://github.com/brodybits/create-react-native-module/issues/94))
 
 ### Why might you need this?
