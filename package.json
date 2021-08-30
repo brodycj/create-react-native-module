@@ -62,7 +62,7 @@
   },
   "devDependencies": {
     "@stryker-mutator/core": "^3.3.1",
-    "@stryker-mutator/javascript-mutator": "^3.3.1",
+    "@stryker-mutator/javascript-mutator": "^4.0.0",
     "@stryker-mutator/jest-runner": "^3.3.1",
     "cross-env": "^7.0.3",
     "eslint": "^7.32.0",
