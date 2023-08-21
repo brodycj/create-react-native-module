@@ -72,6 +72,6 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-standard": "^5.0.0",
     "jest": "^27.0.6",
-    "recursive-readdir": "^2.2.2"
+    "recursive-readdir": "^2.2.3"
   }
 }
